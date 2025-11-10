@@ -1,0 +1,105 @@
+# Example workflow for caller repos that require API keys (e.g., IN, DC, VA)
+# Copy this to your caller repo's .github/workflows/scrape-and-format-data.yml
+# and update the state parameter and secret name as needed
+
+name: Scrape and Format Data
+
+on:
+  schedule:
+    - cron: "0 2 * * *" # Daily at 2 AM UTC (~9 PM ET, ~6 PM PT)
+  workflow_dispatch:
+    inputs:
+      use-scrape-cache:
+        type: boolean
+        description: Use OpenStates scraper cache
+        default: false
+      force-update:
+        type: boolean
+        description: "Force push even if upstream changed (use with caution)"
+        default: false
+
+env:
+  STATE_CODE: in # ⚠️ UPDATE THIS: Change to your state code (e.g., in, dc, va)
+
+jobs:
+  scrape:
+    name: "🕷️ Scrape Data"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      scrape-artifact-name: ${{ steps.scrape.outputs.scrape-artifact-name }}
+      scrape-tarball-path: ${{ steps.scrape.outputs.scrape-tarball-path }}
+      manifest-path: ${{ steps.scrape.outputs.manifest-path }}
+
+    steps:
+      - name: Checkout state repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run scraper action
+        id: scrape
+        uses: windy-civi/toolkit/actions/scrape@feat/api-key-support # ⚠️ TESTING: Change to @main after testing
+        with:
+          state: ${{ env.STATE_CODE }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          use-scrape-cache: ${{ inputs.use-scrape-cache }}
+          api-key: ${{ secrets.INDIANA_API_KEY }} # ⚠️ UPDATE SECRET NAME: Use INDIANA_API_KEY, DC_API_KEY, or VA_LIS_API_KEY
+
+  format:
+    name: "📝 Format Data"
+    runs-on: ubuntu-latest
+    needs: scrape
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout state repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download scrape artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ needs.scrape.outputs.scrape-artifact-name }}
+
+      - name: Run formatter action
+        uses: windy-civi/toolkit/actions/format@feat/api-key-support # ⚠️ TESTING: Change to @main after testing
+        with:
+          state: ${{ env.STATE_CODE }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          scrape-artifact-name: ${{ needs.scrape.outputs.scrape-artifact-name }}
+          force-update: ${{ inputs.force-update }}
+# =============================================================================
+# SETUP INSTRUCTIONS FOR API KEY STATES
+# =============================================================================
+#
+# 1. Set the API key secret in your repository:
+#
+#    For Indiana:
+#      gh secret set INDIANA_API_KEY --repo windy-civi-pipelines/in-data-pipeline
+#
+#    For DC:
+#      gh secret set DC_API_KEY --repo windy-civi-pipelines/dc-data-pipeline
+#
+#    For Virginia:
+#      gh secret set VA_LIS_API_KEY --repo windy-civi-pipelines/va-data-pipeline
+#
+# 2. Update this file:
+#    - Change STATE_CODE to your state (in, dc, or va)
+#    - Update the api-key secret name to match your state
+#    - Update branch from @feat/api-key-support to @main after testing
+#
+# 3. Test the workflow:
+#    - Go to Actions tab in your repo
+#    - Run "Scrape and Format Data" manually
+#    - Check logs for successful API authentication
+#
+# 4. After successful testing:
+#    - Change @feat/api-key-support to @main in both actions
+#    - Commit the change
+#
+# =============================================================================
+
