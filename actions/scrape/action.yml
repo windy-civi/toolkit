@@ -13,6 +13,10 @@ inputs:
     description: "Skip scraping and reuse the latest nightly artifact"
     required: false
     default: "false"
+  api-key:
+    description: "Optional API key for states that require authentication (e.g., DC, VA, IN)"
+    required: false
+    default: ""
 
 outputs:
   scrape-artifact-name:
@@ -65,11 +69,22 @@ runs:
         echo "DOCKER_IMAGE_TAG=${DOCKER_IMAGE_TAG}" >> "${GITHUB_ENV}"
 
         echo "🕷️ Scraping ${{ inputs.state }} (with retries + DNS override)..."
+
+        # Construct API key environment variable if provided
+        API_KEY_ARG=""
+        if [ -n "${{ inputs.api-key }}" ]; then
+          # Convert state to uppercase for env var (e.g., 'dc' -> 'DC_API_KEY')
+          STATE_UPPER=$(echo "${{ inputs.state }}" | tr '[:lower:]' '[:upper:]')
+          API_KEY_ARG="-e ${STATE_UPPER}_API_KEY=${{ inputs.api-key }}"
+          echo "🔑 Using API key for ${STATE_UPPER}"
+        fi
+
         exit_code=1
         for i in 1 2 3; do
           docker pull openstates/scrapers:${DOCKER_IMAGE_TAG} || true
           if docker run \
               --dns 8.8.8.8 --dns 1.1.1.1 \
+              ${API_KEY_ARG} \
               -v "$(pwd)/_working/_data":/opt/openstates/openstates/_data \
               -v "$(pwd)/_working/_cache":/opt/openstates/openstates/_cache \
               openstates/scrapers:${DOCKER_IMAGE_TAG} \

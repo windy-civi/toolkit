@@ -45,6 +45,7 @@ jobs:
           state: ${{ env.STATE_CODE }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           use-scrape-cache: ${{ inputs.use-scrape-cache }}
+          # api-key: ${{ secrets.STATE_API_KEY }}  # Optional: Uncomment if your state requires an API key (e.g., DC, VA, IN)
 
   format:
     name: "📝 Format Data"
