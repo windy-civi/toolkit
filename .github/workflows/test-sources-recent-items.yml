@@ -54,12 +54,37 @@ jobs:
             head -20 "${{ steps.recent-items.outputs.output_file }}" || true
           fi
 
+      - name: Resolve output file path
+        id: resolve-path
+        run: |
+          # The output file is relative to RUNNER_TEMP, resolve it to absolute path
+          OUTPUT_FILE="${{ steps.recent-items.outputs.output_file }}"
+          if [[ "$OUTPUT_FILE" == ../* ]]; then
+            # Remove leading ../
+            RELATIVE_FILE="${OUTPUT_FILE#../}"
+            ABSOLUTE_PATH="$RUNNER_TEMP/$RELATIVE_FILE"
+          else
+            ABSOLUTE_PATH="$OUTPUT_FILE"
+          fi
+          
+          # Copy to workspace for easier artifact upload
+          WORKSPACE_FILE="${{ github.workspace }}/test_recent_items.txt"
+          if [ -f "$ABSOLUTE_PATH" ]; then
+            cp "$ABSOLUTE_PATH" "$WORKSPACE_FILE"
+            echo "resolved_path=$WORKSPACE_FILE" >> $GITHUB_OUTPUT
+            echo "File copied to workspace: $WORKSPACE_FILE"
+          else
+            echo "Warning: Output file not found at $ABSOLUTE_PATH"
+            echo "resolved_path=" >> $GITHUB_OUTPUT
+          fi
+
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: test-recent-items-output
           path: |
-            ${{ steps.recent-items.outputs.output_file }}
+            ${{ steps.resolve-path.outputs.resolved_path }}
           retention-days: 1
+          if-no-files-found: warn
 
