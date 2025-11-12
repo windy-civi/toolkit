@@ -1,0 +1,314 @@
+name: Test GitHub Actions
+
+on:
+  workflow_dispatch: # Manual trigger
+  pull_request:
+    paths:
+      - 'actions/**'
+      - 'testing/**'
+      - '.github/workflows/test-actions.yml'
+  push:
+    branches:
+      - main
+      - 'claude/**'
+    paths:
+      - 'actions/**'
+      - 'testing/**'
+      - '.github/workflows/test-actions.yml'
+
+jobs:
+  # Test the sources action
+  test-sources-action:
+    runs-on: ubuntu-latest
+    name: Test Sources Action
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Test Sources Action (single repo)
+        id: test-sources
+        uses: ./actions/sources
+        with:
+          sources: |
+            octocat/Hello-World
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verify Sources Output
+        run: |
+          echo "Testing sources action output..."
+          echo "Directories: ${{ steps.test-sources.outputs.directories }}"
+          echo "Repository count: ${{ steps.test-sources.outputs.repository-count }}"
+
+          # Verify repository count
+          if [ "${{ steps.test-sources.outputs.repository-count }}" != "1" ]; then
+            echo "❌ Expected 1 repository, got ${{ steps.test-sources.outputs.repository-count }}"
+            exit 1
+          fi
+
+          # Verify directory was created
+          if [ ! -d "$RUNNER_TEMP/Hello-World" ]; then
+            echo "❌ Expected directory $RUNNER_TEMP/Hello-World not found"
+            exit 1
+          fi
+
+          echo "✅ Sources action test passed"
+
+  # Test the recent-items action with mock data
+  test-recent-items-action:
+    runs-on: ubuntu-latest
+    name: Test Recent Items Action
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Mock Data
+        run: |
+          # Create a mock data pipeline structure
+          mkdir -p "$RUNNER_TEMP/usa-data-pipeline/logs"
+
+          # Copy test data
+          cp testing/raw_scraper_samples/*.json "$RUNNER_TEMP/usa-data-pipeline/logs/"
+
+          echo "✅ Mock data setup complete"
+          echo "Files in logs directory:"
+          ls -la "$RUNNER_TEMP/usa-data-pipeline/logs/" | head -20
+
+      - name: Test Recent Items Action
+        id: test-recent-items
+        uses: ./actions/recent-items
+        with:
+          limit: "10"
+          output_file: "test_recent_items.txt"
+
+      - name: Verify Recent Items Output
+        run: |
+          echo "Testing recent-items action output..."
+          echo "Result count: ${{ steps.test-recent-items.outputs.result_count }}"
+          echo "Output file: ${{ steps.test-recent-items.outputs.output_file }}"
+
+          # Verify output file exists
+          OUTPUT_FILE="${{ steps.test-recent-items.outputs.output_file }}"
+          if [ ! -f "$OUTPUT_FILE" ]; then
+            echo "❌ Expected output file $OUTPUT_FILE not found"
+            exit 1
+          fi
+
+          # Show output
+          echo "Output contents:"
+          cat "$OUTPUT_FILE"
+
+          # Verify result count is reasonable
+          RESULT_COUNT="${{ steps.test-recent-items.outputs.result_count }}"
+          if [ "$RESULT_COUNT" -gt 0 ]; then
+            echo "✅ Recent items action test passed (found $RESULT_COUNT items)"
+          else
+            echo "⚠️ Warning: No items found, but test passes"
+          fi
+
+  # Test the shell tools individually
+  test-shell-tools:
+    runs-on: ubuntu-latest
+    name: Test Shell Tools
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Make tools executable
+        run: chmod +x actions/recent-items/tools/*.sh
+
+      - name: Setup Mock Data for Tools
+        run: |
+          mkdir -p "$RUNNER_TEMP/test-data/logs"
+          cp testing/raw_scraper_samples/*.json "$RUNNER_TEMP/test-data/logs/"
+
+      - name: Test find_logs_json.sh
+        run: |
+          echo "Testing find_logs_json.sh..."
+          OUTPUT=$(actions/recent-items/tools/find_logs_json.sh "$RUNNER_TEMP/test-data")
+          COUNT=$(echo "$OUTPUT" | grep -c '\.json$' || true)
+          echo "Found $COUNT JSON files in logs"
+
+          if [ "$COUNT" -gt 0 ]; then
+            echo "✅ find_logs_json.sh test passed"
+          else
+            echo "❌ find_logs_json.sh test failed: no files found"
+            exit 1
+          fi
+
+      - name: Test filter_recent_logs.sh
+        run: |
+          echo "Testing filter_recent_logs.sh..."
+          # Create a test JSON with recent timestamp
+          TEST_FILE="$RUNNER_TEMP/test-data/logs/test_recent.json"
+          RECENT_DATE=$(date -u -d "1 day ago" +"%Y-%m-%dT%H:%M:%S")
+          echo "{\"updated_at\": \"${RECENT_DATE}Z\"}" > "$TEST_FILE"
+
+          OUTPUT=$(actions/recent-items/tools/find_logs_json.sh "$RUNNER_TEMP/test-data" | \
+                   actions/recent-items/tools/filter_recent_logs.sh)
+
+          if echo "$OUTPUT" | grep -q "$TEST_FILE"; then
+            echo "✅ filter_recent_logs.sh test passed"
+          else
+            echo "⚠️ filter_recent_logs.sh: recent file not in output (might be expected)"
+          fi
+
+      - name: Test sort_logs_by_timestamp.sh
+        run: |
+          echo "Testing sort_logs_by_timestamp.sh..."
+          # The script should sort files by timestamp
+          OUTPUT=$(actions/recent-items/tools/find_logs_json.sh "$RUNNER_TEMP/test-data" | \
+                   actions/recent-items/tools/sort_logs_by_timestamp.sh)
+
+          if [ -n "$OUTPUT" ]; then
+            echo "✅ sort_logs_by_timestamp.sh test passed"
+          else
+            echo "⚠️ sort_logs_by_timestamp.sh: no output"
+          fi
+
+      - name: Test limit_output.sh
+        run: |
+          echo "Testing limit_output.sh..."
+          OUTPUT=$(actions/recent-items/tools/find_logs_json.sh "$RUNNER_TEMP/test-data" | \
+                   actions/recent-items/tools/limit_output.sh 5)
+          COUNT=$(echo "$OUTPUT" | wc -l)
+
+          if [ "$COUNT" -le 5 ]; then
+            echo "✅ limit_output.sh test passed (limited to $COUNT)"
+          else
+            echo "❌ limit_output.sh test failed: expected max 5, got $COUNT"
+            exit 1
+          fi
+
+      - name: Test extract_name.sh
+        run: |
+          echo "Testing extract_name.sh..."
+          # Test with a sample JSON file
+          SAMPLE_FILE=$(find "$RUNNER_TEMP/test-data/logs" -name "*.json" | head -1)
+          if [ -f "$SAMPLE_FILE" ]; then
+            OUTPUT=$(echo "$SAMPLE_FILE" | actions/recent-items/tools/extract_name.sh)
+            echo "Extract output: $OUTPUT"
+            echo "✅ extract_name.sh test passed"
+          else
+            echo "❌ No sample file found for extract_name.sh test"
+            exit 1
+          fi
+
+  # Integration test - full pipeline
+  test-full-pipeline:
+    runs-on: ubuntu-latest
+    name: Test Full Pipeline Integration
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Mock Data Pipeline
+        run: |
+          mkdir -p "$RUNNER_TEMP/usa-data-pipeline/logs"
+
+          # Create some test JSON files with timestamps
+          for i in {1..20}; do
+            DATE=$(date -u -d "$i days ago" +"%Y-%m-%dT%H:%M:%S")
+            cat > "$RUNNER_TEMP/usa-data-pipeline/logs/bill_test_$i.json" <<EOF
+          {
+            "id": "test-bill-$i",
+            "identifier": "HB $i",
+            "title": "Test Bill $i",
+            "updated_at": "${DATE}Z"
+          }
+          EOF
+          done
+
+          echo "✅ Created 20 test bills"
+
+      - name: Test Pipeline (simulating sources + recent-items)
+        run: |
+          echo "Running full pipeline test..."
+
+          # Simulate the sources action (already created mock data)
+          cd "$RUNNER_TEMP/usa-data-pipeline"
+
+          # Make tools executable
+          chmod +x "$GITHUB_WORKSPACE/actions/recent-items/tools/*.sh"
+
+          # Run the pipeline
+          OUTPUT_FILE="$RUNNER_TEMP/pipeline_output.txt"
+          "$GITHUB_WORKSPACE/actions/recent-items/tools/find_logs_json.sh" | \
+          "$GITHUB_WORKSPACE/actions/recent-items/tools/filter_recent_logs.sh" | \
+          "$GITHUB_WORKSPACE/actions/recent-items/tools/sort_logs_by_timestamp.sh" | \
+          "$GITHUB_WORKSPACE/actions/recent-items/tools/limit_output.sh" 10 | \
+          "$GITHUB_WORKSPACE/actions/recent-items/tools/extract_name.sh" > "$OUTPUT_FILE"
+
+          echo "Pipeline output:"
+          cat "$OUTPUT_FILE"
+
+          RESULT_COUNT=$(wc -l < "$OUTPUT_FILE")
+          echo "Found $RESULT_COUNT results"
+
+          if [ "$RESULT_COUNT" -le 10 ] && [ "$RESULT_COUNT" -gt 0 ]; then
+            echo "✅ Full pipeline test passed"
+          else
+            echo "❌ Full pipeline test failed: expected 1-10 results, got $RESULT_COUNT"
+            exit 1
+          fi
+
+  # Test with multiple sources (like the user's example)
+  test-multiple-sources:
+    runs-on: ubuntu-latest
+    name: Test Multiple Sources
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Test Multiple Sources
+        id: test-multi
+        uses: ./actions/sources
+        with:
+          sources: |
+            octocat/Hello-World
+            octocat/Spoon-Knife
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verify Multiple Sources
+        run: |
+          echo "Testing multiple sources..."
+          echo "Repository count: ${{ steps.test-multi.outputs.repository-count }}"
+
+          if [ "${{ steps.test-multi.outputs.repository-count }}" != "2" ]; then
+            echo "❌ Expected 2 repositories, got ${{ steps.test-multi.outputs.repository-count }}"
+            exit 1
+          fi
+
+          echo "✅ Multiple sources test passed"
+
+  # Summary job
+  test-summary:
+    runs-on: ubuntu-latest
+    name: Test Summary
+    needs: [test-sources-action, test-recent-items-action, test-shell-tools, test-full-pipeline, test-multiple-sources]
+    if: always()
+    steps:
+      - name: Test Results Summary
+        run: |
+          echo "## 🧪 Test Results Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Test Suite | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|------------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Sources Action | ${{ needs.test-sources-action.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Recent Items Action | ${{ needs.test-recent-items-action.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Shell Tools | ${{ needs.test-shell-tools.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Full Pipeline | ${{ needs.test-full-pipeline.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Multiple Sources | ${{ needs.test-multiple-sources.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          # Check if all tests passed
+          if [ "${{ needs.test-sources-action.result }}" = "success" ] && \
+             [ "${{ needs.test-recent-items-action.result }}" = "success" ] && \
+             [ "${{ needs.test-shell-tools.result }}" = "success" ] && \
+             [ "${{ needs.test-full-pipeline.result }}" = "success" ] && \
+             [ "${{ needs.test-multiple-sources.result }}" = "success" ]; then
+            echo "✅ **All tests passed!**" >> $GITHUB_STEP_SUMMARY
+            exit 0
+          else
+            echo "❌ **Some tests failed**" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi

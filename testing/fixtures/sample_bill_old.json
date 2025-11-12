@@ -1,0 +1,32 @@
+{
+  "id": "test-bill-old-001",
+  "identifier": "HB 2023-500",
+  "title": "An Act Relating to Historical Records",
+  "classification": "bill",
+  "updated_at": "2023-03-15T10:00:00Z",
+  "subject": ["Government Operations"],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Signed by Governor",
+      "date": "2023-03-15",
+      "classification": ["executive-signature"],
+      "order": 10
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Rep. John Doe",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true
+    }
+  ],
+  "related_bills": [],
+  "versions": [],
+  "documents": [],
+  "citations": [],
+  "sources": []
+}

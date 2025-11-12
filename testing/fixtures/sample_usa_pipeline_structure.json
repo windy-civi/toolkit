@@ -1,0 +1,28 @@
+{
+  "description": "Sample structure for usa-data-pipeline repository for testing",
+  "structure": {
+    "logs/": "Directory containing bill JSON files with activity logs",
+    "example_files": [
+      "logs/bill_12345.json",
+      "logs/bill_67890.json"
+    ]
+  },
+  "sample_bill_schema": {
+    "id": "unique-bill-id",
+    "identifier": "HB 123 or SB 456",
+    "title": "Full title of the bill",
+    "updated_at": "ISO 8601 timestamp",
+    "classification": "bill",
+    "subject": ["topic1", "topic2"],
+    "abstracts": [],
+    "other_titles": [],
+    "other_identifiers": [],
+    "actions": [],
+    "sponsorships": [],
+    "related_bills": [],
+    "versions": [],
+    "documents": [],
+    "citations": [],
+    "sources": []
+  }
+}

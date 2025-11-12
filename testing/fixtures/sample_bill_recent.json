@@ -1,0 +1,59 @@
+{
+  "id": "test-bill-recent-001",
+  "identifier": "HB 2024-001",
+  "title": "An Act Relating to Technology and Innovation",
+  "classification": "bill",
+  "updated_at": "2025-11-10T15:30:00Z",
+  "subject": ["Technology", "Innovation", "Economic Development"],
+  "abstracts": [
+    {
+      "abstract": "This bill establishes a framework for promoting technological innovation and economic development.",
+      "note": "Legislative Summary"
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced in House",
+      "date": "2025-11-01",
+      "classification": ["introduction"],
+      "order": 1
+    },
+    {
+      "description": "Referred to Committee on Technology",
+      "date": "2025-11-05",
+      "classification": ["referral-committee"],
+      "order": 2
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Rep. Jane Smith",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Introduced",
+      "date": "2025-11-01",
+      "links": [
+        {
+          "url": "https://example.com/bills/2024-001/introduced.pdf",
+          "media_type": "application/pdf"
+        }
+      ]
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://example.com/bills/2024-001",
+      "note": "State Legislature Website"
+    }
+  ]
+}
