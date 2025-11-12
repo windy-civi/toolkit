@@ -7,14 +7,14 @@ on:
       - main
       - create-test
     paths:
-      - 'actions/sources/**'
-      - 'actions/recent-items/**'
+      - "actions/sources/**"
+      - "actions/recent-items/**"
   pull_request:
     branches:
       - main
     paths:
-      - 'actions/sources/**'
-      - 'actions/recent-items/**'
+      - "actions/sources/**"
+      - "actions/recent-items/**"
 
 jobs:
   test-sources-recent-items:
@@ -66,7 +66,7 @@ jobs:
           else
             ABSOLUTE_PATH="$OUTPUT_FILE"
           fi
-          
+
           # Copy to workspace for easier artifact upload
           WORKSPACE_FILE="${{ github.workspace }}/test_recent_items.txt"
           if [ -f "$ABSOLUTE_PATH" ]; then
@@ -87,4 +87,3 @@ jobs:
             ${{ steps.resolve-path.outputs.resolved_path }}
           retention-days: 1
           if-no-files-found: warn
-
