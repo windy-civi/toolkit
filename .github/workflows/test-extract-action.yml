@@ -4,25 +4,25 @@ on:
   workflow_dispatch: # Manual trigger - works on any branch
     inputs:
       state:
-        description: 'State abbreviation to test (2-letter abbreviation)'
+        description: "State abbreviation to test (2-letter abbreviation)"
         required: true
-        default: 'id'
+        default: "id"
       force-update:
-        description: 'Force push changes even if there are upstream changes'
+        description: "Force push changes even if there are upstream changes"
         required: false
-        default: 'false'
+        default: "false"
         type: boolean
   push:
     branches:
       - main
       - create-test
     paths:
-      - 'actions/extract/**'
+      - "actions/extract/**"
   pull_request:
     branches:
       - main
     paths:
-      - 'actions/extract/**'
+      - "actions/extract/**"
 
 jobs:
   test-extract:
@@ -48,7 +48,7 @@ jobs:
             echo "=== Extraction Summary ==="
             cat .extraction_summary.txt
           fi
-          
+
           if [ -d "country:us" ]; then
             echo "=== Extracted text files ==="
             find country:us -type f -path "*/files/*" | head -10 || true
@@ -66,4 +66,3 @@ jobs:
             .windycivi/
           retention-days: 1
           if-no-files-found: warn
-
