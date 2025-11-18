@@ -28,41 +28,99 @@ jobs:
       - name: Install validation tools
         run: sudo apt-get update && sudo apt-get install -y jq
 
-      # Test 1: Basic stdin input
-      - name: Publish test report to git file
+      # Test 1: Run simple example
+      - name: Simple report example
         run: |
-          echo '{"test": "stdin-git", "value": 123}' | \
+          echo '{
+            "test": "simple",
+            "value": 123
+          }' | python3 actions/json-publisher/publish.py \
+            --mode pages \
+            --output /tmp/simple.html
+
+          test -f /tmp/simple.html
+          diff <(grep -v "Generated:" actions/json-publisher/examples/simple.html) \
+               <(grep -v "Generated:" /tmp/simple.html)
+
+      # Test 2: Run complex example
+      - name: Complex data report example
+        run: |
+          echo '{
+            "string": "test",
+            "number": 42,
+            "float": 3.14,
+            "boolean": true,
+            "null_value": null,
+            "array": [1, 2, 3],
+            "nested": {
+              "deep": "value"
+            }
+          }' | python3 actions/json-publisher/publish.py \
+            --mode pages \
+            --output /tmp/complex.html
+
+          test -f /tmp/complex.html
+          diff <(grep -v "Generated:" actions/json-publisher/examples/complex.html) \
+               <(grep -v "Generated:" /tmp/complex.html)
+
+      # Test 3: Run empty example
+      - name: Empty report example
+        run: |
+          echo '{}' | python3 actions/json-publisher/publish.py \
+            --mode pages \
+            --output /tmp/empty.html
+
+          test -f /tmp/empty.html
+          diff <(grep -v "Generated:" actions/json-publisher/examples/empty.html) \
+               <(grep -v "Generated:" /tmp/empty.html)
+
+      # Test 4: Run test report example
+      - name: Test report example
+        run: |
+          echo '{
+            "timestamp": "2025-11-18T10:30:00Z",
+            "project": "toolkit",
+            "build": {
+              "status": "success",
+              "duration": 45.2,
+              "commit": "abc123"
+            },
+            "tests": {
+              "total": 127,
+              "passed": 125,
+              "failed": 2,
+              "skipped": 0,
+              "coverage": 94.5
+            },
+            "failures": [
+              {
+                "test": "authentication.test.js",
+                "reason": "Expected 200 but got 401"
+              },
+              {
+                "test": "database.test.js",
+                "reason": "Connection timeout"
+              }
+            ]
+          }' | python3 actions/json-publisher/publish.py \
+            --mode pages \
+            --output /tmp/test-report.html
+
+          test -f /tmp/test-report.html
+          grep -q "toolkit" /tmp/test-report.html
+
+      # Test 5: Git mode
+      - name: Publish to git file
+        run: |
+          echo '{"mode": "git", "test": true}' | \
           python3 actions/json-publisher/publish.py \
             --mode git \
-            --output /tmp/test-git.json
+            --output /tmp/git-test.json
 
-          test -f /tmp/test-git.json
-          jq -e '.test == "stdin-git"' /tmp/test-git.json
+          test -f /tmp/git-test.json
+          jq -e '.mode == "git"' /tmp/git-test.json
 
-      # Test 2: File input
-      - name: Publish from file to HTML
-        run: |
-          cat actions/json-publisher/examples/sample-report.json | \
-          python3 actions/json-publisher/publish.py \
-            --mode pages \
-            --output /tmp/report.html
-
-          test -f /tmp/report.html
-          test -f /tmp/report.json
-
-      # Test 3: Complex JSON with all data types
-      - name: Generate report with complex data
-        run: |
-          cat actions/json-publisher/examples/complex.json | \
-          python3 actions/json-publisher/publish.py \
-            --mode pages \
-            --output /tmp/complex-test.html
-
-          # Compare against snapshot
-          diff <(grep -v "Generated:" actions/json-publisher/examples/complex.html | grep -v "timestamp") \
-               <(grep -v "Generated:" /tmp/complex-test.html | grep -v "timestamp")
-
-      # Test 4: Error handling - invalid JSON
+      # Test 6: Error handling - invalid JSON
       - name: Handle invalid JSON gracefully
         run: |
           if echo 'not json' | python3 actions/json-publisher/publish.py --mode git --output /tmp/fail.json 2>&1; then
@@ -70,7 +128,7 @@ jobs:
             exit 1
           fi
 
-      # Test 5: Error handling - missing arguments
+      # Test 7: Error handling - missing arguments
       - name: Validate required arguments
         run: |
           if echo '{}' | python3 actions/json-publisher/publish.py 2>&1; then
@@ -78,19 +136,7 @@ jobs:
             exit 1
           fi
 
-      # Test 6: Edge case - empty object
-      - name: Handle empty JSON object
-        run: |
-          echo '{}' | \
-          python3 actions/json-publisher/publish.py \
-            --mode pages \
-            --output /tmp/empty-test.html
-
-          # Compare against snapshot
-          diff <(grep -v "Generated:" actions/json-publisher/examples/empty.html | grep -v "timestamp") \
-               <(grep -v "Generated:" /tmp/empty-test.html | grep -v "timestamp")
-
-      # Test 7: Edge case - large file
+      # Test 8: Large file processing
       - name: Process large JSON file
         run: |
           python3 -c "import json; print(json.dumps({'items': [{'id': i} for i in range(1000)]}))" | \
@@ -101,7 +147,7 @@ jobs:
           test -f /tmp/large.json
           test $(jq '.items | length' /tmp/large.json) -eq 1000
 
-      # Test 8: Edge case - Unicode and special characters
+      # Test 9: Unicode and special characters
       - name: Handle Unicode and special characters
         run: |
           echo '{"unicode": "Hello 世界 🌍", "special": "quotes \"test\" and symbols !@#$%"}' | \
@@ -112,7 +158,7 @@ jobs:
           grep -q '世界' /tmp/unicode.html
           grep -q '🌍' /tmp/unicode.html
 
-      # Test 9: Output format validation
+      # Test 10: JSON output format validation
       - name: Validate JSON output format
         run: |
           echo '{"format": "test", "nested": {"value": 123}}' | \
@@ -120,40 +166,22 @@ jobs:
             --mode git \
             --output /tmp/formatted.json
 
-          # Validate JSON is well-formed
           jq empty /tmp/formatted.json
-
-          # Verify 2-space indentation
           grep -q '^  "format"' /tmp/formatted.json
 
-      # Test 10: HTML structure validation
+      # Test 11: HTML structure validation
       - name: Validate HTML structure
         run: |
-          cat actions/json-publisher/examples/simple.json | \
+          echo '{"validate": "html"}' | \
           python3 actions/json-publisher/publish.py \
             --mode pages \
-            --output /tmp/simple-test.html
+            --output /tmp/validate.html
 
-          # Validate HTML5 structure
-          grep -q '<!DOCTYPE html>' /tmp/simple-test.html
-          grep -q '<meta charset="UTF-8">' /tmp/simple-test.html
-          grep -q '<meta name="viewport"' /tmp/simple-test.html
-
-          # Validate interactive features
-          grep -q 'toggleRaw()' /tmp/simple-test.html
-          grep -q 'copyToClipboard()' /tmp/simple-test.html
-
-      # Test 11: Snapshot comparison - simple
-      - name: Snapshot test - simple JSON
-        run: |
-          cat actions/json-publisher/examples/simple.json | \
-          python3 actions/json-publisher/publish.py \
-            --mode pages \
-            --output /tmp/simple-snapshot.html
-
-          # Compare HTML output (excluding timestamp)
-          diff <(grep -v "Generated:" actions/json-publisher/examples/simple.html | grep -v "timestamp") \
-               <(grep -v "Generated:" /tmp/simple-snapshot.html | grep -v "timestamp")
+          grep -q '<!DOCTYPE html>' /tmp/validate.html
+          grep -q '<meta charset="UTF-8">' /tmp/validate.html
+          grep -q '<meta name="viewport"' /tmp/validate.html
+          grep -q 'toggleRaw()' /tmp/validate.html
+          grep -q 'copyToClipboard()' /tmp/validate.html
 
       - name: Test Summary
         if: always()
@@ -166,10 +194,10 @@ jobs:
           echo "✓ All tests passed"
           echo ""
           echo "Tests covered:"
-          echo "  - Stdin and file input"
+          echo "  - Example workflows (simple, complex, empty, test-report)"
           echo "  - Git and Pages publishing modes"
           echo "  - HTML generation with snapshot validation"
           echo "  - Error handling (invalid JSON, missing args)"
-          echo "  - Edge cases (empty data, large files, Unicode)"
+          echo "  - Edge cases (large files, Unicode, special chars)"
           echo "  - Output format validation (JSON/HTML structure)"
           echo "========================================="

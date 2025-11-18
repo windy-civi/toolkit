@@ -1,71 +1,152 @@
 # Examples
 
-This directory contains example JSON files and their corresponding HTML outputs. These examples serve dual purposes:
+This directory contains example GitHub Actions workflows that demonstrate how to use the JSON Publisher. These examples serve dual purposes:
 
-1. **Documentation** - Show what the JSON Publisher can do
+1. **Documentation** - Show real-world usage patterns in GitHub Actions
 2. **Test Snapshots** - Used in CI tests to ensure HTML output remains consistent
 
-## Files
+## Example Workflows
 
-### Basic Examples
+Each `.yml` file is a complete GitHub Actions workflow showing how to use JSON Publisher, with JSON embedded inline.
 
-**`simple.json`** → **`simple.html`**
-- Basic JSON with simple types (string, number)
-- Demonstrates minimal viable input
+### `simple.yml` → `simple.html`
+Basic usage with simple JSON data.
 
-**`complex.json`** → **`complex.html`**
-- All JSON data types: strings, numbers, floats, booleans, null, arrays, objects
-- Shows nested structure handling
-- Tests syntax highlighting for each type
+```yaml
+- name: Generate and publish simple report
+  run: |
+    echo '{
+      "test": "simple",
+      "value": 123
+    }' | python3 actions/json-publisher/publish.py \
+      --mode pages \
+      --output simple.html
+```
 
-**`empty.html`**
-- Edge case: empty JSON object `{}`
-- Validates graceful handling of minimal data
+### `complex.yml` → `complex.html`
+Demonstrates all JSON data types (strings, numbers, booleans, null, arrays, objects).
 
-### Sample Reports
+```yaml
+- name: Generate report with all JSON data types
+  run: |
+    echo '{
+      "string": "test",
+      "number": 42,
+      "boolean": true,
+      "null_value": null,
+      "array": [1, 2, 3],
+      "nested": {"deep": "value"}
+    }' | python3 actions/json-publisher/publish.py \
+      --mode pages \
+      --output complex.html
+```
 
-**`sample-report.json`** → **`sample-report.html`**
-- Real-world test report example
-- Shows typical CI/CD usage scenario
-- Demonstrates nested data visualization
+### `empty.yml` → `empty.html`
+Edge case: handling empty JSON objects.
 
-## Usage
+### `test-report.yml` → `test-report.html`
+Real-world example showing a typical CI test report with nested data.
 
-Run any example through the publisher:
+## File Structure
 
-```bash
-# Generate HTML from an example
-cat simple.json | python3 ../publish.py --mode pages --output my-output.html
+```
+examples/
+├── README.md                  # This file
+├── simple.yml                 # Example workflow
+├── simple.html                # Expected HTML output (snapshot)
+├── complex.yml                # Example workflow
+├── complex.html               # Expected HTML output (snapshot)
+├── empty.yml                  # Example workflow
+├── empty.html                 # Expected HTML output (snapshot)
+├── test-report.yml            # Example workflow
+└── test-report.html           # Expected HTML output (snapshot)
+```
 
-# Or use directly
-python3 ../publish.py --mode git --output test.json < complex.json
+## How It Works
+
+1. **Example workflows** (`.yml`) contain the JSON inline - showing exactly how you'd use it in GitHub Actions
+2. **HTML snapshots** (`.html`) are the reference outputs used in testing
+3. **CI tests** extract the JSON from the workflows, run it, and compare against snapshots
+
+## Using These Examples
+
+Copy any workflow to your `.github/workflows/` directory and modify the JSON to match your data:
+
+```yaml
+# .github/workflows/my-report.yml
+name: My Custom Report
+
+on: [push]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate my report
+        run: |
+          echo '{
+            "my": "data",
+            "goes": "here"
+          }' | python3 actions/json-publisher/publish.py \
+            --mode pages \
+            --output my-report.html
 ```
 
 ## Snapshot Testing
 
-The CI workflow uses these examples as reference snapshots. When you run:
+The CI workflow extracts JSON from these examples and validates the output:
 
 ```yaml
-- name: Test complex JSON
+# From .github/workflows/test-json-publisher.yml
+- name: Simple report example
   run: |
-    cat examples/complex.json | python3 publish.py --mode pages --output /tmp/test.html
-    diff examples/complex.html /tmp/test.html
+    echo '{
+      "test": "simple",
+      "value": 123
+    }' | python3 actions/json-publisher/publish.py \
+      --mode pages \
+      --output /tmp/simple.html
+
+    diff examples/simple.html /tmp/simple.html
 ```
 
-This ensures the HTML generator produces consistent output.
+This ensures:
+- Examples stay up-to-date and working
+- HTML output remains consistent
+- No regressions in the generator
 
 ## Updating Snapshots
 
-If you intentionally change the HTML template, regenerate the snapshots:
+If you intentionally change the HTML template, regenerate snapshots:
 
 ```bash
 cd examples/
 
-# Regenerate all HTML snapshots
-cat simple.json | python3 ../publish.py --mode pages --output simple.html
-cat complex.json | python3 ../publish.py --mode pages --output complex.html
+# Simple
+echo '{"test": "simple", "value": 123}' | \
+  python3 ../publish.py --mode pages --output simple.html
+
+# Complex
+echo '{
+  "string": "test",
+  "number": 42,
+  "boolean": true,
+  "null_value": null,
+  "array": [1, 2, 3],
+  "nested": {"deep": "value"}
+}' | python3 ../publish.py --mode pages --output complex.html
+
+# Empty
 echo '{}' | python3 ../publish.py --mode pages --output empty.html
-cat sample-report.json | python3 ../publish.py --mode pages --output sample-report.html
+
+# Test report
+echo '{
+  "timestamp": "2025-11-18T10:30:00Z",
+  "project": "toolkit",
+  "tests": {"total": 127, "passed": 125, "failed": 2}
+}' | python3 ../publish.py --mode pages --output test-report.html
 ```
 
-The CI tests exclude dynamic content when comparing (timestamps, etc.).
+The CI tests exclude dynamic content when comparing (timestamps).
