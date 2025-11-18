@@ -352,24 +352,22 @@ Automated tests run on every push via GitHub Actions:
 ```
 
 Test jobs include:
-1. **Standalone Script Tests** - Core functionality validation
-2. **Git Mode Tests** - Commit and configuration testing
-3. **Action Integration Tests** - GitHub Action wrapper validation
-4. **Output Format Tests** - JSON and HTML structure validation
-5. **Edge Case Tests** - Special scenarios and error conditions
+1. **Standalone Script Tests** - Core functionality validation (7 tests)
+2. **Output Format Tests** - JSON and HTML structure validation (3 tests)
+3. **Edge Case Tests** - Special scenarios and error conditions (5 tests)
 
 ### Test Coverage
 
 | Feature | Tests | Status |
 |---------|-------|--------|
-| Git Mode | 5 tests | ✓ Passing |
-| Release Mode | 3 tests | ✓ Passing |
-| Pages Mode | 7 tests | ✓ Passing |
-| Error Handling | 4 tests | ✓ Passing |
-| HTML Generation | 6 tests | ✓ Passing |
-| Edge Cases | 8 tests | ✓ Passing |
+| Stdin/File Input | 2 tests | ✓ Passing |
+| Git Mode | 2 tests | ✓ Passing |
+| Pages Mode | 4 tests | ✓ Passing |
+| Error Handling | 3 tests | ✓ Passing |
+| HTML Generation | 4 tests | ✓ Passing |
+| Edge Cases | 5 tests | ✓ Passing |
 
-**Total: 33+ automated tests**
+**Total: 20 automated tests**
 
 ### Manual Testing
 
