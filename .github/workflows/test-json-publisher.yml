@@ -39,7 +39,7 @@ jobs:
             --output /tmp/simple.html
 
           test -f /tmp/simple.html
-          diff <(grep -v "Generated:" actions/json-publisher/examples/simple.html) \
+          diff <(grep -v "Generated:" actions/json-publisher/examples/test_snapshots/simple.html) \
                <(grep -v "Generated:" /tmp/simple.html)
 
       # Test 2: Run complex example
@@ -60,7 +60,7 @@ jobs:
             --output /tmp/complex.html
 
           test -f /tmp/complex.html
-          diff <(grep -v "Generated:" actions/json-publisher/examples/complex.html) \
+          diff <(grep -v "Generated:" actions/json-publisher/examples/test_snapshots/complex.html) \
                <(grep -v "Generated:" /tmp/complex.html)
 
       # Test 3: Run empty example
@@ -71,7 +71,7 @@ jobs:
             --output /tmp/empty.html
 
           test -f /tmp/empty.html
-          diff <(grep -v "Generated:" actions/json-publisher/examples/empty.html) \
+          diff <(grep -v "Generated:" actions/json-publisher/examples/test_snapshots/empty.html) \
                <(grep -v "Generated:" /tmp/empty.html)
 
       # Test 4: Run test report example

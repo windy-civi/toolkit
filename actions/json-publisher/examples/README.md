@@ -53,13 +53,14 @@ Real-world example showing a typical CI test report with nested data.
 examples/
 ├── README.md                  # This file
 ├── simple.yml                 # Example workflow
-├── simple.html                # Expected HTML output (snapshot)
 ├── complex.yml                # Example workflow
-├── complex.html               # Expected HTML output (snapshot)
 ├── empty.yml                  # Example workflow
-├── empty.html                 # Expected HTML output (snapshot)
 ├── test-report.yml            # Example workflow
-└── test-report.html           # Expected HTML output (snapshot)
+└── test_snapshots/            # Expected HTML outputs
+    ├── simple.html
+    ├── complex.html
+    ├── empty.html
+    └── test-report.html
 ```
 
 ## How It Works
@@ -109,7 +110,7 @@ The CI workflow extracts JSON from these examples and validates the output:
       --mode pages \
       --output /tmp/simple.html
 
-    diff examples/simple.html /tmp/simple.html
+    diff examples/test_snapshots/simple.html /tmp/simple.html
 ```
 
 This ensures:
@@ -126,7 +127,7 @@ cd examples/
 
 # Simple
 echo '{"test": "simple", "value": 123}' | \
-  python3 ../publish.py --mode pages --output simple.html
+  python3 ../publish.py --mode pages --output test_snapshots/simple.html
 
 # Complex
 echo '{
@@ -136,17 +137,17 @@ echo '{
   "null_value": null,
   "array": [1, 2, 3],
   "nested": {"deep": "value"}
-}' | python3 ../publish.py --mode pages --output complex.html
+}' | python3 ../publish.py --mode pages --output test_snapshots/complex.html
 
 # Empty
-echo '{}' | python3 ../publish.py --mode pages --output empty.html
+echo '{}' | python3 ../publish.py --mode pages --output test_snapshots/empty.html
 
 # Test report
 echo '{
   "timestamp": "2025-11-18T10:30:00Z",
   "project": "toolkit",
   "tests": {"total": 127, "passed": 125, "failed": 2}
-}' | python3 ../publish.py --mode pages --output test-report.html
+}' | python3 ../publish.py --mode pages --output test_snapshots/test-report.html
 ```
 
 The CI tests exclude dynamic content when comparing (timestamps).
