@@ -345,29 +345,22 @@ The test script validates:
 
 ### CI/CD Testing
 
-Automated tests run on every push via GitHub Actions:
+Automated tests run on every push via GitHub Actions using snapshot-based testing.
 
-```yaml
-# .github/workflows/test-json-publisher.yml
-```
+Single test job with 11 test steps:
+- **Snapshot tests** - Compare HTML output against reference snapshots
+- **Usage examples** - Each test demonstrates real-world usage
+- **Fast execution** - Completes in ~30 seconds
 
-Single test job with comprehensive coverage:
-- **15 automated tests** covering all features
-- Runs in ~30 seconds
-- Tests stdin/file input, all modes, HTML generation, validation, error handling, and edge cases
+Test coverage includes:
+- ✓ Stdin and file input
+- ✓ Git and Pages publishing modes
+- ✓ HTML generation with snapshot validation
+- ✓ Error handling (invalid JSON, missing arguments)
+- ✓ Edge cases (empty data, large files, Unicode characters)
+- ✓ Output format validation (JSON structure, indentation)
 
-### Test Coverage
-
-| Feature | Tests | Status |
-|---------|-------|--------|
-| Stdin/File Input | 2 tests | ✓ Passing |
-| Git & Pages Modes | 2 tests | ✓ Passing |
-| Complex JSON Structures | 2 tests | ✓ Passing |
-| Error Handling | 3 tests | ✓ Passing |
-| HTML Generation | 2 tests | ✓ Passing |
-| Output Validation | 4 tests | ✓ Passing |
-
-**Total: 15 automated tests in 1 job**
+**Total: 11 automated tests in 1 job**
 
 ### Manual Testing
 
