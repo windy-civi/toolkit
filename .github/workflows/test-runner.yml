@@ -3,13 +3,20 @@ name: Tests
 on:
   workflow_dispatch:
   pull_request:
+  push:
+    branches:
+      - main
 
 jobs:
 
   test-report-publisher:
     name: Test Report Publisher
     runs-on: ubuntu-latest
-
+    if: |
+      github.ref == 'refs/heads/main' ||
+      github.event_name == 'workflow_dispatch' ||
+      contains(join(github.event.pull_request.changed_files.*.filename, ','), '.github/workflows/test-runner.yml') ||
+      contains(join(github.event.pull_request.changed_files.*.filename, ','), 'actions/report-publisher/')
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -25,8 +32,13 @@ jobs:
           ./test.sh
 
   test-pipeline-manager:
-    if: contains(join(github.event.pull_request.changed_files.*.filename, ','), 'pipeline-manager/') || github.ref == 'refs/heads/main'
+    name: Test Pipeline Manager
     runs-on: ubuntu-latest
+    if: |
+      github.ref == 'refs/heads/main' ||
+      github.event_name == 'workflow_dispatch' ||
+      contains(join(github.event.pull_request.changed_files.*.filename, ','), '.github/workflows/test-runner.yml') ||
+      contains(join(github.event.pull_request.changed_files.*.filename, ','), 'actions/pipeline-manager/')
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -44,8 +56,13 @@ jobs:
           ./test.sh
 
   test-from-windy-civi-pipelines:
-    if: contains(join(github.event.pull_request.changed_files.*.filename, ','), 'from-windy-civi-pipelines/') || github.ref == 'refs/heads/main'
+    name: Test From Windy Civi Pipelines
     runs-on: ubuntu-latest
+    if: |
+      github.ref == 'refs/heads/main' ||
+      github.event_name == 'workflow_dispatch' ||
+      contains(join(github.event.pull_request.changed_files.*.filename, ','), '.github/workflows/test-runner.yml') ||
+      contains(join(github.event.pull_request.changed_files.*.filename, ','), 'actions/from-windy-civi-pipelines/')
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
