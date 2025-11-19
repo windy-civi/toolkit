@@ -23,20 +23,24 @@ cd "$RUNNER_TEMP/usa-data-pipeline"
 echo "=== Directory Contents ==="
 ls -la
 echo "======================="
+
+# Use absolute path for output file
+OUTPUT_PATH="$RUNNER_TEMP/$OUTPUT_FILE"
+
 "$ACTION_PATH/tools/find_logs_json.sh" | \
 "$ACTION_PATH/tools/filter_recent_logs.sh" | \
 "$ACTION_PATH/tools/sort_logs_by_timestamp.sh" | \
 "$ACTION_PATH/tools/limit_output.sh" "$LIMIT" | \
-"$ACTION_PATH/tools/extract_name.sh" > "../$OUTPUT_FILE"
+"$ACTION_PATH/tools/extract_name.sh" > "$OUTPUT_PATH"
 
 echo "=== Pipeline Output ==="
-cat "../$OUTPUT_FILE"
+cat "$OUTPUT_PATH"
 
 # Count results
-result_count=$(wc -l < "../$OUTPUT_FILE")
+result_count=$(wc -l < "$OUTPUT_PATH")
 echo "Found $result_count recent legislative activities"
 
 # Set outputs
 echo "result_count=$result_count" >> $GITHUB_OUTPUT
-echo "output_file=../$OUTPUT_FILE" >> $GITHUB_OUTPUT
+echo "output_file=$OUTPUT_PATH" >> $GITHUB_OUTPUT
 
