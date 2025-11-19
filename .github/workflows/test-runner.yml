@@ -1,13 +1,50 @@
-name: Test From Windy Civi Pipelines Action
+name: Tests
 
 on:
   workflow_dispatch:
   pull_request:
-    paths:
-      - 'actions/from-windy-civi-pipelines/**'
 
 jobs:
+
+  test-report-publisher:
+    name: Test Report Publisher
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run test runner
+        run: |
+          cd actions/report-publisher
+          ./test.sh
+
+  test-pipeline-manager:
+    if: contains(join(github.event.pull_request.changed_files.*.filename, ','), 'pipeline-manager/') || github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run test runner
+        run: |
+          cd actions/pipeline-manager
+          ./test.sh
+
   test-from-windy-civi-pipelines:
+    if: contains(join(github.event.pull_request.changed_files.*.filename, ','), 'from-windy-civi-pipelines/') || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
