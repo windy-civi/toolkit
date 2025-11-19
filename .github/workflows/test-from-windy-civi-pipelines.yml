@@ -20,7 +20,8 @@ jobs:
         uses: ./actions/from-windy-civi-pipelines
         with:
           sources: |
-            windy-civi-pipelines/usa-data-pipeline
+            usa
+            il
 
       - name: Display cloned directories
         run: |
