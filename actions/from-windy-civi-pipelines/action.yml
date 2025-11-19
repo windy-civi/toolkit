@@ -4,54 +4,70 @@ author: "Your Name"
 
 inputs:
   sources:
-    description: "List of repositories to clone in format owner/repo"
+    description: "List of repositories to clone (space-separated source names)"
     required: true
   token:
     description: "GitHub token for authentication"
-    required: true
+    required: false
+  output_dir:
+    description: "Output directory for cloned repositories"
+    required: false
+    default: "logs/windy-civi-pipelines"
+  sort:
+    description: "Sort order for results (ASC or DESC)"
+    required: false
+    default: "DESC"
   limit:
-    description: "Limit the number of results"
+    description: "Limit the number of results (positive integer)"
     required: false
-    default: "100"
   output_file:
-    description: "Name of the output file to create"
+    description: "Path to the output file"
     required: false
-    default: "recent_items.txt"
+    default: "./logs/windy-civi-pipelines.log"
 
 outputs:
   directories:
     description: "Comma-separated list of cloned directory paths"
-    value: ${{ steps.clone.outputs.directories }}
+    value: ${{ steps.pipeline.outputs.directories }}
   repository-count:
     description: "Number of repositories cloned"
-    value: ${{ steps.clone.outputs.repository-count }}
-  result_count:
-    description: "Number of results found"
-    value: ${{ steps.pipeline.outputs.result_count }}
-  output_file:
-    description: "Path to the output file"
-    value: ${{ steps.pipeline.outputs.output_file }}
+    value: ${{ steps.pipeline.outputs.repository-count }}
 
 runs:
   using: "composite"
   steps:
-    - name: Make tools executable
-      shell: bash
-      run: chmod +x ${{ github.action_path }}/tools/*.sh
-
-    - name: Clone Repository(ies)
-      id: clone
-      shell: bash
-      env:
-        TOKEN: ${{ inputs.token }}
-        SOURCES: ${{ inputs.sources }}
-      run: ${{ github.action_path }}/tools/clone_repos.sh
-
-    - name: Run tools pipeline
+    - name: Run pipeline
       id: pipeline
       shell: bash
       env:
-        ACTION_PATH: ${{ github.action_path }}
-        OUTPUT_FILE: ${{ inputs.output_file }}
-        LIMIT: ${{ inputs.limit }}
-      run: ${{ github.action_path }}/tools/run_pipeline.sh
+        TOKEN: ${{ inputs.token }}
+        GITHUB_OUTPUT: ${{ github.output }}
+      run: |
+        SCRIPT="${{ github.action_path }}/main.sh"
+        chmod +x "$SCRIPT"
+        
+        # Build command with flags
+        CMD="$SCRIPT"
+        
+        # Add --output-dir flag (has default in action.yml)
+        CMD="$CMD --output-dir=${{ inputs.output_dir }}"
+        
+        # Add --sort flag (has default in action.yml)
+        CMD="$CMD --sort=${{ inputs.sort }}"
+        
+        # Add --limit flag only if provided (no default)
+        if [ -n "${{ inputs.limit }}" ]; then
+          CMD="$CMD --limit=${{ inputs.limit }}"
+        fi
+        
+        # Add --output flag (has default in action.yml)
+        CMD="$CMD --output=${{ inputs.output_file }}"
+        
+        # Add sources as positional arguments
+        # Split sources by space and add each as an argument
+        for source in ${{ inputs.sources }}; do
+          CMD="$CMD $source"
+        done
+        
+        # Execute the command
+        $CMD
