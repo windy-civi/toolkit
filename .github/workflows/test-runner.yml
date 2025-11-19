@@ -8,15 +8,74 @@ on:
       - main
 
 jobs:
+  detect-changes:
+    name: Detect Changes
+    runs-on: ubuntu-latest
+    outputs:
+      report-publisher: ${{ steps.changes.outputs.report-publisher }}
+      pipeline-manager: ${{ steps.changes.outputs.pipeline-manager }}
+      from-windy-civi-pipelines: ${{ steps.changes.outputs.from-windy-civi-pipelines }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect changed files
+        id: changes
+        run: |
+          # Configuration: job name and corresponding directory to watch
+          MODULES=(
+            "report-publisher:actions/report-publisher"
+            "pipeline-manager:actions/pipeline-manager"
+            "from-windy-civi-pipelines:actions/from-windy-civi-pipelines"
+          )
+          
+          # Always run all tests on main branch or workflow_dispatch
+          if [ "${{ github.ref }}" = "refs/heads/main" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            for module in "${MODULES[@]}"; do
+              JOB_NAME="${module%%:*}"
+              echo "${JOB_NAME}=true" >> $GITHUB_OUTPUT
+            done
+            exit 0
+          fi
+          
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE_SHA="${{ github.event.pull_request.base.sha }}"
+            HEAD_SHA="${{ github.sha }}"
+            CHANGED_FILES=$(git diff --name-only $BASE_SHA $HEAD_SHA || echo "")
+          else
+            # For push events, compare with previous commit
+            CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD || echo "")
+          fi
+          
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
+          
+          # If workflow file changes, run all tests
+          if echo "$CHANGED_FILES" | grep -q "\.github/workflows/test-runner\.yml"; then
+            for module in "${MODULES[@]}"; do
+              JOB_NAME="${module%%:*}"
+              echo "${JOB_NAME}=true" >> $GITHUB_OUTPUT
+            done
+          else
+            # Otherwise, check each module individually
+            for module in "${MODULES[@]}"; do
+              JOB_NAME="${module%%:*}"
+              DIRECTORY="${module#*:}"
+              if echo "$CHANGED_FILES" | grep -q "$DIRECTORY/"; then
+                echo "${JOB_NAME}=true" >> $GITHUB_OUTPUT
+              else
+                echo "${JOB_NAME}=false" >> $GITHUB_OUTPUT
+              fi
+            done
+          fi
 
   test-report-publisher:
     name: Test Report Publisher
     runs-on: ubuntu-latest
-    if: |
-      github.ref == 'refs/heads/main' ||
-      github.event_name == 'workflow_dispatch' ||
-      contains(join(github.event.pull_request.changed_files.*.filename, ','), '.github/workflows/test-runner.yml') ||
-      contains(join(github.event.pull_request.changed_files.*.filename, ','), 'actions/report-publisher/')
+    needs: detect-changes
+    if: needs.detect-changes.outputs.report-publisher == 'true'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -34,11 +93,8 @@ jobs:
   test-pipeline-manager:
     name: Test Pipeline Manager
     runs-on: ubuntu-latest
-    if: |
-      github.ref == 'refs/heads/main' ||
-      github.event_name == 'workflow_dispatch' ||
-      contains(join(github.event.pull_request.changed_files.*.filename, ','), '.github/workflows/test-runner.yml') ||
-      contains(join(github.event.pull_request.changed_files.*.filename, ','), 'actions/pipeline-manager/')
+    needs: detect-changes
+    if: needs.detect-changes.outputs.pipeline-manager == 'true'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -58,11 +114,8 @@ jobs:
   test-from-windy-civi-pipelines:
     name: Test From Windy Civi Pipelines
     runs-on: ubuntu-latest
-    if: |
-      github.ref == 'refs/heads/main' ||
-      github.event_name == 'workflow_dispatch' ||
-      contains(join(github.event.pull_request.changed_files.*.filename, ','), '.github/workflows/test-runner.yml') ||
-      contains(join(github.event.pull_request.changed_files.*.filename, ','), 'actions/from-windy-civi-pipelines/')
+    needs: detect-changes
+    if: needs.detect-changes.outputs.from-windy-civi-pipelines == 'true'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
