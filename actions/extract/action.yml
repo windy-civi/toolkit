@@ -27,12 +27,25 @@ runs:
       run: |
         python -m pip install --upgrade pip
         pip install pipenv
+        # Ensure we're in the action directory where Pipfile is located
+        ACTION_DIR="${{ github.action_path }}"
+        cd "$ACTION_DIR"
+        echo "Current directory: $(pwd)"
+        echo "Looking for Pipfile at: $ACTION_DIR/Pipfile"
+        if [ ! -f "$ACTION_DIR/Pipfile" ]; then
+          echo "::error::❌ Pipfile not found at $ACTION_DIR/Pipfile"
+          ls -la "$ACTION_DIR" || true
+          exit 1
+        fi
+        echo "✅ Found Pipfile, installing dependencies..."
+        # Explicitly tell pipenv where the Pipfile is
+        export PIPENV_PIPFILE="$ACTION_DIR/Pipfile"
         pipenv install --deploy
 
     - name: Extract Text from PDFs and XMLs
       id: extract
       shell: bash
-      working-directory: ${{ github.action_path }}
+      working-directory: ${{ github.action_path }}/../..
       run: |
         echo "📄 Extracting text from PDFs and XMLs for ${{ inputs.state }}"
 
@@ -166,12 +179,30 @@ runs:
         AUTO_COMMIT_PID=$!
         echo "🔄 Auto-commit process started (PID: $AUTO_COMMIT_PID)"
 
-        # Change back to action directory to run Python
-        cd "${{ github.action_path }}/../.."
+        # Change to action directory where main.py and Pipfile are colocated
+        ACTION_DIR="${{ github.action_path }}"
+        cd "$ACTION_DIR"
+        echo "Running from: $(pwd)"
 
-        # Run text extraction using the main.py interface with incremental flag
+        # Verify main.py exists in action directory
+        if [ ! -f "$ACTION_DIR/main.py" ]; then
+          echo "::error::❌ main.py not found at $ACTION_DIR/main.py"
+          ls -la "$ACTION_DIR" || true
+          exit 1
+        fi
+
+        # Verify Pipfile exists in action directory
+        if [ ! -f "$ACTION_DIR/Pipfile" ]; then
+          echo "::error::❌ Pipfile not found at $ACTION_DIR/Pipfile"
+          ls -la "$ACTION_DIR" || true
+          exit 1
+        fi
+
+        # Run text extraction using the colocated main.py
+        # Explicitly set Pipfile location for pipenv
+        export PIPENV_PIPFILE="$ACTION_DIR/Pipfile"
         EXIT_CODE=0
-        EXTRACTION_OUTPUT=$(pipenv run python main.py \
+        EXTRACTION_OUTPUT=$(cd "$ACTION_DIR" && pipenv run python main.py \
           --state "${{ inputs.state }}" \
           --data-folder "${{ github.workspace }}" \
           --output-folder "${{ github.workspace }}" \
