@@ -1,0 +1,110 @@
+# yaml-language-server: $schema=./config.schema.json
+template_markers:
+  open: "✏️{"
+  close: "}✏️"
+templates:
+  openstates-to-ocd-decentralized:
+    folder-name: ✏️{locale}✏️-data-pipeline
+locales:
+  al:
+    template: openstates-to-ocd-decentralized
+    toolkit_branch: main # Switch the branch name
+    text_extraction: false # Switch to true to enable text extraction
+  ak:
+    template: openstates-to-ocd-decentralized
+  az:
+    template: openstates-to-ocd-decentralized
+  ar:
+    template: openstates-to-ocd-decentralized
+  ca:
+    template: openstates-to-ocd-decentralized
+  co:
+    template: openstates-to-ocd-decentralized
+  ct:
+    template: openstates-to-ocd-decentralized
+  de:
+    template: openstates-to-ocd-decentralized
+  fl:
+    template: openstates-to-ocd-decentralized
+  ga:
+    template: openstates-to-ocd-decentralized
+  hi:
+    template: openstates-to-ocd-decentralized
+  id:
+    template: openstates-to-ocd-decentralized
+  il:
+    template: openstates-to-ocd-decentralized
+  in:
+    template: openstates-to-ocd-decentralized
+  ia:
+    template: openstates-to-ocd-decentralized
+  ks:
+    template: openstates-to-ocd-decentralized
+  ky:
+    template: openstates-to-ocd-decentralized
+  la:
+    template: openstates-to-ocd-decentralized
+  me:
+    template: openstates-to-ocd-decentralized
+  md:
+    template: openstates-to-ocd-decentralized
+  ma:
+    template: openstates-to-ocd-decentralized
+  mi:
+    template: openstates-to-ocd-decentralized
+  mn:
+    template: openstates-to-ocd-decentralized
+  ms:
+    template: openstates-to-ocd-decentralized
+  mo:
+    template: openstates-to-ocd-decentralized
+  mt:
+    template: openstates-to-ocd-decentralized
+  ne:
+    template: openstates-to-ocd-decentralized
+  nv:
+    template: openstates-to-ocd-decentralized
+  nh:
+    template: openstates-to-ocd-decentralized
+  nj:
+    template: openstates-to-ocd-decentralized
+  nm:
+    template: openstates-to-ocd-decentralized
+  ny:
+    template: openstates-to-ocd-decentralized
+  nc:
+    template: openstates-to-ocd-decentralized
+  nd:
+    template: openstates-to-ocd-decentralized
+  oh:
+    template: openstates-to-ocd-decentralized
+  ok:
+    template: openstates-to-ocd-decentralized
+  or:
+    template: openstates-to-ocd-decentralized
+  pa:
+    template: openstates-to-ocd-decentralized
+  ri:
+    template: openstates-to-ocd-decentralized
+  sc:
+    template: openstates-to-ocd-decentralized
+  sd:
+    template: openstates-to-ocd-decentralized
+  tn:
+    template: openstates-to-ocd-decentralized
+  tx:
+    template: openstates-to-ocd-decentralized
+  ut:
+    template: openstates-to-ocd-decentralized
+  vt:
+    template: openstates-to-ocd-decentralized
+  va:
+    template: openstates-to-ocd-decentralized
+  wa:
+    template: openstates-to-ocd-decentralized
+  wv:
+    template: openstates-to-ocd-decentralized
+  wi:
+    template: openstates-to-ocd-decentralized
+  wy:
+    template: openstates-to-ocd-decentralized
