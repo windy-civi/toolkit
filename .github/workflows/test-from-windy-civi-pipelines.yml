@@ -19,10 +19,8 @@ jobs:
         id: from-windy-civi-pipelines
         uses: ./actions/from-windy-civi-pipelines
         with:
-          sources: |
+          sources: 
             usa
-            il
-
       - name: Display cloned directories
         run: |
           echo "Cloned directories: ${{ steps.from-windy-civi-pipelines.outputs.directories }}"
