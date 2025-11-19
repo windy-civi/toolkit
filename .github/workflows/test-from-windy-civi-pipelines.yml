@@ -1,14 +1,13 @@
-name: Test Sources and Recent Items Actions
+name: Test From Windy Civi Pipelines Action
 
 on:
   workflow_dispatch:
   pull_request:
     paths:
-      - 'actions/sources/**'
-      - 'actions/recent-items/**'
+      - 'actions/from-windy-civi-pipelines/**'
 
 jobs:
-  test-sources-recent-items:
+  test-from-windy-civi-pipelines:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -23,21 +22,26 @@ jobs:
           sources: |
             windy-civi-pipelines/usa-data-pipeline
 
+      - name: Display cloned directories
+        run: |
+          echo "Cloned directories: ${{ steps.from-windy-civi-pipelines.outputs.directories }}"
+          echo "Repository count: ${{ steps.from-windy-civi-pipelines.outputs.repository-count }}"
+
       - name: Display results
         run: |
-          echo "Result count: ${{ steps.recent-items.outputs.result_count }}"
-          echo "Output file: ${{ steps.recent-items.outputs.output_file }}"
-          if [ -f "${{ steps.recent-items.outputs.output_file }}" ]; then
+          echo "Result count: ${{ steps.from-windy-civi-pipelines.outputs.result_count }}"
+          echo "Output file: ${{ steps.from-windy-civi-pipelines.outputs.output_file }}"
+          if [ -f "${{ steps.from-windy-civi-pipelines.outputs.output_file }}" ]; then
             echo "=== Recent Items Output ==="
-            head -20 "${{ steps.recent-items.outputs.output_file }}" || true
+            head -20 "${{ steps.from-windy-civi-pipelines.outputs.output_file }}" || true
           fi
 
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-recent-items-output
+          name: test-from-windy-civi-pipelines-output
           path: |
-            ${{ steps.recent-items.outputs.output_file }}
+            ${{ steps.from-windy-civi-pipelines.outputs.output_file }}
           retention-days: 1
 
