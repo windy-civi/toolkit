@@ -1,17 +1,8 @@
 name: Test Sources and Recent Items Actions
 
 on:
-  workflow_dispatch: # Manual trigger - works on any branch
-  push:
-    branches:
-      - main
-      - create-test
-    paths:
-      - 'actions/sources/**'
-      - 'actions/recent-items/**'
+  workflow_dispatch:
   pull_request:
-    branches:
-      - main
     paths:
       - 'actions/sources/**'
       - 'actions/recent-items/**'
@@ -25,25 +16,12 @@ jobs:
         with:
           ref: ${{ github.ref }}
 
-      - name: Test Sources Action
-        id: sources
-        uses: ./actions/sources
+      - name: Test From Windy Civi Pipelines Action
+        id: from-windy-civi-pipelines
+        uses: ./actions/from-windy-civi-pipelines
         with:
           sources: |
             windy-civi-pipelines/usa-data-pipeline
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Display cloned directories
-        run: |
-          echo "Cloned directories: ${{ steps.sources.outputs.directories }}"
-          echo "Repository count: ${{ steps.sources.outputs.repository-count }}"
-
-      - name: Test Recent Items Action
-        id: recent-items
-        uses: ./actions/recent-items
-        with:
-          limit: "100"
-          output_file: "test_recent_items.txt"
 
       - name: Display results
         run: |

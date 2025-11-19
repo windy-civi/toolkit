@@ -1,0 +1,57 @@
+name: "Legislation Tools Pipeline"
+description: "Clones repositories and runs the legislation tools pipeline on cloned data"
+author: "Your Name"
+
+inputs:
+  sources:
+    description: "List of repositories to clone in format owner/repo"
+    required: true
+  token:
+    description: "GitHub token for authentication"
+    required: true
+  limit:
+    description: "Limit the number of results"
+    required: false
+    default: "100"
+  output_file:
+    description: "Name of the output file to create"
+    required: false
+    default: "recent_items.txt"
+
+outputs:
+  directories:
+    description: "Comma-separated list of cloned directory paths"
+    value: ${{ steps.clone.outputs.directories }}
+  repository-count:
+    description: "Number of repositories cloned"
+    value: ${{ steps.clone.outputs.repository-count }}
+  result_count:
+    description: "Number of results found"
+    value: ${{ steps.pipeline.outputs.result_count }}
+  output_file:
+    description: "Path to the output file"
+    value: ${{ steps.pipeline.outputs.output_file }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Make tools executable
+      shell: bash
+      run: chmod +x ${{ github.action_path }}/tools/*.sh
+
+    - name: Clone Repository(ies)
+      id: clone
+      shell: bash
+      env:
+        TOKEN: ${{ inputs.token }}
+        SOURCES: ${{ inputs.sources }}
+      run: ${{ github.action_path }}/tools/clone_repos.sh
+
+    - name: Run tools pipeline
+      id: pipeline
+      shell: bash
+      env:
+        ACTION_PATH: ${{ github.action_path }}
+        OUTPUT_FILE: ${{ inputs.output_file }}
+        LIMIT: ${{ inputs.limit }}
+      run: ${{ github.action_path }}/tools/run_pipeline.sh
