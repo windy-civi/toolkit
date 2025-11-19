@@ -1,5 +1,13 @@
 # 🏛️ Windy Civi: OpenCivicData Blockchain Transformer
 
+A collection of tools to do government activity analysis. Currently handles
+
+- Nearly all state governments
+- Federal
+- (future) Federal Courts
+- (future) Executive Orders
+- (future) RSS Feeds for news
+
 All actions must do the following
 
 - Be basic scripts in python, bash, rust, or typescript which can run as shell scripts with args.
