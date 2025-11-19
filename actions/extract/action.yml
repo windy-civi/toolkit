@@ -23,7 +23,7 @@ runs:
 
     - name: Install dependencies
       shell: bash
-      working-directory: ${{ github.action_path }}/../..
+      working-directory: ${{ github.action_path }}
       run: |
         python -m pip install --upgrade pip
         pip install pipenv
@@ -32,7 +32,7 @@ runs:
     - name: Extract Text from PDFs and XMLs
       id: extract
       shell: bash
-      working-directory: ${{ github.action_path }}/../..
+      working-directory: ${{ github.action_path }}
       run: |
         echo "📄 Extracting text from PDFs and XMLs for ${{ inputs.state }}"
 
@@ -171,7 +171,7 @@ runs:
 
         # Run text extraction using the main.py interface with incremental flag
         EXIT_CODE=0
-        EXTRACTION_OUTPUT=$(pipenv run python text_extraction/main.py \
+        EXTRACTION_OUTPUT=$(pipenv run python main.py \
           --state "${{ inputs.state }}" \
           --data-folder "${{ github.workspace }}" \
           --output-folder "${{ github.workspace }}" \
