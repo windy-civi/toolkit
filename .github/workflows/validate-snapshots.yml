@@ -1,0 +1,136 @@
+name: Validate Snapshots
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  detect-changes:
+    name: Detect Changes
+    runs-on: ubuntu-latest
+    outputs:
+      report-publisher: ${{ steps.changes.outputs.report-publisher }}
+      pipeline-manager: ${{ steps.changes.outputs.pipeline-manager }}
+      from-windy-civi-pipelines: ${{ steps.changes.outputs.from-windy-civi-pipelines }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect changed files
+        id: changes
+        run: |
+          # Configuration: job name and corresponding directory to watch
+          MODULES=(
+            "report-publisher:actions/report-publisher"
+            "pipeline-manager:actions/pipeline-manager"
+            "from-windy-civi-pipelines:actions/from-windy-civi-pipelines"
+          )
+
+          # Always run all tests on main branch or workflow_dispatch
+          if [ "${{ github.ref }}" = "refs/heads/main" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            for module in "${MODULES[@]}"; do
+              JOB_NAME="${module%%:*}"
+              echo "${JOB_NAME}=true" >> $GITHUB_OUTPUT
+            done
+            exit 0
+          fi
+
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE_SHA="${{ github.event.pull_request.base.sha }}"
+            HEAD_SHA="${{ github.sha }}"
+            CHANGED_FILES=$(git diff --name-only $BASE_SHA $HEAD_SHA || echo "")
+          else
+            # For push events, compare with previous commit
+            CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD || echo "")
+          fi
+
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
+
+          # If workflow file changes, run all tests
+          if echo "$CHANGED_FILES" | grep -q "\.github/workflows/test-runner\.yml"; then
+            for module in "${MODULES[@]}"; do
+              JOB_NAME="${module%%:*}"
+              echo "${JOB_NAME}=true" >> $GITHUB_OUTPUT
+            done
+          else
+            # Otherwise, check each module individually
+            for module in "${MODULES[@]}"; do
+              JOB_NAME="${module%%:*}"
+              DIRECTORY="${module#*:}"
+              if echo "$CHANGED_FILES" | grep -q "$DIRECTORY/"; then
+                echo "${JOB_NAME}=true" >> $GITHUB_OUTPUT
+              else
+                echo "${JOB_NAME}=false" >> $GITHUB_OUTPUT
+              fi
+            done
+          fi
+
+  pipeline-manager-snapshots:
+    runs-on: ubuntu-latest
+    needs: detect-changes
+    if: needs.detect-changes.outputs.pipeline-manager == 'true'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run test runner
+        run: |
+          cd actions/pipeline-manager
+          ../../scripts/before-snapshots.sh __snapshots__
+          ./render-snapshots.sh
+          ../../scripts/verify-snapshots.sh __snapshots__
+
+  from-windy-civi-pipelines-snapshots:
+    runs-on: ubuntu-latest
+    needs: detect-changes
+    if: needs.detect-changes.outputs.from-windy-civi-pipelines == 'true'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run test runner
+        run: |
+          cd actions/from-windy-civi-pipelines
+          ../../scripts/before-snapshots.sh __snapshots__
+          ./render-snapshots.sh
+          ../../scripts/verify-snapshots.sh __snapshots__
+
+  report-publisher-snapshots:
+    runs-on: ubuntu-latest
+    needs: detect-changes
+    if: needs.detect-changes.outputs.report-publisher == 'true'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run test runner
+        run: |
+          cd actions/report-publisher
+          ../../scripts/before-snapshots.sh examples/__snapshots__
+          ./render-snapshots.sh
+          ../../scripts/verify-snapshots.sh examples/__snapshots__

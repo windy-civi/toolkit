@@ -1,25 +1,28 @@
+[![Validate Snapshots](https://github.com/windy-civi/toolkit/actions/workflows/validate-snapshots.yml/badge.svg)](https://github.com/windy-civi/toolkit/actions/workflows/validate-snapshots.yml)
+
 # 🏛️ Windy Civi Toolkit - Tools To Watch & Analyze Governemnt Actions
 
 - Nearly all state governments
 - Federal
-- (future) Federal Courts
-- (future) Executive Orders
-- (future) RSS Feeds for news
 
-## Folder Structure
-
-All stuff should be inside `actions`, even if they aren't actions. This functions as the `packages` or `modules` folder in monorepo setups, but the naming convention makes GitHub Actions happy.
-
-## Contribute
-
-To Make A New Action:
-
-- Be basic scripts in python, bash, rust, or typescript which can run as shell scripts with args.
-- Input/output of content should prefer stdin/stdout where it makes sense, while options can be flags.
-- Have an `action.yml` file to run as a runner, most likely in GitHub Actions.
-- (Mostly) have Snapshot tests. Most these actions will have some output files/folders. Have each module decide how to snapshot those. See `.github/test-runner.yml`.
-
-Ideally, these scripts should be accessible via the following ways.
+WIP: Ideally, these scripts should be accessible via the following ways.
 
 - CLI / Unix pipe friendliness where possible. CLI is the most portable of solutions.
 - GitHub Actionable if possible
+
+
+## Contribute
+
+### Folder Structure
+
+This repo is a monorepo, with `actions` being self contained. `actions` as a name is because it's what Github expects.
+
+### Requirements For Each Action
+
+- Be a runnable as basic scripts in python, bash, rust, or typescript which can run as shell scripts with args.
+- Have an `action.yml` file to run as a runner, most likely in GitHub Actions.
+- Have a `schemas` folder that uses JSON schema to define types.
+  - This allow other actions to import your schema for validation.
+- Have `__snapshots__` that contain real file/folder outputs. This serves two purposes: (1) they show expected results and (2) they can be directly used as inputs for downstream snapshot tests.
+  - Each action manages its own snapshot rendering through a render_snapshots.sh script.
+  - Validation occurs via .github/validate-snapshots.yml for each specific module.
