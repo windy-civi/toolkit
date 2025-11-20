@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SNAPSHOTS_DIR="__snapshots__"
-OUTPUT_FILE="$SNAPSHOTS_DIR/output.log"
+OUTPUT_FILE="$SNAPSHOTS_DIR/output.txt"
 GIT_DIR="../sync-windy-civi-pipelines/__snapshots__"
 
 # Create snapshots directory
