@@ -1,3 +1,4 @@
+#!/bin/bash
 # Default $1 to __snapshots__ if not provided
 if [ $# -eq 0 ]; then
     set -- "__snapshots__"
