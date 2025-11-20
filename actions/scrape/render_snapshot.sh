@@ -9,9 +9,7 @@ mkdir -p "$SNAPSHOTS_DIR"
 # Using wy because its fast
 ./scrape.sh wy latest "$SNAPSHOTS_DIR"
 
-cd $OPENSTATES_DATA_DIR
-
-files=($(ls -l | sort))
+files=($(find "$SNAPSHOTS_DIR" -type f | sort))
 total=${#files[@]}
 echo "Initial total count of files: $total"
 
