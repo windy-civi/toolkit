@@ -86,9 +86,11 @@ jobs:
           python-version: '3.11'
 
       - name: Run test runner
+        working-directory: actions/report-publisher
         run: |
-          cd actions/report-publisher
-          ./test.sh
+          ../../scripts/before-snapshots.sh
+          ./render-snapshots.sh
+          ../../scripts/verify-snapshots.sh
 
   test-pipeline-manager:
     name: Test Pipeline Manager
@@ -107,10 +109,11 @@ jobs:
           python-version: '3.11'
 
       - name: Run test runner
+        working-directory: actions/pipeline-manager
         run: |
-          cd actions/pipeline-manager
-          ./test.sh
-          
+          ../../scripts/before-snapshots.sh
+          ./render-snapshots.sh
+          ../../scripts/verify-snapshots.sh
 
   test-from-windy-civi-pipelines:
     name: Test From Windy Civi Pipelines
