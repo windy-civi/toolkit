@@ -8,4 +8,4 @@ GIT_DIR="../sync-windy-civi-pipelines/__snapshots__"
 rm -rf "$SNAPSHOTS_DIR"
 mkdir -p "$SNAPSHOTS_DIR"
 
-./main.sh --git-dir $GIT_DIR --output $OUTPUT_FILE --sort DESC --limit 100
+./main.sh --git-dir $GIT_DIR --output $OUTPUT_FILE --sort DESC --limit 100 > $OUTPUT_FILE

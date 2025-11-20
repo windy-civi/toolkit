@@ -1,14 +1,15 @@
 #!/bin/bash
 
 # Script to find all JSON files that have 'logs/' in their path from cloned repositories
-# Usage: ./get-logs.sh [--git-dir <dir>] [--git-dir=<dir>] [--sort <ASC|DESC>] [--sort=<ASC|DESC>] [--limit <n>] [--limit=<n>] [--output <file>] [--output=<file>] [--join <values>] [--join=<values>] [source1] [source2] [source3] ...
+# Usage: ./get-logs.sh [--git-dir <dir>] [--git-dir=<dir>] [--sort <ASC|DESC>] [--sort=<ASC|DESC>] [--limit <n>] [--limit=<n>] [--join <values>] [--join=<values>] [source1] [source2] [source3] ...
 # Example: ./get-logs.sh
 # Example: ./get-logs.sh usa il
 # Example: ./get-logs.sh --git-dir mydir
-# Example: ./get-logs.sh --git-dir=mydir --sort=ASC --limit=10 --output=./mylog.log usa il
+# Example: ./get-logs.sh --git-dir=mydir --sort=ASC --limit=10 usa il
 # Example: ./get-logs.sh --join=minimal_metadata,sponsors
 # Note: This script assumes repositories have already been cloned. Sources are optional - if not provided, searches the entire git directory.
 # Note: --join accepts comma-separated values: "minimal_metadata" (title, description, sources) and "sponsors"
+# Note: This script requires 'fd' (a Rust-based alternative to find) to be installed
 
 ALLOWED_JOIN_VALUES=("minimal_metadata" "sponsors")
 
@@ -16,7 +17,6 @@ ALLOWED_JOIN_VALUES=("minimal_metadata" "sponsors")
 GIT_DIR="tmp/git/windy-civi-pipelines"
 SORT_ORDER="DESC"
 LIMIT=""
-OUTPUT_FILE="./generated/output.log"
 JOIN="minimal_metadata"
 SOURCES=()
 
@@ -81,20 +81,6 @@ while [[ $# -gt 0 ]]; do
       LIMIT="$2"
       shift 2
       ;;
-    --output=*)
-      # Handle --output=<value> format
-      OUTPUT_FILE="${1#*=}"
-      shift
-      ;;
-    --output)
-      # Handle --output <value> format
-      if [ -z "$2" ]; then
-        echo "Error: --output requires a value (file path)"
-        exit 1
-      fi
-      OUTPUT_FILE="$2"
-      shift 2
-      ;;
     --join=*)
       # Handle --join=<value> format
       JOIN="${1#*=}"
@@ -153,6 +139,12 @@ if [[ -z "$SEARCH_DIR_TRIM" ]]; then
     SEARCH_DIR_TRIM="/"
 fi
 
+# Check if fd is available
+if ! command -v fd >/dev/null 2>&1; then
+    echo "Error: 'fd' command not found. Please install fd (https://github.com/sharkdp/fd)"
+    exit 1
+fi
+
 # Optionally verify that expected repository directories exist
 for source in "${SOURCES[@]}"; do
     if [ -z "$source" ]; then
@@ -161,25 +153,20 @@ for source in "${SOURCES[@]}"; do
     source=$(echo "$source" | xargs)
     repo_dir="$SEARCH_DIR/${source}-data-pipeline"
     if [ ! -d "$repo_dir" ]; then
-        echo "Warning: Expected repository directory does not exist: $repo_dir"
+        echo "Warning: Expected repository directory does not exist: $repo_dir" >&2
     fi
 done
 
-# Create output directory
-mkdir -p "$(dirname "$OUTPUT_FILE")"
-
-echo "Finding JSON files with 'logs/' in their path in: $SEARCH_DIR"
-echo "Writing to: $OUTPUT_FILE"
-echo ""
+echo "Finding JSON files with 'logs/' in their path in: $SEARCH_DIR" >&2
+echo "" >&2
 
 # Use a temporary file to store file paths with timestamps for sorting
 TMPFILE=$(mktemp)
 trap "rm -f '$TMPFILE'" EXIT
 
 # First pass: collect file paths with timestamps (without reading JSON contents)
-# Stream through files one at a time using find
-# Using find with -path filter is more efficient than piping through grep
-find "$SEARCH_DIR" -type f -name "*.json" -path "*/logs/*" | while IFS= read -r filepath; do
+# Stream through files one at a time using fd (Rust-based, faster than find)
+fd -t f "\.json$" "$SEARCH_DIR" | grep "/logs/" | while IFS= read -r filepath; do
     # Skip empty lines
     if [[ -z "$filepath" ]]; then
         continue
@@ -343,7 +330,4 @@ done
     if [[ -n "$wrapped_json" ]]; then
         echo "$wrapped_json"
     fi
-done > "$OUTPUT_FILE" || true
-
-echo ""
-echo "Search completed. Results written to: $OUTPUT_FILE"
+done
