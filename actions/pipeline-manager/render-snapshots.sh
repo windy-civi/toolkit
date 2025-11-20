@@ -40,10 +40,5 @@ if [ $total -gt $limit ]; then
   done
 fi
 
-# Compare snapshots with committed versions using reusable script
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
-SNAPSHOT_TEST="$REPO_ROOT/scripts/snapshot-test.sh"
-
 echo ""
 "$SNAPSHOT_TEST" "$output_dir"
