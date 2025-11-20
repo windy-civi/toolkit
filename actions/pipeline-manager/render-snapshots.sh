@@ -39,6 +39,3 @@ if [ $total -gt $limit ]; then
     fi
   done
 fi
-
-echo ""
-"$SNAPSHOT_TEST" "$output_dir"
