@@ -28,24 +28,15 @@ generated/
 
 In your template files, you can use the following variables:
 
-- `✏️✏️ locale ✏️✏️` - The locale code (e.g., 'al', 'ak', 'az')
-- `✏️✏️ toolkit_branch ✏️✏️` - The toolkit branch (defaults to 'main')
-- `✏️✏️ managed ✏️✏️` - Whether the locale is managed (boolean)
-- Any other variables defined in `config.yml` for that locale
-
-### Template Syntax
-
-Templates use simple variable substitution with custom delimiters to avoid conflicts with GitHub Actions syntax (`${{ ... }}`):
-
-- **Variables**: `✏️✏️ variable ✏️✏️` - Replaced with the actual value from config.yml
+- **Variables**: `✏️{ variable }✏️` - Replaced with the actual value from config.yml
 
 Example:
 
 ```yaml
-name: Scrape and Format Data For ✏️✏️ locale ✏️✏️
+name: Scrape and Format Data For ✏️{ locale }✏️
 env:
-  STATE_CODE: ✏️✏️ locale ✏️✏️
-  TOOLKIT_BRANCH: ✏️✏️ toolkit_branch ✏️✏️
+  STATE_CODE: ✏️{ locale }✏️
+  TOOLKIT_BRANCH: ✏️{ toolkit_branch }✏️
 ```
 
 **Note**:
