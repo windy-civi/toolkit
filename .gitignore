@@ -98,3 +98,4 @@ testing/incremental/test_input/
 testing/incremental/test_output/
 docs/action_logs/*
 
+**/tmp/*
