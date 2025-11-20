@@ -165,7 +165,11 @@ class JSONPublisher:
 
     def _generate_html(self, data: Dict[str, Any]) -> str:
         """Generate HTML from JSON data with default styling"""
-        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')
+        # Use static timestamp when TEST=1 (for snapshots), otherwise use current time
+        if os.environ.get('TEST') == '1':
+            timestamp = '2025-11-19 18:34:10 UTC'
+        else:
+            timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')
 
         # Convert JSON to formatted HTML
         json_html = self._json_to_html(data)

@@ -95,6 +95,8 @@ process_yml_file() {
     fi
     
     # Run the publisher to generate output directly to snapshot directory
+    # Use TEST=1 to enable static timestamp for consistent snapshots
+    export TEST=1
     if ! echo "$json_data" | python3 "$PUBLISHER" --mode pages --output "$output_file" > /dev/null 2>&1; then
         echo -e "${RED}✗${NC} Failed to generate output for $basename.html"
         return 1
