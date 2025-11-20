@@ -59,51 +59,16 @@ runs:
         DOCKER_IMAGE_TAG: latest
       run: |
         set -euo pipefail
-        mkdir -p _working/_data _working/_cache
-
         # Persist image tag for later steps (manifest)
         echo "DOCKER_IMAGE_TAG=${DOCKER_IMAGE_TAG}" >> "${GITHUB_ENV}"
-
-        echo "🕷️ Scraping ${{ inputs.state }} (with retries + DNS override)..."
-        exit_code=1
-        for i in 1 2 3; do
-          docker pull openstates/scrapers:${DOCKER_IMAGE_TAG} || true
-          if docker run \
-              --dns 8.8.8.8 --dns 1.1.1.1 \
-              -v "$(pwd)/_working/_data":/opt/openstates/openstates/_data \
-              -v "$(pwd)/_working/_cache":/opt/openstates/openstates/_cache \
-              openstates/scrapers:${DOCKER_IMAGE_TAG} \
-              ${{ inputs.state }} bills --scrape --fastmode
-          then
-            exit_code=0
-            break
-          fi
-          echo "⚠️ scrape attempt $i failed; sleeping 20s..."
-          sleep 20
-        done
-
-        # If anything was scraped, stage a tarball; otherwise fall back later
-        JSON_DIR="_working/_data/${{ inputs.state }}"
-        if [ -d "$JSON_DIR" ]; then
-          COUNT_JSON=$(find "$JSON_DIR" -type f -name '*.json' | wc -l | tr -d ' ')
-        else
-          COUNT_JSON=0
-        fi
-        echo "Found ${COUNT_JSON} JSON files in $JSON_DIR"
-        if [ "$COUNT_JSON" -gt 0 ]; then
-          tar zcf scrape-snapshot-nightly.tgz --mode=755 -C "$JSON_DIR" .
-          # put it in workspace so later steps can use a single path
-          cp scrape-snapshot-nightly.tgz "${GITHUB_WORKSPACE}/scrape-snapshot-nightly.tgz"
+        
+        bash "${{ github.action_path }}/scrape.sh" "${{ inputs.state }}" "${DOCKER_IMAGE_TAG}" "$(pwd)" "${{ github.workspace }}" || true
+        
+        # Check if tarball was created
+        if [ -f "${{ github.workspace }}/scrape-snapshot-nightly.tgz" ]; then
           echo "SCRAPE_TARBALL=present" >> "${GITHUB_ENV}"
-          echo "✅ Created local scrape tarball"
         else
           echo "SCRAPE_TARBALL=absent" >> "${GITHUB_ENV}"
-          echo "ℹ️ No new files found; will use nightly fallback."
-        fi
-
-        # Do not fail the job; proceed with fallback or partial data
-        if [ $exit_code -ne 0 ]; then
-          echo "::warning::Scrape step exited non-zero; continuing with fallback/nightly artifact."
         fi
 
     - name: Upload scraped artifact (rolling)
