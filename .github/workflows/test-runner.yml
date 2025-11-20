@@ -88,9 +88,9 @@ jobs:
       - name: Run test runner
         run: |
           cd actions/report-publisher
-          ../../scripts/before-snapshots.sh
+          ../../scripts/before-snapshots.sh examples/__snapshots__
           ./render-snapshots.sh
-          ../../scripts/verify-snapshots.sh
+          ../../scripts/verify-snapshots.sh examples/__snapshots__
 
   test-pipeline-manager:
     name: Test Pipeline Manager
@@ -111,9 +111,9 @@ jobs:
       - name: Run test runner
         run: |
           cd actions/pipeline-manager
-          ../../scripts/before-snapshots.sh
+          ../../scripts/before-snapshots.sh __snapshot__
           ./render-snapshots.sh
-          ../../scripts/verify-snapshots.sh
+          ../../scripts/verify-snapshots.sh __snapshot__
 
   test-from-windy-civi-pipelines:
     name: Test From Windy Civi Pipelines
