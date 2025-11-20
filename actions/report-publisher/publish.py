@@ -173,6 +173,15 @@ class JSONPublisher:
 
         # Convert JSON to formatted HTML
         json_html = self._json_to_html(data)
+        
+        # Generate JSON download link - use relative path in test mode
+        if os.environ.get('TEST') == '1' and self.args.output:
+            # Use just the basename for snapshots to avoid absolute path differences
+            json_link = Path(self.args.output).name.replace('.html', '.json')
+        elif self.args.output:
+            json_link = self.args.output.replace('.html', '.json')
+        else:
+            json_link = 'index.json'
 
         html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -312,7 +321,7 @@ class JSONPublisher:
         <div class="actions">
             <button class="btn" onclick="toggleRaw()">Toggle Raw JSON</button>
             <button class="btn" onclick="copyToClipboard()">Copy JSON</button>
-            <a class="btn" href="{self.args.output.replace('.html', '.json') if self.args.output else 'index.json'}" download>Download JSON</a>
+            <a class="btn" href="{json_link}" download>Download JSON</a>
         </div>
 
         <div class="raw-json" id="rawJson">
