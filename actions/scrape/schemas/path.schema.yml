@@ -4,6 +4,9 @@
 paths:
   ./_working/{locale}/bill_{uuid}.json: bill.schema.json
   ./_working/{locale}/vote_event_{uuid}.json: vote_event.schema.json
+  ./_working/{locale}/jurisdiction_{key}.json: jurisdiction.schema.json
+  ./_working/{locale}/organization_{uuid}.json: organization.schema.json
 variables:
   locale: string # the locale of the data (could be an enum)
   uuid: string
+  key: string # some OCD compliant key
