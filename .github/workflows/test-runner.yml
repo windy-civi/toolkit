@@ -86,8 +86,8 @@ jobs:
           python-version: '3.11'
 
       - name: Run test runner
-        working-directory: actions/report-publisher
         run: |
+          cd actions/report-publisher
           ../../scripts/before-snapshots.sh
           ./render-snapshots.sh
           ../../scripts/verify-snapshots.sh
@@ -109,8 +109,8 @@ jobs:
           python-version: '3.11'
 
       - name: Run test runner
-        working-directory: actions/pipeline-manager
         run: |
+          cd actions/pipeline-manager
           ../../scripts/before-snapshots.sh
           ./render-snapshots.sh
           ../../scripts/verify-snapshots.sh
