@@ -110,6 +110,7 @@ jobs:
         run: |
           cd actions/pipeline-manager
           ./test.sh
+          
 
   test-from-windy-civi-pipelines:
     name: Test From Windy Civi Pipelines
