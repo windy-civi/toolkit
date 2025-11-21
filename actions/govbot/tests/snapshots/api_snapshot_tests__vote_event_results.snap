@@ -1,9 +1,0 @@
----
-source: tests/api_snapshot_tests.rs
-expression: "&results"
----
-[
-  "pass",
-  "fail",
-  "unknown"
-]
