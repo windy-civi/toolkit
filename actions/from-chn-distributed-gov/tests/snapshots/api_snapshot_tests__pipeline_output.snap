@@ -1,0 +1,3213 @@
+---
+source: tests/api_snapshot_tests.rs
+expression: json_output
+---
+[
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-23",
+        "description": "Added Co-Sponsor Rep. Michael Crawford",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB4022"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB4022/logs/20251023T000000Z_added_cosponsor_rep_michael_crawford.json",
+    "minimal_metadata": {
+      "title": "$BD HIGHER ED-SCH PSYCHOLOGIS",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=4022&GAID=18&DocTypeID=HB&LegId=163229&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-23",
+        "description": "Added Co-Sponsor Rep. Anna Moeller",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HR161"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HR161/logs/20251023T000000Z_added_cosponsor_rep_anna_moeller.json",
+    "minimal_metadata": {
+      "title": "AFFIRMS-EQUAL EMPLOYMENT",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=161&GAID=18&DocTypeID=HR&LegId=163105&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "filing"
+        ],
+        "date": "2025-10-23",
+        "description": "Filed with the Clerk by Rep. Lisa Davis",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HJR46"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HJR46/logs/20251023T000000Z_filed_with_the_clerk_by_rep_lisa_davis.json",
+    "minimal_metadata": {
+      "title": "LITTLE PALESTINE WAY",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=46&GAID=18&DocTypeID=HJR&LegId=164467&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-23",
+        "description": "Added as Co-Sponsor Sen. Sara Feigenholtz",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "SB2391"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/SB2391/logs/20251023T000000Z_added_as_cosponsor_sen_sara_feigenholtz.json",
+    "minimal_metadata": {
+      "title": "PROSTITUTION DECRIMINALIZATION",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=2391&GAID=18&DocTypeID=SB&LegId=162402&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-23",
+        "description": "Added as Co-Sponsor Sen. Graciela Guzmán",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "SB268"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/SB268/logs/20251023T000000Z_added_as_cosponsor_sen_graciela_guzmán.json",
+    "minimal_metadata": {
+      "title": "INSURANCE RATE FAIRNESS",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=268&GAID=18&DocTypeID=SB&LegId=157713&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-23",
+        "description": "Added Co-Sponsor Rep. Lindsey LaPointe",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB4144"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB4144/logs/20251023T000000Z_added_cosponsor_rep_lindsey_lapointe.json",
+    "minimal_metadata": {
+      "title": "IEMA-OHS-MABAS-ILEAS FUNDING",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=4144&GAID=18&DocTypeID=HB&LegId=164215&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-23",
+        "description": "Added Co-Sponsor Rep. Michael Crawford",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB4021"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB4021/logs/20251023T000000Z_added_cosponsor_rep_michael_crawford.json",
+    "minimal_metadata": {
+      "title": "$ST BD ED-SCHOOL PSYCHOLOGIST",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=4021&GAID=18&DocTypeID=HB&LegId=163228&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-23",
+        "description": "Added Chief Co-Sponsor Rep. Steven Reick",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB762"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB762/logs/20251023T000000Z_added_chief_cosponsor_rep_steven_reick.json",
+    "minimal_metadata": {
+      "title": "REGULATION-TECH",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=762&GAID=18&DocTypeID=HB&LegId=156440&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-23",
+        "description": "Added Co-Sponsor Rep. Nicholas K. Smith",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB762"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB762/logs/20251023T000000Z_added_cosponsor_rep_nicholas_k_smith.json",
+    "minimal_metadata": {
+      "title": "REGULATION-TECH",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=762&GAID=18&DocTypeID=HB&LegId=156440&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-23",
+        "description": "Added Chief Co-Sponsor Rep. Camille Y. Lilly",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB762"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB762/logs/20251023T000000Z_added_chief_cosponsor_rep_camille_y_lilly.json",
+    "minimal_metadata": {
+      "title": "REGULATION-TECH",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=762&GAID=18&DocTypeID=HB&LegId=156440&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "filing"
+        ],
+        "date": "2025-10-23",
+        "description": "Filed with the Clerk by Rep. Charles Meier",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB4179"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB4179/logs/20251023T000000Z_filed_with_the_clerk_by_rep_charles_meier.json",
+    "minimal_metadata": {
+      "title": "$DHS-DIGNITY IN PAY GRANTS",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=4179&GAID=18&DocTypeID=HB&LegId=164469&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-23",
+        "description": "Added Co-Sponsor Rep. Brad Stephens",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB4171"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB4171/logs/20251023T000000Z_added_cosponsor_rep_brad_stephens.json",
+    "minimal_metadata": {
+      "title": "SPORTS WAGERING-NO LOCAL TAXES",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=4171&GAID=18&DocTypeID=HB&LegId=164435&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "filing"
+        ],
+        "date": "2025-10-23",
+        "description": "Filed with the Clerk by Rep. Robert \"Bob\" Rita",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB4178"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB4178/logs/20251023T000000Z_filed_with_the_clerk_by_rep_robert_bob_rita.json",
+    "minimal_metadata": {
+      "title": "GAMBLING-OWNERS LICENSES",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=4178&GAID=18&DocTypeID=HB&LegId=164464&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-23",
+        "description": "Added Chief Co-Sponsor Rep. Norine K. Hammond",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB1033"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB1033/logs/20251023T000000Z_added_chief_cosponsor_rep_norine_k_hammond.json",
+    "minimal_metadata": {
+      "title": "CITIZEN LAW ENFORCEMENT ACT",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1033&GAID=18&DocTypeID=HB&LegId=156711&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "filing"
+        ],
+        "date": "2025-10-23",
+        "description": "Filed with the Clerk by Rep. Blaine Wilhour",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HR524"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HR524/logs/20251023T000000Z_filed_with_the_clerk_by_rep_blaine_wilhour.json",
+    "minimal_metadata": {
+      "title": "CONGRATS-CHIEF KENNY RYKER",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=524&GAID=18&DocTypeID=HR&LegId=164466&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "filing"
+        ],
+        "date": "2025-10-23",
+        "description": "Filed with the Clerk by Rep. Justin Slaughter",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HR523"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HR523/logs/20251023T000000Z_filed_with_the_clerk_by_rep_justin_slaughter.json",
+    "minimal_metadata": {
+      "title": "CONGRATS-YAP, INC.",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=523&GAID=18&DocTypeID=HR&LegId=164462&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "filing"
+        ],
+        "date": "2025-10-23",
+        "description": "Filed with the Clerk by Rep. Diane Blair-Sherlock",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HR525"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HR525/logs/20251023T000000Z_filed_with_the_clerk_by_rep_diane_blairsherlock.json",
+    "minimal_metadata": {
+      "title": "RACE AMITY DAY",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=525&GAID=18&DocTypeID=HR&LegId=164470&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "bill": "~{\"from_organization__classification\": \"lower\", \"identifier\": \"HR 5371\", \"legislative_session__identifier\": \"119\"}",
+      "bill_action": null,
+      "bill_identifier": "HR 5371",
+      "counts": [
+        {
+          "option": "yes",
+          "value": 54
+        },
+        {
+          "option": "no",
+          "value": 46
+        },
+        {
+          "option": "absent",
+          "value": 0
+        },
+        {
+          "option": "abstain",
+          "value": 0
+        }
+      ],
+      "extras": {
+        "senate-rollcall-num": "581"
+      },
+      "identifier": "us-2025-upper-581",
+      "legislative_session": "119",
+      "motion_classification": [
+        "passage"
+      ],
+      "motion_text": "On Cloture on the Motion to Proceed H.R. 5371",
+      "organization": "~{\"classification\": \"upper\"}",
+      "result": "fail",
+      "sources": [
+        {
+          "note": "",
+          "url": "https://www.senate.gov/legislative/LIS/roll_call_votes/vote1191/vote_119_1_00581.xml"
+        }
+      ],
+      "start_date": "2025-10-22T09:15:00+00:00",
+      "votes": [
+        {
+          "note": "S428",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Alsobrooks (D-MD)\"}",
+          "voter_name": "Alsobrooks (D-MD)"
+        },
+        {
+          "note": "S354",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Baldwin (D-WI)\"}",
+          "voter_name": "Baldwin (D-WI)"
+        },
+        {
+          "note": "S429",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Banks (R-IN)\"}",
+          "voter_name": "Banks (R-IN)"
+        },
+        {
+          "note": "S317",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Barrasso (R-WY)\"}",
+          "voter_name": "Barrasso (R-WY)"
+        },
+        {
+          "note": "S330",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Bennet (D-CO)\"}",
+          "voter_name": "Bennet (D-CO)"
+        },
+        {
+          "note": "S396",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Blackburn (R-TN)\"}",
+          "voter_name": "Blackburn (R-TN)"
+        },
+        {
+          "note": "S341",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Blumenthal (D-CT)\"}",
+          "voter_name": "Blumenthal (D-CT)"
+        },
+        {
+          "note": "S430",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Blunt Rochester (D-DE)\"}",
+          "voter_name": "Blunt Rochester (D-DE)"
+        },
+        {
+          "note": "S370",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Booker (D-NJ)\"}",
+          "voter_name": "Booker (D-NJ)"
+        },
+        {
+          "note": "S343",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Boozman (R-AR)\"}",
+          "voter_name": "Boozman (R-AR)"
+        },
+        {
+          "note": "S416",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Britt (R-AL)\"}",
+          "voter_name": "Britt (R-AL)"
+        },
+        {
+          "note": "S417",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Budd (R-NC)\"}",
+          "voter_name": "Budd (R-NC)"
+        },
+        {
+          "note": "S275",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Cantwell (D-WA)\"}",
+          "voter_name": "Cantwell (D-WA)"
+        },
+        {
+          "note": "S372",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Capito (R-WV)\"}",
+          "voter_name": "Capito (R-WV)"
+        },
+        {
+          "note": "S373",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Cassidy (R-LA)\"}",
+          "voter_name": "Cassidy (R-LA)"
+        },
+        {
+          "note": "S252",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Collins (R-ME)\"}",
+          "voter_name": "Collins (R-ME)"
+        },
+        {
+          "note": "S337",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Coons (D-DE)\"}",
+          "voter_name": "Coons (D-DE)"
+        },
+        {
+          "note": "S287",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Cornyn (R-TX)\"}",
+          "voter_name": "Cornyn (R-TX)"
+        },
+        {
+          "note": "S385",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Cortez Masto (D-NV)\"}",
+          "voter_name": "Cortez Masto (D-NV)"
+        },
+        {
+          "note": "S374",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Cotton (R-AR)\"}",
+          "voter_name": "Cotton (R-AR)"
+        },
+        {
+          "note": "S398",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Cramer (R-ND)\"}",
+          "voter_name": "Cramer (R-ND)"
+        },
+        {
+          "note": "S266",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Crapo (R-ID)\"}",
+          "voter_name": "Crapo (R-ID)"
+        },
+        {
+          "note": "S355",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Cruz (R-TX)\"}",
+          "voter_name": "Cruz (R-TX)"
+        },
+        {
+          "note": "S431",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Curtis (R-UT)\"}",
+          "voter_name": "Curtis (R-UT)"
+        },
+        {
+          "note": "S375",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Daines (R-MT)\"}",
+          "voter_name": "Daines (R-MT)"
+        },
+        {
+          "note": "S386",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Duckworth (D-IL)\"}",
+          "voter_name": "Duckworth (D-IL)"
+        },
+        {
+          "note": "S253",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Durbin (D-IL)\"}",
+          "voter_name": "Durbin (D-IL)"
+        },
+        {
+          "note": "S376",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Ernst (R-IA)\"}",
+          "voter_name": "Ernst (R-IA)"
+        },
+        {
+          "note": "S418",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Fetterman (D-PA)\"}",
+          "voter_name": "Fetterman (D-PA)"
+        },
+        {
+          "note": "S357",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Fischer (R-NE)\"}",
+          "voter_name": "Fischer (R-NE)"
+        },
+        {
+          "note": "S432",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Gallego (D-AZ)\"}",
+          "voter_name": "Gallego (D-AZ)"
+        },
+        {
+          "note": "S331",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Gillibrand (D-NY)\"}",
+          "voter_name": "Gillibrand (D-NY)"
+        },
+        {
+          "note": "S293",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Graham (R-SC)\"}",
+          "voter_name": "Graham (R-SC)"
+        },
+        {
+          "note": "S153",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Grassley (R-IA)\"}",
+          "voter_name": "Grassley (R-IA)"
+        },
+        {
+          "note": "S407",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Hagerty (R-TN)\"}",
+          "voter_name": "Hagerty (R-TN)"
+        },
+        {
+          "note": "S388",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Hassan (D-NH)\"}",
+          "voter_name": "Hassan (D-NH)"
+        },
+        {
+          "note": "S399",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Hawley (R-MO)\"}",
+          "voter_name": "Hawley (R-MO)"
+        },
+        {
+          "note": "S359",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Heinrich (D-NM)\"}",
+          "voter_name": "Heinrich (D-NM)"
+        },
+        {
+          "note": "S408",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Hickenlooper (D-CO)\"}",
+          "voter_name": "Hickenlooper (D-CO)"
+        },
+        {
+          "note": "S361",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Hirono (D-HI)\"}",
+          "voter_name": "Hirono (D-HI)"
+        },
+        {
+          "note": "S344",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Hoeven (R-ND)\"}",
+          "voter_name": "Hoeven (R-ND)"
+        },
+        {
+          "note": "S438",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Husted (R-OH)\"}",
+          "voter_name": "Husted (R-OH)"
+        },
+        {
+          "note": "S395",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Hyde-Smith (R-MS)\"}",
+          "voter_name": "Hyde-Smith (R-MS)"
+        },
+        {
+          "note": "S345",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Johnson (R-WI)\"}",
+          "voter_name": "Johnson (R-WI)"
+        },
+        {
+          "note": "S437",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Justice (R-WV)\"}",
+          "voter_name": "Justice (R-WV)"
+        },
+        {
+          "note": "S362",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Kaine (D-VA)\"}",
+          "voter_name": "Kaine (D-VA)"
+        },
+        {
+          "note": "S406",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Kelly (D-AZ)\"}",
+          "voter_name": "Kelly (D-AZ)"
+        },
+        {
+          "note": "S389",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Kennedy (R-LA)\"}",
+          "voter_name": "Kennedy (R-LA)"
+        },
+        {
+          "note": "S426",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Kim (D-NJ)\"}",
+          "voter_name": "Kim (D-NJ)"
+        },
+        {
+          "note": "S363",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"King (I-ME)\"}",
+          "voter_name": "King (I-ME)"
+        },
+        {
+          "note": "S311",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Klobuchar (D-MN)\"}",
+          "voter_name": "Klobuchar (D-MN)"
+        },
+        {
+          "note": "S378",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Lankford (R-OK)\"}",
+          "voter_name": "Lankford (R-OK)"
+        },
+        {
+          "note": "S346",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Lee (R-UT)\"}",
+          "voter_name": "Lee (R-UT)"
+        },
+        {
+          "note": "S409",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Lujan (D-NM)\"}",
+          "voter_name": "Lujan (D-NM)"
+        },
+        {
+          "note": "S410",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Lummis (R-WY)\"}",
+          "voter_name": "Lummis (R-WY)"
+        },
+        {
+          "note": "S369",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Markey (D-MA)\"}",
+          "voter_name": "Markey (D-MA)"
+        },
+        {
+          "note": "S411",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Marshall (R-KS)\"}",
+          "voter_name": "Marshall (R-KS)"
+        },
+        {
+          "note": "S174",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"McConnell (R-KY)\"}",
+          "voter_name": "McConnell (R-KY)"
+        },
+        {
+          "note": "S433",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"McCormick (R-PA)\"}",
+          "voter_name": "McCormick (R-PA)"
+        },
+        {
+          "note": "S322",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Merkley (D-OR)\"}",
+          "voter_name": "Merkley (D-OR)"
+        },
+        {
+          "note": "S439",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Moody (R-FL)\"}",
+          "voter_name": "Moody (R-FL)"
+        },
+        {
+          "note": "S347",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Moran (R-KS)\"}",
+          "voter_name": "Moran (R-KS)"
+        },
+        {
+          "note": "S434",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Moreno (R-OH)\"}",
+          "voter_name": "Moreno (R-OH)"
+        },
+        {
+          "note": "S419",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Mullin (R-OK)\"}",
+          "voter_name": "Mullin (R-OK)"
+        },
+        {
+          "note": "S288",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Murkowski (R-AK)\"}",
+          "voter_name": "Murkowski (R-AK)"
+        },
+        {
+          "note": "S364",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Murphy (D-CT)\"}",
+          "voter_name": "Murphy (D-CT)"
+        },
+        {
+          "note": "S229",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Murray (D-WA)\"}",
+          "voter_name": "Murray (D-WA)"
+        },
+        {
+          "note": "S414",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Ossoff (D-GA)\"}",
+          "voter_name": "Ossoff (D-GA)"
+        },
+        {
+          "note": "S413",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Padilla (D-CA)\"}",
+          "voter_name": "Padilla (D-CA)"
+        },
+        {
+          "note": "S348",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Paul (R-KY)\"}",
+          "voter_name": "Paul (R-KY)"
+        },
+        {
+          "note": "S380",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Peters (D-MI)\"}",
+          "voter_name": "Peters (D-MI)"
+        },
+        {
+          "note": "S259",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Reed (D-RI)\"}",
+          "voter_name": "Reed (D-RI)"
+        },
+        {
+          "note": "S423",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Ricketts (R-NE)\"}",
+          "voter_name": "Ricketts (R-NE)"
+        },
+        {
+          "note": "S323",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Risch (R-ID)\"}",
+          "voter_name": "Risch (R-ID)"
+        },
+        {
+          "note": "S402",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Rosen (D-NV)\"}",
+          "voter_name": "Rosen (D-NV)"
+        },
+        {
+          "note": "S381",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Rounds (R-SD)\"}",
+          "voter_name": "Rounds (R-SD)"
+        },
+        {
+          "note": "S313",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Sanders (I-VT)\"}",
+          "voter_name": "Sanders (I-VT)"
+        },
+        {
+          "note": "S353",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Schatz (D-HI)\"}",
+          "voter_name": "Schatz (D-HI)"
+        },
+        {
+          "note": "S427",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Schiff (D-CA)\"}",
+          "voter_name": "Schiff (D-CA)"
+        },
+        {
+          "note": "S420",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Schmitt (R-MO)\"}",
+          "voter_name": "Schmitt (R-MO)"
+        },
+        {
+          "note": "S270",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Schumer (D-NY)\"}",
+          "voter_name": "Schumer (D-NY)"
+        },
+        {
+          "note": "S404",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Scott (R-FL)\"}",
+          "voter_name": "Scott (R-FL)"
+        },
+        {
+          "note": "S365",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Scott (R-SC)\"}",
+          "voter_name": "Scott (R-SC)"
+        },
+        {
+          "note": "S324",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Shaheen (D-NH)\"}",
+          "voter_name": "Shaheen (D-NH)"
+        },
+        {
+          "note": "S435",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Sheehy (R-MT)\"}",
+          "voter_name": "Sheehy (R-MT)"
+        },
+        {
+          "note": "S436",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Slotkin (D-MI)\"}",
+          "voter_name": "Slotkin (D-MI)"
+        },
+        {
+          "note": "S394",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Smith (D-MN)\"}",
+          "voter_name": "Smith (D-MN)"
+        },
+        {
+          "note": "S383",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Sullivan (R-AK)\"}",
+          "voter_name": "Sullivan (R-AK)"
+        },
+        {
+          "note": "S303",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Thune (R-SD)\"}",
+          "voter_name": "Thune (R-SD)"
+        },
+        {
+          "note": "S384",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Tillis (R-NC)\"}",
+          "voter_name": "Tillis (R-NC)"
+        },
+        {
+          "note": "S412",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Tuberville (R-AL)\"}",
+          "voter_name": "Tuberville (R-AL)"
+        },
+        {
+          "note": "S390",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Van Hollen (D-MD)\"}",
+          "voter_name": "Van Hollen (D-MD)"
+        },
+        {
+          "note": "S327",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Warner (D-VA)\"}",
+          "voter_name": "Warner (D-VA)"
+        },
+        {
+          "note": "S415",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Warnock (D-GA)\"}",
+          "voter_name": "Warnock (D-GA)"
+        },
+        {
+          "note": "S366",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Warren (D-MA)\"}",
+          "voter_name": "Warren (D-MA)"
+        },
+        {
+          "note": "S422",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Welch (D-VT)\"}",
+          "voter_name": "Welch (D-VT)"
+        },
+        {
+          "note": "S316",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Whitehouse (D-RI)\"}",
+          "voter_name": "Whitehouse (D-RI)"
+        },
+        {
+          "note": "S318",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Wicker (R-MS)\"}",
+          "voter_name": "Wicker (R-MS)"
+        },
+        {
+          "note": "S247",
+          "option": "no",
+          "voter_id": "~{\"name\": \"Wyden (D-OR)\"}",
+          "voter_name": "Wyden (D-OR)"
+        },
+        {
+          "note": "S391",
+          "option": "yes",
+          "voter_id": "~{\"name\": \"Young (R-IN)\"}",
+          "voter_name": "Young (R-IN)"
+        }
+      ]
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HR5371/logs/20251022T091500Z_vote_event_fail.json",
+    "minimal_metadata": {
+      "title": "Continuing Appropriations and Extensions Act, 2026",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr5371.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/house-bill/5371",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Foreign Relations. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 2950"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S2950/logs/20251022T040000Z_committee_on_foreign_relations_ordered_to_be_reported_with_an_amendment_in_the_nature_of_a_substitut.json",
+    "minimal_metadata": {
+      "title": "Scam Compound Accountability and Mobilization Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s2950.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/2950",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Veterans' Affairs. Reported by Senator Moran with an amendment in the nature of a substitute. Without written report.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 778"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S778/logs/20251022T040000Z_committee_on_veterans_affairs_reported_by_senator_moran_with_an_amendment_in_the_nature_of_a_substit.json",
+    "minimal_metadata": {
+      "title": "Lactation Spaces for Veteran Moms Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s778.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/778",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 200.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 778"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S778/logs/20251022T040000Z_placed_on_senate_legislative_calendar_under_general_orders_calendar_no_200.json",
+    "minimal_metadata": {
+      "title": "Lactation Spaces for Veteran Moms Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s778.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/778",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Foreign Relations. Ordered to be reported without amendment favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "SRES 409"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/SRES409/logs/20251022T040000Z_committee_on_foreign_relations_ordered_to_be_reported_without_amendment_favorably.json",
+    "minimal_metadata": {
+      "title": "A resolution recognizing the 74th anniversary of the signing of the Mutual Defense Treaty between the United States and the Philippines and the strong bilateral security alliance between our two nations in the wake of escalating aggression and political lawfare by the People's Republic of China in the South China Sea.",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/sres/BILLSTATUS-119sres409.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-resolution/409",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Veterans' Affairs. Reported by Senator Moran without amendment. Without written report.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 2392"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S2392/logs/20251022T040000Z_committee_on_veterans_affairs_reported_by_senator_moran_without_amendment_without_written_report.json",
+    "minimal_metadata": {
+      "title": "Veterans’ Compensation Cost-of-Living Adjustment Act of 2025",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s2392.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/2392",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 202.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 2392"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S2392/logs/20251022T040000Z_placed_on_senate_legislative_calendar_under_general_orders_calendar_no_202.json",
+    "minimal_metadata": {
+      "title": "Veterans’ Compensation Cost-of-Living Adjustment Act of 2025",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s2392.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/2392",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Read twice and referred to the Committee on Rules and Administration.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 3028"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S3028/logs/20251022T040000Z_read_twice_and_referred_to_the_committee_on_rules_and_administration.json",
+    "minimal_metadata": {
+      "title": "Protecting Ballot Measures From Foreign Influence Act of 2025",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s3028.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/3028",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Referred to the Committee on Foreign Relations.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "SRES 462"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/SRES462/logs/20251022T040000Z_referred_to_the_committee_on_foreign_relations.json",
+    "minimal_metadata": {
+      "title": "A resolution recognizing Nobel Prize winner Maria Corina Machado and reaffirming support for democracy in Venezuela.",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/sres/BILLSTATUS-119sres462.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-resolution/462",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Star Print ordered on the bill.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 2967"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S2967/logs/20251022T040000Z_star_print_ordered_on_the_bill.json",
+    "minimal_metadata": {
+      "title": "Border Lands Conservation Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s2967.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/2967",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Foreign Relations. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 2960"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S2960/logs/20251022T040000Z_committee_on_foreign_relations_ordered_to_be_reported_with_an_amendment_in_the_nature_of_a_substitut.json",
+    "minimal_metadata": {
+      "title": "Deter PRC Aggression Against Taiwan Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s2960.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/2960",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Read twice and referred to the Committee on Finance.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 3027"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S3027/logs/20251022T040000Z_read_twice_and_referred_to_the_committee_on_finance.json",
+    "minimal_metadata": {
+      "title": "Interstate Commerce Simplification Act of 2025",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s3027.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/3027",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Foreign Relations. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 2130"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S2130/logs/20251022T040000Z_committee_on_foreign_relations_ordered_to_be_reported_with_an_amendment_in_the_nature_of_a_substitut.json",
+    "minimal_metadata": {
+      "title": "AUKUS Improvement Act of 2025",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s2130.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/2130",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 3029"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S3029/logs/20251022T040000Z_read_twice_and_referred_to_the_committee_on_commerce_science_and_transportation.json",
+    "minimal_metadata": {
+      "title": "DOE and NASA Interagency Research Coordination Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s3029.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/3029",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Foreign Relations. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 1000"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S1000/logs/20251022T040000Z_committee_on_foreign_relations_ordered_to_be_reported_with_an_amendment_in_the_nature_of_a_substitut.json",
+    "minimal_metadata": {
+      "title": "A bill to establish an Ambassador-at-Large for Arctic Affairs.",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s1000.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/1000",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Foreign Relations. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 2018"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S2018/logs/20251022T040000Z_committee_on_foreign_relations_ordered_to_be_reported_with_an_amendment_in_the_nature_of_a_substitut.json",
+    "minimal_metadata": {
+      "title": "A bill to modify certain limitations and exclusions regarding defense articles and requirements regarding security assistance and sales with respect to the Republic of Cyprus.",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s2018.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/2018",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Foreign Relations. Ordered to be reported without amendment favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 2224"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S2224/logs/20251022T040000Z_committee_on_foreign_relations_ordered_to_be_reported_without_amendment_favorably.json",
+    "minimal_metadata": {
+      "title": "Taiwan International Solidarity Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s2224.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/2224",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Foreign Relations. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 2684"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S2684/logs/20251022T040000Z_committee_on_foreign_relations_ordered_to_be_reported_with_an_amendment_in_the_nature_of_a_substitut.json",
+    "minimal_metadata": {
+      "title": "United States-Taiwan Partnership in the Americas Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s2684.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/2684",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Seventh cloture motion on the motion to proceed to the measure not invoked in Senate by Yea-Nay Vote. 54 - 46. Record Vote Number: 581.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "HR 5371"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HR5371/logs/20251022T040000Z_seventh_cloture_motion_on_the_motion_to_proceed_to_the_measure_not_invoked_in_senate_by_yeanay_vote_.json",
+    "minimal_metadata": {
+      "title": "Continuing Appropriations and Extensions Act, 2026",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr5371.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/house-bill/5371",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Motion by Senator Thune to reconsider the vote by which the seventh cloture on the motion to proceed to H.R. 5371 was not invoked (Record Vote No. 581) entered in Senate.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "HR 5371"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HR5371/logs/20251022T040000Z_motion_by_senator_thune_to_reconsider_the_vote_by_which_the_seventh_cloture_on_the_motion_to_proceed.json",
+    "minimal_metadata": {
+      "title": "Continuing Appropriations and Extensions Act, 2026",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr5371.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/house-bill/5371",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Foreign Relations. Ordered to be reported without amendment favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "SRES 226"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/SRES226/logs/20251022T040000Z_committee_on_foreign_relations_ordered_to_be_reported_without_amendment_favorably.json",
+    "minimal_metadata": {
+      "title": "A resolution condemning the Government of the People's Republic of China for engaging in transnational repression.",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/sres/BILLSTATUS-119sres226.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-resolution/226",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Read twice and referred to the Committee on Veterans' Affairs.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 3033"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S3033/logs/20251022T040000Z_read_twice_and_referred_to_the_committee_on_veterans_affairs.json",
+    "minimal_metadata": {
+      "title": "Improving Access to Care for Rural Veterans Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s3033.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/3033",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Foreign Relations. Ordered to be reported without amendment favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 2918"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S2918/logs/20251022T040000Z_committee_on_foreign_relations_ordered_to_be_reported_without_amendment_favorably.json",
+    "minimal_metadata": {
+      "title": "REPO Implementation Act of 2025",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s2918.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/2918",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Foreign Relations. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 2146"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S2146/logs/20251022T040000Z_committee_on_foreign_relations_ordered_to_be_reported_with_an_amendment_in_the_nature_of_a_substitut.json",
+    "minimal_metadata": {
+      "title": "China Exchange Rate Transparency Act of 2025",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s2146.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/2146",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Foreign Relations. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 799"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S799/logs/20251022T040000Z_committee_on_foreign_relations_ordered_to_be_reported_with_an_amendment_in_the_nature_of_a_substitut.json",
+    "minimal_metadata": {
+      "title": "United States Legal Gold and Mining Partnership Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s799.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/799",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "reading-2"
+        ],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 206.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 3032"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S3032/logs/20251022T040000Z_read_the_second_time_placed_on_senate_legislative_calendar_under_general_orders_calendar_no_206.json",
+    "minimal_metadata": {
+      "title": "Counter-UAS Authority Extension Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s3032.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/3032",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Introduced in the Senate. Read the first time. Placed on Senate Legislative Calendar under Read the First Time. (Legislative Day October 21, 2025).",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 3032"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S3032/logs/20251022T040000Z_introduced_in_the_senate_read_the_first_time_placed_on_senate_legislative_calendar_under_read_the_fi.json",
+    "minimal_metadata": {
+      "title": "Counter-UAS Authority Extension Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s3032.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/3032",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Foreign Relations. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 1744"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S1744/logs/20251022T040000Z_committee_on_foreign_relations_ordered_to_be_reported_with_an_amendment_in_the_nature_of_a_substitut.json",
+    "minimal_metadata": {
+      "title": "PORCUPINE Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s1744.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/1744",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Veterans' Affairs. Reported by Senator Moran without amendment. With written report No. 119-89.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 1318"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S1318/logs/20251022T040000Z_committee_on_veterans_affairs_reported_by_senator_moran_without_amendment_with_written_report_no_119.json",
+    "minimal_metadata": {
+      "title": "Fallen Servicemembers Religious Heritage Restoration Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s1318.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/1318",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 201.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 1318"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S1318/logs/20251022T040000Z_placed_on_senate_legislative_calendar_under_general_orders_calendar_no_201.json",
+    "minimal_metadata": {
+      "title": "Fallen Servicemembers Religious Heritage Restoration Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s1318.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/1318",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Foreign Relations. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 2550"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S2550/logs/20251022T040000Z_committee_on_foreign_relations_ordered_to_be_reported_with_an_amendment_in_the_nature_of_a_substitut.json",
+    "minimal_metadata": {
+      "title": "Critical Minerals Partnership Act of 2025",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s2550.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/2550",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Foreign Relations. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 1854"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S1854/logs/20251022T040000Z_committee_on_foreign_relations_ordered_to_be_reported_with_an_amendment_in_the_nature_of_a_substitut.json",
+    "minimal_metadata": {
+      "title": "Haiti Criminal Collusion Transparency Act of 2025",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s1854.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/1854",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Foreign Relations. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 2626"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S2626/logs/20251022T040000Z_committee_on_foreign_relations_ordered_to_be_reported_with_an_amendment_in_the_nature_of_a_substitut.json",
+    "minimal_metadata": {
+      "title": "Strengthening United States Leadership at the IDB Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s2626.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/2626",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Foreign Relations. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 2424"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S2424/logs/20251022T040000Z_committee_on_foreign_relations_ordered_to_be_reported_with_an_amendment_in_the_nature_of_a_substitut.json",
+    "minimal_metadata": {
+      "title": "THINK TWICE Act of 2025",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s2424.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/2424",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 203.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "SJRES 82"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/SJRES82/logs/20251022T040000Z_placed_on_senate_legislative_calendar_under_general_orders_calendar_no_203.json",
+    "minimal_metadata": {
+      "title": "A joint resolution providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Office of the Secretary of the Department of Health and Human Services relating to \"Policy on Adhering to the Text of the Administrative Procedure Act\".",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/sjres/BILLSTATUS-119sjres82.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-joint-resolution/82",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Senate Committee on Health, Education, Labor, and Pensions discharged by petition pursuant to 5 U.S.C. 802(c).",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "SJRES 82"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/SJRES82/logs/20251022T040000Z_senate_committee_on_health_education_labor_and_pensions_discharged_by_petition_pursuant_to_5_usc_802.json",
+    "minimal_metadata": {
+      "title": "A joint resolution providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Office of the Secretary of the Department of Health and Human Services relating to \"Policy on Adhering to the Text of the Administrative Procedure Act\".",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/sjres/BILLSTATUS-119sjres82.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-joint-resolution/82",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Foreign Relations. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 2657"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S2657/logs/20251022T040000Z_committee_on_foreign_relations_ordered_to_be_reported_with_an_amendment_in_the_nature_of_a_substitut.json",
+    "minimal_metadata": {
+      "title": "STOP China and Russia Act of 2025",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s2657.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/2657",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Introduced in the Senate. Read the first time. Placed on Senate Legislative Calendar under Read the First Time. (Legislative Day October 21, 2025).",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 3030"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S3030/logs/20251022T040000Z_introduced_in_the_senate_read_the_first_time_placed_on_senate_legislative_calendar_under_read_the_fi.json",
+    "minimal_metadata": {
+      "title": "Pay Our Military Act of 2025",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s3030.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/3030",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "reading-2"
+        ],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 204.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 3030"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S3030/logs/20251022T040000Z_read_the_second_time_placed_on_senate_legislative_calendar_under_general_orders_calendar_no_204.json",
+    "minimal_metadata": {
+      "title": "Pay Our Military Act of 2025",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s3030.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/3030",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Committee on Foreign Relations. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 2978"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S2978/logs/20251022T040000Z_committee_on_foreign_relations_ordered_to_be_reported_with_an_amendment_in_the_nature_of_a_substitut.json",
+    "minimal_metadata": {
+      "title": "Designating the Russian Federation as a State Sponsor of Terrorism Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s2978.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/2978",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Introduced in the Senate. Read the first time. Placed on Senate Legislative Calendar under Read the First Time. (Legislative Day October 21, 2025).",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 3031"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S3031/logs/20251022T040000Z_introduced_in_the_senate_read_the_first_time_placed_on_senate_legislative_calendar_under_read_the_fi.json",
+    "minimal_metadata": {
+      "title": "Keep America Flying Act of 2026",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s3031.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/3031",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "reading-2"
+        ],
+        "date": "2025-10-22T04:00:00+00:00",
+        "description": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 205.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 3031"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S3031/logs/20251022T040000Z_read_the_second_time_placed_on_senate_legislative_calendar_under_general_orders_calendar_no_205.json",
+    "minimal_metadata": {
+      "title": "Keep America Flying Act of 2026",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s3031.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/3031",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22",
+        "description": "Added as Alternate Co-Sponsor Sen. Laura Fine",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB3005"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB3005/logs/20251022T000000Z_added_as_alternate_cosponsor_sen_laura_fine.json",
+    "minimal_metadata": {
+      "title": "IDOT-MECHANIC WORKFORCE GOALS",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=3005&GAID=18&DocTypeID=HB&LegId=161271&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22",
+        "description": "Added as Chief Co-Sponsor Sen. Terri Bryant",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "SB2706"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/SB2706/logs/20251022T000000Z_added_as_chief_cosponsor_sen_terri_bryant.json",
+    "minimal_metadata": {
+      "title": "PROP TX-ENERGY SYSTEMS",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=2706&GAID=18&DocTypeID=SB&LegId=164240&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22",
+        "description": "Added as Co-Sponsor Sen. Rachel Ventura",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "SB1786"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/SB1786/logs/20251022T000000Z_added_as_cosponsor_sen_rachel_ventura.json",
+    "minimal_metadata": {
+      "title": "SCH CD-HIGH SCH-REGISTER VOTER",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1786&GAID=18&DocTypeID=SB&LegId=160934&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22",
+        "description": "Added Co-Sponsor Rep. Jennifer Gong-Gershowitz",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB3320"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB3320/logs/20251022T000000Z_added_cosponsor_rep_jennifer_gonggershowitz.json",
+    "minimal_metadata": {
+      "title": "RIFL ACT",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=3320&GAID=18&DocTypeID=HB&LegId=161810&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22",
+        "description": "Senate Floor Amendment No. 6 Referred to Assignments",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB3564"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB3564/logs/20251022T000000Z_senate_floor_amendment_no_6_referred_to_assignments.json",
+    "minimal_metadata": {
+      "title": "HUMAN RIGHTS ACT-REAL ESTATE",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=3564&GAID=18&DocTypeID=HB&LegId=162254&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "amendment-introduction"
+        ],
+        "date": "2025-10-22",
+        "description": "Senate Floor Amendment No. 6 Filed with Secretary by Sen. Mike Simmons",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB3564"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB3564/logs/20251022T000000Z_senate_floor_amendment_no_6_filed_with_secretary_by_sen_mike_simmons.json",
+    "minimal_metadata": {
+      "title": "HUMAN RIGHTS ACT-REAL ESTATE",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=3564&GAID=18&DocTypeID=HB&LegId=162254&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22",
+        "description": "Added Co-Sponsor Rep. Rick Ryan",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB3100"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB3100/logs/20251022T000000Z_added_cosponsor_rep_rick_ryan.json",
+    "minimal_metadata": {
+      "title": "DCEO-TOURISM",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=3100&GAID=18&DocTypeID=HB&LegId=161479&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22",
+        "description": "Added Co-Sponsor Rep. Laura Faver Dias",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB4144"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB4144/logs/20251022T000000Z_added_cosponsor_rep_laura_faver_dias.json",
+    "minimal_metadata": {
+      "title": "IEMA-OHS-MABAS-ILEAS FUNDING",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=4144&GAID=18&DocTypeID=HB&LegId=164215&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "filing"
+        ],
+        "date": "2025-10-22",
+        "description": "Filed with the Clerk by Rep. Stephanie A. Kifowit",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HR521"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HR521/logs/20251022T000000Z_filed_with_the_clerk_by_rep_stephanie_a_kifowit.json",
+    "minimal_metadata": {
+      "title": "MARINE CORPS DAY/MONTH",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=521&GAID=18&DocTypeID=HR&LegId=164459&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22",
+        "description": "Added as Co-Sponsor Sen. Cristina Castro",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "SB2053"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/SB2053/logs/20251022T000000Z_added_as_cosponsor_sen_cristina_castro.json",
+    "minimal_metadata": {
+      "title": "DCEO-TOURISM",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=2053&GAID=18&DocTypeID=SB&LegId=161498&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22",
+        "description": "Added Co-Sponsor Rep. Amy Briel",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB762"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB762/logs/20251022T000000Z_added_cosponsor_rep_amy_briel.json",
+    "minimal_metadata": {
+      "title": "REGULATION-TECH",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=762&GAID=18&DocTypeID=HB&LegId=156440&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22",
+        "description": "Added Co-Sponsor Rep. Maura Hirschauer",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB762"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB762/logs/20251022T000000Z_added_cosponsor_rep_maura_hirschauer.json",
+    "minimal_metadata": {
+      "title": "REGULATION-TECH",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=762&GAID=18&DocTypeID=HB&LegId=156440&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22",
+        "description": "Added Co-Sponsor Rep. Jehan Gordon-Booth",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB762"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB762/logs/20251022T000000Z_added_cosponsor_rep_jehan_gordonbooth.json",
+    "minimal_metadata": {
+      "title": "REGULATION-TECH",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=762&GAID=18&DocTypeID=HB&LegId=156440&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22",
+        "description": "Added Co-Sponsor Rep. Diane Blair-Sherlock",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB762"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB762/logs/20251022T000000Z_added_cosponsor_rep_diane_blairsherlock.json",
+    "minimal_metadata": {
+      "title": "REGULATION-TECH",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=762&GAID=18&DocTypeID=HB&LegId=156440&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22",
+        "description": "Added Chief Co-Sponsor Rep. Mary Beth Canty",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB762"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB762/logs/20251022T000000Z_added_chief_cosponsor_rep_mary_beth_canty.json",
+    "minimal_metadata": {
+      "title": "REGULATION-TECH",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=762&GAID=18&DocTypeID=HB&LegId=156440&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22",
+        "description": "Added Co-Sponsor Rep. Regan Deering",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB762"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB762/logs/20251022T000000Z_added_cosponsor_rep_regan_deering.json",
+    "minimal_metadata": {
+      "title": "REGULATION-TECH",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=762&GAID=18&DocTypeID=HB&LegId=156440&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22",
+        "description": "Added Co-Sponsor Rep. Kimberly Du Buclet",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB762"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB762/logs/20251022T000000Z_added_cosponsor_rep_kimberly_du_buclet.json",
+    "minimal_metadata": {
+      "title": "REGULATION-TECH",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=762&GAID=18&DocTypeID=HB&LegId=156440&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22",
+        "description": "Added Co-Sponsor Rep. Martha Deuter",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HJR44"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HJR44/logs/20251022T000000Z_added_cosponsor_rep_martha_deuter.json",
+    "minimal_metadata": {
+      "title": "DHS-DELAY CUTS-DSP SERVICE HRS",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=44&GAID=18&DocTypeID=HJR&LegId=164166&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "filing"
+        ],
+        "date": "2025-10-22",
+        "description": "Filed with the Clerk by Rep. Martha Deuter",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB4177"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB4177/logs/20251022T000000Z_filed_with_the_clerk_by_rep_martha_deuter.json",
+    "minimal_metadata": {
+      "title": "WORK COMP-BURIAL EXPENSES",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=4177&GAID=18&DocTypeID=HB&LegId=164460&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "filing"
+        ],
+        "date": "2025-10-22",
+        "description": "Filed with the Clerk by Rep. Daniel Didech",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB4176"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB4176/logs/20251022T000000Z_filed_with_the_clerk_by_rep_daniel_didech.json",
+    "minimal_metadata": {
+      "title": "OPEN MTGS-STATEWIDE ASSOC",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=4176&GAID=18&DocTypeID=HB&LegId=164455&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22",
+        "description": "Added Co-Sponsor Rep. Lawrence \"Larry\" Walsh, Jr.",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB4171"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB4171/logs/20251022T000000Z_added_cosponsor_rep_lawrence_larry_walsh_jr.json",
+    "minimal_metadata": {
+      "title": "SPORTS WAGERING-NO LOCAL TAXES",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=4171&GAID=18&DocTypeID=HB&LegId=164435&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22",
+        "description": "Added Co-Sponsor Rep. Martin J. Moylan",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HB4171"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HB4171/logs/20251022T000000Z_added_cosponsor_rep_martin_j_moylan.json",
+    "minimal_metadata": {
+      "title": "SPORTS WAGERING-NO LOCAL TAXES",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=4171&GAID=18&DocTypeID=HB&LegId=164435&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-22",
+        "description": "Added Alternate Co-Sponsor Rep. Camille Y. Lilly",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "SB1331"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/SB1331/logs/20251022T000000Z_added_alternate_cosponsor_rep_camille_y_lilly.json",
+    "minimal_metadata": {
+      "title": "SCHOLARSHIP ACCESSIBILITY ACT",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1331&GAID=18&DocTypeID=SB&LegId=159287&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "filing"
+        ],
+        "date": "2025-10-22",
+        "description": "Filed with the Clerk by Rep. Stephanie A. Kifowit",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HR522"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/HR522/logs/20251022T000000Z_filed_with_the_clerk_by_rep_stephanie_a_kifowit.json",
+    "minimal_metadata": {
+      "title": "CONGRATS-LOIS CALLAHAN",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=522&GAID=18&DocTypeID=HR&LegId=164461&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "referral-committee"
+        ],
+        "date": "2025-10-21T04:00:00+00:00",
+        "description": "Referred to the House Committee on Oversight and Government Reform.",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HR 5810"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HR5810/logs/20251021T040000Z_referred_to_the_house_committee_on_oversight_and_government_reform.json",
+    "minimal_metadata": {
+      "title": "Federal Supervisor Education Act of 2025",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr5810.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/house-bill/5810",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-21T04:00:00+00:00",
+        "description": "Committee on Commerce, Science, and Transportation. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 2357"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S2357/logs/20251021T040000Z_committee_on_commerce_science_and_transportation_ordered_to_be_reported_with_an_amendment_in_the_nat.json",
+    "minimal_metadata": {
+      "title": "Young Fishermen’s Development Extension Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s2357.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/2357",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-21T04:00:00+00:00",
+        "description": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 3026"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S3026/logs/20251021T040000Z_read_twice_and_referred_to_the_committee_on_homeland_security_and_governmental_affairs.json",
+    "minimal_metadata": {
+      "title": "A bill to amend chapter 4 of title 5, United States Code, to require cooperation with Inspector General requests, and for other purposes.",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s3026.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/3026",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-21T04:00:00+00:00",
+        "description": "Read twice and referred to the Committee on Finance.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 3019"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S3019/logs/20251021T040000Z_read_twice_and_referred_to_the_committee_on_finance.json",
+    "minimal_metadata": {
+      "title": "A bill to amend title XI of the Social Security Act to provide for the treatment of orphan drugs under the Medicare Drug Price Negotiation Program.",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s3019.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/3019",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-21T04:00:00+00:00",
+        "description": "Read twice and referred to the Committee on the Judiciary.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 3021"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S3021/logs/20251021T040000Z_read_twice_and_referred_to_the_committee_on_the_judiciary.json",
+    "minimal_metadata": {
+      "title": "A bill to amend title 18, United States Code, to enhance enforcement with respect to material depicting obscene child sexual abuse or constituting child pornography, and for other purposes.",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s3021.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/3021",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-21T04:00:00+00:00",
+        "description": "Committee on Commerce, Science, and Transportation. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 2563"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S2563/logs/20251021T040000Z_committee_on_commerce_science_and_transportation_ordered_to_be_reported_with_an_amendment_in_the_nat.json",
+    "minimal_metadata": {
+      "title": "Global Investment in American Jobs Act of 2025",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s2563.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/2563",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-21T04:00:00+00:00",
+        "description": "Committee on Agriculture, Nutrition, and Forestry. Ordered to be reported without amendment favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 1376"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S1376/logs/20251021T040000Z_committee_on_agriculture_nutrition_and_forestry_ordered_to_be_reported_without_amendment_favorably.json",
+    "minimal_metadata": {
+      "title": "Benton MacKaye National Scenic Trail Feasibility Study Act of 2025",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s1376.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/1376",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-21T04:00:00+00:00",
+        "description": "Committee on Agriculture, Nutrition, and Forestry. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "HR 4550"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HR4550/logs/20251021T040000Z_committee_on_agriculture_nutrition_and_forestry_ordered_to_be_reported_with_an_amendment_in_the_natu.json",
+    "minimal_metadata": {
+      "title": "United States Grain Standards Reauthorization Act of 2025",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr4550.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/house-bill/4550",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-21T04:00:00+00:00",
+        "description": "Committee on Commerce, Science, and Transportation. Reported by Senator Cruz with an amendment in the nature of a substitute. With written report No. 119-88.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 1378"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S1378/logs/20251021T040000Z_committee_on_commerce_science_and_transportation_reported_by_senator_cruz_with_an_amendment_in_the_n.json",
+    "minimal_metadata": {
+      "title": "TAME Extreme Weather and Wildfires Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s1378.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/1378",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-21T04:00:00+00:00",
+        "description": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 199.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 1378"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S1378/logs/20251021T040000Z_placed_on_senate_legislative_calendar_under_general_orders_calendar_no_199.json",
+    "minimal_metadata": {
+      "title": "TAME Extreme Weather and Wildfires Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s1378.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/1378",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-21T04:00:00+00:00",
+        "description": "Committee on Banking, Housing, and Urban Affairs. Hearings held.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 1511"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S1511/logs/20251021T040000Z_committee_on_banking_housing_and_urban_affairs_hearings_held.json",
+    "minimal_metadata": {
+      "title": "Affordable Housing Bond Enhancement Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s1511.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/1511",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-21T04:00:00+00:00",
+        "description": "Read twice and referred to the Committee on the Judiciary.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 3020"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S3020/logs/20251021T040000Z_read_twice_and_referred_to_the_committee_on_the_judiciary.json",
+    "minimal_metadata": {
+      "title": "A bill to increase the number of judgeships for the United States Court of Appeals for the Ninth Circuit and certain district courts of the United States, and for other purposes.",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s3020.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/3020",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "referral-committee"
+        ],
+        "date": "2025-10-21T04:00:00+00:00",
+        "description": "Referred to the House Committee on Financial Services.",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HR 5798"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HR5798/logs/20251021T040000Z_referred_to_the_house_committee_on_financial_services.json",
+    "minimal_metadata": {
+      "title": "HOME Reform Act of 2025",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr5798.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/house-bill/5798",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "referral-committee"
+        ],
+        "date": "2025-10-21T04:00:00+00:00",
+        "description": "Referred to the Committee on Transportation and Infrastructure, and in addition to the Committee on Financial Services, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HR 5796"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HR5796/logs/20251021T040000Z_referred_to_the_committee_on_transportation_and_infrastructure_and_in_addition_to_the_committee_on_f.json",
+    "minimal_metadata": {
+      "title": "BUILD Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr5796.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/house-bill/5796",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "referral-committee"
+        ],
+        "date": "2025-10-21T04:00:00+00:00",
+        "description": "Referred to the House Committee on Foreign Affairs.",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HR 5797"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HR5797/logs/20251021T040000Z_referred_to_the_house_committee_on_foreign_affairs.json",
+    "minimal_metadata": {
+      "title": "Designating the Russian Federation as a State Sponsor of Terrorism Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr5797.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/house-bill/5797",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "referral-committee"
+        ],
+        "date": "2025-10-21T04:00:00+00:00",
+        "description": "Referred to the House Committee on Oversight and Government Reform.",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HR 5799"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HR5799/logs/20251021T040000Z_referred_to_the_house_committee_on_oversight_and_government_reform.json",
+    "minimal_metadata": {
+      "title": "To amend chapter 4 of title 5, United States Code, to require cooperation with Inspector General requests, and for other purposes.",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr5799.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/house-bill/5799",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-10-21T04:00:00+00:00",
+        "description": "Committee on Agriculture, Nutrition, and Forestry. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "S 1462"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/S1462/logs/20251021T040000Z_committee_on_agriculture_nutrition_and_forestry_ordered_to_be_reported_with_an_amendment_in_the_natu.json",
+    "minimal_metadata": {
+      "title": "Fix Our Forests Act",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s1462.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/senate-bill/1462",
+          "note": ""
+        }
+      ]
+    }
+  }
+]

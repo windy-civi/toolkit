@@ -37,10 +37,7 @@ pathdiff = "0.2"
 name = "from-chn-distributed-gov"
 path = "src/main.rs"
 
-[[example]]
-name = "basic"
-path = "examples/basic.rs"
-
 [dev-dependencies]
 tokio-test = "0.4"
+insta = { version = "1.39", features = ["json"] }
 

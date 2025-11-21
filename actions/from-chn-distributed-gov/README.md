@@ -12,6 +12,60 @@ A type-safe, functional reactive Rust library for processing pipeline log files 
 - **Stdio Pipeline Support**: Works seamlessly in Unix pipelines
 - **Zero-copy where possible**: Uses references and efficient path handling
 
+## Getting Started
+
+### Prerequisites
+
+- Rust toolchain (stable recommended). Install from [rustup.rs](https://rustup.rs/)
+
+### Setup
+
+**Quick setup (recommended):**
+
+Run the setup script to install all dependencies and development tools:
+
+```bash
+./setup_dev.sh
+```
+
+**Manual setup:**
+
+1. **Clone the repository** (if you haven't already)
+
+2. **Install development dependencies:**
+
+   The project uses `insta` for snapshot testing. All Rust dependencies (including dev dependencies) are automatically installed when you build:
+
+   ```bash
+   cargo build
+   ```
+
+3. **Install cargo-insta** (required for reviewing snapshot changes):
+
+   ```bash
+   cargo install cargo-insta
+   ```
+
+   This is a one-time setup. `cargo-insta` is a CLI tool for managing snapshot tests and needs to be installed globally.
+
+4. **Run tests:**
+
+   ```bash
+   # Run all tests (this will create snapshots on first run)
+   cargo test
+
+   # Run tests with output
+   cargo test -- --nocapture
+   ```
+
+5. **Build the project:**
+
+   ```bash
+   cargo build --release
+   ```
+
+That's it! You're ready to start developing.
+
 ## Functional Reactive Programming Pattern
 
 This library follows a functional reactive programming (FRP) style:
@@ -23,6 +77,7 @@ This library follows a functional reactive programming (FRP) style:
 5. **Type-Safe Transformations**: All transformations are type-checked at compile time
 
 The reactive stream pattern allows you to:
+
 - Process files lazily (only when consumed)
 - Handle backpressure naturally
 - Compose with other stream operations (filter, map, etc.)
@@ -107,6 +162,7 @@ The library uses `futures::Stream` for reactive processing. Files are discovered
 ### Type Safety
 
 All data structures are strongly typed:
+
 - `LogEntry`: Complete log entry with metadata
 - `LogContent`: Either full JSON or vote event result
 - `VoteEventResult`: Type-safe enum for vote results
@@ -122,6 +178,7 @@ The tool is designed to work seamlessly in Unix pipelines:
 4. **Streaming**: Processes files one at a time, perfect for large datasets
 
 Example pipeline:
+
 ```bash
 # Find files, process them, filter with jq, and count
 find . -name "*.json" -path "*/logs/*" | \
@@ -137,13 +194,92 @@ find . -name "*.json" -path "*/logs/*" | \
 - Streams files one at a time to minimize memory usage
 - Parallel directory traversal leverages multiple CPU cores
 
+## Testing
+
+This project uses [insta](https://insta.rs/) for snapshot testing, which is the industry standard for snapshot testing in Rust.
+
+### Running Tests
+
+```bash
+# Run all tests
+cargo test
+
+# Run tests with output
+cargo test -- --nocapture
+```
+
+### Snapshot Testing
+
+This project uses two types of snapshot tests:
+
+1. **API snapshot tests** (`tests/api_snapshot_tests.rs`): Test individual components and data structures using the library API
+2. **CLI snapshot tests from examples** (`tests/cli_snapshots_from_examples.rs`): Test the CLI tool by running example commands and capturing their output
+
+#### CLI Snapshot Tests from Examples
+
+CLI snapshot tests run the actual CLI tool with commands from `examples/` and capture the output. This ensures that:
+- The CLI works correctly end-to-end
+- Example commands in documentation are verified
+- Output format remains consistent
+
+**Example files:**
+
+Example commands are stored in `examples/` (e.g., `examples/basic.sh`). Each example is automatically tested and its output is snapshotted.
+
+**Adding a new example:**
+
+1. Create a new shell script in `examples/` (e.g., `examples/my_example.sh`)
+2. The test in `tests/cli_snapshots_from_examples.rs` will automatically discover and test it:
+
+```rust
+#[test]
+fn test_my_example() {
+    if !test_data_exists() {
+        eprintln!("Skipping test_my_example: test data directory not found");
+        return;
+    }
+    
+    let args = &[
+        "--git-dir", "tmp/git/windy-civi-pipelines",
+        // ... your arguments
+    ];
+    
+    let (stdout, _, exit_code) = run_cli_command(args);
+    insta::assert_snapshot!("my_example_output", stdout);
+    assert_eq!(exit_code, 0);
+}
+```
+
+**Reviewing and updating snapshots:**
+
+After making changes that affect output, you'll need to review and update snapshots:
+
+```bash
+# Install cargo-insta (one-time setup)
+cargo install cargo-insta
+
+# Review snapshot changes interactively
+cargo insta review
+
+# Accept all changes automatically (use with caution)
+cargo insta accept
+
+# Reject all changes
+cargo insta reject
+```
+
+**Snapshot files:**
+
+Snapshots are stored in `tests/snapshots/` and should be committed to version control. They serve as regression tests to ensure output remains consistent.
+
 ## Migration from Shell Script
 
 This Rust library provides the same functionality as the original `main.sh` script but with:
+
 - Type safety at compile time
 - Better error handling
 - Reactive streams for efficient processing
 - Composable API with builder pattern
 - Faster filesystem traversal with `jwalk`
 - Native stdio pipeline support
-
+- Industry-standard snapshot testing with `insta`
