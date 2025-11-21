@@ -40,6 +40,7 @@ setup:
     mkdir -p tmp/git/windy-civi-pipelines
     cp -r ../sync-windy-civi-pipelines/__snapshots__/* tmp/git/windy-civi-pipelines/
     
+
     echo ""
     echo "✅ Development environment setup complete!"
     echo ""
