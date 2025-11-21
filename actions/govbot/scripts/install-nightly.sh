@@ -131,7 +131,7 @@ Latest nightly tag: ${LATEST_TAG}
 If this is your first install, restart your shell or run:
   source <your-shell-profile>
 
-Run 'govbot --help' to get started.
+Run 'govbot' to get started.
 EOF
 }
 
