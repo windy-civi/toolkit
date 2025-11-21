@@ -1,4 +1,4 @@
-name: Release Nightly
+name: Govbot Nightly
 
 on:
   workflow_dispatch:
