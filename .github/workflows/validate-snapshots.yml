@@ -164,4 +164,5 @@ jobs:
       - name: Run tests
         run: |
           cd actions/from-chn-distributed-gov
-          cargo test
+          # Use cargo insta test for snapshot tests - this properly handles snapshot failures in CI
+          cargo insta test
