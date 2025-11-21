@@ -5,6 +5,18 @@ use futures::StreamExt;
 use futures::stream;
 use std::io::{self, BufRead};
 use std::path::PathBuf;
+use serde_json;
+
+#[derive(Debug, Clone)]
+struct CloneResult {
+    locale: String,
+    result: String, // "cloned", "pulled", "no_updates", "failed"
+    position: String, // "1/37"
+    size: Option<String>,
+    local_size: Option<String>,
+    final_size: Option<String>,
+    error: Option<String>,
+}
 
 /// Type-safe, functional reactive processor for pipeline log files
 #[derive(Parser, Debug)]
@@ -96,6 +108,178 @@ fn get_govbot_dir(govbot_dir: Option<String>) -> anyhow::Result<PathBuf> {
     }
 }
 
+/// Process a single locale clone/pull operation
+fn process_single_locale(
+    locale: &str,
+    repos_dir: &PathBuf,
+    token_str: Option<&str>,
+    verbose: bool,
+) -> CloneResult {
+    let repo_name = format!("{}-data-pipeline", locale);
+    let target_dir = repos_dir.join(&repo_name);
+    
+    let local_size = if target_dir.exists() {
+        git::get_directory_size(&target_dir).unwrap_or(0)
+    } else {
+        0
+    };
+    
+    match git::clone_or_pull_repo_quiet(locale, repos_dir, token_str, !verbose) {
+        Ok(action) => {
+            let final_size = if target_dir.exists() {
+                git::get_directory_size(&target_dir).unwrap_or(0)
+            } else {
+                0
+            };
+            
+            let result = match action {
+                "clone" => "cloned",
+                "pulled" => "pulled",
+                "no_updates" => "no_updates",
+                _ => "processed",
+            };
+            
+            let mut clone_result = CloneResult {
+                locale: locale.to_string(),
+                result: result.to_string(),
+                position: String::new(), // Will be set by caller
+                size: None,
+                local_size: None,
+                final_size: None,
+                error: None,
+            };
+            
+            if action == "clone" || action == "no_updates" {
+                clone_result.size = Some(git::format_size(final_size));
+            } else {
+                clone_result.local_size = Some(git::format_size(local_size));
+                clone_result.final_size = Some(git::format_size(final_size));
+            }
+            
+            clone_result
+        }
+        Err(e) => CloneResult {
+            locale: locale.to_string(),
+            result: "failed".to_string(),
+            position: String::new(), // Will be set by caller
+            size: None,
+            local_size: None,
+            final_size: None,
+            error: Some(e.to_string()),
+        },
+    }
+}
+
+/// Print a single clone result
+fn print_result(result: &CloneResult) {
+    use std::io::Write;
+    if result.result == "failed" {
+        if let Some(ref error) = result.error {
+            eprintln!("{:<4}  {:<10}  {}", result.locale, "failed", error);
+        } else {
+            eprintln!("{:<4}  {:<10}", result.locale, "failed");
+        }
+    } else {
+        let size_str = if let Some(ref size) = result.size {
+            size.clone()
+        } else if let (Some(ref local), Some(ref final_size)) = (&result.local_size, &result.final_size) {
+            format!("{} -> {}", local, final_size)
+        } else {
+            String::new()
+        };
+        
+        let action_emoji = match result.result.as_str() {
+            "cloned" => "cloned",
+            "pulled" => "pulled",
+            "no_updates" => "no_updates",
+            _ => "•",
+        };
+        
+        if !size_str.is_empty() {
+            eprintln!("{:<4}  {:<10}  [{}]", result.locale, action_emoji, size_str);
+        } else {
+            eprintln!("{:<4}  {:<10}", result.locale, action_emoji);
+        }
+    }
+    // Force flush stderr to ensure immediate output
+    let _ = std::io::stderr().flush();
+}
+
+/// Perform clone/pull operations and print results as they complete
+async fn perform_clone_operations(
+    locales_to_clone: Vec<String>,
+    repos_dir: PathBuf,
+    token_str: Option<&str>,
+    num_jobs: usize,
+    verbose: bool,
+) -> anyhow::Result<Vec<CloneResult>> {
+    let total = locales_to_clone.len();
+    let mut all_results = Vec::new();
+    
+    if total == 1 || num_jobs == 1 {
+        // Sequential clone/pull - print as we go
+        for (idx, locale) in locales_to_clone.iter().enumerate() {
+            let mut result = process_single_locale(locale, &repos_dir, token_str, verbose);
+            result.position = format!("{}/{}", idx + 1, total);
+            print_result(&result);
+            all_results.push(result);
+        }
+    } else {
+        // Parallel clone/pull - print as results come in
+        use std::sync::{Arc, Mutex};
+        let completed = Arc::new(Mutex::new(0usize));
+        
+        let clone_futures = stream::iter(locales_to_clone.iter())
+            .map(|locale| {
+                let locale = locale.clone();
+                let repos_dir = repos_dir.clone();
+                let token = token_str.map(|s| s.to_string());
+                let completed = completed.clone();
+                let total = total;
+                let verbose_flag = verbose;
+                
+                tokio::task::spawn_blocking(move || {
+                    let mut result = process_single_locale(&locale, &repos_dir, token.as_deref(), verbose_flag);
+                    let mut count = completed.lock().unwrap();
+                    *count += 1;
+                    result.position = format!("{}/{}", *count, total);
+                    result
+                })
+            })
+            .buffer_unordered(num_jobs);
+
+        let mut stream = clone_futures;
+        
+        while let Some(result) = stream.next().await {
+            match result {
+                Ok(data) => {
+                    print_result(&data);
+                    all_results.push(data);
+                }
+                Err(e) => {
+                    let error_result = CloneResult {
+                        locale: "unknown".to_string(),
+                        result: "failed".to_string(),
+                        position: "?".to_string(),
+                        size: None,
+                        local_size: None,
+                        final_size: None,
+                        error: Some(format!("Task error: {}", e)),
+                    };
+                    print_result(&error_result);
+                    all_results.push(error_result);
+                }
+            }
+            // Force flush after each result to ensure immediate output
+            use std::io::Write;
+            let _ = std::io::stderr().flush();
+        }
+    }
+    
+    Ok(all_results)
+}
+
+
 async fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
     let Command::Clone {
         locales,
@@ -162,116 +346,31 @@ async fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
 
     if locales_to_clone.is_empty() {
         return Ok(());
-    }
+}
 
-    let total = locales_to_clone.len();
+    // Print initial message with count
+    eprintln!("🔁 Syncing {} repos\n", locales_to_clone.len());
+
+    // Perform clone operations and print results as they complete
+    let results = perform_clone_operations(
+        locales_to_clone,
+        repos_dir,
+        token_str,
+        num_jobs,
+        verbose,
+    ).await?;
     
-    // Clone or pull with parallelization
-    if total == 1 || num_jobs == 1 {
-        // Sequential clone/pull with progress display
-        for (idx, locale) in locales_to_clone.iter().enumerate() {
-            let current = idx + 1;
-            if !verbose {
-                eprint!("\r⏳ Processing {} ({}/{})...", locale, current, total);
-                std::io::Write::flush(&mut std::io::stderr()).ok();
-            }
-            
-            match git::clone_or_pull_repo_quiet(locale, &repos_dir, token_str, !verbose) {
-                Ok(action) => {
-                    if !verbose {
-                        let action_text = if action == "clone" { "Cloned" } else { "Pulled" };
-                        eprint!("\r✓ {}  {} ({}/{})    \n", action_text, locale, current, total);
-                    }
-                }
-                Err(e) => {
-                    if !verbose {
-                        eprint!("\r✗ Failed  {} ({}/{})    \n", locale, current, total);
-                    }
-                    eprintln!("  Error: {}", e);
-                    return Err(e.into());
-                }
-            }
-        }
-    } else {
-        // Parallel clone/pull with progress display
-        if !verbose {
-            eprintln!("Processing {} locales with {} parallel jobs...\n", total, num_jobs);
-        }
-        
-        use std::sync::{Arc, Mutex};
-        let completed = Arc::new(Mutex::new(0usize));
-        let verbose_flag = verbose;
-        
-        let clone_futures = stream::iter(locales_to_clone.iter().enumerate())
-            .map(|(_idx, locale)| {
-                let locale = locale.clone();
-                let repos_dir = repos_dir.clone();
-                let token = token_str.map(|s| s.to_string());
-                let completed = completed.clone();
-                let total = total;
-                let verbose = verbose_flag;
-                
-                tokio::task::spawn_blocking(move || {
-                    let result = git::clone_or_pull_repo_quiet(&locale, &repos_dir, token.as_deref(), !verbose)
-                        .map_err(|e| (locale.clone(), e));
-                    
-                    if !verbose {
-                        let mut count = completed.lock().unwrap();
-                        *count += 1;
-                        let current = *count;
-                        
-                        match &result {
-                            Ok(action) => {
-                                let action_text = if *action == "clone" { "Cloned" } else { "Pulled" };
-                                eprint!("\r✓ {}  {} ({}/{})    \n", action_text, locale, current, total);
-                            }
-                            Err((_, _)) => {
-                                eprint!("\r✗ Failed  {} ({}/{})    \n", locale, current, total);
-                            }
-                        }
-                        std::io::Write::flush(&mut std::io::stderr()).ok();
-                    }
-                    
-                    result
-                })
-            })
-            .buffer_unordered(num_jobs);
-
-        let mut errors = Vec::new();
-        let mut stream = clone_futures;
-        let mut success_count = 0;
-        
-        while let Some(result) = stream.next().await {
-            match result {
-                Ok(Ok(_)) => {
-                    success_count += 1;
-                }
-                Ok(Err((locale, e))) => {
-                    errors.push((locale, e));
-                }
-                Err(e) => {
-                    errors.push(("unknown".to_string(), govbot::Error::Config(format!("Task join error: {}", e))));
-                }
-            }
-        }
-
-        if !errors.is_empty() {
-            if !verbose {
-                eprintln!("\n❌ Errors occurred:");
-            }
-            for (locale, error) in errors {
-                eprintln!("  {}: {}", locale, error);
-            }
-            if !verbose {
-                eprintln!("\n✓ Successfully processed: {}/{}", success_count, total);
-            }
-            return Err(anyhow::anyhow!("Some operations failed"));
-        } else {
-            if !verbose {
-                eprintln!("\n✅ Successfully processed all {} locales!", total);
-            }
-        }
+    // Show summary
+    let errors: Vec<_> = results.iter()
+        .filter(|r| r.result == "failed")
+        .collect();
+    
+    if !errors.is_empty() {
+        eprintln!("\n❌ Errors occurred: {}/{}", errors.len(), results.len());
+    } else if !results.is_empty() {
+        eprintln!("\n✅ Successfully processed all {} locales!", results.len());
     }
+    
     Ok(())
 }
 
