@@ -22,7 +22,7 @@ jobs:
             arch: x86_64
             target: x86_64-unknown-linux-gnu
             artifact_name: govbot-linux-x86_64
-          - os: macos-latest
+          - os: macos-13
             arch: x86_64
             target: x86_64-apple-darwin
             artifact_name: govbot-macos-x86_64
@@ -30,9 +30,9 @@ jobs:
             arch: arm64
             target: aarch64-apple-darwin
             artifact_name: govbot-macos-arm64
-          - os: windows-latest
+          - os: ubuntu-latest
             arch: x86_64
-            target: x86_64-pc-windows-msvc
+            target: x86_64-pc-windows-gnu
             artifact_name: govbot-windows-x86_64
 
     steps:
@@ -44,6 +44,12 @@ jobs:
         with:
           toolchain: stable
           targets: ${{ matrix.target }}
+
+      - name: Install Windows cross toolchain
+        if: matrix.target == 'x86_64-pc-windows-gnu'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mingw-w64
 
       - name: Cache cargo registry
         uses: actions/cache@v4
@@ -69,21 +75,17 @@ jobs:
         shell: bash
         working-directory: actions/govbot
         run: |
-          if [[ "${{ runner.os }}" == "Windows" ]]; then
+          if [[ "${{ matrix.target }}" == *"windows"* ]]; then
             BINARY_NAME="govbot.exe"
+            DEST_NAME="${{ matrix.artifact_name }}.exe"
           else
             BINARY_NAME="govbot"
+            DEST_NAME="${{ matrix.artifact_name }}"
           fi
           
           mkdir -p ../release-artifacts
-          
-          if [[ "${{ runner.os }}" == "Windows" ]]; then
-            cp "target/${{ matrix.target }}/release/$BINARY_NAME" "../release-artifacts/${{ matrix.artifact_name }}.exe"
-          else
-            cp "target/${{ matrix.target }}/release/$BINARY_NAME" "../release-artifacts/${{ matrix.artifact_name }}"
-            # Make executable
-            chmod +x "../release-artifacts/${{ matrix.artifact_name }}"
-          fi
+          cp "target/${{ matrix.target }}/release/$BINARY_NAME" "../release-artifacts/${DEST_NAME}"
+          chmod +x "../release-artifacts/${DEST_NAME}"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
