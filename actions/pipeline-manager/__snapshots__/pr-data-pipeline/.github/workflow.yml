@@ -1,4 +1,4 @@
-name: Scrape and Format Data For pa
+name: Scrape and Format Data For pr
 
 on:
   schedule:
@@ -15,7 +15,7 @@ on:
         default: false
 
 env:
-  STATE_CODE: pa
+  STATE_CODE: pr
 
 jobs:
   scrape:
