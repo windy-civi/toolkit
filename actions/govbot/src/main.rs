@@ -1,4 +1,4 @@
-use clap::Parser;
+use clap::{Parser, Subcommand};
 use govbot::prelude::*;
 use futures::StreamExt;
 use std::io::{self, BufRead};
@@ -9,53 +9,73 @@ use std::io::{self, BufRead};
 #[command(about = "Process pipeline log files with type-safe reactive streams")]
 #[command(version)]
 struct Args {
-    /// Directory containing cloned repositories
-    #[arg(long, default_value = "tmp/git/windy-civi-pipelines")]
-    git_dir: String,
-
-    /// Source names to filter (space-separated)
-    #[arg(short, long, num_args = 0..)]
-    sources: Vec<String>,
-
-    /// Sort order: ASC or DESC
-    #[arg(long, default_value = "DESC", value_parser = ["ASC", "DESC"])]
-    sort: String,
-
-    /// Limit number of results
-    #[arg(long)]
-    limit: Option<usize>,
-
-    /// Join options: minimal_metadata,sponsors
-    #[arg(long, default_value = "minimal_metadata")]
-    join: String,
-
-    /// Read file paths from stdin instead of discovering files
-    /// Useful for stdio pipelines: find ... | govbot --stdin
-    #[arg(long)]
-    stdin: bool,
+    #[command(subcommand)]
+    command: Option<Command>,
 }
 
-#[tokio::main]
-async fn main() -> anyhow::Result<()> {
-    let args = Args::parse();
+#[derive(Subcommand, Debug)]
+enum Command {
+    /// Process and display pipeline log files
+    Logs {
+        /// Directory containing cloned repositories
+        #[arg(long, default_value = "tmp/git/windy-civi-pipelines")]
+        git_dir: String,
+
+        /// Source names to filter (space-separated)
+        #[arg(short, long, num_args = 0..)]
+        sources: Vec<String>,
+
+        /// Sort order: ASC or DESC
+        #[arg(long, default_value = "DESC", value_parser = ["ASC", "DESC"])]
+        sort: String,
+
+        /// Limit number of results
+        #[arg(long)]
+        limit: Option<usize>,
+
+        /// Join options: minimal_metadata,sponsors
+        #[arg(long, default_value = "minimal_metadata")]
+        join: String,
+
+        /// Read file paths from stdin instead of discovering files
+        /// Useful for stdio pipelines: find ... | govbot logs --stdin
+        #[arg(long)]
+        stdin: bool,
+    },
+}
+
+fn print_available_commands() {
+    println!("Available commands:");
+    println!("  logs    Process and display pipeline log files");
+}
+
+async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
+    let Command::Logs {
+        git_dir,
+        sources,
+        sort,
+        limit,
+        join,
+        stdin,
+    } = cmd;
 
     // Build configuration
-    let mut builder = ConfigBuilder::new(&args.git_dir)
-        .sort_order_str(&args.sort)?;
+    let mut builder = ConfigBuilder::new(&git_dir)
+        .sort_order_str(&sort)?;
 
-    if let Some(limit) = args.limit {
+    if let Some(limit) = limit {
         builder = builder.limit(limit);
     }
 
-    if !args.sources.is_empty() {
-        builder = builder.sources(args.sources);
+    if !sources.is_empty() {
+        builder = builder.sources(sources);
     }
 
-    let config = builder.join_options_str(&args.join)?.build()?;
+    let config = builder.join_options_str(&join)?.build()?;
 
     let processor = PipelineProcessor::new(config.clone());
 
-    if args.stdin {
+    if stdin {
         // Read paths from stdin (one per line)
         let stdin = io::stdin();
         let paths = stdin
@@ -97,4 +117,19 @@ async fn main() -> anyhow::Result<()> {
     }
 
     Ok(())
+}
+
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
+    let args = Args::parse();
+
+    match args.command {
+        Some(cmd @ Command::Logs { .. }) => {
+            run_logs_command(cmd).await
+        }
+        None => {
+            print_available_commands();
+            Ok(())
+        }
+    }
 }

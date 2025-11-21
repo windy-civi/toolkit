@@ -1,0 +1,10 @@
+---
+source: tests/cli_example_snaps.rs
+expression: "&formatted_stdout"
+---
+Command:
+govbot
+
+Output:
+Available commands:
+  logs    Process and display pipeline log files

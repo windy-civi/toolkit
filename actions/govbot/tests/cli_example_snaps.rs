@@ -157,6 +157,17 @@ fn snapshot_name_from_path(path: &Path) -> String {
         .replace('.', "_")
 }
 
+/// Format output with script contents for snapshot
+fn format_snapshot_with_script(script_path: &Path, output: &str) -> String {
+    let script_content = fs::read_to_string(script_path)
+        .expect(&format!("Failed to read script: {}", script_path.display()));
+
+    // Remove trailing newlines from script content
+    let script_content = script_content.trim_end();
+
+    format!("Command:\n{}\n\nOutput:\n{}", script_content, output)
+}
+
 /// Test runner that discovers and runs all example scripts
 #[test]
 fn test_all_examples() {
@@ -185,26 +196,23 @@ fn test_all_examples() {
         // Create snapshot name from script filename
         let snapshot_name = snapshot_name_from_path(&script_path);
 
+        // Format stdout with script contents for snapshot
+        let formatted_stdout = format_snapshot_with_script(&script_path, &stdout);
+
         // Snapshot stdout (which is the main output)
         // Use insta's Settings API - set snapshot directory and use custom snapshot name
         let mut settings = insta::Settings::clone_current();
         settings.set_snapshot_path("snapshots");
-        settings.set_snapshot_suffix(&format!(
-            "cli_snapshots_from_examples__{}_stdout",
-            snapshot_name
-        ));
+        settings.set_snapshot_suffix(&format!("{}_stdout", snapshot_name));
         settings.bind(|| {
-            insta::assert_snapshot!("stdout", &stdout);
+            insta::assert_snapshot!("stdout", &formatted_stdout);
         });
 
         // If there's stderr, snapshot it separately
         if !stderr.is_empty() {
             let mut settings = insta::Settings::clone_current();
             settings.set_snapshot_path("snapshots");
-            settings.set_snapshot_suffix(&format!(
-                "cli_snapshots_from_examples__{}_stderr",
-                snapshot_name
-            ));
+            settings.set_snapshot_suffix(&format!("{}_stderr", snapshot_name));
             settings.bind(|| {
                 insta::assert_snapshot!("stderr", &stderr);
             });
@@ -217,49 +225,4 @@ fn test_all_examples() {
             script_name, exit_code
         );
     }
-}
-
-/// Individual test for basic.sh example (for easier debugging)
-///
-/// This test runs the command from examples/basic.sh and snapshots the output.
-/// To update snapshots after making changes, run:
-///   cargo insta review
-#[test]
-fn test_basic_example() {
-    if !test_data_exists() {
-        eprintln!("Skipping test_basic_example: test data directory not found");
-        return;
-    }
-
-    let script_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-        .join("examples")
-        .join("basic.sh");
-
-    if !script_path.exists() {
-        eprintln!("Skipping test_basic_example: basic.sh not found");
-        return;
-    }
-
-    let (stdout, stderr, exit_code) = run_example_script(&script_path);
-
-    // Snapshot stdout (main output)
-    let mut settings = insta::Settings::clone_current();
-    settings.set_snapshot_path("snapshots");
-    settings.set_snapshot_suffix("cli_snapshots_from_examples__basic_stdout");
-    settings.bind(|| {
-        insta::assert_snapshot!("stdout", &stdout);
-    });
-
-    // Snapshot stderr if present
-    if !stderr.is_empty() {
-        let mut settings = insta::Settings::clone_current();
-        settings.set_snapshot_path("snapshots");
-        settings.set_snapshot_suffix("cli_snapshots_from_examples__basic_stderr");
-        settings.bind(|| {
-            insta::assert_snapshot!("stderr", &stderr);
-        });
-    }
-
-    // Verify exit code
-    assert_eq!(exit_code, 0, "Command should exit with code 0");
 }

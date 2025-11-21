@@ -1,7 +1,16 @@
 ---
-source: tests/cli_snapshots_from_examples.rs
-expression: "&stdout"
+source: tests/cli_example_snaps.rs
+expression: "&formatted_stdout"
 ---
+Command:
+govbot logs  \
+    --sources usa il \
+    --join minimal_metadata,sponsors  \
+    --sort DESC  \
+    --limit 10  \
+    --git-dir tmp/git/windy-civi-pipelines  \
+
+Output:
 {"log":{"action":{"classification":[],"date":"2025-06-04T04:00:00+00:00","description":"Message on Senate action sent to the House.","organization_id":"~{\"classification\": \"upper\"}","related_entities":[]},"bill_id":"HCONRES 24"},"filename":"usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES24/logs/20250604T040000Z_message_on_senate_action_sent_to_the_house.json","minimal_metadata":{"title":"Authorizing the use of Emancipation Hall in the Capitol Visitor Center for an event to celebrate the birthday of King Kamehameha I.","description":null,"sources":[{"url":"https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hconres/BILLSTATUS-119hconres24.xml","note":""},{"url":"https://congress.gov/bill/119th-congress/house-resolution/24","note":""}]}}
 {"log":{"action":{"classification":[],"date":"2025-06-03T04:00:00+00:00","description":"Resolution agreed to in Senate without amendment by Unanimous Consent. (consideration: CR S3210)","organization_id":"~{\"classification\": \"upper\"}","related_entities":[]},"bill_id":"HCONRES 24"},"filename":"usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES24/logs/20250603T040000Z_resolution_agreed_to_in_senate_without_amendment_by_unanimous_consent_consideration_cr_s3210.json","minimal_metadata":{"title":"Authorizing the use of Emancipation Hall in the Capitol Visitor Center for an event to celebrate the birthday of King Kamehameha I.","description":null,"sources":[{"url":"https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hconres/BILLSTATUS-119hconres24.xml","note":""},{"url":"https://congress.gov/bill/119th-congress/house-resolution/24","note":""}]}}
 {"log":{"action":{"classification":[],"date":"2025-05-20T04:00:00+00:00","description":"Star Print ordered on the reported concurrent resolution.","organization_id":"~{\"classification\": \"upper\"}","related_entities":[]},"bill_id":"HCONRES 14"},"filename":"usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES14/logs/20250520T040000Z_star_print_ordered_on_the_reported_concurrent_resolution.json","minimal_metadata":{"title":"Establishing the congressional budget for the United States Government for fiscal year 2025 and setting forth the appropriate budgetary levels for fiscal years 2026 through 2034.","description":null,"sources":[{"url":"https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hconres/BILLSTATUS-119hconres14.xml","note":""},{"url":"https://congress.gov/bill/119th-congress/house-resolution/14","note":""}]}}
