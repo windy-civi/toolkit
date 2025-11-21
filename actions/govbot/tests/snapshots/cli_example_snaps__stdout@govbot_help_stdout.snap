@@ -7,4 +7,6 @@ govbot
 
 Output:
 Available commands:
+  clone   Clone data pipeline repositories for specified locales
+  pull    Pull latest changes from data pipeline repositories
   logs    Process and display pipeline log files

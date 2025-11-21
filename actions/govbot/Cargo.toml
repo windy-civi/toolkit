@@ -33,6 +33,9 @@ anyhow = "1.0"
 # Path manipulation
 pathdiff = "0.2"
 
+# Git operations
+git2 = "0.18"
+
 [[bin]]
 name = "govbot"
 path = "src/main.rs"

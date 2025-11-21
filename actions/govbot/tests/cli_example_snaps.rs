@@ -116,9 +116,13 @@ fn run_example_script(script_path: &Path) -> (String, String, i32) {
 
     let args = parse_shell_script(&script_content);
 
+    let manifest_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    let govbot_dir = manifest_dir.join(".tmp").join(".govbot").join("repos");
+
     let output = Command::new(&binary)
         .args(&args)
-        .current_dir(env!("CARGO_MANIFEST_DIR"))
+        .current_dir(&manifest_dir)
+        .env("GOVBOT_DIR", govbot_dir.to_string_lossy().as_ref())
         .output()
         .expect("Failed to execute command");
 

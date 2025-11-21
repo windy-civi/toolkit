@@ -8,7 +8,6 @@ govbot logs  \
     --join minimal_metadata,sponsors  \
     --sort DESC  \
     --limit 10  \
-    --git-dir tmp/git/windy-civi-pipelines  \
 
 Output:
 {"log":{"action":{"classification":[],"date":"2025-06-04T04:00:00+00:00","description":"Message on Senate action sent to the House.","organization_id":"~{\"classification\": \"upper\"}","related_entities":[]},"bill_id":"HCONRES 24"},"filename":"usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES24/logs/20250604T040000Z_message_on_senate_action_sent_to_the_house.json","minimal_metadata":{"title":"Authorizing the use of Emancipation Hall in the Capitol Visitor Center for an event to celebrate the birthday of King Kamehameha I.","description":null,"sources":[{"url":"https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hconres/BILLSTATUS-119hconres24.xml","note":""},{"url":"https://congress.gov/bill/119th-congress/house-resolution/24","note":""}]}}

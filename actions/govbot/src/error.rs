@@ -26,4 +26,7 @@ pub enum Error {
 
     #[error("Invalid timestamp format: {0}")]
     InvalidTimestamp(String),
+
+    #[error("Git error: {0}")]
+    Git(#[from] git2::Error),
 }

@@ -36,9 +36,9 @@ setup:
     fi
 
     # Copy snapshots from sync-windy-civi-pipelines
-    rm -rf tmp/git/windy-civi-pipelines
-    mkdir -p tmp/git/windy-civi-pipelines
-    cp -r ../sync-windy-civi-pipelines/__snapshots__/* tmp/git/windy-civi-pipelines/
+    rm -rf .tmp/.govbot/repos
+    mkdir -p .tmp/.govbot/repos
+    cp -r ../sync-windy-civi-pipelines/__snapshots__/* .tmp/.govbot/repos/
     
 
     echo ""
@@ -109,7 +109,7 @@ clean:
 
 # Run the CLI with example arguments
 run:
-    cargo run -- --git-dir tmp/git/windy-civi-pipelines --sort DESC --limit 10
+    cargo run
 
 # Run the CLI with custom arguments
 run-args ARGS:
@@ -117,7 +117,7 @@ run-args ARGS:
 
 # Run the release binary
 run-release:
-    cargo run --release -- --git-dir tmp/git/windy-civi-pipelines --sort DESC --limit 10
+    cargo run --release
 
 # Show project info
 info:
