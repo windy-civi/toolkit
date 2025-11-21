@@ -24,10 +24,7 @@ fn get_binary_path() -> PathBuf {
     }
 
     // Use debug build for tests (faster to build, and cargo test uses debug by default)
-    let debug_path = manifest_dir
-        .join("target")
-        .join("debug")
-        .join("govbot");
+    let debug_path = manifest_dir.join("target").join("debug").join("govbot");
 
     // Verify the binary exists after building
     if !debug_path.exists() {
