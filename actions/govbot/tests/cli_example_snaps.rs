@@ -172,14 +172,19 @@ fn format_snapshot_with_script(script_path: &Path, output: &str) -> String {
     format!("Command:\n{}\n\nOutput:\n{}", script_content, output)
 }
 
+/// Check if a script requires test data to run
+fn script_requires_test_data(script_path: &Path) -> bool {
+    if let Ok(content) = fs::read_to_string(script_path) {
+        // Commands that need test data (repos directory)
+        content.contains("govbot logs")
+    } else {
+        false
+    }
+}
+
 /// Test runner that discovers and runs all example scripts
 #[test]
-fn test_all_examples() {
-    if !test_data_exists() {
-        eprintln!("Skipping test_all_examples: test data directory not found");
-        return;
-    }
-
+fn cli_example_snaps() {
     let example_scripts = get_example_scripts().expect("Failed to read examples directory");
 
     if example_scripts.is_empty() {
@@ -187,11 +192,19 @@ fn test_all_examples() {
         return;
     }
 
+    let has_test_data = test_data_exists();
+
     for script_path in example_scripts {
         let script_name = script_path
             .file_name()
             .and_then(|s| s.to_str())
             .unwrap_or("unknown");
+
+        // Skip scripts that require test data if it doesn't exist
+        if script_requires_test_data(&script_path) && !has_test_data {
+            eprintln!("Skipping {}: test data directory not found", script_name);
+            continue;
+        }
 
         eprintln!("Testing example: {}", script_name);
 
@@ -205,11 +218,14 @@ fn test_all_examples() {
 
         // Snapshot stdout (which is the main output)
         // Use insta's Settings API - set snapshot directory and use custom snapshot name
+        // The format will be: {test_function_name}__{suffix}.snap
+        // With test function name "cli_example_snaps" and suffix "{snapshot_name}",
+        // this creates: cli_example_snaps__{snapshot_name}.snap
         let mut settings = insta::Settings::clone_current();
         settings.set_snapshot_path("snapshots");
-        settings.set_snapshot_suffix(&format!("{}_stdout", snapshot_name));
+        settings.set_snapshot_suffix(&snapshot_name);
         settings.bind(|| {
-            insta::assert_snapshot!("stdout", &formatted_stdout);
+            insta::assert_snapshot!("snapshot", &formatted_stdout);
         });
 
         // If there's stderr, snapshot it separately
@@ -218,7 +234,7 @@ fn test_all_examples() {
             settings.set_snapshot_path("snapshots");
             settings.set_snapshot_suffix(&format!("{}_stderr", snapshot_name));
             settings.bind(|| {
-                insta::assert_snapshot!("stderr", &stderr);
+                insta::assert_snapshot!("snapshot", &stderr);
             });
         }
 
