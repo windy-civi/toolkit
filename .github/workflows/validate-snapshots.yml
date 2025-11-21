@@ -143,7 +143,7 @@ jobs:
             ${{ runner.os }}-cargo-
 
       - name: Install cargo-insta
-        run: cargo install cargo-insta --locked
+        run: cargo install cargo-insta --locked --force
 
       - name: Copy test data from snapshots
         run: |
