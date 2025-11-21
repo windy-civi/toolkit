@@ -86,11 +86,32 @@ enum Command {
         #[arg(long)]
         stdin: bool,
     },
+
+    /// Delete data pipeline repositories
+    /// Deletes local repository directories for specified locales
+    Delete {
+        /// Locale names to delete (e.g., usa, il, ca, or "all" for all locales). Use "all" to delete all repositories.
+        #[arg(num_args = 0..)]
+        locales: Vec<String>,
+
+        /// Directory containing repositories (default: $HOME/.govbot/repos, or GOVBOT_DIR env var)
+        #[arg(long = "govbot-dir")]
+        govbot_dir: Option<String>,
+
+        /// Number of parallel operations (default: 4, or GOVBOT_JOBS env var)
+        #[arg(long)]
+        parallel: Option<usize>,
+
+        /// Show verbose output
+        #[arg(long)]
+        verbose: bool,
+    },
 }
 
 fn print_available_commands() {
     println!("Available commands:");
     println!("  clone   Clone or pull data pipeline repositories (default: all locales)");
+    println!("  delete  Delete data pipeline repositories (use 'delete all' to delete all)");
     println!("  logs    Process and display pipeline log files");
 }
 
@@ -133,9 +154,10 @@ fn process_single_locale(
             };
             
             let result = match action {
-                "clone" => "cloned",
-                "pulled" => "pulled",
-                "no_updates" => "no_updates",
+                "clone" => "🆕",
+                "pulled" => "⬇️",
+                "no_updates" => "✅",
+                "recloned" => "🔄",
                 _ => "processed",
             };
             
@@ -149,7 +171,7 @@ fn process_single_locale(
                 error: None,
             };
             
-            if action == "clone" || action == "no_updates" {
+            if action == "clone" || action == "recloned" || action == "no_updates" {
                 clone_result.size = Some(git::format_size(final_size));
             } else {
                 clone_result.local_size = Some(git::format_size(local_size));
@@ -175,9 +197,9 @@ fn print_result(result: &CloneResult) {
     use std::io::Write;
     if result.result == "failed" {
         if let Some(ref error) = result.error {
-            eprintln!("{:<4}  {:<10}  {}", result.locale, "failed", error);
+            eprintln!("❌  {:<6}  {}", result.locale, error);
         } else {
-            eprintln!("{:<4}  {:<10}", result.locale, "failed");
+            eprintln!("❌  {:<6}", result.locale);
         }
     } else {
         let size_str = if let Some(ref size) = result.size {
@@ -188,17 +210,13 @@ fn print_result(result: &CloneResult) {
             String::new()
         };
         
-        let action_emoji = match result.result.as_str() {
-            "cloned" => "cloned",
-            "pulled" => "pulled",
-            "no_updates" => "no_updates",
-            _ => "•",
-        };
+        // result.result now contains the emoji directly (🆕, ⬇️, ✅, 🔄)
+        let action_emoji = &result.result;
         
         if !size_str.is_empty() {
-            eprintln!("{:<4}  {:<10}  [{}]", result.locale, action_emoji, size_str);
+            eprintln!("{}  {:<6}  [{}]", action_emoji, result.locale, size_str);
         } else {
-            eprintln!("{:<4}  {:<10}", result.locale, action_emoji);
+            eprintln!("{}  {:<6}", action_emoji, result.locale);
         }
     }
     // Force flush stderr to ensure immediate output
@@ -375,6 +393,177 @@ async fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
 }
 
 
+async fn run_delete_command(cmd: Command) -> anyhow::Result<()> {
+    let Command::Delete {
+        locales,
+        govbot_dir,
+        parallel,
+        verbose,
+    } = cmd else {
+        unreachable!()
+    };
+
+    // If no locales specified, show help message
+    if locales.is_empty() {
+        eprintln!("Error: No locales specified.");
+        eprintln!();
+        eprintln!("To delete all repositories, use: govbot delete all");
+        eprintln!("To delete specific locales, use: govbot delete <locale1> <locale2> ...");
+        eprintln!();
+        eprintln!("Available options:");
+        eprintln!("  --govbot-dir <dir>    Directory containing repositories");
+        eprintln!("  --parallel <num>      Number of parallel operations (default: 4)");
+        eprintln!("  --verbose             Show verbose output");
+        return Ok(());
+    }
+
+    let repos_dir = get_govbot_dir(govbot_dir)?;
+    
+    // Get parallelization setting
+    let num_jobs = parallel
+        .or_else(|| std::env::var("GOVBOT_JOBS").ok().and_then(|s| s.parse().ok()))
+        .unwrap_or(4);
+
+    // Parse locales and handle "all"
+    let mut locales_to_delete = Vec::new();
+    for locale in locales {
+        let locale = locale.trim().to_lowercase();
+        if locale.is_empty() {
+            continue;
+        }
+        
+        if locale == "all" {
+            // Add all working locales
+            let all_locales = govbot::locale::WorkingLocale::all();
+            for loc in all_locales {
+                locales_to_delete.push(loc.as_lowercase().to_string());
+            }
+        } else {
+            // Validate locale
+            let _ = govbot::locale::WorkingLocale::from(locale.as_str());
+            locales_to_delete.push(locale);
+        }
+    }
+
+    if locales_to_delete.is_empty() {
+        return Ok(());
+    }
+
+    // Print initial message with count
+    eprintln!("🗑️  Deleting {} repos\n", locales_to_delete.len());
+
+    // Perform delete operations
+    let total = locales_to_delete.len();
+    let mut deleted_count = 0;
+    let mut failed_count = 0;
+    
+    if total == 1 || num_jobs == 1 {
+        // Sequential delete
+        for (idx, locale) in locales_to_delete.iter().enumerate() {
+            let repo_name = format!("{}-data-pipeline", locale);
+            let target_dir = repos_dir.join(&repo_name);
+            let existed = target_dir.exists();
+            
+            if verbose {
+                eprintln!("[{}/{}] Deleting {}...", idx + 1, total, locale);
+            }
+            
+            match git::delete_repo(locale, &repos_dir) {
+                Ok(_) => {
+                    if existed {
+                        eprintln!("{:<4}  deleted", locale);
+                        deleted_count += 1;
+                    } else {
+                        eprintln!("{:<4}  not_found", locale);
+                    }
+                }
+                Err(e) => {
+                    eprintln!("{:<4}  failed     {}", locale, e);
+                    failed_count += 1;
+                }
+            }
+        }
+    } else {
+        // Parallel delete
+        use std::sync::{Arc, Mutex};
+        let deleted = Arc::new(Mutex::new(0usize));
+        let failed = Arc::new(Mutex::new(0usize));
+        
+        let delete_futures = stream::iter(locales_to_delete.iter())
+            .map(|locale| {
+                let locale = locale.clone();
+                let repos_dir = repos_dir.clone();
+                let deleted = deleted.clone();
+                let failed = failed.clone();
+                let total = total;
+                let verbose_flag = verbose;
+                
+                tokio::task::spawn_blocking(move || {
+                    let repo_name = format!("{}-data-pipeline", locale);
+                    let target_dir = repos_dir.join(&repo_name);
+                    
+                    if verbose_flag {
+                        let d = deleted.lock().unwrap();
+                        let f = failed.lock().unwrap();
+                        let current = *d + *f + 1;
+                        eprintln!("[{}/{}] Deleting {}...", current, total, locale);
+                    }
+                    
+                    let existed = target_dir.exists();
+                    match git::delete_repo(&locale, &repos_dir) {
+                        Ok(_) => {
+                            if existed {
+                                let mut d = deleted.lock().unwrap();
+                                *d += 1;
+                                (locale, Ok("deleted".to_string()))
+                            } else {
+                                (locale, Ok("not_found".to_string()))
+                            }
+                        }
+                        Err(e) => {
+                            let mut f = failed.lock().unwrap();
+                            *f += 1;
+                            (locale, Err(e.to_string()))
+                        }
+                    }
+                })
+            })
+            .buffer_unordered(num_jobs);
+
+        let mut stream = delete_futures;
+        
+        while let Some(result) = stream.next().await {
+            match result {
+                Ok((locale, Ok(status))) => {
+                    eprintln!("{:<4}  {}", locale, status);
+                }
+                Ok((locale, Err(error))) => {
+                    eprintln!("{:<4}  failed     {}", locale, error);
+                }
+                Err(e) => {
+                    eprintln!("unknown  failed     Task error: {}", e);
+                    let mut f = failed.lock().unwrap();
+                    *f += 1;
+                }
+            }
+        }
+        
+        deleted_count = *deleted.lock().unwrap();
+        failed_count = *failed.lock().unwrap();
+    }
+    
+    // Show summary
+    if failed_count > 0 {
+        eprintln!("\n❌ Errors occurred: {}/{}", failed_count, total);
+    } else if deleted_count > 0 {
+        eprintln!("\n✅ Successfully deleted {} repositories!", deleted_count);
+    } else {
+        eprintln!("\n✅ No repositories found to delete.");
+    }
+    
+    Ok(())
+}
+
 async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
     let Command::Logs {
         govbot_dir,
@@ -456,6 +645,9 @@ async fn main() -> anyhow::Result<()> {
     match args.command {
         Some(cmd @ Command::Clone { .. }) => {
             run_clone_command(cmd).await
+        }
+        Some(cmd @ Command::Delete { .. }) => {
+            run_delete_command(cmd).await
         }
         Some(cmd @ Command::Logs { .. }) => {
             run_logs_command(cmd).await

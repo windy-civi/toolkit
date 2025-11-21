@@ -80,6 +80,9 @@ pub fn clone_or_pull_repo_quiet(
     // Build clone URL (always use HTTPS, token will be in credentials)
     let clone_url = format!("https://github.com/{}.git", repo_path);
 
+    // Track if we're doing a reclone (after deleting due to merge error)
+    let mut is_reclone = false;
+
     // Check if repository already exists
     if target_dir.exists() && Repository::open(&target_dir).is_ok() {
         // Repository exists, pull instead
@@ -87,8 +90,47 @@ pub fn clone_or_pull_repo_quiet(
             .map_err(|e| Error::Config(format!("Failed to open repository: {}", e)))?;
 
         // Pull the latest changes (credentials will be used if token is provided)
-        let had_updates = pull_repo_internal(&repo, token, quiet)?;
-        return Ok(if had_updates { "pulled" } else { "no_updates" });
+        match pull_repo_internal(&repo, token, quiet) {
+            Ok(had_updates) => {
+                // Explicitly drop the repository to ensure all file handles are closed
+                drop(repo);
+
+                // Give the file system a moment to release all locks
+                std::thread::sleep(std::time::Duration::from_millis(50));
+
+                return Ok(if had_updates { "pulled" } else { "no_updates" });
+            }
+            Err(e) => {
+                // Check if this is a merge analysis error
+                let error_msg = e.to_string();
+                if error_msg.contains("Failed to analyze merge")
+                    || error_msg.contains("object not found")
+                {
+                    // Close the repository first
+                    drop(repo);
+
+                    // Delete the corrupted repository and reclone
+                    if !quiet {
+                        eprintln!(
+                            "Merge analysis failed, deleting and recloning {}...",
+                            repo_name
+                        );
+                    }
+
+                    // Delete the repository
+                    delete_repo(locale, repos_dir)?;
+
+                    // Mark that we're doing a reclone
+                    is_reclone = true;
+
+                    // Now fall through to clone it fresh
+                } else {
+                    // For other errors, close repo and return the error
+                    drop(repo);
+                    return Err(e);
+                }
+            }
+        }
     }
 
     // Remove existing directory if it exists (but is not a git repo)
@@ -102,7 +144,10 @@ pub fn clone_or_pull_repo_quiet(
     // Repository doesn't exist, clone it
 
     let mut fetch_options = FetchOptions::new();
-    fetch_options.depth(1); // Shallow clone
+    // Use a reasonable depth (50 commits) instead of depth=1
+    // This provides enough history for merge analysis while still being faster than full clone
+    // 50 commits is typically enough for several weeks/months of history
+    fetch_options.depth(50);
     fetch_options.remote_callbacks(build_callbacks(token, !quiet));
 
     let mut builder = RepoBuilder::new();
@@ -183,13 +228,23 @@ pub fn clone_or_pull_repo_quiet(
             .map_err(|e| Error::Config(format!("Failed to checkout {}: {}", default_branch, e)))?;
     }
 
+    // Explicitly drop the repository to ensure all file handles are closed
+    // This is important on macOS where file handles can prevent deletion
+    drop(repo);
+
+    // Give the file system a moment to release all locks
+    // This helps on macOS where file handles might not be released immediately
+    std::thread::sleep(std::time::Duration::from_millis(50));
+
     // Clear any progress line
     if !quiet {
         eprint!(
             "\r                                                                                \r"
         );
     }
-    Ok("clone")
+
+    // Return "recloned" if we deleted and recloned, otherwise "clone"
+    Ok(if is_reclone { "recloned" } else { "clone" })
 }
 
 /// Clone or pull a repository for a given locale (clones if doesn't exist, pulls if it does)
@@ -230,8 +285,21 @@ fn pull_repo_internal(repo: &Repository, token: Option<&str>, quiet: bool) -> Re
         .find_remote("origin")
         .map_err(|e| Error::Config(format!("Failed to find remote 'origin': {}", e)))?;
 
+    // Check if this is a shallow repository by looking for .git/shallow file
+    let is_shallow = repo.path().join("shallow").exists();
+
     let mut fetch_options = FetchOptions::new();
     fetch_options.remote_callbacks(build_callbacks(token, !quiet));
+
+    // If it's a shallow repo, we need to fetch more history for merge analysis to work
+    // The issue is that shallow clones only have 1 commit, so merge_analysis can't find
+    // the common ancestor. We need to fetch enough history to unshallow the repo.
+    if is_shallow {
+        // Fetch all refs to get full history - this unshallows the repository
+        // This ensures merge_analysis can find the common ancestor between local and remote
+        let all_refs = vec!["+refs/*:refs/remotes/origin/*"];
+        let _ = remote.fetch(&all_refs, Some(&mut fetch_options), None);
+    }
 
     // Fetch both main and master branches (only fail if both fail)
     let refspecs = vec![
@@ -420,6 +488,12 @@ pub fn pull_repo_quiet(
 
     pull_repo_internal(&repo, token, quiet)?;
 
+    // Explicitly drop the repository to ensure all file handles are closed
+    drop(repo);
+
+    // Give the file system a moment to release all locks
+    std::thread::sleep(std::time::Duration::from_millis(50));
+
     // Clear any progress line
     if !quiet {
         eprint!(
@@ -567,4 +641,173 @@ pub fn get_available_locales(repos_dir: &Path) -> Result<Vec<String>> {
     }
 
     Ok(locales)
+}
+
+/// Recursively remove a directory and all its contents
+/// This is more robust than remove_dir_all on macOS
+fn remove_dir_all_robust(path: &Path) -> std::io::Result<()> {
+    if !path.exists() {
+        return Ok(());
+    }
+
+    if path.is_file() {
+        // Make file writable before removing
+        let _ = std::fs::metadata(path).and_then(|m| {
+            use std::os::unix::fs::PermissionsExt;
+            let mut perms = m.permissions();
+            perms.set_mode(0o777);
+            std::fs::set_permissions(path, perms)
+        });
+        return std::fs::remove_file(path);
+    }
+
+    // For directories, recursively remove contents first
+    let entries: Vec<_> = std::fs::read_dir(path)?.collect();
+
+    for entry_result in entries {
+        let entry = entry_result?;
+        let entry_path = entry.path();
+
+        // Make writable before trying to remove
+        let _ = std::fs::metadata(&entry_path).and_then(|m| {
+            use std::os::unix::fs::PermissionsExt;
+            let mut perms = m.permissions();
+            perms.set_mode(0o777);
+            std::fs::set_permissions(&entry_path, perms)
+        });
+
+        if entry_path.is_dir() {
+            // Recursively remove subdirectory
+            if remove_dir_all_robust(&entry_path).is_err() {
+                // If recursive removal fails, try a few more times
+                for _ in 0..3 {
+                    std::thread::sleep(std::time::Duration::from_millis(100));
+                    if remove_dir_all_robust(&entry_path).is_ok() {
+                        break;
+                    }
+                }
+                // If still failing, try direct removal
+                let _ = std::fs::remove_dir_all(&entry_path);
+            }
+        } else {
+            // Try to remove file multiple times
+            let mut removed = false;
+            for _ in 0..3 {
+                if std::fs::remove_file(&entry_path).is_ok() {
+                    removed = true;
+                    break;
+                }
+                std::thread::sleep(std::time::Duration::from_millis(50));
+            }
+            if !removed {
+                // Last resort: try to make it writable again and remove
+                let _ = std::fs::metadata(&entry_path).and_then(|m| {
+                    use std::os::unix::fs::PermissionsExt;
+                    let mut perms = m.permissions();
+                    perms.set_mode(0o777);
+                    std::fs::set_permissions(&entry_path, perms)
+                });
+                let _ = std::fs::remove_file(&entry_path);
+            }
+        }
+    }
+
+    // Make directory writable before removing
+    let _ = std::fs::metadata(path).and_then(|m| {
+        use std::os::unix::fs::PermissionsExt;
+        let mut perms = m.permissions();
+        perms.set_mode(0o777);
+        std::fs::set_permissions(path, perms)
+    });
+
+    // Now try to remove the directory itself
+    // Retry multiple times for macOS
+    let mut last_error = None;
+    for _ in 0..5 {
+        match std::fs::remove_dir(path) {
+            Ok(_) => return Ok(()),
+            Err(e) => {
+                last_error = Some(e);
+                std::thread::sleep(std::time::Duration::from_millis(100));
+            }
+        }
+    }
+
+    // Final attempt with remove_dir_all
+    match std::fs::remove_dir_all(path) {
+        Ok(_) => Ok(()),
+        Err(e) => {
+            // Return the more specific error if available
+            if let Some(prev_error) = last_error {
+                Err(prev_error)
+            } else {
+                Err(e)
+            }
+        }
+    }
+}
+
+/// Delete a repository for a given locale
+pub fn delete_repo(locale: &str, repos_dir: &Path) -> Result<()> {
+    let repo_name = format!("{}-data-pipeline", locale);
+    let target_dir = repos_dir.join(&repo_name);
+
+    if !target_dir.exists() {
+        return Ok(()); // Repository doesn't exist, nothing to delete
+    }
+
+    // Try to open and close the repository first to release any locks
+    // This helps on macOS where git files might be locked
+    if let Ok(repo) = Repository::open(&target_dir) {
+        // Try to close the index explicitly if possible
+        // The index file is often the one that gets locked
+        let git_dir = repo.path();
+        let index_path = git_dir.join("index");
+
+        // Force close the repository to release file handles
+        drop(repo);
+
+        // Give it a moment for file handles to be released
+        std::thread::sleep(std::time::Duration::from_millis(100));
+
+        // Try to remove the index file explicitly if it exists
+        // This often helps on macOS
+        if index_path.exists() {
+            let _ = std::fs::remove_file(&index_path);
+        }
+    }
+
+    // Use robust removal that handles macOS edge cases
+    if let Err(e) = remove_dir_all_robust(&target_dir) {
+        // If robust removal fails, try using shell command as fallback
+        // This is often more reliable on macOS for stubborn directories
+        let output = std::process::Command::new("rm")
+            .arg("-rf")
+            .arg(&target_dir)
+            .output();
+
+        match output {
+            Ok(result) if result.status.success() => {
+                // Successfully removed via shell command
+                Ok(())
+            }
+            Ok(result) => {
+                // Shell command failed, return original error with shell error info
+                let shell_err = String::from_utf8_lossy(&result.stderr);
+                Err(Error::Config(format!(
+                    "Failed to delete repository {}: {} (shell fallback also failed: {})",
+                    repo_name, e, shell_err
+                )))
+            }
+            Err(shell_err) => {
+                // Couldn't execute shell command, return original error
+                Err(Error::Config(format!(
+                    "Failed to delete repository {}: {} (shell fallback unavailable: {})",
+                    repo_name, e, shell_err
+                )))
+            }
+        }
+    } else {
+        Ok(())
+    }
 }
