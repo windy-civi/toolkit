@@ -34,7 +34,13 @@ setup:
     else
         echo "✅ cargo-insta already installed: $(cargo-insta --version 2>/dev/null || echo 'installed')"
     fi
+
+    # Copy snapshots from sync-windy-civi-pipelines
+    rm -rf tmp/git/windy-civi-pipelines
+    mkdir -p tmp/git/windy-civi-pipelines
+    cp -r ../sync-windy-civi-pipelines/__snapshots__ tmp/git/windy-civi-pipelines
     
+
     echo ""
     echo "✅ Development environment setup complete!"
     echo ""
