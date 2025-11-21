@@ -15,6 +15,7 @@ jobs:
       report-publisher: ${{ steps.changes.outputs.report-publisher }}
       pipeline-manager: ${{ steps.changes.outputs.pipeline-manager }}
       from-windy-civi-pipelines: ${{ steps.changes.outputs.from-windy-civi-pipelines }}
+      from-chn-distributed-gov: ${{ steps.changes.outputs.from-chn-distributed-gov }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -29,6 +30,7 @@ jobs:
             "report-publisher:actions/report-publisher"
             "pipeline-manager:actions/pipeline-manager"
             "from-windy-civi-pipelines:actions/from-windy-civi-pipelines"
+            "from-chn-distributed-gov:actions/from-chn-distributed-gov"
           )
 
           # Always run all tests on main branch or workflow_dispatch
@@ -53,7 +55,7 @@ jobs:
           echo "$CHANGED_FILES"
 
           # If workflow file changes, run all tests
-          if echo "$CHANGED_FILES" | grep -q "\.github/workflows/test-runner\.yml"; then
+          if echo "$CHANGED_FILES" | grep -q "\.github/workflows/validate-snapshots\.yml"; then
             for module in "${MODULES[@]}"; do
               JOB_NAME="${module%%:*}"
               echo "${JOB_NAME}=true" >> $GITHUB_OUTPUT
@@ -134,3 +136,39 @@ jobs:
           ../../scripts/before-snapshots.sh examples/__snapshots__
           ./render-snapshots.sh
           ../../scripts/verify-snapshots.sh examples/__snapshots__
+
+  from-chn-distributed-gov-snapshots:
+    runs-on: ubuntu-latest
+    needs: detect-changes
+    if: needs.detect-changes.outputs.from-chn-distributed-gov == 'true'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Setup Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - name: Cache cargo registry
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+
+      - name: Install cargo-insta
+        run: cargo install cargo-insta --locked
+
+      - name: Run tests
+        run: |
+          cd actions/from-chn-distributed-gov
+          cargo test
