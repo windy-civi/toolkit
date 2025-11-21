@@ -3,7 +3,7 @@ source: tests/cli_example_snaps.rs
 expression: "&formatted_stdout"
 ---
 Command:
-govbot clone
+govbot clone --list
 
 Output:
 Available locales:
@@ -44,3 +44,4 @@ Available locales:
   wi
   wv
   wy
+  all (clone all locales)
