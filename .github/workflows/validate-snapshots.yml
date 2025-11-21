@@ -58,6 +58,7 @@ jobs:
               JOB_NAME="${module%%:*}"
               echo "${JOB_NAME}=true" >> $GITHUB_OUTPUT
             done
+            exit 0
           else
             # Otherwise, check each module individually
             for module in "${MODULES[@]}"; do
