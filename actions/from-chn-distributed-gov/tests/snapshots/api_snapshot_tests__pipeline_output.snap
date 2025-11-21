@@ -415,35 +415,6 @@ expression: json_output
           "referral-committee"
         ],
         "date": "2025-04-10T04:00:00+00:00",
-        "description": "Submitted in House",
-        "organization_id": "~{\"classification\": \"lower\"}",
-        "related_entities": []
-      },
-      "bill_id": "HCONRES 26"
-    },
-    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES26/logs/20250410T040000Z_submitted_in_house.json",
-    "minimal_metadata": {
-      "title": "Calling for the end of impunity of unpunished Serbian sexual war crimes during the 1999 Kosovo war in the case of United States citizen and sexual war crime survivor Vasfije Krasniqi Goodman and other survivors of sexual and gender-based violence.",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hconres/BILLSTATUS-119hconres26.xml",
-          "note": ""
-        },
-        {
-          "url": "https://congress.gov/bill/119th-congress/house-resolution/26",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [
-          "referral-committee"
-        ],
-        "date": "2025-04-10T04:00:00+00:00",
         "description": "Referred to the House Committee on Foreign Affairs.",
         "organization_id": "~{\"classification\": \"lower\"}",
         "related_entities": []
@@ -477,9 +448,38 @@ expression: json_output
         "organization_id": "~{\"classification\": \"lower\"}",
         "related_entities": []
       },
+      "bill_id": "HCONRES 26"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES26/logs/20250410T040000Z_submitted_in_house.json",
+    "minimal_metadata": {
+      "title": "Calling for the end of impunity of unpunished Serbian sexual war crimes during the 1999 Kosovo war in the case of United States citizen and sexual war crime survivor Vasfije Krasniqi Goodman and other survivors of sexual and gender-based violence.",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hconres/BILLSTATUS-119hconres26.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/house-resolution/26",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "referral-committee"
+        ],
+        "date": "2025-04-10T04:00:00+00:00",
+        "description": "Referred to the House Committee on Transportation and Infrastructure.",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
       "bill_id": "HCONRES 27"
     },
-    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES27/logs/20250410T040000Z_submitted_in_house.json",
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES27/logs/20250410T040000Z_referred_to_the_house_committee_on_transportation_and_infrastructure.json",
     "minimal_metadata": {
       "title": "Expressing support for the work of open water lifeguards as first responders and emergency response providers.",
       "description": null,
@@ -502,13 +502,13 @@ expression: json_output
           "referral-committee"
         ],
         "date": "2025-04-10T04:00:00+00:00",
-        "description": "Referred to the House Committee on Transportation and Infrastructure.",
+        "description": "Submitted in House",
         "organization_id": "~{\"classification\": \"lower\"}",
         "related_entities": []
       },
       "bill_id": "HCONRES 27"
     },
-    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES27/logs/20250410T040000Z_referred_to_the_house_committee_on_transportation_and_infrastructure.json",
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES27/logs/20250410T040000Z_submitted_in_house.json",
     "minimal_metadata": {
       "title": "Expressing support for the work of open water lifeguards as first responders and emergency response providers.",
       "description": null,
@@ -1044,23 +1044,52 @@ expression: json_output
           "referral-committee"
         ],
         "date": "2025-04-01T04:00:00+00:00",
+        "description": "Referred to the House Committee on House Administration.",
+        "organization_id": "~{\"classification\": \"lower\"}",
+        "related_entities": []
+      },
+      "bill_id": "HCONRES 24"
+    },
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES24/logs/20250401T040000Z_referred_to_the_house_committee_on_house_administration.json",
+    "minimal_metadata": {
+      "title": "Authorizing the use of Emancipation Hall in the Capitol Visitor Center for an event to celebrate the birthday of King Kamehameha I.",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hconres/BILLSTATUS-119hconres24.xml",
+          "note": ""
+        },
+        {
+          "url": "https://congress.gov/bill/119th-congress/house-resolution/24",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [
+          "referral-committee"
+        ],
+        "date": "2025-04-01T04:00:00+00:00",
         "description": "Submitted in House",
         "organization_id": "~{\"classification\": \"lower\"}",
         "related_entities": []
       },
-      "bill_id": "HCONRES 25"
+      "bill_id": "HCONRES 24"
     },
-    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES25/logs/20250401T040000Z_submitted_in_house.json",
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES24/logs/20250401T040000Z_submitted_in_house.json",
     "minimal_metadata": {
-      "title": "Expressing the sense of Congress that Trump administration tariffs on Mexico and Canada are in violation of the United States of America-Mexico-Canada Agreement.",
+      "title": "Authorizing the use of Emancipation Hall in the Capitol Visitor Center for an event to celebrate the birthday of King Kamehameha I.",
       "description": null,
       "sources": [
         {
-          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hconres/BILLSTATUS-119hconres25.xml",
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hconres/BILLSTATUS-119hconres24.xml",
           "note": ""
         },
         {
-          "url": "https://congress.gov/bill/119th-congress/house-resolution/25",
+          "url": "https://congress.gov/bill/119th-congress/house-resolution/24",
           "note": ""
         }
       ]
@@ -1106,48 +1135,19 @@ expression: json_output
         "organization_id": "~{\"classification\": \"lower\"}",
         "related_entities": []
       },
-      "bill_id": "HCONRES 24"
+      "bill_id": "HCONRES 25"
     },
-    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES24/logs/20250401T040000Z_submitted_in_house.json",
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES25/logs/20250401T040000Z_submitted_in_house.json",
     "minimal_metadata": {
-      "title": "Authorizing the use of Emancipation Hall in the Capitol Visitor Center for an event to celebrate the birthday of King Kamehameha I.",
+      "title": "Expressing the sense of Congress that Trump administration tariffs on Mexico and Canada are in violation of the United States of America-Mexico-Canada Agreement.",
       "description": null,
       "sources": [
         {
-          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hconres/BILLSTATUS-119hconres24.xml",
+          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hconres/BILLSTATUS-119hconres25.xml",
           "note": ""
         },
         {
-          "url": "https://congress.gov/bill/119th-congress/house-resolution/24",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [
-          "referral-committee"
-        ],
-        "date": "2025-04-01T04:00:00+00:00",
-        "description": "Referred to the House Committee on House Administration.",
-        "organization_id": "~{\"classification\": \"lower\"}",
-        "related_entities": []
-      },
-      "bill_id": "HCONRES 24"
-    },
-    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES24/logs/20250401T040000Z_referred_to_the_house_committee_on_house_administration.json",
-    "minimal_metadata": {
-      "title": "Authorizing the use of Emancipation Hall in the Capitol Visitor Center for an event to celebrate the birthday of King Kamehameha I.",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hconres/BILLSTATUS-119hconres24.xml",
-          "note": ""
-        },
-        {
-          "url": "https://congress.gov/bill/119th-congress/house-resolution/24",
+          "url": "https://congress.gov/bill/119th-congress/house-resolution/25",
           "note": ""
         }
       ]
@@ -1334,13 +1334,13 @@ expression: json_output
           "referral-committee"
         ],
         "date": "2025-03-24T04:00:00+00:00",
-        "description": "Submitted in House",
+        "description": "Referred to the House Committee on House Administration.",
         "organization_id": "~{\"classification\": \"lower\"}",
         "related_entities": []
       },
       "bill_id": "HCONRES 20"
     },
-    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES20/logs/20250324T040000Z_submitted_in_house.json",
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES20/logs/20250324T040000Z_referred_to_the_house_committee_on_house_administration.json",
     "minimal_metadata": {
       "title": "Establishing the Congressional Fitness Challenge, and for other purposes.",
       "description": null,
@@ -1363,13 +1363,13 @@ expression: json_output
           "referral-committee"
         ],
         "date": "2025-03-24T04:00:00+00:00",
-        "description": "Referred to the House Committee on House Administration.",
+        "description": "Submitted in House",
         "organization_id": "~{\"classification\": \"lower\"}",
         "related_entities": []
       },
       "bill_id": "HCONRES 20"
     },
-    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES20/logs/20250324T040000Z_referred_to_the_house_committee_on_house_administration.json",
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES20/logs/20250324T040000Z_submitted_in_house.json",
     "minimal_metadata": {
       "title": "Establishing the Congressional Fitness Challenge, and for other purposes.",
       "description": null,
@@ -1473,13 +1473,13 @@ expression: json_output
           "referral-committee"
         ],
         "date": "2025-03-11T04:00:00+00:00",
-        "description": "Submitted in House",
+        "description": "Referred to the House Committee on Oversight and Government Reform.",
         "organization_id": "~{\"classification\": \"lower\"}",
         "related_entities": []
       },
       "bill_id": "HCONRES 19"
     },
-    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES19/logs/20250311T040000Z_submitted_in_house.json",
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES19/logs/20250311T040000Z_referred_to_the_house_committee_on_oversight_and_government_reform.json",
     "minimal_metadata": {
       "title": "Recognizing the essential work of the League of Oregon Cities.",
       "description": null,
@@ -1502,13 +1502,13 @@ expression: json_output
           "referral-committee"
         ],
         "date": "2025-03-11T04:00:00+00:00",
-        "description": "Referred to the House Committee on Oversight and Government Reform.",
+        "description": "Submitted in House",
         "organization_id": "~{\"classification\": \"lower\"}",
         "related_entities": []
       },
       "bill_id": "HCONRES 19"
     },
-    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES19/logs/20250311T040000Z_referred_to_the_house_committee_on_oversight_and_government_reform.json",
+    "filename": "usa-data-pipeline/country:us/state:usa/sessions/119/bills/HCONRES19/logs/20250311T040000Z_submitted_in_house.json",
     "minimal_metadata": {
       "title": "Recognizing the essential work of the League of Oregon Cities.",
       "description": null,
@@ -1865,144 +1865,6 @@ expression: json_output
         "organization_id": "~{\"classification\": \"upper\"}",
         "related_entities": []
       },
-      "bill_id": "AM1030402"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030402/logs/20250226T000000Z_appointment_confirmed.json",
-    "minimal_metadata": {
-      "title": "APPOINT-JON H. JOHNSON",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030402&GAID=18&DocTypeID=AM&LegId=157846&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Do Consent Passed 054-000-000",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030402"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030402/logs/20250226T000000Z_do_consent_passed_054000000.json",
-    "minimal_metadata": {
-      "title": "APPOINT-JON H. JOHNSON",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030402&GAID=18&DocTypeID=AM&LegId=157846&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Appointment Confirmed",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030405"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030405/logs/20250226T000000Z_appointment_confirmed.json",
-    "minimal_metadata": {
-      "title": "APPOINT-JULIETA LAMALFA",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030405&GAID=18&DocTypeID=AM&LegId=157849&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Do Consent Passed 054-000-000",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030405"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030405/logs/20250226T000000Z_do_consent_passed_054000000.json",
-    "minimal_metadata": {
-      "title": "APPOINT-JULIETA LAMALFA",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030405&GAID=18&DocTypeID=AM&LegId=157849&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Do Consent Passed 043-009-000",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030403"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030403/logs/20250226T000000Z_do_consent_passed_043009000.json",
-    "minimal_metadata": {
-      "title": "APPOINT-DOUGLAS P. SCOTT",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030403&GAID=18&DocTypeID=AM&LegId=157848&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Appointment Confirmed",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030403"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030403/logs/20250226T000000Z_appointment_confirmed.json",
-    "minimal_metadata": {
-      "title": "APPOINT-DOUGLAS P. SCOTT",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030403&GAID=18&DocTypeID=AM&LegId=157848&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Appointment Confirmed",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
       "bill_id": "AM1030372"
     },
     "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030372/logs/20250226T000000Z_appointment_confirmed.json",
@@ -2045,88 +1907,19 @@ expression: json_output
       "action": {
         "classification": [],
         "date": "2025-02-26",
-        "description": "Motion Prevailed",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030411"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030411/logs/20250226T000000Z_motion_prevailed.json",
-    "minimal_metadata": {
-      "title": "APPOINT-SALVATORE TORNATORE",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030411&GAID=18&DocTypeID=AM&LegId=157858&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
         "description": "Appointment Confirmed",
         "organization_id": "~{\"classification\": \"upper\"}",
         "related_entities": []
       },
-      "bill_id": "AM1030411"
+      "bill_id": "AM1030399"
     },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030411/logs/20250226T000000Z_appointment_confirmed.json",
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030399/logs/20250226T000000Z_appointment_confirmed.json",
     "minimal_metadata": {
-      "title": "APPOINT-SALVATORE TORNATORE",
+      "title": "APPOINT-JENNIFER L. AKHTER",
       "description": null,
       "sources": [
         {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030411&GAID=18&DocTypeID=AM&LegId=157858&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Pursuant to Senate Rule 10-1(c), move to compile the following AM's",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030411"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030411/logs/20250226T000000Z_pursuant_to_senate_rule_101c_move_to_compile_the_following_ams.json",
-    "minimal_metadata": {
-      "title": "APPOINT-SALVATORE TORNATORE",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030411&GAID=18&DocTypeID=AM&LegId=157858&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Motion Filed Appointment Messages Be Acted on Together ** Sen. Laura M. Murphy;  AM 1030399(Amusement Ride and Attraction safety Board)\r\nAM’s 1030406,1030407(Illinois Forensic Science Commission)\r\nAM’s 1030408,1030419,1030436(Health Benefits Exchange Advisory Committee)\r\nAM 1030411(Illinois Housing Development Authority)\r\nAM 1030412(Illinois State Medical Board)\r\nAM’s 1030413, 1030415,1030421,1030426(Illinois State Museum Board)\r\nAM 1030424(Blue Ribbon Commission on Transportation Infrastructure Funding and Policy)\r\nAM 1030416(Illinois Student Assistance Commission)\r\nAM1030425(Southwestern Illinois Development Authority)\r\nAM 1030427(Commission on Discrimination and Hate Crimes)\r\nAM’s 1030428,1030432,1030437 (Capital Development Board)\r\nAM 1030430(State Board of Health)\r\nAM 1030433(Energy Workforce Advisory Council)\r\nAM 1030434(Criminal Justice Information Authority)",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030411"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030411/logs/20250226T000000Z_motion_filed_appointment_messages_be_acted_on_together_sen_laura_m_murphy_am_1030399amusement_ride_a.json",
-    "minimal_metadata": {
-      "title": "APPOINT-SALVATORE TORNATORE",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030411&GAID=18&DocTypeID=AM&LegId=157858&SessionID=114",
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030399&GAID=18&DocTypeID=AM&LegId=157841&SessionID=114",
           "note": ""
         }
       ]
@@ -2141,15 +1934,38 @@ expression: json_output
         "organization_id": "~{\"classification\": \"upper\"}",
         "related_entities": []
       },
-      "bill_id": "AM1030411"
+      "bill_id": "AM1030399"
     },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030411/logs/20250226T000000Z_do_consent_passed_054000000.json",
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030399/logs/20250226T000000Z_do_consent_passed_054000000.json",
     "minimal_metadata": {
-      "title": "APPOINT-SALVATORE TORNATORE",
+      "title": "APPOINT-JENNIFER L. AKHTER",
       "description": null,
       "sources": [
         {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030411&GAID=18&DocTypeID=AM&LegId=157858&SessionID=114",
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030399&GAID=18&DocTypeID=AM&LegId=157841&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
+        "description": "Motion Filed Appointment Messages Be Acted on Together Sen. Laura M. Murphy;  AM 1030399 (Amusement Ride and Attraction safety Board)\r\nAMs 1030406, 1030407 (Illinois Forensic Science Commission)\r\nAMs 1030408, 1030419, 1030436 (Health Benefits Exchange Advisory Committee)\r\nAM 1030411 (Illinois Housing Development Authority)\r\nAM 1030412 (Illinois State Medical Board)\r\nAMs 1030413, 1030415, 1030421, 1030426 (Illinois State Museum Board)\r\nAM 1030424 (Blue Ribbon Commission on Transportation Infrastructure Funding and Policy)\r\nAM 1030416 (Illinois Student Assistance Commission)\r\nAM1030425 (Southwestern Illinois Development Authority)\r\nAM 1030427 (Commission on Discrimination and Hate Crimes)\r\nAMs 1030428, 1030432, 1030437 (Capital Development Board)\r\nAM 1030430 (State Board of Health)\r\nAM 1030433 (Energy Workforce Advisory Council)\r\nAM 1030434 (Criminal Justice Information Authority)",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030399"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030399/logs/20250226T000000Z_motion_filed_appointment_messages_be_acted_on_together_sen_laura_m_murphy_am_1030399_amusement_ride_.json",
+    "minimal_metadata": {
+      "title": "APPOINT-JENNIFER L. AKHTER",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030399&GAID=18&DocTypeID=AM&LegId=157841&SessionID=114",
           "note": ""
         }
       ]
@@ -2164,61 +1980,15 @@ expression: json_output
         "organization_id": "~{\"classification\": \"upper\"}",
         "related_entities": []
       },
-      "bill_id": "AM1030406"
+      "bill_id": "AM1030399"
     },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030406/logs/20250226T000000Z_motion_prevailed.json",
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030399/logs/20250226T000000Z_motion_prevailed.json",
     "minimal_metadata": {
-      "title": "APPOINT-PONNI ARUNKUMAR",
+      "title": "APPOINT-JENNIFER L. AKHTER",
       "description": null,
       "sources": [
         {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030406&GAID=18&DocTypeID=AM&LegId=157851&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Appointment Confirmed",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030406"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030406/logs/20250226T000000Z_appointment_confirmed.json",
-    "minimal_metadata": {
-      "title": "APPOINT-PONNI ARUNKUMAR",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030406&GAID=18&DocTypeID=AM&LegId=157851&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Motion Filed Appointment Messages Be Acted on Together ** Sen. Laura M. Murphy;  AMs 1030406, 1030407 (Illinois Forensic Science Commission)\r\nAMs 1030408, 1030419, 1030436 (Health Benefits Exchange Advisory Committee)\r\nAM 1030411 (Illinois Housing Development Authority)\r\nAM 1030412 (Illinois State Medical Board)\r\nAMs 1030413, 1030415, 1030421, 1030426 (Illinois State Museum Board)\r\nAM 1030424 (Blue Ribbon Commission on Transportation Infrastructure Funding and Policy)\r\nAM 1030416 (Illinois Student Assistance Commission)\r\nAM1030425 (Southwestern Illinois Development Authority)\r\nAM 1030427 (Commission on Discrimination and Hate Crimes)\r\nAMs 1030428, 1030432, 1030437 (Capital Development Board)\r\nAM 1030430 (State Board of Health)\r\nAM 1030433 (Energy Workforce Advisory Council)\r\nAM 1030434 (Criminal Justice Information Authority)",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030406"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030406/logs/20250226T000000Z_motion_filed_appointment_messages_be_acted_on_together_sen_laura_m_murphy_ams_1030406_1030407_illino.json",
-    "minimal_metadata": {
-      "title": "APPOINT-PONNI ARUNKUMAR",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030406&GAID=18&DocTypeID=AM&LegId=157851&SessionID=114",
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030399&GAID=18&DocTypeID=AM&LegId=157841&SessionID=114",
           "note": ""
         }
       ]
@@ -2233,199 +2003,15 @@ expression: json_output
         "organization_id": "~{\"classification\": \"upper\"}",
         "related_entities": []
       },
-      "bill_id": "AM1030406"
+      "bill_id": "AM1030399"
     },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030406/logs/20250226T000000Z_pursuant_to_senate_rule_101c_move_to_compile_the_following_ams.json",
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030399/logs/20250226T000000Z_pursuant_to_senate_rule_101c_move_to_compile_the_following_ams.json",
     "minimal_metadata": {
-      "title": "APPOINT-PONNI ARUNKUMAR",
+      "title": "APPOINT-JENNIFER L. AKHTER",
       "description": null,
       "sources": [
         {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030406&GAID=18&DocTypeID=AM&LegId=157851&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Do Consent Passed 054-000-000",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030406"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030406/logs/20250226T000000Z_do_consent_passed_054000000.json",
-    "minimal_metadata": {
-      "title": "APPOINT-PONNI ARUNKUMAR",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030406&GAID=18&DocTypeID=AM&LegId=157851&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Appointment Confirmed",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030401"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030401/logs/20250226T000000Z_appointment_confirmed.json",
-    "minimal_metadata": {
-      "title": "APPOINT-JOSEPH JOHN DUFFY",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030401&GAID=18&DocTypeID=AM&LegId=157844&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Do Consent Passed 054-000-000",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030401"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030401/logs/20250226T000000Z_do_consent_passed_054000000.json",
-    "minimal_metadata": {
-      "title": "APPOINT-JOSEPH JOHN DUFFY",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030401&GAID=18&DocTypeID=AM&LegId=157844&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Motion Prevailed",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030408"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030408/logs/20250226T000000Z_motion_prevailed.json",
-    "minimal_metadata": {
-      "title": "APPOINT-PAULA CAMPBELL",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030408&GAID=18&DocTypeID=AM&LegId=157853&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Appointment Confirmed",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030408"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030408/logs/20250226T000000Z_appointment_confirmed.json",
-    "minimal_metadata": {
-      "title": "APPOINT-PAULA CAMPBELL",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030408&GAID=18&DocTypeID=AM&LegId=157853&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Pursuant to Senate Rule 10-1(c), move to compile the following AM's",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030408"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030408/logs/20250226T000000Z_pursuant_to_senate_rule_101c_move_to_compile_the_following_ams.json",
-    "minimal_metadata": {
-      "title": "APPOINT-PAULA CAMPBELL",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030408&GAID=18&DocTypeID=AM&LegId=157853&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Motion Filed Appointment Messages Be Acted on Together ** Sen. Laura M. Murphy;  AM 1030399(Amusement Ride and Attraction safety Board)\r\nAM’s 1030406,1030407(Illinois Forensic Science Commission)\r\nAM’s 1030408,1030419,1030436(Health Benefits Exchange Advisory Committee)\r\nAM 1030411(Illinois Housing Development Authority)\r\nAM 1030412(Illinois State Medical Board)\r\nAM’s 1030413, 1030415,1030421,1030426(Illinois State Museum Board)\r\nAM 1030424(Blue Ribbon Commission on Transportation Infrastructure Funding and Policy)\r\nAM 1030416(Illinois Student Assistance Commission)\r\nAM1030425(Southwestern Illinois Development Authority)\r\nAM 1030427(Commission on Discrimination and Hate Crimes)\r\nAM’s 1030428,1030432,1030437 (Capital Development Board)\r\nAM 1030430(State Board of Health)\r\nAM 1030433(Energy Workforce Advisory Council)\r\nAM 1030434(Criminal Justice Information Authority)",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030408"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030408/logs/20250226T000000Z_motion_filed_appointment_messages_be_acted_on_together_sen_laura_m_murphy_am_1030399amusement_ride_a.json",
-    "minimal_metadata": {
-      "title": "APPOINT-PAULA CAMPBELL",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030408&GAID=18&DocTypeID=AM&LegId=157853&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Do Consent Passed 054-000-000",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030408"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030408/logs/20250226T000000Z_do_consent_passed_054000000.json",
-    "minimal_metadata": {
-      "title": "APPOINT-PAULA CAMPBELL",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030408&GAID=18&DocTypeID=AM&LegId=157853&SessionID=114",
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030399&GAID=18&DocTypeID=AM&LegId=157841&SessionID=114",
           "note": ""
         }
       ]
@@ -2482,19 +2068,295 @@ expression: json_output
       "action": {
         "classification": [],
         "date": "2025-02-26",
+        "description": "Appointment Confirmed",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030401"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030401/logs/20250226T000000Z_appointment_confirmed.json",
+    "minimal_metadata": {
+      "title": "APPOINT-JOSEPH JOHN DUFFY",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030401&GAID=18&DocTypeID=AM&LegId=157844&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
+        "description": "Do Consent Passed 054-000-000",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030401"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030401/logs/20250226T000000Z_do_consent_passed_054000000.json",
+    "minimal_metadata": {
+      "title": "APPOINT-JOSEPH JOHN DUFFY",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030401&GAID=18&DocTypeID=AM&LegId=157844&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
+        "description": "Appointment Confirmed",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030402"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030402/logs/20250226T000000Z_appointment_confirmed.json",
+    "minimal_metadata": {
+      "title": "APPOINT-JON H. JOHNSON",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030402&GAID=18&DocTypeID=AM&LegId=157846&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
+        "description": "Do Consent Passed 054-000-000",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030402"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030402/logs/20250226T000000Z_do_consent_passed_054000000.json",
+    "minimal_metadata": {
+      "title": "APPOINT-JON H. JOHNSON",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030402&GAID=18&DocTypeID=AM&LegId=157846&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
+        "description": "Appointment Confirmed",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030403"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030403/logs/20250226T000000Z_appointment_confirmed.json",
+    "minimal_metadata": {
+      "title": "APPOINT-DOUGLAS P. SCOTT",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030403&GAID=18&DocTypeID=AM&LegId=157848&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
+        "description": "Do Consent Passed 043-009-000",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030403"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030403/logs/20250226T000000Z_do_consent_passed_043009000.json",
+    "minimal_metadata": {
+      "title": "APPOINT-DOUGLAS P. SCOTT",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030403&GAID=18&DocTypeID=AM&LegId=157848&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
+        "description": "Appointment Confirmed",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030405"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030405/logs/20250226T000000Z_appointment_confirmed.json",
+    "minimal_metadata": {
+      "title": "APPOINT-JULIETA LAMALFA",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030405&GAID=18&DocTypeID=AM&LegId=157849&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
+        "description": "Do Consent Passed 054-000-000",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030405"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030405/logs/20250226T000000Z_do_consent_passed_054000000.json",
+    "minimal_metadata": {
+      "title": "APPOINT-JULIETA LAMALFA",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030405&GAID=18&DocTypeID=AM&LegId=157849&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
+        "description": "Appointment Confirmed",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030406"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030406/logs/20250226T000000Z_appointment_confirmed.json",
+    "minimal_metadata": {
+      "title": "APPOINT-PONNI ARUNKUMAR",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030406&GAID=18&DocTypeID=AM&LegId=157851&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
+        "description": "Do Consent Passed 054-000-000",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030406"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030406/logs/20250226T000000Z_do_consent_passed_054000000.json",
+    "minimal_metadata": {
+      "title": "APPOINT-PONNI ARUNKUMAR",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030406&GAID=18&DocTypeID=AM&LegId=157851&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
+        "description": "Motion Filed Appointment Messages Be Acted on Together ** Sen. Laura M. Murphy;  AMs 1030406, 1030407 (Illinois Forensic Science Commission)\r\nAMs 1030408, 1030419, 1030436 (Health Benefits Exchange Advisory Committee)\r\nAM 1030411 (Illinois Housing Development Authority)\r\nAM 1030412 (Illinois State Medical Board)\r\nAMs 1030413, 1030415, 1030421, 1030426 (Illinois State Museum Board)\r\nAM 1030424 (Blue Ribbon Commission on Transportation Infrastructure Funding and Policy)\r\nAM 1030416 (Illinois Student Assistance Commission)\r\nAM1030425 (Southwestern Illinois Development Authority)\r\nAM 1030427 (Commission on Discrimination and Hate Crimes)\r\nAMs 1030428, 1030432, 1030437 (Capital Development Board)\r\nAM 1030430 (State Board of Health)\r\nAM 1030433 (Energy Workforce Advisory Council)\r\nAM 1030434 (Criminal Justice Information Authority)",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030406"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030406/logs/20250226T000000Z_motion_filed_appointment_messages_be_acted_on_together_sen_laura_m_murphy_ams_1030406_1030407_illino.json",
+    "minimal_metadata": {
+      "title": "APPOINT-PONNI ARUNKUMAR",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030406&GAID=18&DocTypeID=AM&LegId=157851&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
         "description": "Motion Prevailed",
         "organization_id": "~{\"classification\": \"upper\"}",
         "related_entities": []
       },
-      "bill_id": "AM1030407"
+      "bill_id": "AM1030406"
     },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030407/logs/20250226T000000Z_motion_prevailed.json",
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030406/logs/20250226T000000Z_motion_prevailed.json",
     "minimal_metadata": {
-      "title": "APPOINT-JODI M. HOOS",
+      "title": "APPOINT-PONNI ARUNKUMAR",
       "description": null,
       "sources": [
         {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030407&GAID=18&DocTypeID=AM&LegId=157852&SessionID=114",
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030406&GAID=18&DocTypeID=AM&LegId=157851&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
+        "description": "Pursuant to Senate Rule 10-1(c), move to compile the following AM's",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030406"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030406/logs/20250226T000000Z_pursuant_to_senate_rule_101c_move_to_compile_the_following_ams.json",
+    "minimal_metadata": {
+      "title": "APPOINT-PONNI ARUNKUMAR",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030406&GAID=18&DocTypeID=AM&LegId=157851&SessionID=114",
           "note": ""
         }
       ]
@@ -2512,52 +2374,6 @@ expression: json_output
       "bill_id": "AM1030407"
     },
     "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030407/logs/20250226T000000Z_appointment_confirmed.json",
-    "minimal_metadata": {
-      "title": "APPOINT-JODI M. HOOS",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030407&GAID=18&DocTypeID=AM&LegId=157852&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Pursuant to Senate Rule 10-1(c), move to compile the following AM's",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030407"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030407/logs/20250226T000000Z_pursuant_to_senate_rule_101c_move_to_compile_the_following_ams.json",
-    "minimal_metadata": {
-      "title": "APPOINT-JODI M. HOOS",
-      "description": null,
-      "sources": [
-        {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030407&GAID=18&DocTypeID=AM&LegId=157852&SessionID=114",
-          "note": ""
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "action": {
-        "classification": [],
-        "date": "2025-02-26",
-        "description": "Motion Filed Appointment Messages Be Acted on Together ** Sen. Laura M. Murphy;  AM 1030399(Amusement Ride and Attraction safety Board)\r\nAM’s 1030406,1030407(Illinois Forensic Science Commission)\r\nAM’s 1030408,1030419,1030436(Health Benefits Exchange Advisory Committee)\r\nAM 1030411(Illinois Housing Development Authority)\r\nAM 1030412(Illinois State Medical Board)\r\nAM’s 1030413, 1030415,1030421,1030426(Illinois State Museum Board)\r\nAM 1030424(Blue Ribbon Commission on Transportation Infrastructure Funding and Policy)\r\nAM 1030416(Illinois Student Assistance Commission)\r\nAM1030425(Southwestern Illinois Development Authority)\r\nAM 1030427(Commission on Discrimination and Hate Crimes)\r\nAM’s 1030428,1030432,1030437 (Capital Development Board)\r\nAM 1030430(State Board of Health)\r\nAM 1030433(Energy Workforce Advisory Council)\r\nAM 1030434(Criminal Justice Information Authority)",
-        "organization_id": "~{\"classification\": \"upper\"}",
-        "related_entities": []
-      },
-      "bill_id": "AM1030407"
-    },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030407/logs/20250226T000000Z_motion_filed_appointment_messages_be_acted_on_together_sen_laura_m_murphy_am_1030399amusement_ride_a.json",
     "minimal_metadata": {
       "title": "APPOINT-JODI M. HOOS",
       "description": null,
@@ -2597,19 +2413,203 @@ expression: json_output
       "action": {
         "classification": [],
         "date": "2025-02-26",
+        "description": "Motion Filed Appointment Messages Be Acted on Together ** Sen. Laura M. Murphy;  AM 1030399(Amusement Ride and Attraction safety Board)\r\nAM’s 1030406,1030407(Illinois Forensic Science Commission)\r\nAM’s 1030408,1030419,1030436(Health Benefits Exchange Advisory Committee)\r\nAM 1030411(Illinois Housing Development Authority)\r\nAM 1030412(Illinois State Medical Board)\r\nAM’s 1030413, 1030415,1030421,1030426(Illinois State Museum Board)\r\nAM 1030424(Blue Ribbon Commission on Transportation Infrastructure Funding and Policy)\r\nAM 1030416(Illinois Student Assistance Commission)\r\nAM1030425(Southwestern Illinois Development Authority)\r\nAM 1030427(Commission on Discrimination and Hate Crimes)\r\nAM’s 1030428,1030432,1030437 (Capital Development Board)\r\nAM 1030430(State Board of Health)\r\nAM 1030433(Energy Workforce Advisory Council)\r\nAM 1030434(Criminal Justice Information Authority)",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030407"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030407/logs/20250226T000000Z_motion_filed_appointment_messages_be_acted_on_together_sen_laura_m_murphy_am_1030399amusement_ride_a.json",
+    "minimal_metadata": {
+      "title": "APPOINT-JODI M. HOOS",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030407&GAID=18&DocTypeID=AM&LegId=157852&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
         "description": "Motion Prevailed",
         "organization_id": "~{\"classification\": \"upper\"}",
         "related_entities": []
       },
-      "bill_id": "AM1030399"
+      "bill_id": "AM1030407"
     },
-    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030399/logs/20250226T000000Z_motion_prevailed.json",
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030407/logs/20250226T000000Z_motion_prevailed.json",
     "minimal_metadata": {
-      "title": "APPOINT-JENNIFER L. AKHTER",
+      "title": "APPOINT-JODI M. HOOS",
       "description": null,
       "sources": [
         {
-          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030399&GAID=18&DocTypeID=AM&LegId=157841&SessionID=114",
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030407&GAID=18&DocTypeID=AM&LegId=157852&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
+        "description": "Pursuant to Senate Rule 10-1(c), move to compile the following AM's",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030407"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030407/logs/20250226T000000Z_pursuant_to_senate_rule_101c_move_to_compile_the_following_ams.json",
+    "minimal_metadata": {
+      "title": "APPOINT-JODI M. HOOS",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030407&GAID=18&DocTypeID=AM&LegId=157852&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
+        "description": "Appointment Confirmed",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030408"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030408/logs/20250226T000000Z_appointment_confirmed.json",
+    "minimal_metadata": {
+      "title": "APPOINT-PAULA CAMPBELL",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030408&GAID=18&DocTypeID=AM&LegId=157853&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
+        "description": "Do Consent Passed 054-000-000",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030408"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030408/logs/20250226T000000Z_do_consent_passed_054000000.json",
+    "minimal_metadata": {
+      "title": "APPOINT-PAULA CAMPBELL",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030408&GAID=18&DocTypeID=AM&LegId=157853&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
+        "description": "Motion Filed Appointment Messages Be Acted on Together ** Sen. Laura M. Murphy;  AM 1030399(Amusement Ride and Attraction safety Board)\r\nAM’s 1030406,1030407(Illinois Forensic Science Commission)\r\nAM’s 1030408,1030419,1030436(Health Benefits Exchange Advisory Committee)\r\nAM 1030411(Illinois Housing Development Authority)\r\nAM 1030412(Illinois State Medical Board)\r\nAM’s 1030413, 1030415,1030421,1030426(Illinois State Museum Board)\r\nAM 1030424(Blue Ribbon Commission on Transportation Infrastructure Funding and Policy)\r\nAM 1030416(Illinois Student Assistance Commission)\r\nAM1030425(Southwestern Illinois Development Authority)\r\nAM 1030427(Commission on Discrimination and Hate Crimes)\r\nAM’s 1030428,1030432,1030437 (Capital Development Board)\r\nAM 1030430(State Board of Health)\r\nAM 1030433(Energy Workforce Advisory Council)\r\nAM 1030434(Criminal Justice Information Authority)",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030408"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030408/logs/20250226T000000Z_motion_filed_appointment_messages_be_acted_on_together_sen_laura_m_murphy_am_1030399amusement_ride_a.json",
+    "minimal_metadata": {
+      "title": "APPOINT-PAULA CAMPBELL",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030408&GAID=18&DocTypeID=AM&LegId=157853&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
+        "description": "Motion Prevailed",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030408"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030408/logs/20250226T000000Z_motion_prevailed.json",
+    "minimal_metadata": {
+      "title": "APPOINT-PAULA CAMPBELL",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030408&GAID=18&DocTypeID=AM&LegId=157853&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
+        "description": "Pursuant to Senate Rule 10-1(c), move to compile the following AM's",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030408"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030408/logs/20250226T000000Z_pursuant_to_senate_rule_101c_move_to_compile_the_following_ams.json",
+    "minimal_metadata": {
+      "title": "APPOINT-PAULA CAMPBELL",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030408&GAID=18&DocTypeID=AM&LegId=157853&SessionID=114",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "action": {
+        "classification": [],
+        "date": "2025-02-26",
+        "description": "Appointment Confirmed",
+        "organization_id": "~{\"classification\": \"upper\"}",
+        "related_entities": []
+      },
+      "bill_id": "AM1030411"
+    },
+    "filename": "il-data-pipeline/country:us/state:il/sessions/104th/bills/AM1030411/logs/20250226T000000Z_appointment_confirmed.json",
+    "minimal_metadata": {
+      "title": "APPOINT-SALVATORE TORNATORE",
+      "description": null,
+      "sources": [
+        {
+          "url": "https://ilga.gov/Legislation/BillStatus?DocNum=1030411&GAID=18&DocTypeID=AM&LegId=157858&SessionID=114",
           "note": ""
         }
       ]

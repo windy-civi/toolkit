@@ -224,25 +224,44 @@ impl PipelineProcessor {
     }
 
     /// Sort files by timestamp according to sort order
+    /// Uses relative_path as a secondary sort key to ensure deterministic ordering
     fn sort_files_internal(config: &Config, mut files: Vec<FileWithTimestamp>) -> Vec<FileWithTimestamp> {
         match config.sort_order {
             crate::config::SortOrder::Descending => {
                 files.sort_by(|a, b| {
                     match (&a.timestamp, &b.timestamp) {
-                        (Some(ts_a), Some(ts_b)) => ts_b.cmp(ts_a), // Reverse for descending
+                        (Some(ts_a), Some(ts_b)) => {
+                            // Primary sort: timestamp descending
+                            let timestamp_cmp = ts_b.cmp(ts_a);
+                            // Secondary sort: path ascending (for deterministic ordering when timestamps are equal)
+                            if timestamp_cmp == std::cmp::Ordering::Equal {
+                                a.relative_path.cmp(&b.relative_path)
+                            } else {
+                                timestamp_cmp
+                            }
+                        }
                         (Some(_), None) => std::cmp::Ordering::Less,
                         (None, Some(_)) => std::cmp::Ordering::Greater,
-                        (None, None) => std::cmp::Ordering::Equal,
+                        (None, None) => a.relative_path.cmp(&b.relative_path), // Sort by path when both have no timestamp
                     }
                 });
             }
             crate::config::SortOrder::Ascending => {
                 files.sort_by(|a, b| {
                     match (&a.timestamp, &b.timestamp) {
-                        (Some(ts_a), Some(ts_b)) => ts_a.cmp(ts_b),
+                        (Some(ts_a), Some(ts_b)) => {
+                            // Primary sort: timestamp ascending
+                            let timestamp_cmp = ts_a.cmp(ts_b);
+                            // Secondary sort: path ascending (for deterministic ordering when timestamps are equal)
+                            if timestamp_cmp == std::cmp::Ordering::Equal {
+                                a.relative_path.cmp(&b.relative_path)
+                            } else {
+                                timestamp_cmp
+                            }
+                        }
                         (Some(_), None) => std::cmp::Ordering::Less,
                         (None, Some(_)) => std::cmp::Ordering::Greater,
-                        (None, None) => std::cmp::Ordering::Equal,
+                        (None, None) => a.relative_path.cmp(&b.relative_path), // Sort by path when both have no timestamp
                     }
                 });
             }
