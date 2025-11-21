@@ -40,6 +40,10 @@ setup:
     mkdir -p .tmp/.govbot/repos
     cp -r ../sync-windy-civi-pipelines/__snapshots__/* .tmp/.govbot/repos/
     
+    # Generate locale enum from pipeline-manager config
+    echo ""
+    echo "📝 Generating locale enum from pipeline-manager config..."
+    cargo run --bin generate-locale-enum
 
     echo ""
     echo "✅ Development environment setup complete!"
@@ -118,6 +122,10 @@ run-args ARGS:
 # Run the release binary
 run-release:
     cargo run --release
+
+# Generate locale enum from pipeline-manager config
+generate:
+    cargo run --bin generate-locale-enum
 
 # Show project info
 info:

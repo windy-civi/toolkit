@@ -17,7 +17,7 @@ pub fn default_repos_dir() -> Result<PathBuf> {
 }
 
 /// Build callbacks for git operations with optional token authentication
-fn build_callbacks(token: Option<&str>) -> RemoteCallbacks<'_> {
+fn build_callbacks(token: Option<&str>, show_progress: bool) -> RemoteCallbacks<'_> {
     let mut callbacks = RemoteCallbacks::new();
     let token = token.map(|t| t.to_string());
 
@@ -31,6 +31,35 @@ fn build_callbacks(token: Option<&str>) -> RemoteCallbacks<'_> {
             git2::Cred::default()
         }
     });
+
+    if show_progress {
+        callbacks.transfer_progress(|stats| {
+            if stats.total_objects() > 0 {
+                let received = stats.received_objects();
+                let total = stats.total_objects();
+                let percent = if total > 0 {
+                    (received * 100) / total
+                } else {
+                    0
+                };
+
+                if received == total {
+                    eprint!(
+                        "\rReceiving objects: {}/{} (100%)... done.                    \n",
+                        received, total
+                    );
+                } else {
+                    eprint!(
+                        "\rReceiving objects: {}/{} ({:3}%)",
+                        received, total, percent
+                    );
+                }
+            } else {
+                eprint!("\rReceiving objects: {}...", stats.received_objects());
+            }
+            true
+        });
+    }
 
     callbacks
 }
@@ -71,7 +100,7 @@ pub fn clone_repo(locale: &str, repos_dir: &Path, token: Option<&str>) -> Result
 
     let mut fetch_options = FetchOptions::new();
     fetch_options.depth(1); // Shallow clone
-    fetch_options.remote_callbacks(build_callbacks(token));
+    fetch_options.remote_callbacks(build_callbacks(token, true));
 
     let mut builder = RepoBuilder::new();
     builder.fetch_options(fetch_options);
@@ -82,6 +111,9 @@ pub fn clone_repo(locale: &str, repos_dir: &Path, token: Option<&str>) -> Result
             repo_path, e
         ))
     })?;
+
+    // Clear any progress line
+    eprint!("\r                                                                                \r");
 
     eprintln!(
         "Successfully cloned {} into {}",
@@ -99,7 +131,7 @@ fn pull_repo_internal(repo: &Repository, token: Option<&str>) -> Result<()> {
         .map_err(|e| Error::Config(format!("Failed to find remote 'origin': {}", e)))?;
 
     let mut fetch_options = FetchOptions::new();
-    fetch_options.remote_callbacks(build_callbacks(token));
+    fetch_options.remote_callbacks(build_callbacks(token, true));
 
     remote
         .fetch(
@@ -171,6 +203,9 @@ pub fn pull_repo(locale: &str, repos_dir: &Path, token: Option<&str>) -> Result<
     eprintln!("Pulling repository: {}", repo_path);
 
     pull_repo_internal(&repo, token)?;
+
+    // Clear any progress line
+    eprint!("\r                                                                                \r");
 
     eprintln!("Successfully pulled {}", repo_path);
     Ok(())
