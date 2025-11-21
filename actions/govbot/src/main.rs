@@ -106,7 +106,12 @@ fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
     };
 
     if locales.is_empty() {
-        return Err(anyhow::anyhow!("At least one locale must be specified"));
+        println!("Available locales:");
+        let all_locales = govbot::locale::WorkingLocale::all();
+        for locale in all_locales {
+            println!("  {}", locale.as_lowercase());
+        }
+        return Ok(());
     }
 
     let repos_dir = get_govbot_dir(govbot_dir)?;
