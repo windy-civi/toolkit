@@ -127,6 +127,90 @@ run-release:
 generate:
     cargo run --bin generate-locale-enum
 
+# Update mocks by cloning/pulling repos and cleaning them up
+# Usage: just mocks [LOCALES...]
+# Example: just mocks usa il
+# Default: clones usa il if no locales specified
+mocks *LOCALES:
+    #!/usr/bin/env bash
+    set -e
+    
+    BILL_LIMIT=${BILL_LIMIT:-20}
+    MOCKS_DIR="mocks/.govbot"
+    
+    # Default to usa il if no locales provided
+    if [ -z "{{LOCALES}}" ]; then
+        LOCALES="usa il"
+    else
+        LOCALES="{{LOCALES}}"
+    fi
+
+    echo "🧹 Deleting mocks directory..."
+    rm -rf mocks
+    
+    echo "🔄 Updating mocks..."
+    
+    # Ensure binary is built
+    cargo build --bin govbot
+    
+    # Clone/pull repositories using govbot
+    echo ""
+    echo "📥 Cloning/pulling repositories..."
+    cargo run --bin govbot -- clone --govbot-dir "$MOCKS_DIR" $LOCALES
+    
+    # Cleanup functions
+    function delete_files_dir {
+        local child="$1"
+        [ -d "$child" ] || return 0
+        find "$child" -type d -name "files" -exec rm -rf {} + 2>/dev/null || true
+    }
+    
+    function prune_bills {
+        local child="$1"
+        [ -d "$child" ] || return 0
+        # For every 'bills' directory under the repo, keep only the first $BILL_LIMIT subfolders
+        while IFS= read -r bills_dir; do
+            [ -d "$bills_dir" ] || continue
+    
+            local bill_dirs=()
+            while IFS= read -r bill_dir; do
+                [ -d "$bill_dir" ] && bill_dirs+=("$bill_dir")
+            done < <(find "$bills_dir" -mindepth 1 -maxdepth 1 -type d 2>/dev/null | sort)
+    
+            local bill_count=${#bill_dirs[@]}
+            if (( bill_count <= BILL_LIMIT )); then
+                continue
+            fi
+    
+            for ((i=BILL_LIMIT; i<bill_count; i++)); do
+                local excess_dir="${bill_dirs[i]}"
+                if [ -n "$excess_dir" ] && [ -d "$excess_dir" ]; then
+                    echo "Deleting excess bill folder: $excess_dir"
+                    rm -rf "$excess_dir"
+                fi
+            done
+        done < <(find "$child" -type d -name "bills" 2>/dev/null)
+    }
+    
+    function delete_git_dir {
+        local child="$1"
+        rm -rf "$child/.git"
+    }
+    
+    # For each repo, do some pruning/cleanup
+    echo ""
+    echo "🧹 Cleaning up mocks..."
+    for child in "$MOCKS_DIR/repos"/*; do
+        if [ -d "$child" ]; then
+            delete_files_dir "$child"
+            prune_bills "$child"
+            delete_git_dir "$child"
+        fi
+    done
+    
+    echo ""
+    echo "✅ Mocks updated successfully!"
+
 # Show project info
 info:
     @echo "Project: govbot"

@@ -40,9 +40,9 @@ fn get_binary_path() -> PathBuf {
 /// Helper to check if test data exists
 fn test_data_exists() -> bool {
     PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-        .join("tmp")
-        .join("git")
-        .join("windy-civi-pipelines")
+        .join("mocks")
+        .join(".govbot")
+        .join("repos")
         .exists()
 }
 
@@ -117,7 +117,7 @@ fn run_example_script(script_path: &Path) -> (String, String, i32) {
     let args = parse_shell_script(&script_content);
 
     let manifest_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
-    let govbot_dir = manifest_dir.join(".tmp").join(".govbot").join("repos");
+    let govbot_dir = manifest_dir.join("mocks").join(".govbot");
 
     let output = Command::new(&binary)
         .args(&args)

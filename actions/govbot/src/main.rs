@@ -87,9 +87,11 @@ fn print_available_commands() {
 fn get_govbot_dir(govbot_dir: Option<String>) -> anyhow::Result<PathBuf> {
     // Check flag first, then environment variable, then default
     if let Some(govbot_dir) = govbot_dir {
-        Ok(PathBuf::from(govbot_dir))
+        // Append /repos to custom govbot-dir (default already includes /repos)
+        Ok(PathBuf::from(govbot_dir).join("repos"))
     } else if let Ok(govbot_dir) = std::env::var("GOVBOT_DIR") {
-        Ok(PathBuf::from(govbot_dir))
+        // Append /repos to custom govbot-dir from env var
+        Ok(PathBuf::from(govbot_dir).join("repos"))
     } else {
         // Fall back to default: $HOME/.govbot/repos
         git::default_repos_dir().map_err(|e| anyhow::anyhow!("{}", e))
