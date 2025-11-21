@@ -38,7 +38,7 @@ setup:
     # Copy snapshots from sync-windy-civi-pipelines
     rm -rf tmp/git/windy-civi-pipelines
     mkdir -p tmp/git/windy-civi-pipelines
-    cp -r ../sync-windy-civi-pipelines/__snapshots__ tmp/git/windy-civi-pipelines
+    cp -r ../sync-windy-civi-pipelines/__snapshots__/* tmp/git/windy-civi-pipelines/
     
 
     echo ""
