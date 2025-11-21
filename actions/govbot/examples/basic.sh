@@ -1,6 +1,6 @@
-govbot  \
-    --git-dir tmp/git/windy-civi-pipelines  \
+govbot logs  \
+    --sources usa il \
+    --join minimal_metadata,sponsors  \
     --sort DESC  \
     --limit 10  \
-    --join minimal_metadata,sponsors  \
-    --sources usa il
+    --git-dir tmp/git/windy-civi-pipelines  \
