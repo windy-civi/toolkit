@@ -2,6 +2,7 @@ use clap::{Parser, Subcommand};
 use govbot::prelude::*;
 use govbot::git;
 use futures::StreamExt;
+use futures::stream;
 use std::io::{self, BufRead};
 use std::path::PathBuf;
 
@@ -19,7 +20,7 @@ struct Args {
 enum Command {
     /// Clone data pipeline repositories for specified locales
     Clone {
-        /// Locale names to clone (e.g., usa, il, ca)
+        /// Locale names to clone (e.g., usa, il, ca, or "all" for all locales)
         #[arg(num_args = 1..)]
         locales: Vec<String>,
 
@@ -30,6 +31,10 @@ enum Command {
         /// GitHub token for authentication (can also use TOKEN env var)
         #[arg(long)]
         token: Option<String>,
+
+        /// Number of parallel clone operations (default: 4, or GOVBOT_JOBS env var)
+        #[arg(long)]
+        parallel: Option<usize>,
     },
 
     /// Pull latest changes from data pipeline repositories
@@ -98,11 +103,12 @@ fn get_govbot_dir(govbot_dir: Option<String>) -> anyhow::Result<PathBuf> {
     }
 }
 
-fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
+async fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
     let Command::Clone {
         locales,
         govbot_dir,
         token,
+        parallel,
     } = cmd else {
         unreachable!()
     };
@@ -113,6 +119,7 @@ fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
         for locale in all_locales {
             println!("  {}", locale.as_lowercase());
         }
+        println!("  all (clone all locales)");
         return Ok(());
     }
 
@@ -125,15 +132,83 @@ fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
     let env_token = std::env::var("TOKEN").ok();
     let token_str = token.as_deref().or(env_token.as_deref());
     
+    // Get parallelization setting
+    let num_jobs = parallel
+        .or_else(|| std::env::var("GOVBOT_JOBS").ok().and_then(|s| s.parse().ok()))
+        .unwrap_or(4);
+
+    // Parse locales and handle "all"
+    let mut locales_to_clone = Vec::new();
     for locale in locales {
-        let locale = locale.trim();
+        let locale = locale.trim().to_lowercase();
         if locale.is_empty() {
             continue;
         }
         
-        if let Err(e) = git::clone_repo(locale, &repos_dir, token_str) {
-            eprintln!("Error cloning {}: {}", locale, e);
-            return Err(e.into());
+        if locale == "all" {
+            // Add all working locales
+            let all_locales = govbot::locale::WorkingLocale::all();
+            for loc in all_locales {
+                locales_to_clone.push(loc.as_lowercase().to_string());
+            }
+        } else {
+            // Validate locale
+            let _ = govbot::locale::WorkingLocale::from(locale.as_str());
+            locales_to_clone.push(locale);
+        }
+    }
+
+    if locales_to_clone.is_empty() {
+        return Ok(());
+    }
+
+    // Clone with parallelization
+    if locales_to_clone.len() == 1 || num_jobs == 1 {
+        // Sequential cloning
+        for locale in locales_to_clone {
+            if let Err(e) = git::clone_repo(&locale, &repos_dir, token_str) {
+                eprintln!("Error cloning {}: {}", locale, e);
+                return Err(e.into());
+            }
+        }
+    } else {
+        // Parallel cloning using futures::stream with buffer_unordered
+        let clone_futures = stream::iter(locales_to_clone.into_iter())
+            .map(|locale| {
+                let repos_dir = repos_dir.clone();
+                let token = token_str.map(|s| s.to_string());
+                
+                tokio::task::spawn_blocking(move || {
+                    let locale_clone = locale.clone();
+                    git::clone_repo(&locale, &repos_dir, token.as_deref())
+                        .map_err(|e| (locale_clone, e))
+                })
+            })
+            .buffer_unordered(num_jobs);
+
+        let mut errors = Vec::new();
+        let mut stream = clone_futures;
+        
+        while let Some(result) = stream.next().await {
+            match result {
+                Ok(Ok(())) => {
+                    // Success
+                }
+                Ok(Err((locale, e))) => {
+                    errors.push((locale, e));
+                }
+                Err(e) => {
+                    errors.push(("unknown".to_string(), govbot::Error::Config(format!("Task join error: {}", e))));
+                }
+            }
+        }
+
+        if !errors.is_empty() {
+            eprintln!("\nErrors occurred during cloning:");
+            for (locale, error) in errors {
+                eprintln!("  {}: {}", locale, error);
+            }
+            return Err(anyhow::anyhow!("Some clones failed"));
         }
     }
 
@@ -270,7 +345,7 @@ async fn main() -> anyhow::Result<()> {
 
     match args.command {
         Some(cmd @ Command::Clone { .. }) => {
-            run_clone_command(cmd)
+            run_clone_command(cmd).await
         }
         Some(cmd @ Command::Pull { .. }) => {
             run_pull_command(cmd)
