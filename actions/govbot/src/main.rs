@@ -18,28 +18,10 @@ struct Args {
 
 #[derive(Subcommand, Debug)]
 enum Command {
-    /// Clone data pipeline repositories for specified locales
+    /// Clone or pull data pipeline repositories (default: all locales)
+    /// Clones if repository doesn't exist, pulls if it does
     Clone {
-        /// Locale names to clone (e.g., usa, il, ca, or "all" for all locales)
-        #[arg(num_args = 1..)]
-        locales: Vec<String>,
-
-        /// Directory to clone repositories into (default: $HOME/.govbot/repos, or GOVBOT_DIR env var)
-        #[arg(long = "govbot-dir")]
-        govbot_dir: Option<String>,
-
-        /// GitHub token for authentication (can also use TOKEN env var)
-        #[arg(long)]
-        token: Option<String>,
-
-        /// Number of parallel clone operations (default: 4, or GOVBOT_JOBS env var)
-        #[arg(long)]
-        parallel: Option<usize>,
-    },
-
-    /// Pull latest changes from data pipeline repositories
-    Pull {
-        /// Locale names to pull (if not specified, pulls all available repos)
+        /// Locale names to clone/pull (e.g., usa, il, ca, or "all" for all locales). If not specified, processes all locales.
         #[arg(num_args = 0..)]
         locales: Vec<String>,
 
@@ -50,6 +32,18 @@ enum Command {
         /// GitHub token for authentication (can also use TOKEN env var)
         #[arg(long)]
         token: Option<String>,
+
+        /// Number of parallel operations (default: 4, or GOVBOT_JOBS env var)
+        #[arg(long)]
+        parallel: Option<usize>,
+
+        /// Show verbose git output
+        #[arg(long)]
+        verbose: bool,
+
+        /// List available locales instead of cloning/pulling
+        #[arg(long)]
+        list: bool,
     },
 
     /// Process and display pipeline log files
@@ -84,8 +78,7 @@ enum Command {
 
 fn print_available_commands() {
     println!("Available commands:");
-    println!("  clone   Clone data pipeline repositories for specified locales");
-    println!("  pull    Pull latest changes from data pipeline repositories");
+    println!("  clone   Clone or pull data pipeline repositories (default: all locales)");
     println!("  logs    Process and display pipeline log files");
 }
 
@@ -109,11 +102,13 @@ async fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
         govbot_dir,
         token,
         parallel,
+        verbose,
+        list,
     } = cmd else {
         unreachable!()
     };
 
-    if locales.is_empty() {
+    if list {
         println!("Available locales:");
         let all_locales = govbot::locale::WorkingLocale::all();
         for locale in all_locales {
@@ -122,6 +117,13 @@ async fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
         println!("  all (clone all locales)");
         return Ok(());
     }
+
+    // If no locales specified, default to "all"
+    let locales = if locales.is_empty() {
+        vec!["all".to_string()]
+    } else {
+        locales
+    };
 
     let repos_dir = get_govbot_dir(govbot_dir)?;
     
@@ -162,37 +164,87 @@ async fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
         return Ok(());
     }
 
-    // Clone with parallelization
-    if locales_to_clone.len() == 1 || num_jobs == 1 {
-        // Sequential cloning
-        for locale in locales_to_clone {
-            if let Err(e) = git::clone_repo(&locale, &repos_dir, token_str) {
-                eprintln!("Error cloning {}: {}", locale, e);
-                return Err(e.into());
+    let total = locales_to_clone.len();
+    
+    // Clone or pull with parallelization
+    if total == 1 || num_jobs == 1 {
+        // Sequential clone/pull with progress display
+        for (idx, locale) in locales_to_clone.iter().enumerate() {
+            let current = idx + 1;
+            if !verbose {
+                eprint!("\r⏳ Processing {} ({}/{})...", locale, current, total);
+                std::io::Write::flush(&mut std::io::stderr()).ok();
+            }
+            
+            match git::clone_or_pull_repo_quiet(locale, &repos_dir, token_str, !verbose) {
+                Ok(action) => {
+                    if !verbose {
+                        let action_text = if action == "clone" { "Cloned" } else { "Pulled" };
+                        eprint!("\r✓ {}  {} ({}/{})    \n", action_text, locale, current, total);
+                    }
+                }
+                Err(e) => {
+                    if !verbose {
+                        eprint!("\r✗ Failed  {} ({}/{})    \n", locale, current, total);
+                    }
+                    eprintln!("  Error: {}", e);
+                    return Err(e.into());
+                }
             }
         }
     } else {
-        // Parallel cloning using futures::stream with buffer_unordered
-        let clone_futures = stream::iter(locales_to_clone.into_iter())
-            .map(|locale| {
+        // Parallel clone/pull with progress display
+        if !verbose {
+            eprintln!("Processing {} locales with {} parallel jobs...\n", total, num_jobs);
+        }
+        
+        use std::sync::{Arc, Mutex};
+        let completed = Arc::new(Mutex::new(0usize));
+        let verbose_flag = verbose;
+        
+        let clone_futures = stream::iter(locales_to_clone.iter().enumerate())
+            .map(|(_idx, locale)| {
+                let locale = locale.clone();
                 let repos_dir = repos_dir.clone();
                 let token = token_str.map(|s| s.to_string());
+                let completed = completed.clone();
+                let total = total;
+                let verbose = verbose_flag;
                 
                 tokio::task::spawn_blocking(move || {
-                    let locale_clone = locale.clone();
-                    git::clone_repo(&locale, &repos_dir, token.as_deref())
-                        .map_err(|e| (locale_clone, e))
+                    let result = git::clone_or_pull_repo_quiet(&locale, &repos_dir, token.as_deref(), !verbose)
+                        .map_err(|e| (locale.clone(), e));
+                    
+                    if !verbose {
+                        let mut count = completed.lock().unwrap();
+                        *count += 1;
+                        let current = *count;
+                        
+                        match &result {
+                            Ok(action) => {
+                                let action_text = if *action == "clone" { "Cloned" } else { "Pulled" };
+                                eprint!("\r✓ {}  {} ({}/{})    \n", action_text, locale, current, total);
+                            }
+                            Err((_, _)) => {
+                                eprint!("\r✗ Failed  {} ({}/{})    \n", locale, current, total);
+                            }
+                        }
+                        std::io::Write::flush(&mut std::io::stderr()).ok();
+                    }
+                    
+                    result
                 })
             })
             .buffer_unordered(num_jobs);
 
         let mut errors = Vec::new();
         let mut stream = clone_futures;
+        let mut success_count = 0;
         
         while let Some(result) = stream.next().await {
             match result {
-                Ok(Ok(())) => {
-                    // Success
+                Ok(Ok(_)) => {
+                    success_count += 1;
                 }
                 Ok(Err((locale, e))) => {
                     errors.push((locale, e));
@@ -204,66 +256,25 @@ async fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
         }
 
         if !errors.is_empty() {
-            eprintln!("\nErrors occurred during cloning:");
+            if !verbose {
+                eprintln!("\n❌ Errors occurred:");
+            }
             for (locale, error) in errors {
                 eprintln!("  {}: {}", locale, error);
             }
-            return Err(anyhow::anyhow!("Some clones failed"));
+            if !verbose {
+                eprintln!("\n✓ Successfully processed: {}/{}", success_count, total);
+            }
+            return Err(anyhow::anyhow!("Some operations failed"));
+        } else {
+            if !verbose {
+                eprintln!("\n✅ Successfully processed all {} locales!", total);
+            }
         }
     }
-
-    println!("\nCloning completed successfully!");
     Ok(())
 }
 
-fn run_pull_command(cmd: Command) -> anyhow::Result<()> {
-    let Command::Pull {
-        locales,
-        govbot_dir,
-        token,
-    } = cmd else {
-        unreachable!()
-    };
-
-    let repos_dir = get_govbot_dir(govbot_dir)?;
-
-    if !repos_dir.exists() {
-        return Err(anyhow::anyhow!(
-            "Repos directory does not exist: {}. Use 'govbot clone' first.",
-            repos_dir.display()
-        ));
-    }
-
-    // Get token from argument or environment variable
-    let env_token = std::env::var("TOKEN").ok();
-    let token_str = token.as_deref().or(env_token.as_deref());
-    
-    let locales_to_pull = if locales.is_empty() {
-        // Pull all available repos
-        git::get_available_locales(&repos_dir)?
-    } else {
-        locales.into_iter().map(|l| l.trim().to_string()).collect()
-    };
-
-    if locales_to_pull.is_empty() {
-        println!("No repositories found to pull.");
-        return Ok(());
-    }
-
-    for locale in locales_to_pull {
-        if locale.is_empty() {
-            continue;
-        }
-        
-        if let Err(e) = git::pull_repo(&locale, &repos_dir, token_str) {
-            eprintln!("Error pulling {}: {}", locale, e);
-            return Err(e.into());
-        }
-    }
-
-    println!("\nPulling completed successfully!");
-    Ok(())
-}
 
 async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
     let Command::Logs {
@@ -346,9 +357,6 @@ async fn main() -> anyhow::Result<()> {
     match args.command {
         Some(cmd @ Command::Clone { .. }) => {
             run_clone_command(cmd).await
-        }
-        Some(cmd @ Command::Pull { .. }) => {
-            run_pull_command(cmd)
         }
         Some(cmd @ Command::Logs { .. }) => {
             run_logs_command(cmd).await

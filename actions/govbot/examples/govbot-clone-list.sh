@@ -1,1 +1,1 @@
-govbot clone
+govbot clone --list
