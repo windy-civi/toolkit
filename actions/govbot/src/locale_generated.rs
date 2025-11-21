@@ -6,6 +6,7 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, serde::Serialize, serde::Deserialize)]
 #[serde(rename_all = "lowercase")]
 pub enum WorkingLocale {
+    All,
     AR,
     DE,
     FL,
@@ -46,7 +47,7 @@ pub enum WorkingLocale {
 }
 
 impl WorkingLocale {
-    /// Get all working locales as a vector
+    /// Get all working locales as a vector (excludes All variant)
     pub fn all() -> Vec<Self> {
         vec![
             WorkingLocale::AR,
@@ -92,6 +93,7 @@ impl WorkingLocale {
     /// Get the locale code as a string
     pub fn as_str(&self) -> &'static str {
         match self {
+            WorkingLocale::All => "all",
             WorkingLocale::AR => "ar",
             WorkingLocale::DE => "de",
             WorkingLocale::FL => "fl",
@@ -135,6 +137,7 @@ impl WorkingLocale {
     /// Get the locale code in lowercase
     pub fn as_lowercase(&self) -> &'static str {
         match self {
+            WorkingLocale::All => "all",
             WorkingLocale::AR => "ar",
             WorkingLocale::DE => "de",
             WorkingLocale::FL => "fl",
@@ -179,6 +182,7 @@ impl WorkingLocale {
 impl From<&str> for WorkingLocale {
     fn from(s: &str) -> Self {
         match s.to_lowercase().as_str() {
+            "all" => WorkingLocale::All,
             "ar" => WorkingLocale::AR,
             "de" => WorkingLocale::DE,
             "fl" => WorkingLocale::FL,
