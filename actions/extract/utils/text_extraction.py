@@ -170,7 +170,7 @@ def download_congress_gov_content(url: str) -> str:
 
 
 def extract_bill_text_from_metadata(
-    metadata_file: Path, files_dir: Path, output_folder: Path = None
+    metadata_file: Path, files_dir: Path, output_folder: Path = None, skip_pdf: bool = False
 ) -> bool:
     """
     Extract bill text for a single bill from its metadata.json file.
@@ -179,6 +179,7 @@ def extract_bill_text_from_metadata(
         metadata_file: Path to metadata.json file
         files_dir: Path to files/ directory for this bill
         output_folder: Path to calling repo root for error reporting (optional)
+        skip_pdf: If True, skip downloading and processing PDF files (saves memory)
 
     Returns:
         True if successful, False otherwise
@@ -256,6 +257,11 @@ def extract_bill_text_from_metadata(
                 media_type = best_link.get("media_type", "")
 
                 print(f"   📥 Downloading: {url} (type: {media_type})")
+
+                # Skip PDF files if skip_pdf flag is set
+                if skip_pdf and "pdf" in media_type.lower():
+                    print(f"   ⏭️ Skipping PDF (skip-pdf flag set): {url}")
+                    continue
 
                 # Download content based on media type
                 content = None
@@ -450,6 +456,7 @@ def process_bills_in_batch(
     output_folder: Path = None,
     state: str = "unknown",
     incremental: bool = False,
+    skip_pdf: bool = False,
 ) -> Dict[str, int]:
     """
     Process bills in batches for text extraction.
@@ -459,6 +466,8 @@ def process_bills_in_batch(
         batch_size: Number of bills to process in each batch
         output_folder: Path to save error reports (optional)
         state: State identifier for error reports (optional)
+        incremental: Only process new/updated bills
+        skip_pdf: Skip downloading and processing PDF files (saves memory)
 
     Returns:
         Dictionary with processing statistics
@@ -502,7 +511,7 @@ def process_bills_in_batch(
 
                 # Extract text for this bill
                 success = extract_bill_text_from_metadata(
-                    metadata_file, files_dir, output_folder
+                    metadata_file, files_dir, output_folder, skip_pdf=skip_pdf
                 )
 
                 if success:

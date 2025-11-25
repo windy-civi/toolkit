@@ -31,8 +31,13 @@ from utils.text_extraction import process_bills_in_batch
     is_flag=True,
     help="Enable incremental processing - only extract text for bills that haven't been processed or have been updated.",
 )
+@click.option(
+    "--skip-pdf",
+    is_flag=True,
+    help="Skip downloading and processing PDF files (saves memory for large datasets).",
+)
 def main(
-    state: str, data_folder: Path, output_folder: Path = None, incremental: bool = False
+    state: str, data_folder: Path, output_folder: Path = None, incremental: bool = False, skip_pdf: bool = False
 ):
     """
     Extract text from PDFs and XMLs in processed bill data.
@@ -42,6 +47,8 @@ def main(
     """
     print(f"🚀 Starting text extraction for {state}")
     print(f"📁 Processing data in: {data_folder}")
+    if skip_pdf:
+        print(f"⚠️ PDF processing disabled (--skip-pdf flag set)")
 
     # Verify the data folder exists and has the expected structure
     if not data_folder.exists():
@@ -64,6 +71,7 @@ def main(
             output_folder=output_folder,
             state=state,
             incremental=incremental,
+            skip_pdf=skip_pdf,
         )
 
         print(f"\n📊 Text Extraction Complete!")
