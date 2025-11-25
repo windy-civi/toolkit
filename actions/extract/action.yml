@@ -15,7 +15,7 @@ inputs:
   skip-pdf:
     description: "Skip downloading and processing PDF files (saves memory for large datasets)"
     required: false
-    default: "false"
+    default: "true"
 
 runs:
   using: "composite"
@@ -206,14 +206,14 @@ runs:
         # Explicitly set Pipfile location for pipenv
         export PIPENV_PIPFILE="$ACTION_DIR/Pipfile"
         EXIT_CODE=0
-        
+
         # Build command with optional flags
         EXTRA_FLAGS=""
         if [ "${{ inputs.skip-pdf }}" = "true" ]; then
           EXTRA_FLAGS="$EXTRA_FLAGS --skip-pdf"
           echo "⚠️ PDF processing disabled (skip-pdf=true)"
         fi
-        
+
         EXTRACTION_OUTPUT=$(cd "$ACTION_DIR" && pipenv run python main.py \
           --state "${{ inputs.state }}" \
           --data-folder "${{ github.workspace }}" \
