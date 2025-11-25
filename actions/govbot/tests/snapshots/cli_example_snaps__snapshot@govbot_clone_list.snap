@@ -1,0 +1,47 @@
+---
+source: tests/cli_example_snaps.rs
+expression: "&formatted_stdout"
+---
+Command:
+govbot clone --list
+
+Output:
+Available locales:
+  ar
+  de
+  fl
+  ga
+  gu
+  ia
+  il
+  ks
+  ky
+  la
+  mn
+  mo
+  mp
+  mt
+  nc
+  nd
+  ne
+  nh
+  nj
+  nm
+  nv
+  ok
+  or
+  pa
+  pr
+  ri
+  sc
+  tn
+  tx
+  usa
+  ut
+  vi
+  vt
+  wa
+  wi
+  wv
+  wy
+  all (clone all locales)

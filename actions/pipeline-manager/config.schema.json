@@ -45,7 +45,7 @@
     "locales": {
       "type": "object",
       "patternProperties": {
-        "^(al|ak|az|ar|ca|co|ct|de|fl|ga|hi|id|il|in|ia|ks|ky|la|me|md|ma|mi|mn|ms|mo|mt|ne|nv|nh|nj|nm|ny|nc|nd|oh|ok|or|pa|ri|sc|sd|tn|tx|ut|vt|va|wa|wv|wi|wy)$": {
+        "^(al|ak|az|ar|ca|co|ct|de|fl|ga|gu|hi|id|il|in|ia|ks|ky|la|me|md|ma|mi|mn|mp|ms|mo|mt|ne|nv|nh|nj|nm|ny|nc|nd|oh|ok|or|pa|pr|ri|sc|sd|tn|tx|ut|usa|vi|vt|va|wa|wv|wi|wy)$": {
           "type": "object",
           "required": ["template"],
           "properties": {
@@ -61,6 +61,13 @@
                 "type": "boolean",
                 "description": "Whether the locale uses text extraction",
                 "default": false
+            },
+            "labels": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Labels for the locale (e.g., 'working')"
             }
           },
           "additionalProperties": false
