@@ -1,28 +1,31 @@
-
+#!/usr/bin/env bash
+# Local snapshot renderer - uses main.sh for common logic
 set -euo pipefail
 
+# Configuration
 STATE="wy"
-INPUT_DIR="../scrape/__snapshots__/_working/_data/wy"
+INPUT_DIR="../scrape/prod-mocks-2025-11-25/_working/_data"
 TMP_DIR="./tmp/sanitize"
-OUTPUT_DIR="./__snapshots__/$STATE"
+OUTPUT_DIR="./snapshots/$STATE"
 
+# Get the script directory (where this script lives)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
 
+# Reset snapshots
+echo "🧹 Cleaning output directory..."
 rm -rf "$OUTPUT_DIR"
 mkdir -p "$OUTPUT_DIR"
 
+# Copy the production mocks to temporary directory
+echo "📂 Copying input data..."
+if [ ! -d "$INPUT_DIR" ]; then
+    echo "❌ Input directory not found: $INPUT_DIR"
+    exit 1
+fi
 cp -r "$INPUT_DIR" "$TMP_DIR"
 
-tmpc="${TMP_DIR}/san_count.txt"
-: > "$tmpc"
-find "$TMP_DIR" -type f -name "*.json" -print0 | while IFS= read -r -d '' f; do
-    jq 'del(..|._id?, .scraped_at?)' "$f" > "$f.tmp" && mv "$f.tmp" "$f"
-    echo 1 >> "$tmpc"
-done
-echo "Sanitized $(wc -l < "$tmpc") files"
+# Run the main formatter script
+"$SCRIPT_DIR/main.sh" "$STATE" "$TMP_DIR" "$OUTPUT_DIR"
 
 
-# Capture formatter output
-python -m pipenv run python main.py \
-    --state "$STATE" \
-    --openstates-data-folder "$TMP_DIR" \
-    --git-repo-folder "$OUTPUT_DIR"
