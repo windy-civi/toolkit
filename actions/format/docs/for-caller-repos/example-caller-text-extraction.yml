@@ -1,11 +1,8 @@
-# Example caller workflow for text extraction
-# Copy this to your state data repo as .github/workflows/extract-text.yml
-
 name: Text Extraction from Bills
 
 on:
-  schedule:
-    - cron: "0 8 * * *" # Daily at 8 AM UTC (~3 AM ET, ~12 AM PT)
+  # schedule:
+  #   - cron: "0 8 * * *" # Daily at 8 AM UTC (~3 AM ET, ~12 AM PT)
   workflow_dispatch:
 
 jobs:
@@ -27,9 +24,10 @@ jobs:
         id: extract
         uses: windy-civi/toolkit/actions/extract@main
         with:
-          state: wy # ⚠️ UPDATE THIS: Change to your state code (e.g., wy, usa, il, tx)
+          state: UPDATE_STATE_HERE # ⚠️ UPDATE THIS: Change to your state code (e.g., wy, usa, il, tx)
           github-token: ${{ secrets.GITHUB_TOKEN }}
           force-update: "false"
+          # skip-pdf: "false"  # Optional: Set to "false" to process PDFs. Default is "true" (PDFs skipped to save memory).
 
       - name: Display extraction summary
         if: always()
