@@ -25,9 +25,9 @@ jobs:
 
       - name: Run text extraction action
         id: extract
-        uses: windy-civi/toolkit/actions/extract@main
+        uses: windy-civi/toolkit/actions/extract@✏️{ locale.toolkit_branch }✏️
         with:
-          state: wy # WY
+          state: ✏️{ locale.key }✏️
           github-token: ${{ secrets.GITHUB_TOKEN }}
           force-update: "false"
 
