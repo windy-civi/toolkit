@@ -150,7 +150,7 @@ jobs:
           cd actions/govbot
           cargo test
 
-  format-ocd-distributed-snapshots:
+  format-snapshots:
     runs-on: ubuntu-latest
     needs: detect-changes
     if: needs.detect-changes.outputs.format == 'true'
