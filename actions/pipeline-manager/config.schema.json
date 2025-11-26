@@ -73,6 +73,10 @@
                 "description": "Whether the locale uses text extraction",
                 "default": false
             },
+            "name": {
+                "type": "string",
+                "description": "Full name of the locale (e.g., 'Alabama', 'Alaska')"
+            },
             "labels": {
                 "type": "array",
                 "items": {

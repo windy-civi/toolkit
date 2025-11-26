@@ -47,17 +47,28 @@ def render_template(template_file, output_file, locale, toolkit_branch="main", m
     
     # Use sed to do all replacements in one pipeline, reading from file
     # Build sed script - match variable names with optional whitespace (trim whitespace)
-    sed_script = f"sed 's|{escaped_open}[[:space:]]*locale[[:space:]]*{escaped_close}|{locale}|g'"
-    sed_script += f" | sed 's|{escaped_open}[[:space:]]*toolkit_branch[[:space:]]*{escaped_close}|{toolkit_branch}|g'"
-    sed_script += f" | sed 's|{escaped_open}[[:space:]]*managed[[:space:]]*{escaped_close}|{managed}|g'"
+    # Handle locale.* variables - need to escape dot in sed pattern
+    # Note: { and } are literal in basic sed, so we use them directly (not escaped)
+    # But we need to escape the dot in locale.key, locale.toolkit_branch, etc.
+    # marker_open is "✏️{" and marker_close is "}✏️", but escape_sed_pattern escapes { and }
+    # So we need to use the raw markers for the pattern, but escape the dot
+    raw_open = marker_open  # Use raw since { } are literal in basic sed
+    raw_close = marker_close
     
-    # Add extra variable replacements
+    sed_script = f"sed 's|{raw_open}[[:space:]]*locale\\.key[[:space:]]*{raw_close}|{locale}|g'"
+    sed_script += f" | sed 's|{raw_open}[[:space:]]*locale\\.toolkit_branch[[:space:]]*{raw_close}|{toolkit_branch}|g'"
+    sed_script += f" | sed 's|{raw_open}[[:space:]]*managed[[:space:]]*{raw_close}|{managed}|g'"
+    
+    # Add extra variable replacements with locale. prefix
     for var in extra_vars:
         if "=" in var:
             key, value = var.split("=", 1)
             # Escape special sed characters in value using shell
             escaped_value = run_shell(f"echo '{value}' | sed 's/[[\\.*^$()+?{{|}}]/\\\\&/g'")
-            sed_script += f" | sed 's|{escaped_open}[[:space:]]*{key}[[:space:]]*{escaped_close}|{escaped_value}|g'"
+            # Escape dot in key for sed pattern (replace . with \.)
+            escaped_key = key.replace('.', r'\.')
+            # Replace locale.key patterns
+            sed_script += f" | sed 's|{raw_open}[[:space:]]*locale\\.{escaped_key}[[:space:]]*{raw_close}|{escaped_value}|g'"
     
     # Execute sed pipeline and write to output
     cmd = f"cat '{template_file}' | {sed_script} > '{output_file}'"
@@ -183,6 +194,8 @@ def parse_config(config_file):
                 if match:
                     key = match.group(1)
                     value = match.group(2).strip()
+                    # Remove comments (everything after #)
+                    value = re.sub(r'\s*#.*$', '', value).strip()
                     # Remove quotes using sed
                     value = run_shell(f"echo '{value}' | sed \"s/^['\\\"]//; s/['\\\"]$//\"")
                     
@@ -203,10 +216,10 @@ def parse_config(config_file):
 
 
 def render_folder_name(folder_name_template, locale, marker_open, marker_close):
-    """Render the folder name template by replacing locale marker with actual locale."""
-    # Replace the locale marker pattern (e.g., ✏️{locale}✏️ or ✏️{ locale }✏️) with the actual locale
+    """Render the folder name template by replacing locale.key marker with actual locale."""
+    # Replace the locale.key marker pattern (e.g., ✏️{locale.key}✏️ or ✏️{ locale.key }✏️) with the actual locale
     # Match with optional whitespace (trim whitespace)
-    pattern = re.escape(marker_open) + r'\s*locale\s*' + re.escape(marker_close)
+    pattern = re.escape(marker_open) + r'\s*locale\.key\s*' + re.escape(marker_close)
     return re.sub(pattern, locale, folder_name_template)
 
 
@@ -232,11 +245,12 @@ def process_locale(locale, config_str, templates_dir, output_dir, marker_open, m
         folder_name = render_folder_name(folder_name_template, locale, marker_open, marker_close)
     
     # Build extra vars array
+    # Include all fields except managed and toolkit_branch (which are handled separately)
     extra_vars = []
     for pair in config_str.split("|"):
         if "=" in pair:
             key, value = pair.split("=", 1)
-            if key not in ("managed", "toolkit_branch"):
+            if key not in ("managed", "toolkit_branch", "template"):
                 extra_vars.append(f"{key}={value}")
     
     # Find all template files in the specific template directory
