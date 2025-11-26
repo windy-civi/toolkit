@@ -87,7 +87,7 @@ def get_config_value(config_str, key, default=""):
 
 
 def parse_config(config_file):
-    """Parse config.yml using Python but with shell-style regex matching."""
+    """Parse config YAML file using Python but with shell-style regex matching."""
     
     all_locales = []
     all_configs = []
@@ -387,16 +387,22 @@ def main():
         default="generated",
         help="Output directory (default: generated, relative to script directory)"
     )
+    parser.add_argument(
+        "-c", "--config",
+        type=str,
+        required=True,
+        help="Config YAML file (relative to script directory)"
+    )
     args = parser.parse_args()
     
     script_dir = Path(__file__).parent
-    config_file = script_dir / "config.yml"
+    config_file = script_dir / args.config
     templates_dir = script_dir / "templates"
     output_dir = script_dir / args.output
     
     # Check if config file exists
     if not config_file.exists():
-        print(f"Error: config.yml not found at {config_file}", file=sys.stderr)
+        print(f"Error: Config file not found at {config_file}", file=sys.stderr)
         sys.exit(1)
     
     # Check if templates directory exists
