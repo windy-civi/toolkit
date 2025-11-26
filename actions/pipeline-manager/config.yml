@@ -14,239 +14,348 @@ locales:
     template: openstates-to-ocd-files
     name: Alabama
     toolkit_branch: main # Defaults to main, but can make whatever.
-    text_extraction: false # Defaults to false, switch to true to enable text extraction
+    disabled_jobs:
+      - extract-text # Exclude extract-text.yml workflow
   ak:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Alaska
   az:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Arizona
   ar:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Arkansas
     labels:
       - working
   ca:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: California
   co:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Colorado
   ct:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Connecticut
   de:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Delaware
     labels:
       - working
   fl:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Florida
     labels:
       - working
   ga:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Georgia
     labels:
       - working
   hi:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Hawaii
   id:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Idaho
   il:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Illinois
     labels:
       - working
   in:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Indiana
   ia:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Iowa
     labels:
       - working
   ks:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Kansas
     labels:
       - working
   ky:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Kentucky
     labels:
       - working
   la:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Louisiana
     labels:
       - working
   me:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Maine
   md:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Maryland
   ma:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Massachusetts
   mi:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Michigan
   mn:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Minnesota
     labels:
       - working
   ms:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Mississippi
   mo:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Missouri
     labels:
       - working
   mt:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Montana
     labels:
       - working
   ne:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Nebraska
     labels:
       - working
   nv:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Nevada
     labels:
       - working
   nh:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: New Hampshire
     labels:
       - working
   nj:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: New Jersey
     labels:
       - working
   nm:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: New Mexico
     labels:
       - working
   ny:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: New York
   nc:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: North Carolina
     labels:
       - working
   nd:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: North Dakota
     labels:
       - working
   oh:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Ohio
   ok:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Oklahoma
     labels:
       - working
   or:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Oregon
     labels:
       - working
   pa:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Pennsylvania
     labels:
       - working
   ri:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Rhode Island
     labels:
       - working
   sc:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: South Carolina
     labels:
       - working
   sd:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: South Dakota
   tn:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Tennessee
     labels:
       - working
   tx:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Texas
     labels:
       - working
   ut:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Utah
     labels:
       - working
   vt:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Vermont
     labels:
       - working
   va:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Virginia
   wa:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Washington
     labels:
       - working
   wv:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: West Virginia
     labels:
       - working
   wi:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Wisconsin
     labels:
       - working
   wy:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Wyoming
     labels:
       - working
   pr:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Puerto Rico
     labels:
       - working
   mp:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Northern Mariana Islands
     labels:
       - working
   vi:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: U.S. Virgin Islands
     labels:
       - working
   gu:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: Guam
     labels:
       - working
   usa:
+    disabled_jobs:
+      - extract-text
     template: openstates-to-ocd-files
     name: United States
     labels:

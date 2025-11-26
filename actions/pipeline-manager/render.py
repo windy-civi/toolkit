@@ -218,6 +218,57 @@ def parse_config(config_file):
             
             # If in locale block, parse key-value pairs (4 spaces)
             if in_locale:
+                # First, check for array items (6 spaces) - this must come before checking for array declarations
+                # because array items come after the array declaration
+                match = re.match(r'^      -\s*(.+)$', line)
+                if match:
+                    value = match.group(1).strip()
+                    # Remove comments and quotes
+                    value = re.sub(r'\s*#.*$', '', value).strip()
+                    value = run_shell(f"echo '{value}' | sed \"s/^['\\\"]//; s/['\\\"]$//\"")
+                    
+                    # Check which array this belongs to (disabled_jobs or labels)
+                    if locale_config_str:
+                        if 'disabled_jobs=[]' in locale_config_str:
+                            # Replace [] with the first item, or append
+                            if locale_config_str.endswith('|disabled_jobs=[]'):
+                                locale_config_str = locale_config_str.replace('|disabled_jobs=[]', f'|disabled_jobs={value}')
+                            elif 'disabled_jobs=[]' in locale_config_str:
+                                locale_config_str = locale_config_str.replace('disabled_jobs=[]', f'disabled_jobs={value}')
+                            else:
+                                # Append to existing array (format: disabled_jobs=item1,item2)
+                                locale_config_str = re.sub(
+                                    r'\|disabled_jobs=([^|]+)',
+                                    lambda m: f"|disabled_jobs={m.group(1)},{value}",
+                                    locale_config_str
+                                )
+                        elif 'labels=[]' in locale_config_str:
+                            if locale_config_str.endswith('|labels=[]'):
+                                locale_config_str = locale_config_str.replace('|labels=[]', f'|labels={value}')
+                            elif 'labels=[]' in locale_config_str:
+                                locale_config_str = locale_config_str.replace('labels=[]', f'labels={value}')
+                            else:
+                                locale_config_str = re.sub(
+                                    r'\|labels=([^|]+)',
+                                    lambda m: f"|labels={m.group(1)},{value}",
+                                    locale_config_str
+                                )
+                    continue
+                
+                # Check for array fields (like disabled_jobs) - declarations (4 spaces, key with colon, no value)
+                match = re.match(r'^    ([a-z_]+):\s*$', line)
+                if match:
+                    key = match.group(1)
+                    # Check if this is an array field (disabled_jobs, labels, etc.)
+                    if key in ('disabled_jobs', 'labels'):
+                        # Initialize array in config - we'll parse items next
+                        if not locale_config_str:
+                            locale_config_str = f"{key}=[]"
+                        else:
+                            locale_config_str = f"{locale_config_str}|{key}=[]"
+                        continue
+                
+                # Regular key-value pairs
                 match = re.match(r'^    ([a-z_]+):\s*(.+)$', line)
                 if match:
                     key = match.group(1)
@@ -272,13 +323,20 @@ def process_locale(locale, config_str, templates_dir, output_dir, marker_open, m
         folder_name_template = templates[template]['folder-name']
         folder_name = render_folder_name(folder_name_template, locale, marker_open, marker_close)
     
+    # Extract disabled_jobs
+    disabled_jobs_str = get_config_value(config_str, "disabled_jobs", "")
+    disabled_jobs = []
+    if disabled_jobs_str:
+        # Parse comma-separated list
+        disabled_jobs = [job.strip() for job in disabled_jobs_str.split(',') if job.strip()]
+    
     # Build extra vars array
-    # Include all fields except managed and toolkit_branch (which are handled separately)
+    # Include all fields except managed, toolkit_branch, template, and disabled_jobs (which are handled separately)
     extra_vars = []
     for pair in config_str.split("|"):
         if "=" in pair:
             key, value = pair.split("=", 1)
-            if key not in ("managed", "toolkit_branch", "template"):
+            if key not in ("managed", "toolkit_branch", "template", "disabled_jobs"):
                 extra_vars.append(f"{key}={value}")
     
     # Find all template files in the specific template directory
@@ -291,6 +349,15 @@ def process_locale(locale, config_str, templates_dir, output_dir, marker_open, m
     template_files = [f for f in result.stdout.split('\0') if f]
     
     for template_file in template_files:
+        # Check if this file should be excluded based on disabled_jobs
+        # Get the base filename without extension (e.g., "extract-text.yml" -> "extract-text")
+        file_name = os.path.basename(template_file)
+        file_base = os.path.splitext(file_name)[0]  # Remove .yml extension
+        
+        # Skip if this file is in disabled_jobs
+        if file_base in disabled_jobs:
+            print(f"⊘ Skipped {file_name} (disabled_jobs: {file_base})")
+            continue
         # Get relative path from the template directory (not templates_dir)
         rel_path = os.path.relpath(template_file, template_dir)
         output_file = os.path.join(output_dir, folder_name, rel_path)

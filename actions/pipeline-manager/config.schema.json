@@ -75,10 +75,12 @@
               "type": "string",
               "description": "The branch of the toolkit to use for the locale"
             },
-            "text_extraction": {
-                "type": "boolean",
-                "description": "Whether the locale uses text extraction",
-                "default": false
+            "disabled_jobs": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of job/workflow file names (without .yml extension) to exclude from the generated repository. For example, ['extract-text'] will exclude extract-text.yml"
             },
             "name": {
                 "type": "string",
