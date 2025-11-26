@@ -1,0 +1,145 @@
+{
+  "legislative_session": "2025",
+  "identifier": "HB5392",
+  "title": "AN ACT RELATING TO HUMAN SERVICES -- THE RHODE ISLAND WORKS PROGRAM",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "summary",
+      "abstract": "Provides that a family eligible for cash assistance pursuant to \u00a7 40-5.2-11, shall if qualified, be provided SNAP benefits."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "02/07/2025 Introduced, referred to House Finance",
+      "date": "2025-02-07",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:00Z"
+      }
+    },
+    {
+      "description": "04/18/2025 Scheduled for hearing and/or consideration  (04/24/2025)",
+      "date": "2025-04-18",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:00Z"
+      }
+    },
+    {
+      "description": "04/24/2025 Committee recommended measure be held for further study",
+      "date": "2025-04-24",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "committee-failure"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:00Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Place",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Place\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Quattrocchi",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Quattrocchi\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Hopkins",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Hopkins\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Santucci",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Santucci\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Newberry",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Newberry\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Paplauskas",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Paplauskas\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Brien",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Brien\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "5392",
+      "links": [
+        {
+          "url": "http://webserver.rilegislature.gov/BillText/BillText25/HouseText25/H5392.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://status.rilegislature.gov/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ri/government",
+    "name": "Rhode Island",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:ri"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T03:05:00Z"
+  }
+}

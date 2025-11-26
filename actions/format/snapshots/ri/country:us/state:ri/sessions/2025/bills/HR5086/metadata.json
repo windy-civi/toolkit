@@ -1,0 +1,169 @@
+{
+  "legislative_session": "2025",
+  "identifier": "HR5086",
+  "title": "JOINT RESOLUTION TO APPROVE, PUBLISH AND SUBMIT TO THE ELECTORS A PROPOSITION OF AMENDMENT TO THE CONSTITUTION OF THE STATE -- FOUR YEAR TERMS FOR REPRESENTATIVES AND SENATORS",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "resolution"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "summary",
+      "abstract": "Proposes an amendment to the State Constitution, Article IV, Section 1, that would allow four (4) year terms for general assembly members, commencing with the 2028 election."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "01/16/2025 Introduced, referred to House State Government & Elections",
+      "date": "2025-01-16",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "03/21/2025 Scheduled for hearing and/or consideration  (03/25/2025)",
+      "date": "2025-03-21",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "03/25/2025 Committee recommended measure be held for further study",
+      "date": "2025-03-25",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "committee-failure"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Bennett",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Bennett\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Voas",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Voas\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Solomon",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Solomon\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Edwards",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Edwards\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Chippendale",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Chippendale\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kislak",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Kislak\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Giraldo",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Giraldo\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Phillips",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Phillips\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Stewart",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Stewart\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Alzate",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Alzate\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "5086",
+      "links": [
+        {
+          "url": "http://webserver.rilegislature.gov/BillText/BillText25/HouseText25/H5086.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://status.rilegislature.gov/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ri/government",
+    "name": "Rhode Island",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:ri"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T03:05:01Z"
+  }
+}

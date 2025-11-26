@@ -1,0 +1,145 @@
+{
+  "legislative_session": "2025",
+  "identifier": "HB5296",
+  "title": "AN ACT RELATING TO HEALTH AND SAFETY -- BORN-ALIVE INFANT PROTECTION ACT",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "summary",
+      "abstract": "Provides duties/obligations of medical personnel to born-alive infants resulting from an abortion punishable as a felony along with a civil action for compensatory/punitive damages/automatic one year license suspension."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "02/05/2025 Introduced, referred to House Judiciary",
+      "date": "2025-02-05",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:02Z"
+      }
+    },
+    {
+      "description": "04/04/2025 Scheduled for hearing and/or consideration  (04/08/2025)",
+      "date": "2025-04-04",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:02Z"
+      }
+    },
+    {
+      "description": "04/08/2025 Committee recommended measure be held for further study",
+      "date": "2025-04-08",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "committee-failure"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:02Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Perez",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Perez\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Hull",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Hull\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Fellela",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Fellela\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Azzinaro",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Azzinaro\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Brien",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Brien\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Roberts",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Roberts\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Diaz",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Diaz\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "5296",
+      "links": [
+        {
+          "url": "http://webserver.rilegislature.gov/BillText/BillText25/HouseText25/H5296.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://status.rilegislature.gov/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ri/government",
+    "name": "Rhode Island",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:ri"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T03:05:02Z"
+  }
+}

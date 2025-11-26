@@ -1,0 +1,18 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Health & Human Development) in House with 9 On Its Merits",
+    "date": "2025-06-27",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage"
+    ],
+    "related_entities": [
+      {
+        "name": "Health & Human Development",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 155"
+}

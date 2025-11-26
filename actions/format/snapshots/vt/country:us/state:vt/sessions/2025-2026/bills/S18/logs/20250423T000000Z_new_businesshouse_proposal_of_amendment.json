@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "New Business/House Proposal of Amendment",
+    "date": "2025-04-23",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 18"
+}

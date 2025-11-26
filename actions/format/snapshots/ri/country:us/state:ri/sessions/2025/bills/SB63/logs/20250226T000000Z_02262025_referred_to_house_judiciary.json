@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "02/26/2025 Referred to House Judiciary",
+    "date": "2025-02-26",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB63"
+}

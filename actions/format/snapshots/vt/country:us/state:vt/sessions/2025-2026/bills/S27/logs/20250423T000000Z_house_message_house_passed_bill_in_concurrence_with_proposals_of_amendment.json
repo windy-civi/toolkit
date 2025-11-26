@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "House message: House passed bill in concurrence with proposal(s) of amendment",
+    "date": "2025-04-23",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 27"
+}

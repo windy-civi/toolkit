@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Favorable report with recommendation of amendment by Committee on Agriculture",
+    "date": "2025-03-19",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 60"
+}

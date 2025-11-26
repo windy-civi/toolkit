@@ -1,0 +1,56 @@
+{
+  "legislative_session": "38th",
+  "identifier": "B 80-38",
+  "title": "AN ACT TO AMEND \u00a7\u00a7 3101 AND 3103 OF ARTICLE 1, AND \u00a7\u00a7 3109, 3111, 3113, 3115, 3117, 3119, 3121, 3123 AND 3125 OF ARTICLE 2, CHAPTER 31, TITLE 15, GUAM CODE ANNOTATED, RELATIVE TO INCREASING THE THRESHOLDS FOR ESTATES OF SMALL VALUE BY FIFTY PERCENT (50%)",
+  "from_organization": "~{\"classification\": \"legislature\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [],
+  "sponsorships": [
+    {
+      "name": "V. Anthony Ada",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"legislature\", \"name\": \"V. Anthony Ada\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill No. 80-38 (COR)",
+      "links": [
+        {
+          "url": "http://guamlegislature.gov/38th_Guam_Legislature/Bill_History_38th/STATUS Bill No. 80-38 (COR).pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://guamlegislature.gov/bills/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/territory:gu/government",
+    "name": "Guam",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/territory:gu"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T05:55:44Z"
+  }
+}

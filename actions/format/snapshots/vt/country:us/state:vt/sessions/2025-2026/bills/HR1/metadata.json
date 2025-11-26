@@ -1,0 +1,129 @@
+{
+  "legislative_session": "2025-2026",
+  "identifier": "HR 1",
+  "title": "House resolution relating to House Rules",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "resolution"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Read and adopted",
+      "date": "2025-01-08",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:33Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Lori Houghton",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Lori Houghton\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Patricia McCoy",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Patricia McCoy\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kate Logan",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kate Logan\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "As Introduced",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/RESOLUTN/HR0001/HR0001%20As%20Introduced.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "As Adopted By the House (Official)",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/RESOLUTN/HR0001/HR0001%20As%20adopted%20by%20the%20House%20Official.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Witness List",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/bill/print/2026/HR1/witnesses",
+          "media_type": "text/html"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "Committee Meetings",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/bill/print/2026/HR1/meetings",
+          "media_type": "text/html"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [],
+  "sources": [
+    {
+      "url": "http://legislature.vermont.gov/bill/loadAllResolutionsByChamber/2026/both",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/status/2026/H.R.1",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillDetailedStatus/2026/585",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillRollCalls/2026/585",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:vt/government",
+    "name": "Vermont",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:vt"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T05:54:33Z"
+  }
+}

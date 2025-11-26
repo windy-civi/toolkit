@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Passed By Senate. Votes: 16 YES 5 NO",
+    "date": "2025-06-10",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB 100"
+}

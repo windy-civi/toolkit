@@ -1,0 +1,232 @@
+{
+  "legislative_session": "2025-2026",
+  "identifier": "H 139",
+  "title": "An act relating to requiring licensed athletic trainers at secondary school athletic events and practices",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Read first time and referred to the Committee on Education",
+      "date": "2025-02-04",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:33Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Lisa Hango",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Lisa Hango\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Carolyn Branagan",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Carolyn Branagan\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kevin Christie",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kevin Christie\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Brian Cina",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Brian Cina\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Voranus Coffin IV",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Voranus Coffin IV\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Allen \"Penny\" Demar",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Allen \\\"Penny\\\" Demar\"}",
+      "organization_id": null
+    },
+    {
+      "name": "John Kascenska",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"John Kascenska\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Emilie Krasnow",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Emilie Krasnow\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Jed Lipsky",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Jed Lipsky\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Francis McFaun",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Francis McFaun\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Michael Morgan",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Michael Morgan\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Daniel Noyes",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Daniel Noyes\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Thomas Oliver",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Thomas Oliver\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Woodman Page",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Woodman Page\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Sandra Pinsonault",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Sandra Pinsonault\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Matthew Walker",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Matthew Walker\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kenneth Wells",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kenneth Wells\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "As Introduced",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0139/H-0139%20As%20Introduced.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Witness List",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/bill/print/2026/H139/witnesses",
+          "media_type": "text/html"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "Committee Meetings",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/bill/print/2026/H139/meetings",
+          "media_type": "text/html"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [],
+  "sources": [
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillsIntroduced/2026/",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/status/2026/H.139",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillDetailedStatus/2026/179",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillRollCalls/2026/179",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:vt/government",
+    "name": "Vermont",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:vt"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T05:54:35Z"
+  }
+}

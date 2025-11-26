@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Ceremonial Reading",
+    "date": "2025-05-23",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "HCR 132"
+}

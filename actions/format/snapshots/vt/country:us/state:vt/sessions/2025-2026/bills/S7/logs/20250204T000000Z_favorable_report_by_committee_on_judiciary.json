@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Favorable report by Committee on Judiciary",
+    "date": "2025-02-04",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 7"
+}

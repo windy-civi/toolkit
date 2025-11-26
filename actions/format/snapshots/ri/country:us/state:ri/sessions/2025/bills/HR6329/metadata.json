@@ -1,0 +1,141 @@
+{
+  "legislative_session": "2025",
+  "identifier": "HR6329",
+  "title": "HOUSE RESOLUTION CONGRATULATING THE ELEANOR SLATER HOSPITAL--ZAMBARANO CAMPUS ON THE RECOGNITION OF \"ZAMBARANO DAY\" ON MAY 13, 2025",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "resolution"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "05/13/2025 House read and passed",
+      "date": "2025-05-13",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:58Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Place",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Place\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Newberry",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Newberry\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Blazejewski",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Blazejewski\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Chippendale",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Chippendale\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Ajello",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Ajello\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Diaz",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Diaz\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Tanzi",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Tanzi\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Serpa",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Serpa\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Fellela",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Fellela\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Shallcross Smith",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Shallcross Smith\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "6329",
+      "links": [
+        {
+          "url": "http://webserver.rilegislature.gov/BillText/BillText25/HouseText25/H6329.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://status.rilegislature.gov/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ri/government",
+    "name": "Rhode Island",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:ri"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T03:04:58Z"
+  }
+}

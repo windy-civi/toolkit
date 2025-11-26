@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "06/02/2025 Referred to Senate Environment and Agriculture",
+    "date": "2025-06-02",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB5822"
+}

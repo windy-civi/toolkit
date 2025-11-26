@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Natural Resources & Energy) in House with 9 On Its Merits, 1 Unfavorable",
+    "date": "2025-04-09",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-unfavorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Natural Resources & Energy",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 59"
+}

@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Environment, Energy & Transportation) in Senate with 1 Favorable, 5 On Its Merits",
+    "date": "2025-06-18",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Environment, Energy & Transportation",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HJR 3"
+}

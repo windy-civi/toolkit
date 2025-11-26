@@ -1,0 +1,97 @@
+{
+  "legislative_session": "2025",
+  "identifier": "SR1003",
+  "title": "JOINT RESOLUTION MAKING AN APPROPRIATION OF $991,000 FOR THE TOWN OF MIDDLETOWN",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "resolution"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "summary",
+      "abstract": "Authorizes the appropriation of the sum of $991,000 for the town of Middletown to upgrade the gymnasium at the new Middletown middle high school to serve as a regional emergency shelter."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "05/02/2025 Introduced, referred to Senate Finance",
+      "date": "2025-05-02",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:00Z"
+      }
+    },
+    {
+      "description": "05/09/2025 Scheduled for hearing and/or consideration  (05/13/2025)",
+      "date": "2025-05-09",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:00Z"
+      }
+    },
+    {
+      "description": "05/13/2025 Committee recommended measure be held for further study",
+      "date": "2025-05-13",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "committee-failure"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:00Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "DiPalma",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"DiPalma\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "1003",
+      "links": [
+        {
+          "url": "http://webserver.rilegislature.gov/BillText/BillText25/SenateText25/S1003.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://status.rilegislature.gov/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ri/government",
+    "name": "Rhode Island",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:ri"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T03:05:00Z"
+  }
+}

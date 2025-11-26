@@ -1,0 +1,152 @@
+{
+  "legislative_session": "2025-2026",
+  "identifier": "H 42",
+  "title": "An act relating to the creation of the Housing Board of Appeals",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Read first time and referred to the Committee on General and Housing",
+      "date": "2025-01-17",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:33Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Thomas Stevens",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Thomas Stevens\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Michelle Bos-Lun",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Michelle Bos-Lun\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Esme Cole",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Esme Cole\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Saudia LaMont",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Saudia LaMont\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kate McCann",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kate McCann\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Phil Pouech",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Phil Pouech\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Monique Priestley",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Monique Priestley\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "As Introduced",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0042/H-0042%20As%20Introduced.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Witness List",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/bill/print/2026/H42/witnesses",
+          "media_type": "text/html"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "Committee Meetings",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/bill/print/2026/H42/meetings",
+          "media_type": "text/html"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [],
+  "sources": [
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillsIntroduced/2026/",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/status/2026/H.42",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillDetailedStatus/2026/333",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillRollCalls/2026/333",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:vt/government",
+    "name": "Vermont",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:vt"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T05:54:34Z"
+  }
+}

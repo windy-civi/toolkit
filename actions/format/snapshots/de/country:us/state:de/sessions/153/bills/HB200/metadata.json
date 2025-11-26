@@ -1,0 +1,117 @@
+{
+  "legislative_session": "153",
+  "identifier": "HB 200",
+  "title": "AN ACT TO AMEND TITLE 18, TITLE 29, AND TITLE 31 OF THE DELAWARE CODE RELATING TO INSURANCE COVERAGE FOR TREATMENT TO PREVENT HIV INFECTION.",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "This Act requires individual health insurance plans, group and blanket health insurance plans, the State employee health plan, and State Medicaid insurance to cover medically necessary pre-exposure prophylaxis (\u201cPrEP\u201d) treatment for the prevention of human immunodeficiency virus (\u201cHIV\u201d) infection before possible HIV exposure and post-exposure prophylaxis (\u201cPEP\u201d) treatment for the prevention of HIV infection after possible HIV exposure.\r\n \r\nThe required PrEP and PEP coverage must include services related to administering the covered treatment and must be provided without any of the following:\r\n1. Cost-sharing requirements, including deductibles, coinsurance, copayments, and out-of-pocket expenses.\r\n2. Prior authorization or step therapy requirements.\r\n3. Unreasonable delay in coverage determination.\r\n\r\nThis Act applies to all policies, contracts, or certificates that are renewed, modified, altered, amended, or reissued after December 31, 2026."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced and Assigned to Economic Development/Banking/Insurance & Commerce Committee in House",
+      "date": "2025-06-26",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Economic Development/Banking/Insurance & Commerce",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Nnamdi O. Chukwuocha",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Nnamdi O. Chukwuocha\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Eric Morrison",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Eric Morrison\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Marie Pinkney",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Marie Pinkney\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Nicole Poore",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Nicole Poore\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Ray Seigfried",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Ray Seigfried\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142639&legislationTypeId=1&docTypeId=2&legislationName=HB200",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142639&legislationTypeId=1&docTypeId=2&legislationName=HB200",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=142639",
+      "note": "text/html"
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:35Z"
+  }
+}

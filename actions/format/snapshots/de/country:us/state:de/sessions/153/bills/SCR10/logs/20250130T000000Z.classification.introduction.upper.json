@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Introduced in Senate",
+    "date": "2025-01-30",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SCR 10"
+}

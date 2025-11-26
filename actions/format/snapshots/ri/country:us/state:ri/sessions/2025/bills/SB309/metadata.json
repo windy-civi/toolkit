@@ -1,0 +1,169 @@
+{
+  "legislative_session": "2025",
+  "identifier": "SB309",
+  "title": "AN ACT RELATING TO PUBLIC PROPERTY AND WORKS -- CORROSION PREVENTION AND MITIGATION WORK REQUIREMENTS",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "summary",
+      "abstract": "Gives authority to the department of labor and training to enforce violations of the laws relating to corrosion prevention and mitigation work requirements. This act would also add civil monetary penalties for violations of those laws."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "02/13/2025 Introduced, referred to Senate Labor and Gaming",
+      "date": "2025-02-13",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    },
+    {
+      "description": "03/28/2025 Scheduled for hearing and/or consideration  (04/02/2025)",
+      "date": "2025-03-28",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    },
+    {
+      "description": "04/02/2025 Committee recommended measure be held for further study",
+      "date": "2025-04-02",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "committee-failure"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Euer",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Euer\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Quezada",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Quezada\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Pearson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Pearson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Valverde",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Valverde\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kallman",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Kallman\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Lauria",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Lauria\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Mack",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Mack\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Ujifusa",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Ujifusa\"}",
+      "organization_id": null
+    },
+    {
+      "name": "DiMario",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"DiMario\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Zurier",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Zurier\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "309",
+      "links": [
+        {
+          "url": "http://webserver.rilegislature.gov/BillText/BillText25/SenateText25/S0309.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://status.rilegislature.gov/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ri/government",
+    "name": "Rhode Island",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:ri"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T03:04:59Z"
+  }
+}

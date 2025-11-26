@@ -1,0 +1,141 @@
+{
+  "legislative_session": "2025",
+  "identifier": "HR5412",
+  "title": "HOUSE RESOLUTION CONGRATULATING CRANSTON POLICE CHIEF COLONEL MICHAEL J. WINQUIST ON HIS INDUCTION INTO THE RHODE ISLAND CRIMINAL JUSTICE HALL OF FAME, CLASS OF 2024",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "resolution"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "02/11/2025 House read and passed",
+      "date": "2025-02-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Lima",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Lima\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Shekarchi",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Shekarchi\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Blazejewski",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Blazejewski\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Fascia",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Fascia\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Handy",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Handy\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Paplauskas",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Paplauskas\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Chippendale",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Chippendale\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Bennett",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Bennett\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Potter",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Potter\"}",
+      "organization_id": null
+    },
+    {
+      "name": "McNamara",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"McNamara\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "5412",
+      "links": [
+        {
+          "url": "http://webserver.rilegislature.gov/BillText/BillText25/HouseText25/H5412.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://status.rilegislature.gov/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ri/government",
+    "name": "Rhode Island",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:ri"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T03:05:01Z"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Rep. McCann of Montpelier and Waszazak of Barre City moved to concur in the Senate proposal of amendment with a further amendment thereto",
+    "date": "2025-06-16",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 480"
+}

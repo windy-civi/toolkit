@@ -1,0 +1,385 @@
+{
+  "legislative_session": "153",
+  "identifier": "SB 21",
+  "title": "AN ACT TO AMEND TITLE 8 OF THE DELAWARE CODE RELATING TO THE GENERAL CORPORATION LAW.",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "Section 1 of this Act amends \u00a7 144 of Title 8 to provide safe harbor procedures for acts or transactions in which one or more directors or officers as well as controlling stockholders and members of control groups have interests or relationships that might render them interested or not independent with respect to the act or transaction. Under revised \u00a7 144(a), certain acts or transactions involving such directors or officers will be protected if approved or recommended by a majority of the disinterested directors, either serving on a board of directors or a committee of the board of directors, or approved or ratified by a majority of the votes cast by the disinterested stockholders entitled to vote thereon, in each case upon disclosure or in full knowledge of the material facts giving rise to the conflict or potential conflict. If a majority of the directors are not disinterested directors with respect to the act or transaction, any such disinterested director approval or recommendation must be provided through a disinterested director committee. In addition, the amendments define what parties constitute a controlling stockholder or control group and provide safe harbor procedures that can be followed to insulate from challenge specified acts or transactions from which a controlling stockholder or control group receives a unique benefit. Under new \u00a7 144(b), a controlling stockholder transaction that does not constitute a \u201cgoing private transaction\u201d may be entitled to the statutory safe harbor protection if it is negotiated and approved or recommended, as applicable, by a majority of the disinterested directors then serving on the committee, or is conditioned on the approval or ratification by disinterested stockholders and is approved or ratified by a majority of the votes cast by the disinterested stockholders. Under new \u00a7 144(c), a controlling stockholder transaction that constitutes a \u201cgoing private transaction\u201d may be entitled to the statutory safe harbor protection if it is negotiated and approved or recommended, as applicable, by a majority of the disinterested directors then serving on the committee and is conditioned on the approval of or ratification by disinterested stockholders and is approved or ratified by a vote of a majority of the votes cast by the disinterested stockholders. With respect to any approval or recommendation by a committee, the safe harbor only applies if the act or transaction or controlling stockholder transaction, as applicable, was approved by a committee consisting of at least 2 directors, all of whom, in the first instance, have been determined by the board of directors to be disinterested directors. Revised \u00a7 144 provides that any approval or recommendation, as applicable, of disinterested directors or a disinterested director committee must be made in good faith and without gross negligence, making clear that the statute does not displace the common law requirements regarding core fiduciary conduct as contemplated by cases such as Flood v. Synutra International, Inc., 195 A.3d 754 (Del. 2018), and In re MFW Shareholders Litigation, 67 A.3d 496 (Del. Ch. 2013), aff'd sub nom., Kahn v. M & F Worldwide Corp., 88 A.3d 635 (Del.2014). Revised \u00a7 144 does not limit the right of any person to seek relief on the grounds that a stockholder or other person aided and abetted a breach of fiduciary duty by one or more directors. Consistent with existing case law, the stockholder or other person must have knowingly participated in a breach of fiduciary duty to establish an aiding and abetting claim. In re Mindbody, Inc., 2024 WL 4926910 (Del. Dec. 2, 2024). The amendments to \u00a7 144 also set forth criteria for determining the independence and disinterestedness of directors and stockholders. The amendments provide that controlling stockholders and control groups, in their capacity as such, cannot be liable for monetary damages for breach of the duty of care.\r\n\r\nSection 144 is intended to provide a comprehensive liability exculpation scheme with respect to the fiduciary duties owed by stockholders and with respect to when the safe harbors in \u00a7 144(b) and (c) apply. Section 144 does not provide for the elimination of liability or safe harbors for stockholders who are not controlling stockholders or part of a control group because those stockholders do not owe fiduciary duties to the corporation or other stockholders. The amendments do not displace any safe harbor procedures or other protections available at common law, including processes and procedures that comply with the pre-amendment common law but do not conform to the \u00a7 144 safe harbors. The references in \u00a7 144 to an act or transaction being \u201cfair as to the corporation and the corporation\u2019s stockholders\u201d, which would apply if the applicable disinterested director and disinterested stockholder safe harbors are not used, is intended to be consistent with the entire fairness doctrine developed in the common law.\r\n\r\nSection 2 of this Act amends \u00a7 220 of Title 8 to define the materials that a stockholder may demand to inspect pursuant to a request for books and records of the corporation. The amendments also set forth certain conditions that a stockholder must satisfy in order to make an inspection of books and records. The amendments make clear that information from books and records obtained by a stockholder from a production under \u00a7 220 will be deemed to be incorporated by reference into any complaint filed by or at the direction of a stockholder on the basis of information obtained through a demand for books and records. New \u00a7 220(b)(4) preserves whatever independent rights of inspection exist under the referenced sources and does not create any rights, either expressly or by implication. New \u00a7 220(f) provides that if the corporation does not have specified books and records, including minutes of board and committee meetings, actions of board or any committee, financial statements and director and officer independence questionnaires, the Court of Chancery may order the production of additional corporate records necessary and essential for the stockholder\u2019s proper purpose. New \u00a7 220(g) provides that a stockholder may obtain additional specific records if the stockholder has made a showing of a compelling need to further a proper purpose for the inspection and has demonstrated by clear and convincing evidence that such specific records are necessary and essential to further such purpose. \r\n\r\nSection 3 of this Act provides that Sections 1 and 2 of this Act take effect on the enactment of this Act and apply to all acts and transactions, whether occurring before, on, or after the enactment date of this Act, except that Sections 1 and 2 of this Act do not apply to or affect any action or proceeding commenced in a court of competent jurisdiction that is completed or pending, or any demand to inspect books and records made, on or before February 17, 2025. \r\n\r\nThis Act requires a greater than majority vote for passage because \u00a7 1 of Article IX of the Delaware Constitution requires the affirmative vote of two-thirds of the members elected to each house of the General Assembly to amend the general corporation law."
+    }
+  ],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Gen. Corp. Law/Safe Harbor Procedures/Stockholders"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Adopted in lieu of the original bill SB 21, and Assigned to Judiciary Committee in Senate",
+      "date": "2025-03-12",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Judiciary",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Reported Out of Committee (Judiciary) in Senate with 2 Favorable, 2 On Its Merits",
+      "date": "2025-03-12",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "committee-passage",
+        "committee-passage-favorable"
+      ],
+      "related_entities": [
+        {
+          "name": "Judiciary",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Passed By Senate. Votes: 20 YES 1 ABSENT",
+      "date": "2025-03-13",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Assigned to Judiciary Committee in House",
+      "date": "2025-03-13",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Judiciary",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Amendment HA 1 to SS 1 - Introduced and Placed With Bill",
+      "date": "2025-03-18",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Reported Out of Committee (Judiciary) in House with 9 On Its Merits",
+      "date": "2025-03-19",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "committee-passage"
+      ],
+      "related_entities": [
+        {
+          "name": "Judiciary",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Amendment HA 2 to SS 1 - Introduced and Placed With Bill",
+      "date": "2025-03-25",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Amendment HA 1 to SS 1 - Stricken in House",
+      "date": "2025-03-25",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Amendment HA 2 to SS 1 - Defeated By House. Votes: 6 YES 32 NO 1 NOT VOTING 2 ABSENT",
+      "date": "2025-03-25",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "amendment-failure"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Amendment HA 3 to SS 1 - Defeated By House. Votes: 9 YES 30 NO 2 ABSENT",
+      "date": "2025-03-25",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "amendment-failure"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Amendment HA 4 to SS 1 - Defeated By House. Votes: 8 YES 31 NO 2 ABSENT",
+      "date": "2025-03-25",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "amendment-failure"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Amendment HA 5 to SS 1 - Defeated By House. Votes: 8 YES 31 NO 2 ABSENT",
+      "date": "2025-03-25",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "amendment-failure"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Amendment HA 6 to SS 1 - Stricken in House",
+      "date": "2025-03-25",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Amendment HA 7 to SS 1 - Defeated By House. Votes: 8 YES 31 NO 2 ABSENT",
+      "date": "2025-03-25",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "amendment-failure"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Passed By House. Votes: 32 YES 7 NO 2 ABSENT",
+      "date": "2025-03-25",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Signed by Governor",
+      "date": "2025-03-25",
+      "organization_id": "~{\"classification\": \"executive\"}",
+      "classification": [
+        "executive-signature"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Bryan Townsend",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Bryan Townsend\"}",
+      "organization_id": null
+    },
+    {
+      "name": "David P. Sokola",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"David P. Sokola\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Josue O Ortega",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Josue O Ortega\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Stell Parker Selby",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Stell Parker Selby\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Brian Pettyjohn",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Brian Pettyjohn\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Nicole Poore",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Nicole Poore\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Trey Paradee",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Trey Paradee\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kerri Evelyn Harris",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kerri Evelyn Harris\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Edward S. Osienski",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Edward S. Osienski\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Timothy D. Dukes",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Timothy D. Dukes\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Russell Huxtable",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Russell Huxtable\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Ray Seigfried",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Ray Seigfried\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=141930&legislationTypeId=6&docTypeId=2&legislationName=SS1forSB21",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=141930&legislationTypeId=6&docTypeId=2&legislationName=SS1forSB21",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [
+    {
+      "publication": "The Laws of Delaware",
+      "citation": "Volume 85 Chapter 6",
+      "citation_type": "chapter",
+      "effective": null,
+      "expires": null,
+      "url": "https://legis.delaware.gov/SessionLaws/Chapter/GetPdfDocument?fileAttachmentId=647918"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=141930",
+      "note": "text/html"
+    }
+  ],
+  "extras": {
+    "substitute": "SS 1"
+  },
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:35Z"
+  }
+}

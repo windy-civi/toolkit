@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Assigned to Legislative Oversight & Sunset Committee in Senate",
+    "date": "2025-05-08",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": [
+      {
+        "name": "Legislative Oversight & Sunset",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 81"
+}

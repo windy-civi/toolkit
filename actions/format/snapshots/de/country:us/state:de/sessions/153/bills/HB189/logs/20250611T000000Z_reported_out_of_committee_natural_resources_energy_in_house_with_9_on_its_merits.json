@@ -1,0 +1,18 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Natural Resources & Energy) in House with 9 On Its Merits",
+    "date": "2025-06-11",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage"
+    ],
+    "related_entities": [
+      {
+        "name": "Natural Resources & Energy",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 189"
+}

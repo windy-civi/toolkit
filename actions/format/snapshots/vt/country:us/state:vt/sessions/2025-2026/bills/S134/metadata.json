@@ -1,0 +1,112 @@
+{
+  "legislative_session": "2025-2026",
+  "identifier": "S 134",
+  "title": "An act relating to municipal regulation of private airstrips",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Read 1st time & referred to Committee on Natural Resources and Energy",
+      "date": "2025-03-27",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:35Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Ruth Hardy",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Ruth Hardy\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Thomas Chittenden",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Thomas Chittenden\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "As Introduced",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/S-0134/S-0134%20As%20Introduced.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Witness List",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/bill/print/2026/S134/witnesses",
+          "media_type": "text/html"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "Committee Meetings",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/bill/print/2026/S134/meetings",
+          "media_type": "text/html"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [],
+  "sources": [
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillsIntroduced/2026/",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/status/2026/S.134",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillDetailedStatus/2026/365",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillRollCalls/2026/365",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:vt/government",
+    "name": "Vermont",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:vt"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T05:54:35Z"
+  }
+}

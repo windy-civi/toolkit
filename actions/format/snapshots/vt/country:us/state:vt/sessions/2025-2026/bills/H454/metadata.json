@@ -1,0 +1,1512 @@
+{
+  "legislative_session": "2025-2026",
+  "identifier": "H 454",
+  "title": "An act relating to transforming Vermont\u2019s education governance, quality, and finance systems",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Read first time and referred to the Committee on Education",
+      "date": "2025-02-28",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Notice Calendar: Favorable with Amendment",
+      "date": "2025-04-01",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Referred to Committee on Ways and Means per Rule 35(a)",
+      "date": "2025-04-01",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Pending entry on Notice Calendar, referred to Committee on Appropriations per Rule 35(a)",
+      "date": "2025-04-08",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Notice Calendar: Favorable with Amendment",
+      "date": "2025-04-09",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Action Calendar: Favorable with Amendment",
+      "date": "2025-04-10",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Read second time",
+      "date": "2025-04-10",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "reading-2"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Conlon of Cornwall reported for the Committee on Education",
+      "date": "2025-04-10",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Kornheiser of Brattleboro recommended for the Committee on Ways and Means",
+      "date": "2025-04-10",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Mrowicki of Putney recommended for the Committee on Appropriations",
+      "date": "2025-04-10",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Conlon of Cornwall, Brady of Williston, Brown of Richmond, Harple of Glover, Hunter of Manchester, Long of Newfane, and McCann of Montpelier moved to amend the report of the Committee on Ways and Means, which was agreed to",
+      "date": "2025-04-10",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Yacovone of Morristown and Olson of Starksboro moved to amend the report of the Committee on Ways and Means, as amended",
+      "date": "2025-04-10",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Yacovone of Morristown asked and was granted leave to withdraw amendment",
+      "date": "2025-04-10",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Olson of Starksboro and Yacovone of Morristown moved to amend the report of the Committee on Ways and Means, as amended",
+      "date": "2025-04-10",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Olson of Starksboro asked and was granted leave to withdraw amendment",
+      "date": "2025-04-10",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Report of the Committee on Education amended as recommended by the Committee on Ways and Means, as amended",
+      "date": "2025-04-10",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Report of Committee on Education, as amended, agreed to",
+      "date": "2025-04-10",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Third Reading ordered",
+      "date": "2025-04-10",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "reading-3"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Action Calendar: Third Reading",
+      "date": "2025-04-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "reading-3"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Greer of Bennington moved to amend the bill",
+      "date": "2025-04-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Greer of Bennington asked and was granted leave to withdraw amendment",
+      "date": "2025-04-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Toof of St. Albans Town and Houghton of Essex Junction moved to amend the bill, which was agreed to",
+      "date": "2025-04-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Galfetti of Barre Town moved to amend the bill",
+      "date": "2025-04-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Galfetti of Barre Town asked and was granted leave to withdraw amendment",
+      "date": "2025-04-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Wood of Waterbury, Kornheiser of Brattleboro, Bishop of Colchester, Cole of Hartford, Donahue of Northfield, Eastes of Guilford, Garofano of Essex, Maguire of Rutland City, McGill of Bridport, and Noyes of Wolcott moved to amend the bill, which was agreed to",
+      "date": "2025-04-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Donahue of Northfield moved to amend the bill",
+      "date": "2025-04-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. McCoy of Poultney demanded yeas and nays",
+      "date": "2025-04-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Which was disagreed to on a Roll Call Failed -- Needed 72 of 143 to Pass -- Yeas = 60, Nays = 83",
+      "date": "2025-04-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Read third time",
+      "date": "2025-04-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "reading-3"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Cina of Burlington demanded yeas and nays",
+      "date": "2025-04-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Passed",
+      "date": "2025-04-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Which was agreed to on a Roll Call Passed -- Needed 71 of 142 to Pass -- Yeas = 87, Nays = 55",
+      "date": "2025-04-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Read 1st time",
+      "date": "2025-04-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Referred to Committee on Education per Temporary Senate Rule 44A",
+      "date": "2025-04-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Entered on Notice Calendar",
+      "date": "2025-05-06",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Second Reading",
+      "date": "2025-05-06",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "reading-2"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Favorable report with proposal of amendment by Committee on Education",
+      "date": "2025-05-06",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Referred to Committee on Finance per Senate Rule 31",
+      "date": "2025-05-06",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Entered on Notice Calendar",
+      "date": "2025-05-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Second Reading",
+      "date": "2025-05-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "reading-2"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Favorable report with proposal of amendment by Committee on Education",
+      "date": "2025-05-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Favorable report with proposal of amendment by Committee on Finance",
+      "date": "2025-05-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Referred to Committee on Appropriations per Senate Rule 31",
+      "date": "2025-05-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Entered on Notice Calendar",
+      "date": "2025-05-20",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Second Reading",
+      "date": "2025-05-20",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "reading-2"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Favorable report with proposal of amendment by Committee on Education",
+      "date": "2025-05-20",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Favorable report with proposal of amendment by Committee on Finance",
+      "date": "2025-05-20",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Favorable report with proposal of amendment by Committee on Appropriations",
+      "date": "2025-05-20",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "New Business/Second Reading",
+      "date": "2025-05-21",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "reading-2"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Favorable report with proposal of amendment by Committee on Education",
+      "date": "2025-05-21",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Favorable report with proposal of amendment by Committee on Finance",
+      "date": "2025-05-21",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Favorable report with proposal of amendment by Committee on Appropriations",
+      "date": "2025-05-21",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Unfinished Business/Second Reading",
+      "date": "2025-05-22",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "reading-2"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Favorable report with proposal of amendment by Committee on Education",
+      "date": "2025-05-22",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Favorable report with proposal of amendment by Committee on Finance",
+      "date": "2025-05-22",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Favorable report with proposal of amendment by Committee on Appropriations",
+      "date": "2025-05-22",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Committed to Committee on Education on motion of Senator Baruth",
+      "date": "2025-05-22",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Committee on Education relieved of further consideration of the bill on motion of Senator Baruth",
+      "date": "2025-05-22",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rules suspended & taken up for immediate consideration, on motion of Senator Baruth",
+      "date": "2025-05-22",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Consideration postponed on motion of Senator Baruth",
+      "date": "2025-05-22",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Consideration postponed",
+      "date": "2025-05-22",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Unfinished Business/Second Reading",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "reading-2"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Read 2nd time",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "reading-2"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Proposal of amendment by Senator(s) Hardy, Bongartz, Baruth, and Ram Hinsdale; text",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Proposal of amendment by Senator(s) Hardy, Bongartz, Baruth, and Ram Hinsdale agreed to",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Proposal of amendment by Senator(s) Vyhovsky; text",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Proposal of amendment not agreed to",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Proposal of amendment by Senator(s) Vyhovsky; text",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Proposal of amendment not agreed to",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Proposal of amendment by Senator(s) Beck; text",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Senator Beck requested & granted leave to withdraw proposal of amendment",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Proposal of amendment by Senator(s) Beck; text",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Roll Call, Requested by Sen. Ingalls",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Roll Call, requested by Senator Ingalls, Failed -- Needed 15 of 30 to Pass -- Yeas = 13, Nays = 17",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Proposal of amendment not agreed to",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "3rd reading ordered",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rules suspended & bill placed on all remaining stages of passage, on motion of Senator Baruth",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Read 3rd time & passed in concurrence with proposal of amendment",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction",
+        "reading-3"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rules suspended & messaged to House forthwith, on motion of Senator Baruth",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Senate Message: Passed in concurrence with proposal of amendment",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rules suspended and taken up for immediate consideration, pending entry on Notice Calendar, as moved by Rep. McCoy of Poultney",
+      "date": "2025-05-27",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Senate proposal of amendment not concurred in and Committee of Conference requested upon motion of Rep. Conlon of Cornwall",
+      "date": "2025-05-27",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Speaker appointed Reps. Conlon of Cornwall, Kornheiser of Brattleboro, and Taylor of Milton as members of the Committee of Conference on the part of the House",
+      "date": "2025-05-27",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rules suspended and bill messaged forthwith to the Senate as moved by Rep. McCoy of Poultney",
+      "date": "2025-05-27",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "House message: House refused to concur in Senate proposal of amendment & requested Conference Committee; House Conference Committee members appointed",
+      "date": "2025-05-27",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Committee of Conference appointed: Senators Bongartz, Cummings, and Beck",
+      "date": "2025-05-27",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Senate Message: Committee of Conference members appointed",
+      "date": "2025-05-28",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Entered on Notice Calendar",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rules suspended & taken up for immediate consideration, on motion of Senator Baruth",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Committee of Conference report submitted by Senator Bongartz for Committee, text",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Point of order raised by Senator Vyhovsky on ground Conference Committee breached Sec. 771.2 of Mason's Manual of Legislative Procedure",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Point of order sustained by the President",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rules suspended on motion of Senator Baruth",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Roll Call, Requested by Sen. Gulick",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Roll Call, requested by Senator Gulick, Passed -- Needed 22 of 29 to Pass -- Yeas = 26, Nays = 3",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rules suspended to permit consideration of an objectionable report of Committee of Conference, on Roll Call 26-3.",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Senator Chittenden explained vote",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Roll Call, Requested by Sen. Gulick",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Committee of Conference report adopted on roll call Passed -- Needed 15 of 29 to Pass -- Yeas = 17, Nays = 12",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Senator Douglass explained vote",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Senator Heffernan explained vote",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Senator Ingalls explained vote",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Senator Mattos explained vote",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Senator Williams explained vote",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rules suspended & messaged to House forthwith, on motion of Senator Baruth",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Senate Message: Report of Committee of Conference adopted",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rules suspended and taken up for immediate consideration, pending entry on Notice Calendar, as moved by Rep. McCoy of Poultney",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Committee of Conference report ruled out of order on point of order raised by Rep. McCann of Montpelier",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Houghton of Essex Junction moved to suspend rules to permit consideration of an objectionable committee of conference report",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Division demanded",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Division results Yes, 113; No, 26",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Which was agreed to",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Committee of Conference report adopted (House bill)",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. McCoy of Poultney moved to deliver the bill to the Governor forthwith",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Headrick of Burlington demanded yeas and nays",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Which was agreed to on a Roll Call Passed -- Needed 71 of 141 to Pass -- Yeas = 96, Nays = 45",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "House message: House adopted Conference Committee report",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Delivered to the Governor on June 25, 2025",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Signed by Governor on July 1, 2025",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"executive\"}",
+      "classification": [
+        "executive-signature"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "House message: Governor approved bill on July 1, 2025",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Casey Toof",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Casey Toof\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Patricia McCoy",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Patricia McCoy\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Christopher Taylor",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Christopher Taylor\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Joshua Dobrovich",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Joshua Dobrovich\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Beth Quimby",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Beth Quimby\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "As Introduced",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0454/H-0454%20As%20Introduced.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "As Passed By the House (Official)",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0454/H-0454%20As%20passed%20by%20the%20House%20Official.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "As Passed By the House (Unofficial)",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0454/H-0454%20As%20Passed%20by%20the%20House%20Unofficial.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "Senate Proposal of Amendment (Official)",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0454/H-0454%20Senate%20proposal%20of%20amendment%20Official.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "Senate Proposal of Amendment (Unofficial)",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0454/H-0454%20Senate%20Proposal%20of%20Amendment%20Unofficial.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "As Passed by Both House and Senate (Official)",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0454/H-0454%20As%20Passed%20by%20Both%20House%20and%20Senate%20Official.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "As Passed by Both House and Senate (Unofficial)",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0454/H-0454%20As%20Passed%20by%20Both%20House%20and%20Senate%20Unofficial.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "As Enacted",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT073/ACT073%20As%20Enacted.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "Act Summary",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT073/ACT073%20Act%20Summary.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Witness List",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/bill/print/2026/H454/witnesses",
+          "media_type": "text/html"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "Conference Committee Members",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/bill/print/2026/H454/conference",
+          "media_type": "text/html"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "Committee Meetings",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/bill/print/2026/H454/meetings",
+          "media_type": "text/html"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [],
+  "sources": [
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillsIntroduced/2026/",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/status/2026/H.454",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillDetailedStatus/2026/958",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillRollCalls/2026/958",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:vt/government",
+    "name": "Vermont",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:vt"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T05:54:35Z"
+  }
+}

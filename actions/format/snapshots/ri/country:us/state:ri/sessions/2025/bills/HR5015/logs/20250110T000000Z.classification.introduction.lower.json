@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "01/10/2025 Introduced, referred to House Rules Committee",
+    "date": "2025-01-10",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HR5015"
+}

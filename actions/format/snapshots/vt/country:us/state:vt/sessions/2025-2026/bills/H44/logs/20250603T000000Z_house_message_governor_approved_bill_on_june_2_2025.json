@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "House message: Governor approved bill on June 2, 2025",
+    "date": "2025-06-03",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 44"
+}

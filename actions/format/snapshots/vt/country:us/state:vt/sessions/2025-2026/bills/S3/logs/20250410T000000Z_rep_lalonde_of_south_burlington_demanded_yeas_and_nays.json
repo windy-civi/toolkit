@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Rep. LaLonde of South Burlington demanded yeas and nays",
+    "date": "2025-04-10",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 3"
+}

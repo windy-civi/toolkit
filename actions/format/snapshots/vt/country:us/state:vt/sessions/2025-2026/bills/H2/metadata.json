@@ -1,0 +1,475 @@
+{
+  "legislative_session": "2025-2026",
+  "identifier": "H 2",
+  "title": "An act relating to increasing the minimum age for delinquency proceedings",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Read first time and referred to the Committee on Judiciary",
+      "date": "2025-01-09",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Notice Calendar: Favorable with Amendment",
+      "date": "2025-03-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Action Calendar: Favorable with Amendment",
+      "date": "2025-03-12",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Read second time",
+      "date": "2025-03-12",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "reading-2"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. LaLonde of South Burlington reported for the Committee on Judiciary",
+      "date": "2025-03-12",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Maguire of Rutland City moved to amend the report of the Committee on Judiciary",
+      "date": "2025-03-12",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rep. Maguire of Rutland City demanded yeas and nays",
+      "date": "2025-03-12",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Which was disagreed to on a Roll Call Failed -- Needed 71 of 141 to Pass -- Yeas = 55, Nays = 86",
+      "date": "2025-03-12",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Report of Committee on Judiciary agreed to",
+      "date": "2025-03-12",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Third Reading ordered",
+      "date": "2025-03-12",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "reading-3"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Action Calendar: Third Reading",
+      "date": "2025-03-13",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "reading-3"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Read third time and passed",
+      "date": "2025-03-13",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "reading-3"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Read 1st time & referred to Committee on Judiciary",
+      "date": "2025-03-18",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Second Reading",
+      "date": "2025-03-25",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "reading-2"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Favorable report by Committee on Judiciary",
+      "date": "2025-03-25",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "committee-passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Entered on Notice Calendar",
+      "date": "2025-03-25",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Second Reading",
+      "date": "2025-03-26",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "reading-2"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Favorable report by Committee on Judiciary",
+      "date": "2025-03-26",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "committee-passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Reported favorably by Senator Norris for Committee on Judiciary, read 2nd time and 3rd reading ordered",
+      "date": "2025-03-26",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "committee-passage-favorable",
+        "reading-2"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rules suspended & bill placed on all remaining stages of passage, on motion of Senator Baruth",
+      "date": "2025-03-26",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Read 3rd time & passed in concurrence",
+      "date": "2025-03-26",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "reading-3"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Rules suspended & messaged to House forthwith, on motion of Senator Baruth",
+      "date": "2025-03-26",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Senate Message: Passed in concurrence",
+      "date": "2025-03-26",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Delivered to the Governor on March 27, 2025",
+      "date": "2025-03-27",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "Signed by Governor on March 31, 2025",
+      "date": "2025-04-01",
+      "organization_id": "~{\"classification\": \"executive\"}",
+      "classification": [
+        "executive-signature"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    },
+    {
+      "description": "House message: Governor approved bill on March 31, 2025",
+      "date": "2025-04-02",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:34Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Martin LaLonde",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Martin LaLonde\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Angela Arsenault",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Angela Arsenault\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Karen Dolan",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Karen Dolan\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Barbara Rachelson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Barbara Rachelson\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "As Introduced",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0002/H-0002%20As%20Introduced.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "As Passed By the House (Official)",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0002/H-0002%20As%20passed%20by%20the%20House%20Official.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "As Passed By the House (Unofficial)",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0002/H-0002%20As%20Passed%20by%20the%20House%20Unofficial.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "As Passed by Both House and Senate (Official)",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0002/H-0002%20As%20Passed%20by%20Both%20House%20and%20Senate%20Official.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "As Passed by Both House and Senate (Unofficial)",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0002/H-0002%20As%20Passed%20by%20Both%20House%20and%20Senate%20Unofficial.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "As Enacted",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT004/ACT004%20As%20Enacted.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "Act Summary",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT004/ACT004%20Act%20Summary.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Witness List",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/bill/print/2026/H2/witnesses",
+          "media_type": "text/html"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "Committee Meetings",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/bill/print/2026/H2/meetings",
+          "media_type": "text/html"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [],
+  "sources": [
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillsIntroduced/2026/",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/status/2026/H.2",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillDetailedStatus/2026/109",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillRollCalls/2026/109",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:vt/government",
+    "name": "Vermont",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:vt"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T05:54:34Z"
+  }
+}

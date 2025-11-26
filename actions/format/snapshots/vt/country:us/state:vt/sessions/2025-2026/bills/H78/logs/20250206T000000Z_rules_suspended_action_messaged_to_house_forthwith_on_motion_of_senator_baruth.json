@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Rules suspended & action messaged to House forthwith, on motion of Senator Baruth",
+    "date": "2025-02-06",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 78"
+}

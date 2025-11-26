@@ -1,0 +1,266 @@
+{
+  "identifier": "",
+  "motion_text": "Passage",
+  "motion_classification": [
+    "passage"
+  ],
+  "start_date": "2025-06-20",
+  "result": "pass",
+  "organization": "~{\"classification\": \"upper\"}",
+  "legislative_session": "2025",
+  "bill": "~{\"from_organization__classification\": \"upper\", \"identifier\": \"SB970\", \"legislative_session__identifier\": \"2025\"}",
+  "bill_action": null,
+  "bill_identifier": "SB970",
+  "votes": [
+    {
+      "option": "yes",
+      "voter_name": "Acosta",
+      "voter_id": "~{\"name\": \"Acosta\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Appollonio, Jr.",
+      "voter_id": "~{\"name\": \"Appollonio, Jr.\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Bell",
+      "voter_id": "~{\"name\": \"Bell\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Bissaillon",
+      "voter_id": "~{\"name\": \"Bissaillon\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Britto",
+      "voter_id": "~{\"name\": \"Britto\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Burke",
+      "voter_id": "~{\"name\": \"Burke\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Ciccone",
+      "voter_id": "~{\"name\": \"Ciccone\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "de la Cruz",
+      "voter_id": "~{\"name\": \"de la Cruz\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "DiMario",
+      "voter_id": "~{\"name\": \"DiMario\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Dimitri",
+      "voter_id": "~{\"name\": \"Dimitri\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "DiPalma",
+      "voter_id": "~{\"name\": \"DiPalma\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Euer",
+      "voter_id": "~{\"name\": \"Euer\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Felag",
+      "voter_id": "~{\"name\": \"Felag\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Gallo",
+      "voter_id": "~{\"name\": \"Gallo\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Gu",
+      "voter_id": "~{\"name\": \"Gu\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Kallman",
+      "voter_id": "~{\"name\": \"Kallman\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "LaMountain",
+      "voter_id": "~{\"name\": \"LaMountain\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Lauria",
+      "voter_id": "~{\"name\": \"Lauria\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Mack",
+      "voter_id": "~{\"name\": \"Mack\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "McKenney",
+      "voter_id": "~{\"name\": \"McKenney\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Morgan",
+      "voter_id": "~{\"name\": \"Morgan\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Murray",
+      "voter_id": "~{\"name\": \"Murray\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Paolino",
+      "voter_id": "~{\"name\": \"Paolino\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Patalano",
+      "voter_id": "~{\"name\": \"Patalano\"}",
+      "note": ""
+    },
+    {
+      "option": "other",
+      "voter_name": "Pearson",
+      "voter_id": "~{\"name\": \"Pearson\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Quezada",
+      "voter_id": "~{\"name\": \"Quezada\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Raptakis",
+      "voter_id": "~{\"name\": \"Raptakis\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Rogers",
+      "voter_id": "~{\"name\": \"Rogers\"}",
+      "note": ""
+    },
+    {
+      "option": "other",
+      "voter_name": "Ruggerio",
+      "voter_id": "~{\"name\": \"Ruggerio\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Sosnowski",
+      "voter_id": "~{\"name\": \"Sosnowski\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Thompson",
+      "voter_id": "~{\"name\": \"Thompson\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Tikoian",
+      "voter_id": "~{\"name\": \"Tikoian\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Ujifusa",
+      "voter_id": "~{\"name\": \"Ujifusa\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Urso",
+      "voter_id": "~{\"name\": \"Urso\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Valverde",
+      "voter_id": "~{\"name\": \"Valverde\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Vargas",
+      "voter_id": "~{\"name\": \"Vargas\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Zurier",
+      "voter_id": "~{\"name\": \"Zurier\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Madam President",
+      "voter_id": "~{\"name\": \"Madam President\"}",
+      "note": ""
+    }
+  ],
+  "counts": [
+    {
+      "option": "yes",
+      "value": 36
+    },
+    {
+      "option": "no",
+      "value": 0
+    },
+    {
+      "option": "other",
+      "value": 2
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://webserver.rilegislature.gov/SVotes/votereport.asp?id=17116",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "dedupe_key": "https://webserver.rilegislature.gov/SVotes/votereport.asp?id=17116"
+}

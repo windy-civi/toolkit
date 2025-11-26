@@ -1,0 +1,134 @@
+{
+  "legislative_session": "153",
+  "identifier": "SB 117",
+  "title": "AN ACT AMEND TITLE 18 AND TITLE 29 OF THE DELAWARE CODE RELATING TO HEARING AID COVERAGE FOR INDIVIDUALS YOUNGER THAN 24 YEARS OLD.",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "Early access to language is essential to child development. Children identified as Deaf or hard of hearing, rely on hearing aids for language development. Language development leads to success in school. Medicaid coverage of hearing aids for children younger than 21 years old applies only to children who qualify. Delaware currently requires private insurers to provide minimum coverage of $1,000 for each hearing aid for individuals younger than 24 years old, covered as a dependent by the policyholder. The cost of pediatric hearing aids can vary widely but can cost from $3,000 to $5,000 out-of-pocket. This can be too expensive for families who are not qualified for Medicaid coverage, even with the current $1,000 coverage requirement. \r\n\r\nThis Act increases the minimum required coverage for hearing aids by requiring insurers to cover the entire cost of medically necessary hearing aids, and the services of a hearing care professional related to prescribing, fitting, or dispensing the hearing aid or earmold, for individuals younger than 24 years old, covered as a dependent by the policyholder. Insurers are required to cover hearing aids at least every 3 years, or sooner if new hearing aids are medically necessary. For hearing aids with earmolds, insurers are required to cover earmolds at least annually, or sooner if new earmolds are medically necessary. For purposes of the coverage requirement, \u201chearing aid\u201d means any non-experimental, wearable instrument or device designed for the ear and offered for the purpose of aiding or compensating for impaired human hearing and any related parts, attachments, or accessories, including earmolds.\r\n\r\nThe required coverage for hearing aids applies to all of the following:\r\n1. Individual policies under Chapter 33 of Title 18.\r\n2. Group and blanket policies under Chapter 35 of Title 18.\r\n3. The State employee health plan under Chapter 52 of Title 29. \r\n\r\nThe Act applies to all policies, contracts, or certificates issued, renewed, modified, altered, amended, or reissued after December 31, 2026.\r\n\r\nThis Act also makes technical corrections to conform existing law to the standards of the Delaware Legislative Drafting Manual and reorganizes paragraphs for clarity."
+    }
+  ],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Hearing Aids/Medicaid Coverage/Require/Children"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced and Assigned to Banking, Business, Insurance & Technology Committee in Senate",
+      "date": "2025-05-01",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Banking, Business, Insurance & Technology",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:37Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Laura V. Sturgeon",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Laura V. Sturgeon\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Madinah Wilson-Anton",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Madinah Wilson-Anton\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Bryant L. Richardson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Bryant L. Richardson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Eric Morrison",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Eric Morrison\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Marie Pinkney",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Marie Pinkney\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142158&legislationTypeId=1&docTypeId=2&legislationName=SB117",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142158&legislationTypeId=1&docTypeId=2&legislationName=SB117",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Fiscal Note",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GetPdfDocument?fileAttachmentId=649337",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=142158",
+      "note": "text/html"
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:37Z"
+  }
+}

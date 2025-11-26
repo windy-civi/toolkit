@@ -1,0 +1,193 @@
+{
+  "legislative_session": "2025",
+  "identifier": "SB417",
+  "title": "AN ACT RELATING TO TAXATION -- CIGARETTE, OTHER TOBACCO PRODUCTS, AND ELECTRONIC NICOTINE-DELIVERY SYSTEM PRODUCTS",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "summary",
+      "abstract": "Reduces the cigarette tax imposed by 75% for any modified risk tobacco product as defined in \u00a7 21 U.S.C. 387 k as a tobacco product sold/distributed to reduce the harm/risk of tobacco-related disease associated with commercially marketed tobacco products."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "02/26/2025 Introduced, referred to Senate Finance",
+      "date": "2025-02-26",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "04/04/2025 Scheduled for hearing and/or consideration  (04/10/2025)",
+      "date": "2025-04-04",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "04/10/2025 Committee heard",
+      "date": "2025-04-10",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "06/10/2025 Scheduled for consideration  (06/12/2025)",
+      "date": "2025-06-10",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "06/11/2025 Proposed Substitute",
+      "date": "2025-06-11",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "substitution"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "06/12/2025 Committee recommends passage of Sub A",
+      "date": "2025-06-12",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "committee-passage-favorable"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "06/13/2025 Placed on Senate Calendar  (06/17/2025)",
+      "date": "2025-06-13",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "reading-3"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "06/17/2025 Senate passed Sub A",
+      "date": "2025-06-17",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "DiPalma",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"DiPalma\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Ciccone",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Ciccone\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Tikoian",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Tikoian\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Lawson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Lawson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "de la Cruz",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"de la Cruz\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Morgan",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Morgan\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "417\u00a0 SUB A",
+      "links": [
+        {
+          "url": "http://webserver.rilegislature.gov/BillText/BillText25/SenateText25/S0417A.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://status.rilegislature.gov/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ri/government",
+    "name": "Rhode Island",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:ri"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T03:05:01Z"
+  }
+}

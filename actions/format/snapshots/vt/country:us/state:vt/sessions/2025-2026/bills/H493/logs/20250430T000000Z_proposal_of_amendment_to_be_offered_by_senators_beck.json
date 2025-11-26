@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Proposal of amendment to be offered by Senator(s) Beck",
+    "date": "2025-04-30",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 493"
+}

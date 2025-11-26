@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "06/21/2025 Placed on House Calendar  (06/20/2025)",
+    "date": "2025-06-21",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "reading-3"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB1083"
+}

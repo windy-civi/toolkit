@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Which was agreed to on a Roll Call Passed -- Needed 68 of 135 to Pass -- Yeas = 132, Nays = 3",
+    "date": "2025-05-15",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 493"
+}

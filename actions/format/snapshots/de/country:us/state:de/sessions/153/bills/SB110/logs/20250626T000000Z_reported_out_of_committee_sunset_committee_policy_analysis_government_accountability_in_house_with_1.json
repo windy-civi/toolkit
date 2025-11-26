@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Sunset Committee (Policy Analysis & Government Accountability)) in House with 1 Favorable, 4 On Its Merits",
+    "date": "2025-06-26",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Sunset Committee (Policy Analysis & Government Accountability",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 110"
+}

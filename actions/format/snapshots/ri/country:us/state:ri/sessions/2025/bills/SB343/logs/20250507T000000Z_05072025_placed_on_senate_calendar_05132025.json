@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "05/07/2025 Placed on Senate Calendar  (05/13/2025)",
+    "date": "2025-05-07",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "reading-3"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB343"
+}

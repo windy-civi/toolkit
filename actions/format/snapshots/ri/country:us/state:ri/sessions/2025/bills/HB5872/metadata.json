@@ -1,0 +1,237 @@
+{
+  "legislative_session": "2025",
+  "identifier": "HB5872",
+  "title": "AN ACT RELATING TO ELECTIONS -- DECEPTIVE AND FRAUDULENT SYNTHETIC MEDIA IN ELECTION COMMUNICATIONS",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "summary",
+      "abstract": "Creates the deceptive and fraudulent synthetic media in election communications chapter to regulate the use of synthetic media in elections."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "02/28/2025 Introduced, referred to House State Government & Elections",
+      "date": "2025-02-28",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "03/14/2025 Scheduled for hearing and/or consideration  (03/18/2025)",
+      "date": "2025-03-14",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "03/18/2025 Committee recommended measure be held for further study",
+      "date": "2025-03-18",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "committee-failure"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "03/28/2025 Scheduled for consideration  (04/03/2025)",
+      "date": "2025-03-28",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "04/02/2025 Proposed Substitute",
+      "date": "2025-04-02",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "substitution"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "04/03/2025 Committee recommends passage of Sub A",
+      "date": "2025-04-03",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "committee-passage-favorable"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "05/02/2025 Placed on House Calendar  (05/08/2025)",
+      "date": "2025-05-02",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "reading-3"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "05/08/2025 House passed Sub A",
+      "date": "2025-05-08",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "05/23/2025 Referred to Senate Judiciary",
+      "date": "2025-05-23",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "referral-committee"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "06/16/2025 Scheduled for consideration  (06/18/2025)",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "06/18/2025 Committee recommends passage of Sub A in concurrence",
+      "date": "2025-06-18",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "committee-passage-favorable"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "06/18/2025 Placed on Senate Calendar  (06/20/2025)",
+      "date": "2025-06-18",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "reading-3"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "06/21/2025 Senate passed Sub A in concurrence",
+      "date": "2025-06-21",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "06/27/2025 Transmitted to Governor",
+      "date": "2025-06-27",
+      "organization_id": "~{\"classification\": \"executive\"}",
+      "classification": [
+        "executive-receipt"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "07/02/2025 Signed by Governor",
+      "date": "2025-07-02",
+      "organization_id": "~{\"classification\": \"executive\"}",
+      "classification": [
+        "executive-signature"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Baginski",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Baginski\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "5872\u00a0 SUB A",
+      "links": [
+        {
+          "url": "http://webserver.rilegislature.gov/BillText/BillText25/HouseText25/H5872A.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://status.rilegislature.gov/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ri/government",
+    "name": "Rhode Island",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:ri"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T03:05:01Z"
+  }
+}

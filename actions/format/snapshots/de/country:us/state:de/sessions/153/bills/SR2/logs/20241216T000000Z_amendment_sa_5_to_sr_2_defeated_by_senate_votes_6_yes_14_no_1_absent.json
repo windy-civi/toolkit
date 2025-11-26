@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment SA 5 to SR 2 - Defeated By Senate. Votes: 6 YES 14 NO 1 ABSENT",
+    "date": "2024-12-16",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-failure"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SR 2"
+}

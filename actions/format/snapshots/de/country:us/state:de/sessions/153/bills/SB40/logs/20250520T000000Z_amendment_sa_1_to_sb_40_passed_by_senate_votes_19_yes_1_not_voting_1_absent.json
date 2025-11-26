@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment SA 1 to SB 40 - Passed By Senate. Votes: 19 YES 1 NOT VOTING 1 ABSENT",
+    "date": "2025-05-20",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB 40"
+}

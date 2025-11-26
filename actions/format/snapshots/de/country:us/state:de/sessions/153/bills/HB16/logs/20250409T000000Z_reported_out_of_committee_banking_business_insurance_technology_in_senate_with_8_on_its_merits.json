@@ -1,0 +1,18 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Banking, Business, Insurance & Technology) in Senate with 8 On Its Merits",
+    "date": "2025-04-09",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage"
+    ],
+    "related_entities": [
+      {
+        "name": "Banking, Business, Insurance & Technology",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 16"
+}

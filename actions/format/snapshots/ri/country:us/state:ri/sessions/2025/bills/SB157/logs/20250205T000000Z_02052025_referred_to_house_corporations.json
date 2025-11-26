@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "02/05/2025 Referred to House Corporations",
+    "date": "2025-02-05",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB157"
+}

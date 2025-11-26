@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Referred to Committee on Appropriations per Rule 35(a)",
+    "date": "2025-03-13",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 398"
+}

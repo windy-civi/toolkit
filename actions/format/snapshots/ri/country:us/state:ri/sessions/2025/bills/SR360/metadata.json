@@ -1,0 +1,113 @@
+{
+  "legislative_session": "2025",
+  "identifier": "SR360",
+  "title": "SENATE RESOLUTION CREATING A SPECIAL LEGISLATIVE COMMISSION TO STUDY AND ASSESS EDUCATION MODULES FOR DIVORCING PARENTS",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "resolution"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "summary",
+      "abstract": "Creates a nine (9) member commission to the study and assess the most effective module for divorcing parents, and would report back by January 27, 2026, and expire on March 27, 2026."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "02/21/2025 Introduced, referred to Senate Judiciary",
+      "date": "2025-02-21",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:03Z"
+      }
+    },
+    {
+      "description": "02/21/2025 Scheduled for hearing and/or consideration  (02/25/2025)",
+      "date": "2025-02-21",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:03Z"
+      }
+    },
+    {
+      "description": "02/25/2025 Committee recommended measure be held for further study",
+      "date": "2025-02-25",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "committee-failure"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:03Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Appollonio",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Appollonio\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Burke",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Burke\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Vargas",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Vargas\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "360",
+      "links": [
+        {
+          "url": "http://webserver.rilegislature.gov/BillText/BillText25/SenateText25/S0360.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://status.rilegislature.gov/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ri/government",
+    "name": "Rhode Island",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:ri"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T03:05:03Z"
+  }
+}

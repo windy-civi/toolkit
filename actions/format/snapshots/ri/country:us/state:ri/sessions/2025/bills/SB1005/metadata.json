@@ -1,0 +1,215 @@
+{
+  "legislative_session": "2025",
+  "identifier": "SB1005",
+  "title": "AN ACT RELATING TO HEALTH AND SAFETY -- LEAD POISONING PREVENTION ACT",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "summary",
+      "abstract": "Allows a clinical laboratory, that is incorporated in the State of Rhode Island, to analyze blood samples, from children under the age of six (6) years, for blood lead levels."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "05/02/2025 Introduced, referred to Senate Health and Human Services",
+      "date": "2025-05-02",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:02Z"
+      }
+    },
+    {
+      "description": "05/02/2025 Scheduled for hearing and/or consideration  (05/06/2025)",
+      "date": "2025-05-02",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:02Z"
+      }
+    },
+    {
+      "description": "05/06/2025 Committee recommended measure be held for further study",
+      "date": "2025-05-06",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "committee-failure"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:02Z"
+      }
+    },
+    {
+      "description": "05/30/2025 Scheduled for consideration  (06/02/2025)",
+      "date": "2025-05-30",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:02Z"
+      }
+    },
+    {
+      "description": "06/02/2025 Committee recommends passage",
+      "date": "2025-06-02",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "committee-passage-favorable"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:02Z"
+      }
+    },
+    {
+      "description": "06/02/2025 Placed on Senate Calendar  (06/04/2025)",
+      "date": "2025-06-02",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "reading-3"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:02Z"
+      }
+    },
+    {
+      "description": "06/04/2025 Senate read and passed",
+      "date": "2025-06-04",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:02Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Murray",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Murray\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Sosnowski",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Sosnowski\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Felag",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Felag\"}",
+      "organization_id": null
+    },
+    {
+      "name": "LaMountain",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"LaMountain\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Gu",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Gu\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Ciccone",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Ciccone\"}",
+      "organization_id": null
+    },
+    {
+      "name": "DiPalma",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"DiPalma\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Tikoian",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Tikoian\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Appollonio",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Appollonio\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Bell",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Bell\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "1005",
+      "links": [
+        {
+          "url": "http://webserver.rilegislature.gov/BillText/BillText25/SenateText25/S1005.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://status.rilegislature.gov/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ri/government",
+    "name": "Rhode Island",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:ri"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T03:05:02Z"
+  }
+}

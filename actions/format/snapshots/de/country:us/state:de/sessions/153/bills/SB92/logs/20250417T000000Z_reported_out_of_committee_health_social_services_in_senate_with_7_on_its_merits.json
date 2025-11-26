@@ -1,0 +1,18 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Health & Social Services) in Senate with 7 On Its Merits",
+    "date": "2025-04-17",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage"
+    ],
+    "related_entities": [
+      {
+        "name": "Health & Social Services",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 92"
+}

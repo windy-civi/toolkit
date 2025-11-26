@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "06/05/2025 Senate voted to reconsider",
+    "date": "2025-06-05",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "SB981"
+}

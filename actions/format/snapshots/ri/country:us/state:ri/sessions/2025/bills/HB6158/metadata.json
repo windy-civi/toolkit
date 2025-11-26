@@ -1,0 +1,137 @@
+{
+  "legislative_session": "2025",
+  "identifier": "HB6158",
+  "title": "AN ACT RELATING TO INSURANCE -- ACCIDENT AND SICKNESS INSURANCE POLICIES",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "summary",
+      "abstract": "Mandates insurance coverage for scalp cooling treatments for breast cancer patients undergoing chemotherapy to prevent hair loss during chemotherapy treatments."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "04/02/2025 Introduced, referred to House Health & Human Services",
+      "date": "2025-04-02",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:00Z"
+      }
+    },
+    {
+      "description": "04/04/2025 Scheduled for hearing and/or consideration  (04/10/2025)",
+      "date": "2025-04-04",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:00Z"
+      }
+    },
+    {
+      "description": "04/10/2025 Committee recommended measure be held for further study",
+      "date": "2025-04-10",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "committee-failure"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:00Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Ackerman",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Ackerman\"}",
+      "organization_id": null
+    },
+    {
+      "name": "McNamara",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"McNamara\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Serpa",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Serpa\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Fellela",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Fellela\"}",
+      "organization_id": null
+    },
+    {
+      "name": "McEntee",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"McEntee\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Diaz",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Diaz\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "6158",
+      "links": [
+        {
+          "url": "http://webserver.rilegislature.gov/BillText/BillText25/HouseText25/H6158.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://status.rilegislature.gov/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ri/government",
+    "name": "Rhode Island",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:ri"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T03:05:00Z"
+  }
+}

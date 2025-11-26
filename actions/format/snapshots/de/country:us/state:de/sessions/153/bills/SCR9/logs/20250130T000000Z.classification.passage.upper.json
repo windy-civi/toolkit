@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Passed By Senate. Votes: 18 YES 1 ABSENT 2 VACANT",
+    "date": "2025-01-30",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SCR 9"
+}

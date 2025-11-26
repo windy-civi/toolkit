@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Rep. Wood of Waterbury moved to postpone action until 3/27/2025, which was agreed to",
+    "date": "2025-03-26",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 218"
+}

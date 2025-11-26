@@ -1,0 +1,56 @@
+{
+  "legislative_session": "38th",
+  "identifier": "B 94-38",
+  "title": "AN ACT TO AMEND \u00a7\u00a7 4301.1(g), 4302(c)(8), 4302(c)(9), \u00a74302(e) OF CHAPTER 4, TITLE 4, GUAM CODE ANNOTATED; AND ALL OF \u00a7 5118 OF CHAPTER 5, TITLE 5, GUAM CODE ANNOTATED; AND \u00a7\u00a7 13102(c), 13107, 13108, 13110(b), AND 13115(d)(11) OF CHAPTER 13, TITLE 2, GUAM ADMINISTRATIVE RULES AND REGULATIONS, RELATIVE TO CLARIFYING SELECTION OF THE GOVERNMENT OF GUAM GROUP HEALTH INSURANCE CONTRACTS.",
+  "from_organization": "~{\"classification\": \"legislature\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [],
+  "sponsorships": [
+    {
+      "name": "Sabrina Salas Matanane",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"legislature\", \"name\": \"Sabrina Salas Matanane\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill No. 94-38 (COR)",
+      "links": [
+        {
+          "url": "http://guamlegislature.gov/38th_Guam_Legislature/Bill_History_38th/STATUS Bill No. 94-38 (COR).pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://guamlegislature.gov/bills/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/territory:gu/government",
+    "name": "Guam",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/territory:gu"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T05:55:44Z"
+  }
+}

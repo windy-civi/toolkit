@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Assigned to Labor Committee in Senate",
+    "date": "2025-05-13",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": [
+      {
+        "name": "Labor",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 130"
+}

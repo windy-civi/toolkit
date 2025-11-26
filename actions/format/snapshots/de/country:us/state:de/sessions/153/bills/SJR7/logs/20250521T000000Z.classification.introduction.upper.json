@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "was introduced and adopted in lieu of SJR 7",
+    "date": "2025-05-21",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SJR 7"
+}

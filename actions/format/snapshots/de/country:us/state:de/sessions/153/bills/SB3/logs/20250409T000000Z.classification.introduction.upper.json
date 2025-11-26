@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "was introduced and adopted in lieu of SB 3",
+    "date": "2025-04-09",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB 3"
+}

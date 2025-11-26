@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment HA 3 to HB 241 - Passed By House. Votes: 34 YES 5 NO 2 ABSENT",
+    "date": "2025-08-12",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB 241"
+}

@@ -1,0 +1,1376 @@
+{
+  "legislative_session": "2025-2026",
+  "identifier": "HCR 116",
+  "title": "House concurrent resolution commemorating the 50th anniversary of the conclusion of the Vietnam War",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "concurrent resolution"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "On Consent Calendar",
+      "date": "2025-04-24",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:33Z"
+      }
+    },
+    {
+      "description": "On Consent Calendar",
+      "date": "2025-04-25",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:33Z"
+      }
+    },
+    {
+      "description": "Adopted in concurrence per Joint Rule 16b",
+      "date": "2025-04-25",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:33Z"
+      }
+    },
+    {
+      "description": "Senate Message: Adopted in concurrence",
+      "date": "2025-04-25",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:33Z"
+      }
+    },
+    {
+      "description": "Adopted pursuant to Joint Rule 16b",
+      "date": "2025-04-25",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:33Z"
+      }
+    },
+    {
+      "description": "Ceremonial Reading",
+      "date": "2025-04-30",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T05:54:33Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Lisa Hango",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Lisa Hango\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Michael Morgan",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Michael Morgan\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Angela Arsenault",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Angela Arsenault\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Sarah \"Sarita\" Austin",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Sarah \\\"Sarita\\\" Austin\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Richard Bailey",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Richard Bailey\"}",
+      "organization_id": null
+    },
+    {
+      "name": "John Bartholomew",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"John Bartholomew\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Ashley Bartley",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Ashley Bartley\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Daisy Berbeco",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Daisy Berbeco\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Matthew Birong",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Matthew Birong\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Doug Bishop",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Doug Bishop\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Alyssa Black",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Alyssa Black\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Tiffany Bluemle",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Tiffany Bluemle\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Michelle Bos-Lun",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Michelle Bos-Lun\"}",
+      "organization_id": null
+    },
+    {
+      "name": "David Bosch",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"David Bosch\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Michael Boutin",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Michael Boutin\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Lucy Boyden",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Lucy Boyden\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Erin Brady",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Erin Brady\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Carolyn Branagan",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Carolyn Branagan\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Jana Brown",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Jana Brown\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Thomas Burditt",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Thomas Burditt\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Mollie Burke",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Mollie Burke\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Bridget Burkhardt",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Bridget Burkhardt\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Elizabeth Burrows",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Elizabeth Burrows\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Gregory Burtt",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Gregory Burtt\"}",
+      "organization_id": null
+    },
+    {
+      "name": "R. Scott Campbell",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"R. Scott Campbell\"}",
+      "organization_id": null
+    },
+    {
+      "name": "William Canfield",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"William Canfield\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Emily Carris Duncan",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Emily Carris Duncan\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Conor Casey",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Conor Casey\"}",
+      "organization_id": null
+    },
+    {
+      "name": "James Casey",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"James Casey\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Elanor Chapin",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Elanor Chapin\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Thomas Charlton",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Thomas Charlton\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kevin Christie",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kevin Christie\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Brian Cina",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Brian Cina\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Voranus Coffin IV",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Voranus Coffin IV\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Esme Cole",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Esme Cole\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Brian Collamore",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Brian Collamore\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Peter Conlon",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Peter Conlon\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Jonathan Cooper",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Jonathan Cooper\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Timothy Corcoran II",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Timothy Corcoran II\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Mari Cordes",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Mari Cordes\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Wendy Critchlow",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Wendy Critchlow\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Allen \"Penny\" Demar",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Allen \\\"Penny\\\" Demar\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Eileen \"Lynn\" Dickinson",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Eileen \\\"Lynn\\\" Dickinson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Joshua Dobrovich",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Joshua Dobrovich\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Leonora Dodge",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Leonora Dodge\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Karen Dolan",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Karen Dolan\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Deborah Dolgin",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Deborah Dolgin\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Anne Donahue",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Anne Donahue\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Abbey Duke",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Abbey Duke\"}",
+      "organization_id": null
+    },
+    {
+      "name": "David Durfee",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"David Durfee\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Zon Eastes",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Zon Eastes\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Alice Emmons",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Alice Emmons\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Martha Feltus",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Martha Feltus\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Gina Galfetti",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Gina Galfetti\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Golrang Garofano",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Golrang Garofano\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Leslie Goldman",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Leslie Goldman\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Ian Goodnow",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Ian Goodnow\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kenneth Goslant",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kenneth Goslant\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Edye Graning",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Edye Graning\"}",
+      "organization_id": null
+    },
+    {
+      "name": "William Greer",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"William Greer\"}",
+      "organization_id": null
+    },
+    {
+      "name": "James Gregoire",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"James Gregoire\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Leanne Harple",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Leanne Harple\"}",
+      "organization_id": null
+    },
+    {
+      "name": "James Harrison",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"James Harrison\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Zachary Harvey",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Zachary Harvey\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Mark Higley",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Mark Higley\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Rebecca Holcombe",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Rebecca Holcombe\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Philip \"Jay\" Hooper",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Philip \\\"Jay\\\" Hooper\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Robert Hooper",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Robert Hooper\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Lori Houghton",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Lori Houghton\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Mary Howard",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Mary Howard\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Christopher Howland",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Christopher Howland\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Robert Hunter",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Robert Hunter\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kathleen James",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kathleen James\"}",
+      "organization_id": null
+    },
+    {
+      "name": "John Kascenska",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"John Kascenska\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Chris Keyser",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Chris Keyser\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Charles Kimbell",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Charles Kimbell\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Bram Kleppner",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Bram Kleppner\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Emilie Kornheiser",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Emilie Kornheiser\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Emilie Krasnow",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Emilie Krasnow\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Jill Krowinski",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Jill Krowinski\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Larry Labor",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Larry Labor\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kate Lalley",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kate Lalley\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Martin LaLonde",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Martin LaLonde\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Saudia LaMont",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Saudia LaMont\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Wayne Laroche",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Wayne Laroche\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Jed Lipsky",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Jed Lipsky\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kate Logan",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kate Logan\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Emily Long",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Emily Long\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Joseph Luneau",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Joseph Luneau\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Eric Maguire",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Eric Maguire\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Alicia Malay",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Alicia Malay\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Michael Marcotte",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Michael Marcotte\"}",
+      "organization_id": null
+    },
+    {
+      "name": "James Masland",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"James Masland\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kate McCann",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kate McCann\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Patricia McCoy",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Patricia McCoy\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Francis McFaun",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Francis McFaun\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Jubilee McGill",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Jubilee McGill\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Anthony Micklus",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Anthony Micklus\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Marc Mihaly",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Marc Mihaly\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Brian Minier",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Brian Minier\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Leland Morgan",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Leland Morgan\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kristi Morris",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kristi Morris\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Mary Morrissey",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Mary Morrissey\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Christopher Morrow",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Christopher Morrow\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Michael Mrowicki",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Michael Mrowicki\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Richard Nelson",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Richard Nelson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Todd Nielsen",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Todd Nielsen\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Michael Nigro",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Michael Nigro\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Robert North",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Robert North\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Daniel Noyes",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Daniel Noyes\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kate Nugent",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kate Nugent\"}",
+      "organization_id": null
+    },
+    {
+      "name": "John O'Brien",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"John O'Brien\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Carol Ode",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Carol Ode\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Thomas Oliver",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Thomas Oliver\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Herb Olson",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Herb Olson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Woodman Page",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Woodman Page\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Joseph Parsons",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Joseph Parsons\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Gayle Pezzo",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Gayle Pezzo\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Sandra Pinsonault",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Sandra Pinsonault\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Phil Pouech",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Phil Pouech\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Debra Powers",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Debra Powers\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Monique Priestley",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Monique Priestley\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Christopher Pritchard",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Christopher Pritchard\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Beth Quimby",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Beth Quimby\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Barbara Rachelson",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Barbara Rachelson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kesha Ram Hinsdale",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Kesha Ram Hinsdale\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Lawrence Satcowitz",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Lawrence Satcowitz\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Robin Scheu",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Robin Scheu\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Amy Sheldon",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Amy Sheldon\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Laura Sibilia",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Laura Sibilia\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Michael Southworth",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Michael Southworth\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Trevor Squirrell",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Trevor Squirrell\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Brenda Steady",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Brenda Steady\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Thomas Stevens",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Thomas Stevens\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Mary-Katherine Stone",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Mary-Katherine Stone\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Heather Surprenant",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Heather Surprenant\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Shawn Sweeney",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Shawn Sweeney\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Michael Tagliavia",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Michael Tagliavia\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Christopher Taylor",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Christopher Taylor\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Chloe Tomlinson",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Chloe Tomlinson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Casey Toof",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Casey Toof\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Dara Torre",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Dara Torre\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Matthew Walker",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Matthew Walker\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Edward Waszazak",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Edward Waszazak\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Chea Waters Evans",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Chea Waters Evans\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kenneth Wells",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kenneth Wells\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Candice White",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Candice White\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kirk White",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kirk White\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kevin Winter",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kevin Winter\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Theresa Wood",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Theresa Wood\"}",
+      "organization_id": null
+    },
+    {
+      "name": "David Yacovone",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"David Yacovone\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "As Introduced",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/RESOLUTN/HCR116/HCR116%20As%20Introduced.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "As Adopted By the House (Official)",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/RESOLUTN/HCR116/HCR116%20As%20adopted%20by%20the%20House%20Official.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "As Adopted",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACTR140/ACTR140%20As%20Adopted.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Witness List",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/bill/print/2026/HCR116/witnesses",
+          "media_type": "text/html"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "Committee Meetings",
+      "links": [
+        {
+          "url": "https://legislature.vermont.gov/bill/print/2026/HCR116/meetings",
+          "media_type": "text/html"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [],
+  "sources": [
+    {
+      "url": "http://legislature.vermont.gov/bill/loadAllResolutionsByChamber/2026/both",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/status/2026/H.C.R.116",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillDetailedStatus/2026/1209",
+      "note": ""
+    },
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillRollCalls/2026/1209",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:vt/government",
+    "name": "Vermont",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:vt"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T05:54:35Z"
+  }
+}

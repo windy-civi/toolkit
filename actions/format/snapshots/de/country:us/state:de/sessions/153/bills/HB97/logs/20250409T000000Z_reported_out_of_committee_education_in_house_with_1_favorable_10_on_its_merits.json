@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Education) in House with 1 Favorable, 10 On Its Merits",
+    "date": "2025-04-09",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Education",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 97"
+}

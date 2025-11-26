@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "04/02/2025 Introduced, referred to House Municipal Government & Housing",
+    "date": "2025-04-02",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB6163"
+}

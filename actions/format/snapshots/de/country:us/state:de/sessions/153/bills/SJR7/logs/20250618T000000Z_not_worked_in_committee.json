@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Not Worked in Committee",
+    "date": "2025-06-18",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "SJR 7"
+}

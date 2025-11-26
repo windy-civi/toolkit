@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Signed by Governor",
+    "date": "2025-09-02",
+    "organization_id": "~{\"classification\": \"executive\"}",
+    "classification": [
+      "executive-signature"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB 33"
+}

@@ -1,0 +1,161 @@
+{
+  "legislative_session": "2025",
+  "identifier": "SB797",
+  "title": "AN ACT RELATING TO PROPERTY -- HOMELESS BILL OF RIGHTS",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "summary",
+      "abstract": "Updates the Homeless Bill of Rights to add rules governing encampments, including the right to clean and sanitary conditions and impose penalties for violations of the rights set forth in this chapter in the amount of $500 per violation."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "03/14/2025 Introduced, referred to Senate Housing and Municipal Government",
+      "date": "2025-03-14",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:03Z"
+      }
+    },
+    {
+      "description": "04/04/2025 Scheduled for hearing and/or consideration  (04/10/2025)",
+      "date": "2025-04-04",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:03Z"
+      }
+    },
+    {
+      "description": "04/10/2025 Committee recommended measure be held for further study",
+      "date": "2025-04-10",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "committee-failure"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:03Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Murray",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Murray\"}",
+      "organization_id": null
+    },
+    {
+      "name": "DiMario",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"DiMario\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Mack",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Mack\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Ciccone",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Ciccone\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Bissaillon",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Bissaillon\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kallman",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Kallman\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Valverde",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Valverde\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Acosta",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Acosta\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Bell",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Bell\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "797",
+      "links": [
+        {
+          "url": "http://webserver.rilegislature.gov/BillText/BillText25/SenateText25/S0797.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://status.rilegislature.gov/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ri/government",
+    "name": "Rhode Island",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:ri"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T03:05:03Z"
+  }
+}

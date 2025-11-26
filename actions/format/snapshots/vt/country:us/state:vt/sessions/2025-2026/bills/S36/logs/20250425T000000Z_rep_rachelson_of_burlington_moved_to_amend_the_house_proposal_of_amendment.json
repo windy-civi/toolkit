@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Rep. Rachelson of Burlington moved to amend the House proposal of amendment",
+    "date": "2025-04-25",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 36"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "As passed by Senate and House",
+    "date": "2025-04-17",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 9"
+}

@@ -1,0 +1,18 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Legislative Oversight & Sunset) in Senate with 4 On Its Merits",
+    "date": "2025-05-14",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage"
+    ],
+    "related_entities": [
+      {
+        "name": "Legislative Oversight & Sunset",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 133"
+}

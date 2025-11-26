@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Committee of Conference report submitted by Senator Lyons for Committee, text",
+    "date": "2025-05-29",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 91"
+}

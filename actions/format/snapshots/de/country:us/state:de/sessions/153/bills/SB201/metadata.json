@@ -1,0 +1,93 @@
+{
+  "legislative_session": "153",
+  "identifier": "SB 201",
+  "title": "AN ACT TO AMEND TITLE 24 OF THE DELAWARE CODE RELATING TO REAL ESTATE BROKERS AND SALESPERSONS",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "Section 1 of the Act exempts an individual not engaged in the business of \u201cwholesaling\u201d real estate from needing to be a real estate licensee. The business of wholesaling is when someone enters into an Agreement of Sale as a buyer, then markets the property and assigns that agreement to a different buyer and collects a fee for that assignment. While this process is unobjectionable under certain circumstances, at other times, it is used as a means to charge an excessive assignment fee, which is \u201cequity stripping\u201d of money that should go to the seller. The Act makes clear that marketing properties this way is the brokerage of real estate and must be done by a real estate broker. This is based on similar laws in Pennsylvania.\r\nSection 2 of the Act includes the business of wholesaling under the definition of real estate services. It also clarifies that a person engaged in the business of wholesaling must be licensed under Chapter 29 of the Delaware Code. Section 7 of the Act allows 270 days for such persons to become licensed. \r\nSection 3 of the Act defines \u201cwholesaling\u201d. \r\nSection 4 of the Act increases the amount a member of the public may collect from the Real Estate Guarantee Fund from $25,000 to $50,000 and increases the minimum amount of the Fund from $250,000 to $350,000. It also provides more discretion to the Commissioners, making it easier to award funds to a member of the public. In addition, it provides additional detail for how Commissioners may approve expenditures from the Fund and requires that they shall be provided with financial statements relating to the Fund. \r\nSection 5 of the Act adds a section to the Delaware Code for requirements for the business of \u201cwholesaling\u201d and adds protections for the member of the public entering into a wholesaling transaction. This is patterned after a recently enacted law in Pennsylvania. \r\nSection 6 of the Act provides that Sections 1, 3, and 4 of the Act, which include changes to certain definitions and revisions to the Real Estate Guaranty Fund, take effect upon the Act\u2019s enactment into law.  \r\nSection 7 of the Act provides that Section 2 of the Act, which requires a wholesaler to be a real estate licensee, takes effect 270 days after the Act\u2019s enactment into law. \r\nSection 8 of the Act provides that Section 5 of the Act, concerning the right to cancel agreements of sale or contracts for wholesale transactions, takes effect 90 days after the Act\u2019s enactment into law. \r\n\r\nThe Act also makes technical corrections to conform existing law to the standards of the Delaware Legislative Drafting Manual."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced and Assigned to Banking, Business, Insurance & Technology Committee in Senate",
+      "date": "2025-07-01",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Banking, Business, Insurance & Technology",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Spiros Mantzavinos",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Spiros Mantzavinos\"}",
+      "organization_id": null
+    },
+    {
+      "name": "William Bush",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"William Bush\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142673&legislationTypeId=1&docTypeId=2&legislationName=SB201",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142673&legislationTypeId=1&docTypeId=2&legislationName=SB201",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=142673",
+      "note": "text/html"
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:35Z"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment HA 1 to HB 67 - Introduced and Placed With Bill",
+    "date": "2025-03-26",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB 67"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "06/16/2025 Committee recommends passage of Sub A",
+    "date": "2025-06-16",
+    "organization_id": "~{\"classification\": \"legislature\"}",
+    "classification": [
+      "committee-passage-favorable"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB5432"
+}

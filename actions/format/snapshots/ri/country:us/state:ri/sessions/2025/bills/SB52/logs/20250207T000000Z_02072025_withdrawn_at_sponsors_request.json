@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "02/07/2025 Withdrawn at sponsor's request",
+    "date": "2025-02-07",
+    "organization_id": "~{\"classification\": \"legislature\"}",
+    "classification": [
+      "withdrawal"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB52"
+}

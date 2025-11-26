@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Adopted in lieu of the original bill SB 156, and Assigned to Banking, Business, Insurance & Technology Committee in Senate",
+    "date": "2025-06-10",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": [
+      {
+        "name": "Banking, Business, Insurance & Technology",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 156"
+}

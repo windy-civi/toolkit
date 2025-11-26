@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Roll Call, requested by Senator Ingalls, Failed -- Needed 15 of 30 to Pass -- Yeas = 13, Nays = 17",
+    "date": "2025-05-23",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 454"
+}

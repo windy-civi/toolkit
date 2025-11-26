@@ -1,0 +1,56 @@
+{
+  "legislative_session": "38th",
+  "identifier": "B 61-38",
+  "title": "AN ACT TO ADD A NEW CHAPTER 36, RELATIVE TO ESTABLISHING THE OFFICE OF THE ELECTED PUBLIC PROSECUTOR, AND TO REPEAL \u00a7\u00a7 30104 AND 30104.1, AND AMEND \u00a7\u00a7 30102 AND 30109, ALL OF CHAPTER 30, TITLE 5, GUAM CODE ANNOTATED, RELATIVE TO RESTORING THE APPOINTED OFFICE OF THE ATTORNEY GENERAL.",
+  "from_organization": "~{\"classification\": \"legislature\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [],
+  "sponsorships": [
+    {
+      "name": "William A. Parkinson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"legislature\", \"name\": \"William A. Parkinson\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill No. 61-38 (COR)",
+      "links": [
+        {
+          "url": "http://guamlegislature.gov/38th_Guam_Legislature/Bill_History_38th/STATUS Bill No. 61-38 (COR).pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://guamlegislature.gov/bills/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/territory:gu/government",
+    "name": "Guam",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/territory:gu"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T05:55:44Z"
+  }
+}

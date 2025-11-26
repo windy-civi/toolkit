@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Passed in House by Voice Vote",
+    "date": "2025-06-12",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SCR 94"
+}

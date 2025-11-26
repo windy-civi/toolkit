@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Read first time, treated as a bill, and referred to the Committee on Rules",
+    "date": "2025-02-21",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HR 6"
+}

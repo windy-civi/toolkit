@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Introduced and Laid on Table in Senate",
+    "date": "2025-05-15",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB 12"
+}

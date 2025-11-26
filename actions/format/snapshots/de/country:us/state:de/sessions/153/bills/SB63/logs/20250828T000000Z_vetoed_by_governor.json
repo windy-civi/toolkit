@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Vetoed by Governor",
+    "date": "2025-08-28",
+    "organization_id": "~{\"classification\": \"executive\"}",
+    "classification": [
+      "executive-veto"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB 63"
+}

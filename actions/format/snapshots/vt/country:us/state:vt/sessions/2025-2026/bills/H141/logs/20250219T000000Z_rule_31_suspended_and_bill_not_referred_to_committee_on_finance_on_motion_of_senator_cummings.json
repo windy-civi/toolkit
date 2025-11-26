@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Rule 31 suspended and bill not referred to Committee on Finance on motion of Senator Cummings",
+    "date": "2025-02-19",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 141"
+}

@@ -1,0 +1,293 @@
+{
+  "legislative_session": "2025",
+  "identifier": "SB495",
+  "title": "AN ACT RELATING TO STATE AFFAIRS AND GOVERNMENT --  THE DEPARTMENT OF HOUSING",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "summary",
+      "abstract": "Authorizes the establishment of a RI housing champion designation program. This program would make qualified municipalities eligible to receive preferential access to state resources, including discretionary state infrastructure funds, as available."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "02/26/2025 Introduced, referred to Senate Housing and Municipal Government",
+      "date": "2025-02-26",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    },
+    {
+      "description": "03/14/2025 Scheduled for hearing and/or consideration  (03/20/2025)",
+      "date": "2025-03-14",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    },
+    {
+      "description": "03/20/2025 Committee recommended measure be held for further study",
+      "date": "2025-03-20",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "committee-failure"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    },
+    {
+      "description": "05/02/2025 Scheduled for consideration  (05/08/2025)",
+      "date": "2025-05-02",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    },
+    {
+      "description": "05/07/2025 Proposed Substitute",
+      "date": "2025-05-07",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "substitution"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    },
+    {
+      "description": "05/08/2025 Committee recommends passage of Sub A",
+      "date": "2025-05-08",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "committee-passage-favorable"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    },
+    {
+      "description": "05/09/2025 Placed on Senate Calendar  (05/15/2025)",
+      "date": "2025-05-09",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "reading-3"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    },
+    {
+      "description": "05/15/2025 Senate passed Sub A",
+      "date": "2025-05-15",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    },
+    {
+      "description": "05/16/2025 Referred to House Municipal Government & Housing",
+      "date": "2025-05-16",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "referral-committee"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    },
+    {
+      "description": "05/30/2025 Scheduled for consideration  (06/04/2025)",
+      "date": "2025-05-30",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    },
+    {
+      "description": "06/04/2025 Committee recommends passage of Sub A in concurrence",
+      "date": "2025-06-04",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "committee-passage-favorable"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    },
+    {
+      "description": "06/16/2025 Placed on House Calendar  (06/18/2025)",
+      "date": "2025-06-16",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "reading-3"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    },
+    {
+      "description": "06/18/2025 House passed Sub A as amended (floor amendment)",
+      "date": "2025-06-18",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    },
+    {
+      "description": "06/19/2025 Placed on Senate Calendar  (06/20/2025)",
+      "date": "2025-06-19",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "reading-3"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    },
+    {
+      "description": "06/20/2025 Senate passed Sub A as amended in concurrence",
+      "date": "2025-06-20",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    },
+    {
+      "description": "06/23/2025 Transmitted to Governor",
+      "date": "2025-06-23",
+      "organization_id": "~{\"classification\": \"executive\"}",
+      "classification": [
+        "executive-receipt"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    },
+    {
+      "description": "06/27/2025 Signed by Governor",
+      "date": "2025-06-27",
+      "organization_id": "~{\"classification\": \"executive\"}",
+      "classification": [
+        "executive-signature"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:04:59Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Gu",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Gu\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Burke",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Burke\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kallman",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Kallman\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Bissaillon",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Bissaillon\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Tikoian",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Tikoian\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "495\u00a0 SUB A\u00a0as amended",
+      "links": [
+        {
+          "url": "http://webserver.rilegislature.gov/BillText/BillText25/SenateText25/S0495Aaa.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://status.rilegislature.gov/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ri/government",
+    "name": "Rhode Island",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:ri"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T03:04:59Z"
+  }
+}

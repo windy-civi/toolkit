@@ -1,0 +1,106 @@
+{
+  "legislative_session": "153",
+  "identifier": "SB 104",
+  "title": "AN ACT TO AMEND TITLE 16 OF THE DELAWARE CODE RELATING TO TRAUMA KITS.",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "Access to a trauma kit to stop bleeding is a vital first aid tool that can save lives in emergency situations where people are exposed to or may be exposed to traumatic circumstances. This Act defines what a trauma kit is and requires the managing entities of certain buildings acquire and place at least 6 trauma kits in a clearly visible, centrally located, and accessible area. The Act further requires the property managing entity or person to ensure the kits are appropriately placed and replaced if needed. The property managing entity or person must also send notification to tenants of the building regarding the locations of the trauma kits and instructions on how to use them. This Act does not apply to private homes, residences, or vehicles.\r\nThe Department of Labor and the Department of Health and Social Services must adopt rules and regulations pertaining to the bill. Any person who violates this Act would be subject to fines of $100 for the first violation and $250 for any subsequent violations. \r\nUse of a trauma kit in an emergency care situation is protected from civil liability pursuant to \u00a7\u00a7 6801 and 6802 of Title 16. \r\nThis Act becomes effective 180 days upon enactment."
+    }
+  ],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Trauma Kits/Require/Buildings"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced and Assigned to Health & Social Services Committee in Senate",
+      "date": "2025-04-09",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Health & Social Services",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Marie Pinkney",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Marie Pinkney\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Sarah McBride",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Sarah McBride\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Mara Gorman",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Mara Gorman\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142095&legislationTypeId=1&docTypeId=2&legislationName=SB104",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142095&legislationTypeId=1&docTypeId=2&legislationName=SB104",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=142095",
+      "note": "text/html"
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:36Z"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Read and placed on Calendar for Action pursuant to Rule 52",
+    "date": "2025-02-12",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "JRS 13"
+}

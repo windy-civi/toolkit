@@ -1,0 +1,165 @@
+{
+  "legislative_session": "2025",
+  "identifier": "HB6274",
+  "title": "AN ACT RELATING TO HEALTH AND SAFETY -- REFUSE DISPOSAL",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "summary",
+      "abstract": "Allows the collection of solid waste and recycling between the hours of seven o\u2019clock (7:00) am and three o\u2019clock (3:00) am seven days a week. It would also ban the use of mobile waste compaction technology for recycling."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "04/25/2025 Introduced, referred to House State Government & Elections",
+      "date": "2025-04-25",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "05/16/2025 Scheduled for hearing and/or consideration  (05/20/2025)",
+      "date": "2025-05-16",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "05/20/2025 Committee recommended measure be held for further study",
+      "date": "2025-05-20",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [
+        "committee-failure"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "06/06/2025 Scheduled for consideration",
+      "date": "2025-06-06",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    },
+    {
+      "description": "06/08/2025 Meeting postponed  (06/12/2025)",
+      "date": "2025-06-08",
+      "organization_id": "~{\"classification\": \"legislature\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T03:05:01Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "DeSimone",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"DeSimone\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kazarian",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Kazarian\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Baginski",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Baginski\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Voas",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Voas\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Alzate",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Alzate\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Craven",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Craven\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Slater",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"Slater\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "6274",
+      "links": [
+        {
+          "url": "http://webserver.rilegislature.gov/BillText/BillText25/HouseText25/H6274.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://status.rilegislature.gov/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ri/government",
+    "name": "Rhode Island",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:ri"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T03:05:01Z"
+  }
+}

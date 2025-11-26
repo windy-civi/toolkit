@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Administration) in House with 4 On Its Merits, 1 Unfavorable",
+    "date": "2025-06-18",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-unfavorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Administration",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 207"
+}

@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Returned from Senate Failed; Filed in the office of the Chief Clerk",
+    "date": "2025-04-01",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 0450"
+}

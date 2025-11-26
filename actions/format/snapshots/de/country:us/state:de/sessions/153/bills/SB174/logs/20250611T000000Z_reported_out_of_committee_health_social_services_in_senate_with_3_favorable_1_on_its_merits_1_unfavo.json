@@ -1,0 +1,20 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Health & Social Services) in Senate with 3 Favorable, 1 On Its Merits, 1 Unfavorable",
+    "date": "2025-06-11",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable",
+      "committee-passage-unfavorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Health & Social Services",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 174"
+}

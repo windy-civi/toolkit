@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Rep. Bartholomew of Hartland spoke for the Committee on Rules",
+    "date": "2025-01-31",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "HR 5"
+}

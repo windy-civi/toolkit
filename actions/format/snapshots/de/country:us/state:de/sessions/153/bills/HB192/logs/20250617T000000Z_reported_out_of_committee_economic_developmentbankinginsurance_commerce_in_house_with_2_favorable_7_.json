@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Economic Development/Banking/Insurance & Commerce) in House with 2 Favorable, 7 On Its Merits",
+    "date": "2025-06-17",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Economic Development/Banking/Insurance & Commerce",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 192"
+}

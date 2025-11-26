@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Elections & Government Affairs) in Senate with 3 Favorable, 1 On Its Merits",
+    "date": "2025-05-14",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Elections & Government Affairs",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 65"
+}

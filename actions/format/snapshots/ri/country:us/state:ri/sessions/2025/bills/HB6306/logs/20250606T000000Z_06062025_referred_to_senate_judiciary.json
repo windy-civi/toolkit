@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "06/06/2025 Referred to Senate Judiciary",
+    "date": "2025-06-06",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB6306"
+}

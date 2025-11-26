@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "House message: House concurred in Senate proposal of amendment",
+    "date": "2025-05-01",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 463"
+}

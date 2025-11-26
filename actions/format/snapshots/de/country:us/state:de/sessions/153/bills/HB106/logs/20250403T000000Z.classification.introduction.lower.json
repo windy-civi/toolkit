@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Introduced and Assigned to Health & Human Development Committee in House",
+    "date": "2025-04-03",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": [
+      {
+        "name": "Health & Human Development",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 106"
+}

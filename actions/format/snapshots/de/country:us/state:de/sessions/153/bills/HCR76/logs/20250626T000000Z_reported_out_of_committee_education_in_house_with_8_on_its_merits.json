@@ -1,0 +1,18 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Education) in House with 8 On Its Merits",
+    "date": "2025-06-26",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage"
+    ],
+    "related_entities": [
+      {
+        "name": "Education",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HCR 76"
+}

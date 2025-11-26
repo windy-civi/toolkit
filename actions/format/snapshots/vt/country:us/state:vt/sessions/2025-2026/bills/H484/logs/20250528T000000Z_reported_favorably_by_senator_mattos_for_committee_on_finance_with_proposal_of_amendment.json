@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "Reported favorably by Senator Mattos for Committee on Finance with proposal of amendment",
+    "date": "2025-05-28",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction",
+      "committee-passage-favorable"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 484"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "House proposal of amendment; text",
+    "date": "2025-04-29",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 27"
+}

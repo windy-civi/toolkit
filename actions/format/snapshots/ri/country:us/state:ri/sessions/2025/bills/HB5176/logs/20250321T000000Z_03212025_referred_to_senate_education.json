@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "03/21/2025 Referred to Senate Education",
+    "date": "2025-03-21",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB5176"
+}

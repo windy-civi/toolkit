@@ -1,0 +1,20 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Judiciary) in Senate with 1 Favorable, 5 On Its Merits, 1 Unfavorable",
+    "date": "2025-06-25",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable",
+      "committee-passage-unfavorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Judiciary",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 123"
+}

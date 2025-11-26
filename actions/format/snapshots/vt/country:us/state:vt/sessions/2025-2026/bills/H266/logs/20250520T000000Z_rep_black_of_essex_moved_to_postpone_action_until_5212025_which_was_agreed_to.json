@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Rep. Black of Essex moved to postpone action until 5/21/2025, which was agreed to",
+    "date": "2025-05-20",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 266"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Favorable report with proposal of amendment by Committee on Judiciary",
+    "date": "2025-02-21",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 3"
+}

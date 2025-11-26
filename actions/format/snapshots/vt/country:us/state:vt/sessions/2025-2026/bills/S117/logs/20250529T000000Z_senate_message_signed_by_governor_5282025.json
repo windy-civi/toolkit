@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Senate Message: Signed by Governor 5/28/2025",
+    "date": "2025-05-29",
+    "organization_id": "~{\"classification\": \"executive\"}",
+    "classification": [
+      "executive-signature"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 117"
+}

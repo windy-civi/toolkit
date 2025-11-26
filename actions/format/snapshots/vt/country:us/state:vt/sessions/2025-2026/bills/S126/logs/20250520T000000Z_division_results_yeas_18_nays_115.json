@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Division results Yeas, 18; Nays, 115",
+    "date": "2025-05-20",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 126"
+}

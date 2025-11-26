@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Roll Call, Requested by Sen. Ram Hinsdale",
+    "date": "2025-05-01",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 493"
+}

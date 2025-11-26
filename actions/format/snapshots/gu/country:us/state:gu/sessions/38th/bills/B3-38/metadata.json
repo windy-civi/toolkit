@@ -1,0 +1,56 @@
+{
+  "legislative_session": "38th",
+  "identifier": "B 3-38",
+  "title": "AN ACT TO ADD A NEW CHAPTER 10 AND CHAPTER 11 TO DIVISION 1, TITLE 11 GUAM CODE ANNOTATED AND ADD A NEW CHAPTER 98 TO DIVISION 4, TITLE 10 GUAM CODE ANNOTATED, RELATIVE TO ESTABLISHING AN ELECTRONIC NICOTINE DELIVERY SYSTEMS (ENDS) PRODUCT TAX AND LICENSING WHICH SHALL BE CITED AS THE \u201cENDS EXCISE ACT OF 2025\u201d AND ESTABLISH A DEPARTMENT OF REVENUE AND TAXATION REVOLVING FUND AND A GUAM MEMORIAL HOSPITAL AUTHORITY REVOLVING FUND.",
+  "from_organization": "~{\"classification\": \"legislature\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [],
+  "sponsorships": [
+    {
+      "name": "Joe S. San Agustin",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"legislature\", \"name\": \"Joe S. San Agustin\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill No. 3-38 (COR)",
+      "links": [
+        {
+          "url": "http://guamlegislature.gov/38th_Guam_Legislature/Bill_History_38th/STATUS Bill No. 3-38 (COR).pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://guamlegislature.gov/bills/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/territory:gu/government",
+    "name": "Guam",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/territory:gu"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T05:55:44Z"
+  }
+}

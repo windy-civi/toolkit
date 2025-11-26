@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Roll Call Rescinded in Senate",
+    "date": "2025-06-30",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "SB 200"
+}

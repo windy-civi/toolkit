@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "3rd reading ordered on roll call Passed -- Needed 14 of 27 to Pass -- Yeas = 27, Nays = 0",
+    "date": "2025-05-01",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "SR 12"
+}

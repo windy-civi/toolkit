@@ -1,0 +1,56 @@
+{
+  "legislative_session": "38th",
+  "identifier": "B 56-38",
+  "title": "AN ACT RELATIVE TO INCLUDING PODIATRY UNDER THE GUAM BOARD OF MEDICAL EXAMINERS, AND TO ADOPT RULES AND REGULATIONS AND CODE OF ETHICS FOR PODIATRY BY ADDING A NEW SUBSECTION (9) AND AMENDING SUBSECTION (7) OF \u00a712202(a), AMENDING SUBSECTIONS (4), (7), (8) OF \u00a712202(b), SUBSECTIONS (a)(1) AND (2) OF \u00a712203, SUBSECTION (b)(1) AND (i)(2) OF \u00a712205, AND ADDING A NEW SUBSECTION(10) AND (11) TO \u00a712215(a), ALL OF CHAPTER 12, TITLE 10, GUAM CODE ANNOTATED.",
+  "from_organization": "~{\"classification\": \"legislature\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [],
+  "sponsorships": [
+    {
+      "name": "Therese M. Terlaje",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"legislature\", \"name\": \"Therese M. Terlaje\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill No. 56-38 (COR)",
+      "links": [
+        {
+          "url": "http://guamlegislature.gov/38th_Guam_Legislature/Bill_History_38th/STATUS Bill No. 56-38 (COR).pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://guamlegislature.gov/bills/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/territory:gu/government",
+    "name": "Guam",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/territory:gu"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T05:55:44Z"
+  }
+}

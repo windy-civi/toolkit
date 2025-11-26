@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "House message: Governor allowed to become law without signature on June 5, 2025",
+    "date": "2025-06-09",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "became-law"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 1"
+}

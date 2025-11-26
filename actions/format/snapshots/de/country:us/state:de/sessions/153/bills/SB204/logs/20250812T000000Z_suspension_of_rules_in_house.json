@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Suspension of Rules in House",
+    "date": "2025-08-12",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "SB 204"
+}

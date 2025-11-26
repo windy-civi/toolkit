@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment HA 1 to HS 1 - Defeated By House. Votes: 15 YES 20 NO 3 NOT VOTING 3 ABSENT",
+    "date": "2025-05-20",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-failure"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB 154"
+}

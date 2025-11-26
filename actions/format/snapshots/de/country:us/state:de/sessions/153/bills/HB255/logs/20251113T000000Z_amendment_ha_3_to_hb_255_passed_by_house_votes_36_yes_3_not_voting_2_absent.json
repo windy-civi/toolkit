@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment HA 3 to HB 255 - Passed By House. Votes: 36 YES 3 NOT VOTING 2 ABSENT",
+    "date": "2025-11-13",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB 255"
+}

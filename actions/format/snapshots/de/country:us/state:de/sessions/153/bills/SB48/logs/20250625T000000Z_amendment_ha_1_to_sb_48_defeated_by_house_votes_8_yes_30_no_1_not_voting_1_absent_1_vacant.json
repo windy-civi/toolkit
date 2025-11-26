@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment HA 1 to SB 48 - Defeated By House. Votes: 8 YES 30 NO 1 NOT VOTING 1 ABSENT 1 VACANT",
+    "date": "2025-06-25",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-failure"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB 48"
+}

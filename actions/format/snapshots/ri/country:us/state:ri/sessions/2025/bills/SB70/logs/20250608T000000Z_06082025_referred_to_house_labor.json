@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "06/08/2025 Referred to House Labor",
+    "date": "2025-06-08",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB70"
+}

@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Request to withdraw as cosponsor",
+    "date": "2025-02-25",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 54"
+}

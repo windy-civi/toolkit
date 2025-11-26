@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "New Business/Third Reading",
+    "date": "2025-03-25",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "reading-3"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 36"
+}

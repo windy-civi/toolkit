@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Adopted in lieu of the original bill HB 181, and Assigned to Labor Committee in House",
+    "date": "2025-06-17",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": [
+      {
+        "name": "Labor",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 181"
+}

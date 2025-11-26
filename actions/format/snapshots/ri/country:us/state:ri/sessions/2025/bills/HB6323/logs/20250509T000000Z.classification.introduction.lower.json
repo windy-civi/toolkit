@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "05/09/2025 Introduced, referred to House Special Legislation",
+    "date": "2025-05-09",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB6323"
+}

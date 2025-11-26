@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Assigned to Appropriations Committee in House",
+    "date": "2025-06-20",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": [
+      {
+        "name": "Appropriations",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 17"
+}

@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "03/07/2025 Committee transferred to House Small Business",
+    "date": "2025-03-07",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "HB5554"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Passed By House. Votes: 35 YES 4 NO 2 ABSENT",
+    "date": "2025-08-12",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB 240"
+}

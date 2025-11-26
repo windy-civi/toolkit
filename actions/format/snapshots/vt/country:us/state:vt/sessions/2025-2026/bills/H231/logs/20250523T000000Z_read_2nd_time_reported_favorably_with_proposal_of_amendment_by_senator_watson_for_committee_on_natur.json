@@ -1,0 +1,14 @@
+{
+  "action": {
+    "description": "Read 2nd time, reported favorably with proposal of amendment by Senator Watson for Committee on Natural Resources and Energy",
+    "date": "2025-05-23",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction",
+      "committee-passage-favorable",
+      "reading-2"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 231"
+}

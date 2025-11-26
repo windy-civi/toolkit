@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Rules suspended and action on the bill messaged to the Senate forthwith and the bill delivered to the Governor forthwith as moved by Rep. McCoy of Poultney",
+    "date": "2025-05-30",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 122"
+}

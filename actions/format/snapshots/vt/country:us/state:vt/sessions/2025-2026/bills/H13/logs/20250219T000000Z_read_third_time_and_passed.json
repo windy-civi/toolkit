@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Read third time and passed",
+    "date": "2025-02-19",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "reading-3"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 13"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment HA 1 to HB 2 - Introduced and Placed With Bill",
+    "date": "2025-01-30",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB 2"
+}

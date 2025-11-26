@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "01/23/2025 Committee transferred to House Judiciary",
+    "date": "2025-01-23",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "HB5103"
+}

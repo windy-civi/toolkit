@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "05/02/2025 Referred to Senate Health and Human Services",
+    "date": "2025-05-02",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB5353"
+}

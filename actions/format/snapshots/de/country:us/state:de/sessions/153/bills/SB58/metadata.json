@@ -1,0 +1,164 @@
+{
+  "legislative_session": "153",
+  "identifier": "SB 58",
+  "title": "AN ACT TO AMEND TITLE 11 OF THE DELAWARE CODE RELATING TO POSTCONVICTION REMEDY.",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "This Act provides a remedy for convicted persons relating to changes in forensic scientific or technical information. Specifically, a convicted person may apply to the Superior Court for relief if certain forensic scientific information was not available to be offered by the convicted person prior to the conviction or if it undermines forensic scientific evidence that was presented at trial. The court must grant relief if (1) the convicted person files an application asserting that the relevant forensic evidence is currently available and was not ascertainable through the exercise of reasonable diligence by the convicted person before or during trial or before the date of entry of a plea, and (2) the court determines that, had the evidence been presented at a trial, there is a reasonable likelihood that the result at trial would have been different or that the convicted person would not have been convicted. \r\n\r\nOnce a petition for relief is filed, the Superior Court shall set a hearing on the petition, not later than 180 days after the petition was filed, and notify the petitioner and the Department of Justice. The Department of Justice may file a response to the petition within 90 days after its filing. After the hearing, if the court determines that the petitioner has failed to make a prima facie showing that the petitioner is entitled to relief, the court will dismiss the petition in a written opinion. However, if the court determines that the petitioner has made a prima facie showing that the petitioner is entitled to relief, the court shall grant the petitioner discovery on matters relating to the forensic evidence used to obtain the conviction or sentence at issue and hold another hearing to determine whether there is a reasonable likelihood that, had the new evidence been presented at a trial, the convicted person would not have been convicted. If so, the court shall vacate the petitioner's conviction and grant the petitioner's motion for a new trial. \r\n\r\nFor purposes of the Act, \"convicted person\" means a person who has received a verdict of guilty by the trier of fact, entered a plea of guilty or a plea of nolo contendere that was accepted by the court, or received a verdict of not guilty by reason of insanity.\r\n\r\nThis Act is a substitute for and differs from SB 58 in that it clarifies that relevant forensic scientific evidence that may provide a basis for relief is not limited to evidence presented at trial, but rather includes evidence that was presented before trial, at trial, or before the date of entry of a plea.\r\n\r\nIn addition, this Act differs from SB 58 in that it clarifies that the court must grant relief if the relevant criteria are satisfied.\r\n\r\nFinally, this Act differs from SB 58 in that it requires the court to hear a claim within 180 days after the petition was filed, rather than 90 days, and in that it allows the Department of Justice 90 days to respond to a petition, rather than 30 days."
+    }
+  ],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Convicted Persons/Forensic Information/Remedy"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "was introduced and adopted in lieu of SB 58",
+      "date": "2025-05-14",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:34Z"
+      }
+    },
+    {
+      "description": "Assigned to Finance Committee in Senate",
+      "date": "2025-06-09",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Finance",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:34Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Kyra L. Hoffner",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Kyra L. Hoffner\"}",
+      "organization_id": null
+    },
+    {
+      "name": "William Bush",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"William Bush\"}",
+      "organization_id": null
+    },
+    {
+      "name": "David P. Sokola",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"David P. Sokola\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Mara Gorman",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Mara Gorman\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Nicole Poore",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Nicole Poore\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Eric Morrison",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Eric Morrison\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Melanie Ross Levin",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Melanie Ross Levin\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142284&legislationTypeId=6&docTypeId=2&legislationName=SS1forSB58",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142284&legislationTypeId=6&docTypeId=2&legislationName=SS1forSB58",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Fiscal Note",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GetPdfDocument?fileAttachmentId=649339",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=142284",
+      "note": "text/html"
+    }
+  ],
+  "extras": {
+    "substitute": "SS 1"
+  },
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:34Z"
+  }
+}

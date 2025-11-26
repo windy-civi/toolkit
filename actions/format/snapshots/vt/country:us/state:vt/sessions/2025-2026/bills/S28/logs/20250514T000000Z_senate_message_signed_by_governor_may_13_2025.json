@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Senate Message: Signed by Governor May 13, 2025",
+    "date": "2025-05-14",
+    "organization_id": "~{\"classification\": \"executive\"}",
+    "classification": [
+      "executive-signature"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 28"
+}

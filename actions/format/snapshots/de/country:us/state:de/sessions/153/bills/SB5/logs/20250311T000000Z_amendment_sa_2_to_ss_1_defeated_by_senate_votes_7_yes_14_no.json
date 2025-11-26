@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment SA 2 to SS 1 - Defeated By Senate. Votes: 7 YES 14 NO",
+    "date": "2025-03-11",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-failure"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB 5"
+}

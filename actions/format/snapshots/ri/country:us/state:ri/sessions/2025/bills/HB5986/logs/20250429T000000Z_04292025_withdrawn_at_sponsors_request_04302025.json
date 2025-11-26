@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "04/29/2025 Withdrawn at sponsor's request  (04/30/2025)",
+    "date": "2025-04-29",
+    "organization_id": "~{\"classification\": \"legislature\"}",
+    "classification": [
+      "withdrawal"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB5986"
+}

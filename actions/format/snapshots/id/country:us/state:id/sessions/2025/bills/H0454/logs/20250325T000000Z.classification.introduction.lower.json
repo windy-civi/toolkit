@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Introduced, read first time, referred to JRA for Printing",
+    "date": "2025-03-25",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 0454"
+}

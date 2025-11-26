@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "03/12/2025 Committee transferred to Senate Finance",
+    "date": "2025-03-12",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "SB693"
+}

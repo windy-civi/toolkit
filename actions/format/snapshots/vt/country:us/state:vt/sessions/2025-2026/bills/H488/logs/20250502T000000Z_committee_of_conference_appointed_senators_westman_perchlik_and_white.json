@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Committee of Conference appointed: Senators Westman, Perchlik, and White",
+    "date": "2025-05-02",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 488"
+}

@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Pending question: Shall the Resolution be adopted??",
+    "date": "2025-02-28",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "SR 8"
+}

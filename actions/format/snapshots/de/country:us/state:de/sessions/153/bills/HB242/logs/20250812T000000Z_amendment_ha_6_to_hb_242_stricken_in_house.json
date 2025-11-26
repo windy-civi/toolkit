@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Amendment HA 6 to HB 242 - Stricken in House",
+    "date": "2025-08-12",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "HB 242"
+}

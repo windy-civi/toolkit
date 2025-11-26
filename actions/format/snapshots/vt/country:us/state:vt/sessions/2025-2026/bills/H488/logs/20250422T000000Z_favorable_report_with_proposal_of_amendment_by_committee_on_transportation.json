@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Favorable report with proposal of amendment by Committee on Transportation",
+    "date": "2025-04-22",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 488"
+}

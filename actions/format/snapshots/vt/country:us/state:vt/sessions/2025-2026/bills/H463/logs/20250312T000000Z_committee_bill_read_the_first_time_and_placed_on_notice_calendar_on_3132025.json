@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Committee bill read the first time and placed on Notice Calendar on 3/13/2025",
+    "date": "2025-03-12",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 463"
+}

@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Roll Call, requested by Senator Gulick, Passed -- Needed 22 of 29 to Pass -- Yeas = 26, Nays = 3",
+    "date": "2025-06-16",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 454"
+}

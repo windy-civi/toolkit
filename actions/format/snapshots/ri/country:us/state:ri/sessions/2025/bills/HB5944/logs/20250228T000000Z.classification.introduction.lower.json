@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "02/28/2025 Introduced, referred to House Labor",
+    "date": "2025-02-28",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB5944"
+}

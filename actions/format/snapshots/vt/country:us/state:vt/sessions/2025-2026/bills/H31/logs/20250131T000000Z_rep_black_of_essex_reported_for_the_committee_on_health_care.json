@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Rep. Black of Essex reported for the Committee on Health Care",
+    "date": "2025-01-31",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 31"
+}

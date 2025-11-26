@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "05/29/2025 Senate passed Sub A as amended in concurrence",
+    "date": "2025-05-29",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB5171"
+}

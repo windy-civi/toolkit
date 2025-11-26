@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Executive) in Senate with 7 Favorable",
+    "date": "2025-03-26",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Executive",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 4"
+}

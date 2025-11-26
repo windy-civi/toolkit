@@ -1,0 +1,46 @@
+{
+  "2009-2010": {
+    "name": "2009-2010 Regular Session",
+    "date_folder": "2009-2010"
+  },
+  "2011-2012": {
+    "name": "2011-2012 Regular Session",
+    "date_folder": "2011-2012"
+  },
+  "2013-2014": {
+    "name": "2013-2014 Regular Session",
+    "date_folder": "2013-2014"
+  },
+  "2015-2016": {
+    "name": "2015-2016 Regular Session",
+    "date_folder": "2015-2016"
+  },
+  "2017-2018": {
+    "name": "2017-2018 Regular Session",
+    "date_folder": "2017-2018"
+  },
+  "2018ss1": {
+    "name": "2018 Special Session",
+    "date_folder": "2018-2018"
+  },
+  "2019-2020": {
+    "name": "2019-2020 Regular Session",
+    "date_folder": "2019-2020"
+  },
+  "2021-2022": {
+    "name": "2021-2022 Regular Session",
+    "date_folder": "2021-2021"
+  },
+  "2021S1": {
+    "name": "2021 Special Session",
+    "date_folder": "2021-2021"
+  },
+  "2023-2024": {
+    "name": "2023-2024 Regular Session",
+    "date_folder": "2023-2025"
+  },
+  "2025-2026": {
+    "name": "2025-2026 Regular Session",
+    "date_folder": "2025-2025"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "01/23/2025 Introduced, referred to Senate Education",
+    "date": "2025-01-23",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB21"
+}

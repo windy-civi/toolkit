@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Action Calendar: Governor\u2019s Veto",
+    "date": "2025-06-16",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 91"
+}

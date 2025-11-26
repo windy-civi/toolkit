@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Transportation) in House with 1 Favorable, 6 On Its Merits",
+    "date": "2025-05-14",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Transportation",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 88"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Committee bill read first time & placed on Notice Calendar per Senate Rule 48",
+    "date": "2025-03-18",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 123"
+}

@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Rep. McCoy of Poultney moved to deliver the bill to the Governor forthwith, which was agreed to",
+    "date": "2025-03-12",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 141"
+}

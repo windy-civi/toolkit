@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment HA 7 to HB 241 - Passed In House by Voice Vote",
+    "date": "2025-08-12",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB 241"
+}

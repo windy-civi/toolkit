@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Agriculture) in House with 1 Favorable, 8 On Its Merits",
+    "date": "2025-05-14",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Agriculture",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 117"
+}

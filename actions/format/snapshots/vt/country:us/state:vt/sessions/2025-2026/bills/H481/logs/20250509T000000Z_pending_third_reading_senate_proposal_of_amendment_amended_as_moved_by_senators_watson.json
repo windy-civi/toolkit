@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "Pending third reading, Senate proposal of amendment amended as moved by Senator(s) Watson",
+    "date": "2025-05-09",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction",
+      "reading-3"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 481"
+}

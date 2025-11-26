@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Rules suspended and bill messaged forthwith to the Senate as moved by Rep. McCoy of Poultney",
+    "date": "2025-05-30",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 51"
+}

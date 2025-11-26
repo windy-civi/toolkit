@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Roll Call, requested by Senator Williams, Failed -- Needed 15 of 30 to Pass -- Yeas = 12, Nays = 18",
+    "date": "2025-02-25",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 68"
+}

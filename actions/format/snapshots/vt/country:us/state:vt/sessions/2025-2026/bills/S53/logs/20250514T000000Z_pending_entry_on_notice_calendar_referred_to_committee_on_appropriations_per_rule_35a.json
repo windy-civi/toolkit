@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Pending entry on Notice Calendar, referred to Committee on Appropriations per Rule 35(a)",
+    "date": "2025-05-14",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 53"
+}

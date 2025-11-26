@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Read 1st time & treated as bill; referred to Committee on Agriculture per Rule 51",
+    "date": "2025-04-23",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SR 14"
+}

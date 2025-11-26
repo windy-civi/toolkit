@@ -1,0 +1,20 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Health & Human Development) in House with 5 Favorable, 3 On Its Merits, 1 Unfavorable",
+    "date": "2025-01-29",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable",
+      "committee-passage-unfavorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Health & Human Development",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 140"
+}

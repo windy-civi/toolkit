@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Read 1st time & treated as bill; referred to Committee on Health and Welfare per Rule 51",
+    "date": "2025-05-28",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SR 15"
+}

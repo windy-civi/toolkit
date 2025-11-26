@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "04/30/2025 Committee recommends passage",
+    "date": "2025-04-30",
+    "organization_id": "~{\"classification\": \"legislature\"}",
+    "classification": [
+      "committee-passage-favorable"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB833"
+}

@@ -1,0 +1,56 @@
+{
+  "legislative_session": "38th",
+  "identifier": "B 82-38",
+  "title": "AN ACT TO AMEND CHAPTER 10 OF DIVISION 1, TITLE 10, GUAM CODE ANNOTATED; TO ADD A NEW \u00a7 42A101(i)(20) TO CHAPTER 42A OF DIVISION 3, TITLE 7, GUAM CODE ANNOTATED; TO AMEND \u00a7 42A101(j) OF CHAPTER 42A, DIVISION 3, TITLE 7, GUAM CODE ANNOTATED; RELATIVE TO MEDICAL MALPRACTICE IN THE TERRITORY OF GUAM; AND TO CITE THIS ACT THE \u201cDO NO HARM: THE ANTI-MEDICAL MISCONDUCT ACT OF 2025\u201d.",
+  "from_organization": "~{\"classification\": \"legislature\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [],
+  "sponsorships": [
+    {
+      "name": "William A. Parkinson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"legislature\", \"name\": \"William A. Parkinson\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill No. 82-38 (COR)",
+      "links": [
+        {
+          "url": "http://guamlegislature.gov/38th_Guam_Legislature/Bill_History_38th/STATUS Bill No. 82-38 (COR).pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://guamlegislature.gov/bills/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/territory:gu/government",
+    "name": "Guam",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/territory:gu"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T05:55:45Z"
+  }
+}

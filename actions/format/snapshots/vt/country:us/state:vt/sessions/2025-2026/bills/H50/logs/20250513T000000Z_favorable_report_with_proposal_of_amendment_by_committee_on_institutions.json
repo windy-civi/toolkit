@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Favorable report with proposal of amendment by Committee on Institutions",
+    "date": "2025-05-13",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 50"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "07/01/2025 Effective without Governor's signature",
+    "date": "2025-07-01",
+    "organization_id": "~{\"classification\": \"executive\"}",
+    "classification": [
+      "became-law"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB675"
+}

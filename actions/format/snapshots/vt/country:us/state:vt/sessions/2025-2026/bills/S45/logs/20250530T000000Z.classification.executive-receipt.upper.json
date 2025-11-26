@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Rules suspended & ordered delivered to Governor forthwith, on motion of Senator Baruth",
+    "date": "2025-05-30",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "executive-receipt"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 45"
+}

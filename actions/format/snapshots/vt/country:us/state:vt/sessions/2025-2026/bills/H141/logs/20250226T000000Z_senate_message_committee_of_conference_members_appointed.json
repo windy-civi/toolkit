@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Senate Message: Committee of Conference members appointed",
+    "date": "2025-02-26",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 141"
+}

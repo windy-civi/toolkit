@@ -1,0 +1,14 @@
+{
+  "action": {
+    "description": "Read 2nd time, reported favorably with proposal of amendment by Senator Hashim for Committee on Judiciary",
+    "date": "2025-05-01",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction",
+      "committee-passage-favorable",
+      "reading-2"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 41"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "04/01/2025 Senate passed in concurrence",
+    "date": "2025-04-01",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB5189"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Unfinished Business/Second Reading",
+    "date": "2025-05-15",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "reading-2"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 482"
+}

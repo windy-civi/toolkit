@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Bill ordered delivered to Governor per Joint Rule 15 on motion of Senator Baruth",
+    "date": "2025-04-03",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "executive-receipt"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 489"
+}

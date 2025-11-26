@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Senate proposal of amendment concurred in",
+    "date": "2025-06-16",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 474"
+}

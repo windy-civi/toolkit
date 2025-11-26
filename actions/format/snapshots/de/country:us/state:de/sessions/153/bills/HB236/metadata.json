@@ -1,0 +1,93 @@
+{
+  "legislative_session": "153",
+  "identifier": "HB 236",
+  "title": "AN ACT TO AMEND TITLE 11 AND TITLE 29 OF THE DELAWARE CODE RELATING TO THE COUNTY AND MUNICIPAL POLICE/FIREFIGHTER PENSION PLAN AND THE COUNTY AND MUNICIPAL EMPLOYEES RETIREMENT PLAN.",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "This Act allows a paid emergency medical technician working for a participating employer to be eligible for the County Municipal Police/Firefighter Pension Plan. It also makes conforming changes to other sections of the Code.\r\nIn addition, this Act will exclude firefighters and EMTs hired after the effective date of this Act from participating in the County and Municipal Employees\u2019 Fund, in order to ensure the State\u2019s pension plans comply with federal tax and pension law. Going forward, employees who work as paid firefighters, EMTs, or both will be eligible only for the Police/Firefighter Pension Fund.\r\nTechnical corrections to existing statutory language are also made as follows: (i) to eliminate \u00a7 8806 of Title 11, which is duplicative of \u00a7 8308 of Title 29 and therefore unnecessary; (ii) to conform the title of \u00a7 8814 with its content; (iii) to correctly list the entities which may participate in each plan and the requirements for doing so; (iv) to correct cross-references that are incorrect in the current Code."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced and Assigned to Judiciary Committee in House",
+      "date": "2025-06-05",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Judiciary",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Madinah Wilson-Anton",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Madinah Wilson-Anton\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Bryan Townsend",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Bryan Townsend\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142437&legislationTypeId=1&docTypeId=2&legislationName=HB236",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142437&legislationTypeId=1&docTypeId=2&legislationName=HB236",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=142437",
+      "note": "text/html"
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:35Z"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Reported Printed; Filed in the Office of the Chief Clerk",
+    "date": "2025-03-25",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 0446"
+}

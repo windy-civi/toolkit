@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Rep. Black of Essex demanded yeas and nays",
+    "date": "2025-05-21",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 126"
+}

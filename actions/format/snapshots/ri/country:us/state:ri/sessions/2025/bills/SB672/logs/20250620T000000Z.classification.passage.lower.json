@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "06/20/2025 House passed Sub A in concurrence",
+    "date": "2025-06-20",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB672"
+}

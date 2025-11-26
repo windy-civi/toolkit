@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Pending third reading, bill amended as moved by Senator(s) Cummings, Beck, Brock, Chittenden, Gulick, Hardy, and Mattos",
+    "date": "2025-03-28",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "reading-3"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 127"
+}

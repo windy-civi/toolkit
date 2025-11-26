@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "04/25/2025 Introduced, referred to House Veterans Affairs",
+    "date": "2025-04-25",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB6275"
+}

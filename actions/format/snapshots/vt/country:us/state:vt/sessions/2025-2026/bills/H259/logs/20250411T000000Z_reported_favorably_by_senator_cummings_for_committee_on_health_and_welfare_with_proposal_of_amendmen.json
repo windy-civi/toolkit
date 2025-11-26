@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "Reported favorably by Senator Cummings for Committee on Health and Welfare with proposal of amendment",
+    "date": "2025-04-11",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction",
+      "committee-passage-favorable"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 259"
+}

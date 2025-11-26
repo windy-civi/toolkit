@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Adopted in lieu of the original bill HB 147, and Assigned to Administration Committee in House",
+    "date": "2025-05-13",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": [
+      {
+        "name": "Administration",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 147"
+}

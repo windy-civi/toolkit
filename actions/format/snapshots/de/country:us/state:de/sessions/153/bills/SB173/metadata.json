@@ -1,0 +1,114 @@
+{
+  "legislative_session": "153",
+  "identifier": "SB 173",
+  "title": "AN ACT TO AMEND TITLE 14 OF THE DELAWARE CODE RELATING TO MENTAL HEALTH SERVICES UNIT AND FUNDING.",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "House Bill No. 100 of the 151st General Assembly, House Bill No. 200 of the 152nd General Assembly, and House Bill No. 300 of the 151st General Assembly created dedicated mental health services units for purposes of funding the hire of mental health professionals in Delaware public schools. This Act updates the list of positions that may be funded through mental health services unit funding to include registered nurses authorized to practice by the Delaware Board of Nursing, board-certified assistant behavior analysts, and board-certified behavior analysts. Currently, such professionals may provide mental health services to Delaware students and are employed by Delaware school districts and charter schools, but these positions may not be funded under Title 14 through mental health services units. This Act expands flexibility and further support for school districts and charter schools to meet the needs of Delaware students by adding registered nurses that practice in schools, board-certified assistant behavior analysts, and board-certified behavior analysts to the list of positions that may be funded as described in Chapter 17 of Title 14 of the Delaware Code. This Act also makes technical corrections to confirm to the standards of the Delaware Legislative Drafting manual."
+    }
+  ],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Mental Health Services/Schools/Updates"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced and Assigned to Education Committee in Senate",
+      "date": "2025-06-05",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Education",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Eric Buckson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Eric Buckson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Lyndon D. Yearick",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Lyndon D. Yearick\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Stell Parker Selby",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Stell Parker Selby\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Brian Pettyjohn",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Brian Pettyjohn\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142425&legislationTypeId=1&docTypeId=2&legislationName=SB173",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142425&legislationTypeId=1&docTypeId=2&legislationName=SB173",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=142425",
+      "note": "text/html"
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:35Z"
+  }
+}

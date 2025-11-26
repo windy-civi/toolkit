@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Action Calendar: Action postponed until 4/28/2025",
+    "date": "2025-04-28",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 398"
+}

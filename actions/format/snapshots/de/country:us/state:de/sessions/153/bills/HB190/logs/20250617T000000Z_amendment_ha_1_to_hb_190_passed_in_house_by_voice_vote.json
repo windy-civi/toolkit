@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment HA 1 to HB 190 - Passed In House by Voice Vote",
+    "date": "2025-06-17",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB 190"
+}

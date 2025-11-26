@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Proposal of amendment agreed to on roll call, requested by Senator Beck, Passed -- Needed 15 of 30 to Pass -- Yeas = 18, Nays = 12",
+    "date": "2025-02-25",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 141"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Signed by President; returned to House",
+    "date": "2025-04-02",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 0445"
+}

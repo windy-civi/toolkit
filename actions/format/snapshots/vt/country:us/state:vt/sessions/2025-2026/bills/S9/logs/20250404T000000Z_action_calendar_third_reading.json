@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Action Calendar: Third Reading",
+    "date": "2025-04-04",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "reading-3"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 9"
+}

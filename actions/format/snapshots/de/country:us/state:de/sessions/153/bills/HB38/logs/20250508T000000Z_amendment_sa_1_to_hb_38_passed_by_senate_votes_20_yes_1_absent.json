@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment SA 1 to HB 38 - Passed By Senate. Votes: 20 YES 1 ABSENT",
+    "date": "2025-05-08",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB 38"
+}

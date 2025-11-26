@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Adopted in lieu of the original bill SB 21, and Assigned to Judiciary Committee in Senate",
+    "date": "2025-03-12",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": [
+      {
+        "name": "Judiciary",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 21"
+}

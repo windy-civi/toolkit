@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Reported favorably by Senator Norris for Committee on Appropriations",
+    "date": "2025-05-15",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage-favorable"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 44"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Read 1st time & referred to Committee on Agriculture",
+    "date": "2025-03-13",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 118"
+}

@@ -1,0 +1,14 @@
+{
+  "action": {
+    "description": "Read 2nd time, reported favorably with proposal of amendment by Senator Vyhovsky for Committee on Government Operations",
+    "date": "2025-04-15",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction",
+      "committee-passage-favorable",
+      "reading-2"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 10"
+}

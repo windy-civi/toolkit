@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Rules suspended & bill placed on all remaining stages of passage, on motion of Senator Baruth",
+    "date": "2025-05-23",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 454"
+}

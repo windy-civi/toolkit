@@ -1,0 +1,164 @@
+{
+  "legislative_session": "153",
+  "identifier": "HB 86",
+  "title": "AN ACT TO AMEND TITLE 14 AND TITLE 15 OF THE DELAWARE CODE RELATING TO RECOUNTS OF BALLOTS IN ELECTIONS.",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "This Act establishes a uniform threshold and procedure for a recount after a primary or general election for a statewide office, State Senator, State Representative, county office, the City of Wilmington, or school district elections. Under this Act, a recount will be conducted if the difference in the number of votes is 1% or less. \r\n\r\nThis Act makes the following changes to current law:\r\n\u2022 Eliminates the need for a candidate to request a recount after a general election for statewide office, State Senator, State Representative, county office, or office in the City of Wilmington.\r\n\u2022 Eliminates the need for 25 voters to petition for a recount in school district elections.\r\n\u2022 Establishes a clear threshold for a recount equal to a difference of 1% or less of the votes cast.\r\n\r\nChanging the recount threshold to 1% or less will likely be a substantive change to existing law only for statewide elections and county-wide offices in New Castle County. Current law allows a recount after a primary or general election for a statewide office, State Senator, State Representative, county office, or office in the City of Wilmington if the number of votes separating 2 candidates is less than 1,000 votes or \u00bd of 1% of all of the votes cast for the 2 candidates, whichever is less. \r\n\u2022 Based on the number of votes cast in the most recent elections, \u00bd of 1% and 1% of the votes cast will almost always be under 1,000 for State Senator, State Representative, county office, or office in the City of Wilmington.\r\n\u2022 For statewide offices or county-wide offices in New Castle County, \u00bd of 1% will almost always be more than 1,000 votes so changing the threshold to 1% or less will allow for recounts after more elections for these offices.\r\n\r\nSimilarly, under existing law, a recount may be requested in a school district election if the difference in the election of a school board member or in the outcome of an election regarding taxes, standard school construction, or bonds is less than 10 votes or \u00bd of 1% of the total vote, whichever is larger. Both 1% and \u00bd of 1% of the votes cast will almost always be more than 10 votes.\r\n\r\nThis Act also makes technical corrections to conform existing law to the standards of the Delaware Legislative Drafting Manual, including revisions to align \u00a7 1083 of Title 14 with the current responsibilities and practices of the Department of Elections.\r\nThis Act does not need a super-majority because this Act does not change the City of Wilmington\u2019s authority under its charter because in 1955, the General Assembly enacted 50 Del. Laws. c. 390, \u00a7 9, which clearly provides that Chapters 31 and 57 of Title 15 are applicable to the holding of elections in the City of Wilmington."
+    }
+  ],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Recounts of Ballots/Uniform Threshold"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced and Assigned to Elections & Government Affairs Committee in House",
+      "date": "2025-03-18",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Elections & Government Affairs",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Reported Out of Committee (Elections & Government Affairs) in House with 2 Favorable, 3 On Its Merits",
+      "date": "2025-05-21",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "committee-passage",
+        "committee-passage-favorable"
+      ],
+      "related_entities": [
+        {
+          "name": "Elections & Government Affairs",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Passed By House. Votes: 37 YES 3 NO 1 VACANT",
+      "date": "2025-06-30",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Assigned to Elections & Government Affairs Committee in Senate",
+      "date": "2025-07-01",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Elections & Government Affairs",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Bryan W. Shupe",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Bryan W. Shupe\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Franklin D. Cooke",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Franklin D. Cooke\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Laura V. Sturgeon",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Laura V. Sturgeon\"}",
+      "organization_id": null
+    },
+    {
+      "name": "David L. Wilson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"David L. Wilson\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=141963&legislationTypeId=1&docTypeId=2&legislationName=HB86",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=141963&legislationTypeId=1&docTypeId=2&legislationName=HB86",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=141963",
+      "note": "text/html"
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:35Z"
+  }
+}

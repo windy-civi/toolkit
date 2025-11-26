@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "07/05/2025 Effective without Governor's signature",
+    "date": "2025-07-05",
+    "organization_id": "~{\"classification\": \"executive\"}",
+    "classification": [
+      "became-law"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB6079"
+}

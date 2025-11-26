@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Senate proposal of amendment concurred in with further amendment thereto, as offered by Rep. Marcotte of Coventry and Graning of Jericho",
+    "date": "2025-04-29",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 398"
+}

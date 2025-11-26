@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment SA 1 to SB 7 - Passed By Senate. Votes: 19 YES 2 ABSENT",
+    "date": "2025-06-12",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB 7"
+}

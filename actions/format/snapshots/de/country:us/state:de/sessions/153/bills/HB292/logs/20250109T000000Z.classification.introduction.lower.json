@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Introduced and Assigned to Elections & Government Affairs Committee in House",
+    "date": "2025-01-09",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": [
+      {
+        "name": "Elections & Government Affairs",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 292"
+}

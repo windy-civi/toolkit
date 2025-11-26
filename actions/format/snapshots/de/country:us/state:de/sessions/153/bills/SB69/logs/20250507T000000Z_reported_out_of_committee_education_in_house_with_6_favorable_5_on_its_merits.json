@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Education) in House with 6 Favorable, 5 On Its Merits",
+    "date": "2025-05-07",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Education",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 69"
+}

@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Amendment HA 1 to SB 174 - Stricken in House",
+    "date": "2025-06-30",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "SB 174"
+}

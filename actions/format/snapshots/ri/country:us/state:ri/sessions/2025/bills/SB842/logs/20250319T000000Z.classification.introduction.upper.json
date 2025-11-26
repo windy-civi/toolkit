@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "03/19/2025 Introduced, referred to Senate Commerce",
+    "date": "2025-03-19",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB842"
+}

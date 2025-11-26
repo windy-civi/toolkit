@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "01/29/2025 Introduced, referred to House Judiciary",
+    "date": "2025-01-29",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB5224"
+}

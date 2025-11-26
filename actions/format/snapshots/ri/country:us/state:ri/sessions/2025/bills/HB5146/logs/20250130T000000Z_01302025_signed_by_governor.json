@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "01/30/2025 Signed by Governor",
+    "date": "2025-01-30",
+    "organization_id": "~{\"classification\": \"executive\"}",
+    "classification": [
+      "executive-signature"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB5146"
+}

@@ -1,0 +1,172 @@
+{
+  "legislative_session": "153",
+  "identifier": "HB 135",
+  "title": "AN ACT TO AMEND TITLE 10 OF THE DELAWARE CODE RELATING TO HOMELESSNESS.",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "Because Delaware lacks an adequate amount of emergency shelter beds, housing support services, and affordable housing units, only 952 out of 7,131 households that contacted the Housing Alliance Delaware\u2019s homelessness hotline in 2024 were referred to housing assistance.  Without adequate shelter available, thousands of individuals experiencing homelessness are forced to seek shelter on the streets, parks, parking lots, and sidewalks, which puts them in constant conflict with local residents, businesses, and the police.  Instead of providing adequate housing, local governments are using emergency services, hospital services, and the criminal justice system to remove unhoused individuals from public spaces, exacerbating the barriers unhoused individuals face to achieve stable housing and wasting taxpayer money.  This Act seeks to incentivize localities to coordinate or create adequate emergency housing, permanent housing, and wrap-around services for individuals experiencing homelessness, which will ease the financial burden placed on emergency services, hospitals, and the criminal justice system, while providing unhoused individuals stability and dignity.  \r\n\r\nTo that end, this Act does the following:\r\n1. Permits an individual experiencing homelessness to conduct life sustaining activities in public, so long as such activities do not obstruct the normal movement of pedestrian or vehicular traffic in such a manner that creates a hazard to others, unless adequate alternative indoor space is available to the individual in a given jurisdiction and has been offered to the individual, including transportation for the individual and their belongings. \r\n2. Mandates that an individual experiencing homelessness receive the same degree of protection for personal property stored in public places as personal property stored in a private dwelling, which includes protections against unreasonable search and seizure.   \r\n 3. Prohibits the State or local jurisdiction from requiring an individual experiencing homelessness to move a motor vehicle or a recreational vehicle provided that the vehicle is parked on public property and the vehicle is not parked in a position to obstruct the normal movement of traffic or create a hazard to other traffic upon the highway.  \r\n4. Provides that, if a motor vehicle or recreational vehicle must be moved because the vehicle is obstructing normal movement of traffic or creates a hazard to other traffic on the roadway, the individual experiencing homelessness must be permitted to relocate the vehicle before a parking ticket is issued or the vehicle is towed.  \r\n\r\nThis Act does not prohibit State and local governments from making and enforcing reasonable time restrictions on public spaces (including public parks and parking lots) so long as those time restrictions apply to everyone and are not disproportionately enforced against individuals experiencing homelessness. \r\n\r\nThis Act further permits an individual experiencing homelessness to raise a violation of this Act as an affirmative defense to any charge of violating a statute or ordinance that prohibits life-sustaining activities protected under this Act.  The attorney general may commence a civil action against any State or local government, government agency, or government official that violates this Act and this Act also contains a private right of action.  This Act specifically waives sovereign immunity.  \r\n\r\nThis Act is named in honor of Dr. DeBorah Gilbert White."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced and Assigned to Judiciary Committee in House",
+      "date": "2025-05-06",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Judiciary",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Assigned to Housing Committee in House",
+      "date": "2025-05-07",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Housing",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Sophie Phillips",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Sophie Phillips\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Josue O Ortega",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Josue O Ortega\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Mara Gorman",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Mara Gorman\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Sean M. Lynn",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Sean M. Lynn\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Eric Morrison",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Eric Morrison\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Claire Snyder-Hall",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Claire Snyder-Hall\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Sarah McBride",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Sarah McBride\"}",
+      "organization_id": null
+    },
+    {
+      "name": "David P. Sokola",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"David P. Sokola\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142185&legislationTypeId=1&docTypeId=2&legislationName=HB135",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142185&legislationTypeId=1&docTypeId=2&legislationName=HB135",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Fiscal Note",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GetPdfDocument?fileAttachmentId=650547",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=142185",
+      "note": "text/html"
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:35Z"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Proposal of amendment by Senator(s) White, Clarkson, and Major; text",
+    "date": "2025-05-02",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 494"
+}

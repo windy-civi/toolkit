@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment HA 2 to HB 119 - Defeated In House by Voice Vote",
+    "date": "2025-05-22",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-failure"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB 119"
+}

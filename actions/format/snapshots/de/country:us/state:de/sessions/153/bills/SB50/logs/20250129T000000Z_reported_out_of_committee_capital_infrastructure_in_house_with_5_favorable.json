@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Capital Infrastructure) in House with 5 Favorable",
+    "date": "2025-01-29",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Capital Infrastructure",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 50"
+}

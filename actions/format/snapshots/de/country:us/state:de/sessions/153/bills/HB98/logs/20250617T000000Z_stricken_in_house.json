@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Stricken in House",
+    "date": "2025-06-17",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "HB 98"
+}

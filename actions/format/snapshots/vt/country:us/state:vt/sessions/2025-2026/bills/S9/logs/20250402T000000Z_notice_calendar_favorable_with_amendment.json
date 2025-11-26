@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Notice Calendar: Favorable with Amendment",
+    "date": "2025-04-02",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 9"
+}

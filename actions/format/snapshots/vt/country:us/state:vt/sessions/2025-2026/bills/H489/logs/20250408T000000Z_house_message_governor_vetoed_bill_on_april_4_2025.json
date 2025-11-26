@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "House message: Governor vetoed bill on April 4, 2025",
+    "date": "2025-04-08",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "executive-veto"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 489"
+}

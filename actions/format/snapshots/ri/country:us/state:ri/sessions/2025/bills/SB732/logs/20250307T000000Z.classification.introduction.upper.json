@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "03/07/2025 Introduced, referred to Senate Judiciary",
+    "date": "2025-03-07",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB732"
+}

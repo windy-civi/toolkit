@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "Reported favorably by Senator Hardy for Committee on Finance, read 2nd time and 3rd reading ordered",
+    "date": "2025-02-11",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage-favorable",
+      "reading-2"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 30"
+}

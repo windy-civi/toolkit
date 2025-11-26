@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment SA 2 to SJR 3 - Passed By Senate. Votes: 18 YES 3 ABSENT",
+    "date": "2025-03-27",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SJR 3"
+}

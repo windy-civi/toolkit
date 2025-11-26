@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Reported favorably by Senator Gulick for Committee on Health and Welfare",
+    "date": "2025-05-30",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage-favorable"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SR 16"
+}

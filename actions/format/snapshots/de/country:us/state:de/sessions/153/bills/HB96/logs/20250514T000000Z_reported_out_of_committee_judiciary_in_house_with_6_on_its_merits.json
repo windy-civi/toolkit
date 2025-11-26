@@ -1,0 +1,18 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Judiciary) in House with 6 On Its Merits",
+    "date": "2025-05-14",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage"
+    ],
+    "related_entities": [
+      {
+        "name": "Judiciary",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 96"
+}

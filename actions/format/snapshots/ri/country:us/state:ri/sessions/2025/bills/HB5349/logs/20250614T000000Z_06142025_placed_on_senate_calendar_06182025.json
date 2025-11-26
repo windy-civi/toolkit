@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "06/14/2025 Placed on Senate Calendar  (06/18/2025)",
+    "date": "2025-06-14",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "reading-3"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB5349"
+}

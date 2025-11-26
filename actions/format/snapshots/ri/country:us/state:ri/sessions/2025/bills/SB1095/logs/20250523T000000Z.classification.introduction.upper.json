@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "05/23/2025 Introduced, referred to Senate Finance",
+    "date": "2025-05-23",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB1095"
+}

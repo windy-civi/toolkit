@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Roll Call, requested by Senator White, Failed -- Needed 22 of 29 to Pass -- Yeas = 16, Nays = 13",
+    "date": "2025-03-28",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 489"
+}

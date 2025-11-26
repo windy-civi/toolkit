@@ -1,0 +1,74 @@
+{
+  "2011": {
+    "name": "61st Legislature, 1st Regular Session (2011)",
+    "date_folder": "2011-2011"
+  },
+  "2012": {
+    "name": "61st Legislature, 2nd Regular Session (2012)",
+    "date_folder": "2012-2012"
+  },
+  "2013": {
+    "name": "62nd Legislature, 1st Regular Session (2013)",
+    "date_folder": "2013-2013"
+  },
+  "2014": {
+    "name": "63nd Legislature, 1st Regular Session (2014)",
+    "date_folder": "2014-2014"
+  },
+  "2015": {
+    "name": "64th Legislature, 1st Regular Session (2015)",
+    "date_folder": "2015-2015"
+  },
+  "2015spcl": {
+    "name": "65th Legislature, 1st Extraordinary Session (2015)",
+    "date_folder": "2015-2015"
+  },
+  "2016": {
+    "name": "63rd Legislature, 2nd Regular Session (2016)",
+    "date_folder": "2016-2016"
+  },
+  "2017": {
+    "name": "64th Legislature, 1st Regular Session (2017)",
+    "date_folder": "2017-2017"
+  },
+  "2018": {
+    "name": "64th Legislature, 2nd Regular Session (2018)",
+    "date_folder": "2018-2018"
+  },
+  "2019": {
+    "name": "65th Legislature, 1st Regular Session (2019)",
+    "date_folder": "2019-2019"
+  },
+  "2020": {
+    "name": "65th Legislature, 2nd Regular Session (2020)",
+    "date_folder": "2020-2020"
+  },
+  "2020spcl": {
+    "name": "65th Legislature, First Extraordinary Session (2020)",
+    "date_folder": "2020-2020"
+  },
+  "2021": {
+    "name": "66th Legislature, 1st Regular Session (2021)",
+    "date_folder": "2021-2021"
+  },
+  "2022": {
+    "name": "66th Legislature, 2nd Regular Session (2022)",
+    "date_folder": "2022-2022"
+  },
+  "2022spcl": {
+    "name": "66th Legislature, First Extraordinary Session (2022)",
+    "date_folder": "2022-2022"
+  },
+  "2023": {
+    "name": "67th Legislature, 1st Regular Session (2023)",
+    "date_folder": "2023-2023"
+  },
+  "2024": {
+    "name": "67th Legislature, 2nd Regular Session (2024)",
+    "date_folder": "2024-2024"
+  },
+  "2025": {
+    "name": "68th Legislature, 1st Regular Session (2025)",
+    "date_folder": "2025-2025"
+  }
+}

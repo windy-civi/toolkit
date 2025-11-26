@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment SA 1 to HB 82 - Passed By Senate. Votes: 21 YES",
+    "date": "2025-06-25",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB 82"
+}

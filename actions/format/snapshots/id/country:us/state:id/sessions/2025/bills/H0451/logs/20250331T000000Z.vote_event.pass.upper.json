@@ -1,0 +1,247 @@
+{
+  "identifier": "",
+  "motion_text": "Read third time in full \u2013",
+  "motion_classification": [
+    "passage"
+  ],
+  "start_date": "2025-03-31",
+  "result": "pass",
+  "organization": "~{\"classification\": \"upper\"}",
+  "legislative_session": "2025",
+  "bill": "~{\"from_organization__classification\": \"lower\", \"identifier\": \"H 0451\", \"legislative_session__identifier\": \"2025\"}",
+  "bill_action": null,
+  "bill_identifier": "H 0451",
+  "votes": [
+    {
+      "option": "yes",
+      "voter_name": "Adams",
+      "voter_id": "~{\"name\": \"Adams\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Anthon",
+      "voter_id": "~{\"name\": \"Anthon\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Bernt",
+      "voter_id": "~{\"name\": \"Bernt\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Bjerke",
+      "voter_id": "~{\"name\": \"Bjerke\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Blaylock",
+      "voter_id": "~{\"name\": \"Blaylock\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Burtenshaw",
+      "voter_id": "~{\"name\": \"Burtenshaw\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Carlson",
+      "voter_id": "~{\"name\": \"Carlson\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Cook",
+      "voter_id": "~{\"name\": \"Cook\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Den Hartog",
+      "voter_id": "~{\"name\": \"Den Hartog\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Galloway",
+      "voter_id": "~{\"name\": \"Galloway\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Grow",
+      "voter_id": "~{\"name\": \"Grow\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Guthrie",
+      "voter_id": "~{\"name\": \"Guthrie\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Harris",
+      "voter_id": "~{\"name\": \"Harris\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Lakey",
+      "voter_id": "~{\"name\": \"Lakey\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Lent",
+      "voter_id": "~{\"name\": \"Lent\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Okuniewicz",
+      "voter_id": "~{\"name\": \"Okuniewicz\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Ricks",
+      "voter_id": "~{\"name\": \"Ricks\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Ruchti",
+      "voter_id": "~{\"name\": \"Ruchti\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Semmelroth",
+      "voter_id": "~{\"name\": \"Semmelroth\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Shippy",
+      "voter_id": "~{\"name\": \"Shippy\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Taylor",
+      "voter_id": "~{\"name\": \"Taylor\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Toews",
+      "voter_id": "~{\"name\": \"Toews\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "VanOrden",
+      "voter_id": "~{\"name\": \"VanOrden\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Ward-Engelking",
+      "voter_id": "~{\"name\": \"Ward-Engelking\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Wintrow",
+      "voter_id": "~{\"name\": \"Wintrow\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Woller",
+      "voter_id": "~{\"name\": \"Woller\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Woodward",
+      "voter_id": "~{\"name\": \"Woodward\"}",
+      "note": ""
+    },
+    {
+      "option": "no",
+      "voter_name": "Coho",
+      "voter_id": "~{\"name\": \"Coho\"}",
+      "note": ""
+    },
+    {
+      "option": "no",
+      "voter_name": "Foreman",
+      "voter_id": "~{\"name\": \"Foreman\"}",
+      "note": ""
+    },
+    {
+      "option": "no",
+      "voter_name": "Hart",
+      "voter_id": "~{\"name\": \"Hart\"}",
+      "note": ""
+    },
+    {
+      "option": "no",
+      "voter_name": "Keyser",
+      "voter_id": "~{\"name\": \"Keyser\"}",
+      "note": ""
+    },
+    {
+      "option": "no",
+      "voter_name": "Kohl",
+      "voter_id": "~{\"name\": \"Kohl\"}",
+      "note": ""
+    },
+    {
+      "option": "no",
+      "voter_name": "Nichols",
+      "voter_id": "~{\"name\": \"Nichols\"}",
+      "note": ""
+    },
+    {
+      "option": "no",
+      "voter_name": "Zito",
+      "voter_id": "~{\"name\": \"Zito\"}",
+      "note": ""
+    },
+    {
+      "option": "no",
+      "voter_name": "Zuiderveld",
+      "voter_id": "~{\"name\": \"Zuiderveld\"}",
+      "note": ""
+    }
+  ],
+  "counts": [
+    {
+      "option": "yes",
+      "value": 27
+    },
+    {
+      "option": "no",
+      "value": 8
+    },
+    {
+      "option": "absent",
+      "value": 0
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://legislature.idaho.gov/sessioninfo/2025/legislation/H0451/",
+      "note": ""
+    }
+  ],
+  "extras": {}
+}

@@ -1,0 +1,110 @@
+{
+  "legislative_session": "153",
+  "identifier": "SB 36",
+  "title": "AN ACT TO AMEND TITLE 21 OF THE DELAWARE CODE RELATING TO CAR PURCHASE CONTRACT CANCELLATION OPTION AGREEMENTS.",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "This Act requires dealers to offer car buyers the opportunity to purchase a contract cancellation option agreement. The contract cancellation option agreement must allow buyers to cancel a car purchase no less than 3 business days after the dealer delivers the car to the buyer. The cost of the contract cancellation option is based on the cash sale price of the car. A dealer may also charge a restocking fee, based on the cash sale price, if a consumer cancels the car purchase. But the cost of the contract cancellation option must be credited to any restocking fee. If a consumer chooses to buy a car at the end of a lease and then exercises a contract cancellation option, a dealer may charge to that consumer any amount that would have been due under the lease for excess mileage, unrepaired damage, and excess wear and tear. The dealer must keep any trade-in motor vehicles through the end of the cancellation period.\r\n\r\nIf a consumer cancels a car purchase, the consumer must return the car to the dealer along with the signed contract cancellation option. The car must be free of excess mileage, excess wear and tear, and liens, other than liens created by the sales contract or a loan used to finance the purchase of the car. The dealer must give a full refund, less the restocking fee, and must return any trade-in car. If the dealer mistakenly sells the trade-in car before the cancellation period ends and the buyer exercises the right to cancel, the dealer must also refund the fair market value of the car or the value listed in the contract, whichever is higher. \r\n\r\nA dealer is not required to allow the same consumer to purchase a cancellation option again within 30 days after the consumer exercises a cancellation option. \r\n\r\nA dealer is not required to give notice of the return of a motor vehicle under this Act to a subsequent buyer. This Act does not cancel or limit any disclosure obligation required by any other law. This Act does not affect or alter the legal rights, duties, obligations, or liabilities of the buyer, the dealer, or the dealer's agents or assigns, that would exist without a contract cancellation option agreement. \r\n\r\nThe buyer is the owner of a motor vehicle when the buyer takes delivery of a motor vehicle until the motor vehicle is returned to the dealer under a contract cancellation option agreement. The existence of a contract cancellation option agreement does not impose permissive user liability on the dealer, or the dealer's agents or assigns.\r\n\r\nThis Act does not affect a buyer\u2019s ability of to cancel the contract or revoke acceptance under any other law."
+    }
+  ],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Car Buyers/Dealers/Contract Cancellation Option/Require"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced and Assigned to Environment, Energy & Transportation Committee in Senate",
+      "date": "2025-01-03",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Environment, Energy & Transportation",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:34Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Darius J. Brown",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Darius J. Brown\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Franklin D. Cooke",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Franklin D. Cooke\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=141752&legislationTypeId=1&docTypeId=2&legislationName=SB36",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=141752&legislationTypeId=1&docTypeId=2&legislationName=SB36",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Fiscal Note",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GetPdfDocument?fileAttachmentId=648153",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=141752",
+      "note": "text/html"
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:34Z"
+  }
+}

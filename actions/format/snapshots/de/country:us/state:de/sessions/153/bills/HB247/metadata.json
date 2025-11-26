@@ -1,0 +1,117 @@
+{
+  "legislative_session": "153",
+  "identifier": "HB 247",
+  "title": "AN ACT RELATING TO THE COLLECTION OF TAXES FOR REAL PROPERTY IN THE 2025-2026 TAX YEAR.",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "This Act is a short-term response to the recent tax reassessment that protects homeowners, who have received substantially increased property and school tax bills for the 2025-2026 tax year, from legal action while the General Assembly and New Castle County explore long-term solutions.\r\n\r\nMany Delaware homeowners have raised several troubling questions and concerns about the property reassessment process. After the reassessment, the tax burden has drastically shifted to homeowners, which has hit vulnerable groups the hardest, including seniors, low-income families, and long-term residents. \r\n\r\nThis Act requires the tax collecting authority for New Castle County (\u201cCounty\u201d) to offer payment plans to all taxpayers to pay county property and school taxes assessed to residential properties for the 2025-2026 tax year. After offering the payment plan, the County must give a taxpayer at least 30 days from the date of the offer to enter into the payment plan. \r\n\r\nIf a taxpayer enters into a payment plan and makes payments in compliance with the payment plan, the County may not collect the taxes owed out of the taxpayer\u2019s real or personal property, including by filing a civil action to collect the taxes or by seizing or selling the taxpayer\u2019s property. Additionally, the County may not charge fees, penalties, or interest on taxes owed by taxpayers who make payments in compliance with the payment plan.\r\n\r\nThis Act sunsets on December 31, 2026, unless otherwise provided by a subsequent Act of the General Assembly. But the prohibitions on collecting taxes out of the taxpayer\u2019s real or personal property and on charging fees, penalties, or interest on taxes continue to apply to payment plans that extend on or beyond December 31, 2026, so long as the taxpayer remain in compliance with the payment plan."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced and Assigned to Administration Committee in House",
+      "date": "2025-08-07",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Administration",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Madinah Wilson-Anton",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Madinah Wilson-Anton\"}",
+      "organization_id": null
+    },
+    {
+      "name": "David P. Sokola",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"David P. Sokola\"}",
+      "organization_id": null
+    },
+    {
+      "name": "David L. Wilson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"David L. Wilson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Bryant L. Richardson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Bryant L. Richardson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Spiros Mantzavinos",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Spiros Mantzavinos\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142686&legislationTypeId=1&docTypeId=2&legislationName=HB247",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142686&legislationTypeId=1&docTypeId=2&legislationName=HB247",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=142686",
+      "note": "text/html"
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:36Z"
+  }
+}

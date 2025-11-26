@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "Vetoed by the Governor on May 15, 2025",
+    "date": "2025-05-15",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "executive-veto",
+      "executive-veto"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 219"
+}

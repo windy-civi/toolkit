@@ -1,0 +1,18 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Public Safety & Homeland Security) in House with 7 On Its Merits",
+    "date": "2025-05-20",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage"
+    ],
+    "related_entities": [
+      {
+        "name": "Public Safety & Homeland Security",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 76"
+}

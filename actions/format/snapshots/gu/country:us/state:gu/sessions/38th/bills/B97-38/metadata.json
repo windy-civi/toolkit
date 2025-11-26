@@ -1,0 +1,64 @@
+{
+  "legislative_session": "38th",
+  "identifier": "B 97-38",
+  "title": "AN ACT TO REPEAL AND REENACT CHAPTER 11 OF TITLE 12, GUAM CODE ANNOTATED; AND TO AMEND \u00a745.30(b) AND \u00a745.40 OF CHAPTER 45, TITLE 8, GUAM CODE ANNOTATED; RELATIVE TO THE REORGANIZATION OF THE GUAM PUBLIC DEFENDER SERVICE CORPORATION TO PROVIDE EFFECTIVE LEGAL AID AND SERVICES TO PERSONS WHO ARE ENTITLED TO COUNSEL UNDER THE ORGANIC ACT OF GUAM, THE LAWS OF GUAM, AND THE UNITED STATES CONSTITUTION AND TO CITE THIS ACT AS THE \u201cGUAM PUBLIC DEFENDER SERVICE CORPORATION ACT OF 2025.\u201d",
+  "from_organization": "~{\"classification\": \"legislature\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [],
+  "sponsorships": [
+    {
+      "name": "Frank F. Blas, Jr.",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"legislature\", \"name\": \"Frank F. Blas, Jr.\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Telo T. Taitague",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"legislature\", \"name\": \"Telo T. Taitague\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill No. 97-38 (LS)",
+      "links": [
+        {
+          "url": "http://guamlegislature.gov/38th_Guam_Legislature/Bill_History_38th/STATUS Bill No. 97-38 (LS).pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://guamlegislature.gov/bills/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/territory:gu/government",
+    "name": "Guam",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/territory:gu"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T05:55:44Z"
+  }
+}

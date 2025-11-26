@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment SA 1 to HS 1 - Passed By Senate. Votes: 21 YES",
+    "date": "2025-06-24",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB 50"
+}

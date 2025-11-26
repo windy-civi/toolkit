@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment HA 2 to SB 60 - Introduced and Placed With Bill",
+    "date": "2025-06-24",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB 60"
+}

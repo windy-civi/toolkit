@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "01/23/2025 Committee voted to reconsider",
+    "date": "2025-01-23",
+    "organization_id": "~{\"classification\": \"legislature\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "HR5007"
+}

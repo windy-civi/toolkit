@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Passed By House. Votes: 22 YES 14 NO 1 NOT VOTING 4 ABSENT",
+    "date": "2025-05-13",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB 130"
+}

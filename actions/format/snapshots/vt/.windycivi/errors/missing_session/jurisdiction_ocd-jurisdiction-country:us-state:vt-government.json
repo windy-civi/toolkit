@@ -1,0 +1,102 @@
+{
+  "id": "ocd-jurisdiction/country:us/state:vt/government",
+  "name": "Vermont",
+  "url": "http://legislature.vermont.gov/",
+  "division_id": "ocd-division/country:us/state:vt",
+  "classification": "state",
+  "legislative_sessions": [
+    {
+      "_scraped_name": "2009-2010 Session",
+      "classification": "primary",
+      "identifier": "2009-2010",
+      "name": "2009-2010 Regular Session",
+      "start_date": "2009-01-07",
+      "end_date": "2010-05-12"
+    },
+    {
+      "_scraped_name": "2011-2012 Session",
+      "classification": "primary",
+      "identifier": "2011-2012",
+      "name": "2011-2012 Regular Session",
+      "start_date": "2011-01-05",
+      "end_date": "2012-05-05"
+    },
+    {
+      "_scraped_name": "2013-2014 Session",
+      "classification": "primary",
+      "identifier": "2013-2014",
+      "name": "2013-2014 Regular Session",
+      "start_date": "2013-01-09",
+      "end_date": "2014-05-10"
+    },
+    {
+      "_scraped_name": "2015-2016 Session",
+      "classification": "primary",
+      "identifier": "2015-2016",
+      "name": "2015-2016 Regular Session",
+      "start_date": "2015-01-07",
+      "end_date": "2016-05-06"
+    },
+    {
+      "_scraped_name": "2017-2018 Session",
+      "classification": "primary",
+      "identifier": "2017-2018",
+      "name": "2017-2018 Regular Session",
+      "start_date": "2017-01-04",
+      "end_date": "2018-05-12"
+    },
+    {
+      "_scraped_name": "2018 Special Session",
+      "classification": "special",
+      "identifier": "2018ss1",
+      "name": "2018 Special Session",
+      "start_date": "2018-05-23",
+      "end_date": "2018-06-29"
+    },
+    {
+      "_scraped_name": "2019-2020 Session",
+      "classification": "primary",
+      "identifier": "2019-2020",
+      "name": "2019-2020 Regular Session",
+      "start_date": "2019-01-09",
+      "end_date": "2020-09-25"
+    },
+    {
+      "_scraped_name": "2021-2022 Session",
+      "classification": "primary",
+      "identifier": "2021-2022",
+      "name": "2021-2022 Regular Session",
+      "start_date": "2021-01-06",
+      "end_date": "2021-05-12",
+      "active": false
+    },
+    {
+      "_scraped_name": "2021 Special Session",
+      "classification": "special",
+      "identifier": "2021S1",
+      "name": "2021 Special Session",
+      "start_date": "2021-11-22",
+      "end_date": "2021-11-22",
+      "active": false
+    },
+    {
+      "_scraped_name": "2023-2024 Session",
+      "classification": "primary",
+      "identifier": "2023-2024",
+      "name": "2023-2024 Regular Session",
+      "start_date": "2023-01-04",
+      "end_date": "2025-05-09",
+      "active": false
+    },
+    {
+      "_scraped_name": "2025-2026 Session",
+      "classification": "primary",
+      "identifier": "2025-2026",
+      "name": "2025-2026 Regular Session",
+      "start_date": "2025-01-08",
+      "end_date": "2025-05-08",
+      "active": true
+    }
+  ],
+  "extras": {}
+}

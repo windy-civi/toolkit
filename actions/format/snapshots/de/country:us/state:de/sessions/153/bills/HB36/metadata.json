@@ -1,0 +1,238 @@
+{
+  "legislative_session": "153",
+  "identifier": "HB 36",
+  "title": "AN ACT TO AMEND TITLE 2, TITLE 6, TITLE 9, TITLE 10, TITLE 14, TITLE 19, TITLE 20, TITLE 24, TITLE 25, AND TITLE 29 OF THE DELAWARE CODE RELATING TO DISCRIMINATION.",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "This Act aligns Delaware\u2019s non-discrimination laws. Delaware has several broad laws that prohibit discrimination in public accommodations, housing, employment, and insurance but also has many narrow non-discrimination laws that apply to a specific entity, or type of entity, even though a broad law also prohibits discrimination by that entity. This Act aligns the narrower non-discrimination laws with the applicable broad non-discrimination law by also prohibiting discrimination on any other basis protected under the applicable broad law. Adding the reference to the chapter for the applicable broad law includes all protected classes, definitions, and actions that are currently protected under the broad law or that are added to the broad law in the future. \r\n\r\nThis Act does not make any substantive changes to current non-discrimination laws but is necessary because most of the narrow laws do not contain all of the same protected classes as the broad law that also applies or do not include the definitions of classes that are also in the broad law. These inconsistencies could lead to a misunderstanding by someone reading only an incomplete narrow law, and eventually litigation, about what constitutes illegal discrimination by an entity covered by both the narrow and broad laws. For example:\r\n\u2022\tThe non-discrimination provision for the Board of Podiatry under \u00a7 506(c) of Title 24 does not prohibit discrimination on the basis of the following classes, for which discrimination is prohibited under Chapter 45 of Title 6: age, marital status, religion, sexual orientation, gender identity, or disability. \r\n\u2022\tOnly 4 of the 42 chapters in Title 24 establishing professional licensing boards contain a non-discrimination provision, but this does not mean that the other 38 licensing boards are free to discriminate. Aligning these 4 non-discrimination provisions with Chapter 45 of Title 6 clarifies that Chapter 45 of Title 6 also applies to the 38 professional boards that do not have specific non-discrimination provisions.\r\n\u2022\tFor merit system state employees, \u00a7 5953 of Title 29 only prohibits discrimination based on race, religion, sex, sexual orientation, gender identity, and housing status but in addition to these classes, \u00a7 711 of Title 19 prohibits any employer in this State, including the State, from discriminating in employment based on age, marital status, color, national origin, or disability.\r\n\u2022\tMost of the narrower non-discrimination laws do not include all of the definitions in the applicable broad law. Adding the reference to the applicable broad law incorporates those definitions into the narrower law. For example:\r\n       1. All of Delaware\u2019s non-discrimination laws prohibit discrimination based on race and all of the broad non-discrimination laws define \u201crace\u201d as including traits historically associated with race, including hair texture and protective hairstyle. However, very few of the narrower non-discrimination laws include this definition of \u201crace\u201d.\r\n       2. Several narrow non-discrimination laws prohibit discrimination on the basis of sexual orientation and gender identity but do not include or specifically reference the definitions of \u201csexual orientation\u201d or \u201cgender identity\u201d in the applicable broad non-discrimination law.\r\n\r\nSpecifically, this Act revises the following narrow non-discrimination laws to align with the applicable broad non-discrimination law, as follows:\r\n\r\nTo align with the Delaware Equal Accommodations Law, Chapter 45 of Title 6, which prohibits discrimination on the basis of race, age, marital status, creed, religion, color, sex, disability, sexual orientation, gender identity, or national origin by establishments that offer goods, services, facilities, privileges, advantages, or accommodations to the general public, including government agencies:\r\n\u2022\tTransportation networks, \u00a7 1917 of Title 2.\r\n\u2022\tParkland owned by civic associations, \u00a7 8110 of Title 9.\r\n\u2022\tJury service, \u00a7 4502 of Title 10.\r\n\u2022\tPrivate business and trade schools, \u00a7 8516 of Title 14.\r\n\u2022\tDelaware Veterans Memorial Cemetery, \u00a7 1204 of Title 20.\r\n\u2022\tBoard of Podiatry, \u00a7 506 of Title 24.\r\n\u2022\tBoard of Chiropractic, \u00a7 706 of Title 24.\r\n\u2022\tThe Board of Medical Licensure & Discipline, \u00a7 1713 of Title 24.\r\n\u2022\tBoard of Funeral Services, \u00a7 3102 of Title 24.\r\n\r\nTo align with the Delaware Fair Housing Act, Chapter 46 of Title 6, which prohibits discrimination on the basis of race, color, national origin, religion, creed, sex, marital status, familial status, source of income, age, sexual orientation, gender identity, disability, or housing status in housing offered for sale, rent, or exchange:\r\n\u2022\tSection 4601 of Title 6, because gender identity is missing from the list of classes protected in the purpose section of Chapter 46 even though gender identity is protected under all of the substantive provisions under that chapter.\r\n\u2022\tRecording of deeds, \u00a7 9605 of Title 9.\r\n\u2022\tResidential Landlord-Tenant Code, \u00a7 5116 of Title 25. To align with Chapter 46 of Title 6, Subsections (a), (b), and (d) are revised to use the term \"familial status\" because \"familial status\" is defined in the Delaware Fair Housing Act to mean a household with children.\r\n\u2022\tThe definition of \u201ccomparable housing\u201d in \u00a7 7102 of Title 25 for the conversion of manufactured home communities.\r\n\r\nTo align with the unlawful employment practices in employment under Chapter 7 of Title 19, which prohibits discrimination in employment on the basis of race, marital status, genetic information, color, age, religion, sex including pregnancy, sexual orientation, gender identity, national origin,  housing status, disability, status as a victim of domestic violence, a sexual offense, or stalking, or a reproductive health decision:\r\n\u2022\tNew Castle County government, \u00a7 1183 of Title 9.\r\n\u2022\tTraining and apprenticeship programs, \u00a7 204 of Title 19.\r\n\u2022\tMerit System of Personnel Administration, \u00a7 5953 of Title 29.\r\n\u2022\tLarge public works contracts, \u00a7 6962 of Title 29.\r\n\r\nThis Act also clarifies that the definition of \u201cplace of public accommodation\u201d in \u00a7 4502(19) of Title 6 includes entities and services licensed or regulated under Title 5, Banking. \r\n\r\nThis Act does not make any changes to Title 18 for insurance.\r\n\r\nThis Act also makes technical corrections to conform existing law to the standards of the Delaware Legislative Drafting Manual."
+    }
+  ],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Non-Discrimination Laws/Aligns"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced and Assigned to Administration Committee in House",
+      "date": "2025-03-06",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Administration",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Reported Out of Committee (Administration) in House with 5 On Its Merits",
+      "date": "2025-03-19",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "committee-passage"
+      ],
+      "related_entities": [
+        {
+          "name": "Administration",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Passed By House. Votes: 36 YES 1 NO 4 ABSENT",
+      "date": "2025-03-27",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Assigned to Education Committee in Senate",
+      "date": "2025-03-27",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Education",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Reported Out of Committee (Education) in Senate with 4 On Its Merits",
+      "date": "2025-05-15",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "committee-passage"
+      ],
+      "related_entities": [
+        {
+          "name": "Education",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Passed By Senate. Votes: 15 YES 6 NO",
+      "date": "2025-06-24",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Signed by Governor",
+      "date": "2025-08-20",
+      "organization_id": "~{\"classification\": \"executive\"}",
+      "classification": [
+        "executive-signature"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Eric Morrison",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Eric Morrison\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Laura V. Sturgeon",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Laura V. Sturgeon\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Bryant L. Richardson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Bryant L. Richardson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Mara Gorman",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Mara Gorman\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Claire Snyder-Hall",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Claire Snyder-Hall\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kerri Evelyn Harris",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kerri Evelyn Harris\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Spiros Mantzavinos",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Spiros Mantzavinos\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=141889&legislationTypeId=1&docTypeId=2&legislationName=HB36",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=141889&legislationTypeId=1&docTypeId=2&legislationName=HB36",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [
+    {
+      "publication": "The Laws of Delaware",
+      "citation": "Volume 85 Chapter 144",
+      "citation_type": "chapter",
+      "effective": null,
+      "expires": null,
+      "url": "https://legis.delaware.gov/SessionLaws/Chapter/GetPdfDocument?fileAttachmentId=651037"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=141889",
+      "note": "text/html"
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:36Z"
+  }
+}

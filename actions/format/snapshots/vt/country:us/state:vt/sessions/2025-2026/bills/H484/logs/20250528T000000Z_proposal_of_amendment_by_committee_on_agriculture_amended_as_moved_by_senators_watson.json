@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Proposal of amendment by Committee on Agriculture amended as moved by Senator(s) Watson",
+    "date": "2025-05-28",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 484"
+}

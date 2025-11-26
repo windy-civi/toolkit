@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "01/24/2025 Placed on House Calendar  (01/28/2025)",
+    "date": "2025-01-24",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "reading-3"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HR5007"
+}

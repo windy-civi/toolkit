@@ -1,0 +1,56 @@
+{
+  "legislative_session": "38th",
+  "identifier": "B 7-38",
+  "title": "AN ACT TO REPEAL AND REENACT A NEW \u00a7 75122(c)(2), AND ADD A NEW \u00a7 75122(d) AND \u00a7 75122(e) TO CHAPTER 75 OF TITLE 21, GUAM CODE ANNOTATED RELATIVE TO REQUIRING THE CHAMORRO LAND TRUST TO SOLICIT COMPETITIVE BIDS FOR THE MASS GRADING AND MINERAL EXTRACTION OF A PORTION OF LOT 5412, MANGILAO.",
+  "from_organization": "~{\"classification\": \"legislature\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [],
+  "sponsorships": [
+    {
+      "name": "Joe S. San Agustin",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"legislature\", \"name\": \"Joe S. San Agustin\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill No. 7-38 (COR)",
+      "links": [
+        {
+          "url": "http://guamlegislature.gov/38th_Guam_Legislature/Bill_History_38th/STATUS Bill No. 7-38 (COR).pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://guamlegislature.gov/bills/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/territory:gu/government",
+    "name": "Guam",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/territory:gu"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T05:55:44Z"
+  }
+}

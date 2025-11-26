@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "House message: Governor vetoed bill on March 14, 2025",
+    "date": "2025-03-14",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "executive-veto"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 141"
+}

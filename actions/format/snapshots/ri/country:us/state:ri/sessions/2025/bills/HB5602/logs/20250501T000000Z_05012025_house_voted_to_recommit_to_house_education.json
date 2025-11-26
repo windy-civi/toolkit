@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "05/01/2025 House voted to recommit to House Education",
+    "date": "2025-05-01",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "HB5602"
+}

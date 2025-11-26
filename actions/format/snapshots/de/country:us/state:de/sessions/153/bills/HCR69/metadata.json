@@ -1,0 +1,110 @@
+{
+  "legislative_session": "153",
+  "identifier": "HCR 69",
+  "title": "DESIGNATING OCTOBER AS \u201cDYSLEXIA AWARENESS MONTH\u201d IN DELAWARE.",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "concurrent resolution"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "This concurrent resolution designates October of each year as \u201cDyslexia Awareness Month\u201d in Delaware. According to the United States National Institute of Health, dyslexia is a learning disability that can hinder a person\u2019s ability to read, write, spell, and sometimes speak. Dyslexia is the most common learning disability in children and persists throughout life with 10 percent of the population or one out of every 10 people in the United States suffering from dyslexia.\r\nChildren with dyslexia who are identified as dyslexic and are provided with effective reading instruction in kindergarten and first grade, will have significantly fewer problems learning to read at grade level than children who are not identified as dyslexic or provided help until third grade or after. Proper diagnosis, early and appropriate treatment, and support from family, teachers, and friends will greatly increase a child\u2019s academic success and self-esteem; however, it is never too late for adults with dyslexia to learn to read, and process and express information more efficiently.\r\n\r\nOctober is National Dyslexia Awareness Month, reminding students and their parents that living with dyslexia can be tackled with early intervention. Each year during the month of October, conferences are held around the United States to promote awareness, research, and early identification of dyslexia."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced in House",
+      "date": "2025-06-18",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Passed in House by Voice Vote",
+      "date": "2025-06-18",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    },
+    {
+      "description": "Passed By Senate. Votes: 20 YES 1 ABSENT",
+      "date": "2025-06-18",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Kimberly Williams",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kimberly Williams\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Laura V. Sturgeon",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Laura V. Sturgeon\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142538&legislationTypeId=3&docTypeId=2&legislationName=HCR69",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142538&legislationTypeId=3&docTypeId=2&legislationName=HCR69",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=142538",
+      "note": "text/html"
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:35Z"
+  }
+}

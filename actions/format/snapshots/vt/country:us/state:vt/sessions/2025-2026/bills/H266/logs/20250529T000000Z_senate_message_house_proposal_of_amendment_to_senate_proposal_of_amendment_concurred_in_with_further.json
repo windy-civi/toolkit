@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Senate Message: House proposal of amendment to Senate proposal of amendment concurred in with further proposal of amendment thereto",
+    "date": "2025-05-29",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 266"
+}

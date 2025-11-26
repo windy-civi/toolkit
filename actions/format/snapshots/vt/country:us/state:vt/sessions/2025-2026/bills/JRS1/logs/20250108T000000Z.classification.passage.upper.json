@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Read & adopted",
+    "date": "2025-01-08",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "JRS 1"
+}

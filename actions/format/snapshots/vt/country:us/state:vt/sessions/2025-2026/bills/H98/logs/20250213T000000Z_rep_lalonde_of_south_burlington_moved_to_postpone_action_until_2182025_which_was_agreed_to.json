@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Rep. LaLonde of South Burlington moved to postpone action until 2/18/2025, which was agreed to",
+    "date": "2025-02-13",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 98"
+}

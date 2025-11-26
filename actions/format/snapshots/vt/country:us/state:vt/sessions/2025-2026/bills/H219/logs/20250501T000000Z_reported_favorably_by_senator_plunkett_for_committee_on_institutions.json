@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Reported favorably by Senator Plunkett for Committee on Institutions",
+    "date": "2025-05-01",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage-favorable"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 219"
+}

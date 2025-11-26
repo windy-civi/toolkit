@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Rules suspended on motion of Senator Baruth",
+    "date": "2025-03-21",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 127"
+}

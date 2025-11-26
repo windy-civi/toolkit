@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Read and adopted in concurrence",
+    "date": "2025-05-14",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "JRS 26"
+}

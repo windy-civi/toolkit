@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Introduced and Assigned to Public Safety & Homeland Security Committee in House",
+    "date": "2025-06-05",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": [
+      {
+        "name": "Public Safety & Homeland Security",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 202"
+}

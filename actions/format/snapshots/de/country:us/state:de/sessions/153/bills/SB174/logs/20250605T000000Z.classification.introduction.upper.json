@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Introduced and Assigned to Health & Social Services Committee in Senate",
+    "date": "2025-06-05",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": [
+      {
+        "name": "Health & Social Services",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 174"
+}

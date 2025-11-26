@@ -1,0 +1,149 @@
+{
+  "legislative_session": "153",
+  "identifier": "HB 78",
+  "title": "AN ACT TO AMEND TITLE 14 AND TITLE 29 OF THE DELAWARE CODE RELATING TO RECORDINGS OF MEETINGS OF PUBLIC BODIES.",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "This Act requires that under the Freedom of Information Act (FOIA), Chapter 100 of Title 29, public bodies must make digital recordings of meetings, post these recordings on their website within 7 business days after the meeting concludes, and keep the recording on the website for at least 1 year. If the meeting has an executive session, the executive session portion of the recording may be withheld from the digital recording posted on the website. The digital recording may be audio only and a technological failure that prevents or limits the digital recording of a meeting does not invalidate the meeting or an action taken at the meeting.\r\n\r\nThis Act also makes corresponding changes to existing laws that require school district boards, boards of charter schools, the State Board of Education, and the full Board of Trustees of public institutions of higher learning to make and post digital recordings of board meetings.\r\n\r\n In addition, because school district boards, boards of charter schools, and the State Board of Education are subject to the meeting requirements under FOIA and specific meeting requirements scattered throughout Title 14, this Act clarifies that when there is a difference between requirements under Title 14 and requirements under FOIA, the requirements under Title 14 apply.\r\n\r\nSpecifically:\r\nSection 1 adds the digital recording requirements and exceptions for meetings of public bodies to FOIA as \u00a7 10004(f)(5) of Title 29.\r\nSection 2 requires that the digital recording of a meeting of the full Board of Trustees of public institutions of higher learning be posted on a public website within 7 days business days of the meeting, instead of \u201cwithin a reasonable time\u201d. \r\nSection 3 revises the digital recording requirement for State Board of Education meetings to require that recordings remain on the website for at least a year and adds a reference to \u00a7 10004(f)(5) of Title 29 so that recordings of executive sessions are now required but that portion may be withheld from the recording posted on the website. Section 3 also removes the exception that does not require digital recordings of committee meetings because under FOIA, committee meetings are subject to the same open meeting requirements as a meeting of the full State Board of Education.\r\nSection 4 adds references to \u00a7 10004(f)(5) of Title 29 to the current recording requirements for meetings of boards of education of public school districts, vocational-technical high school districts, and boards of directors of charter schools.\r\nSection 5 and Section 8 clarify that if there is a conflict between a requirement under FOIA and a requirement under Title 14, the requirements under Title 14 apply to a board of a charter school (Section 5) or a board of a school district (Section 8).\r\n\r\nThis Act also makes technical corrections to conform existing law to the standards of the Delaware Legislative Drafting Manual, including the following:\r\nSection 5 and Section 6 consolidate the definitions in Chapter 5 of Title 14 by transferring them to \u00a7 503(a) of Title 14.\r\nSection 7 repeals unnecessarily repetitive language from the definitions in \u00a7 1041 of Title 14. \r\n\r\nThis Act requires a greater than majority vote for passage because \u00a7 1 of Article IX of the Delaware Constitution requires the affirmative vote of two-thirds of the members elected to each house of the General Assembly to amend a charter issued to a municipal corporation."
+    }
+  ],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "School Boards/Public Bodies/FOIA Requirements"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced and Assigned to Education Committee in House",
+      "date": "2025-03-18",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Education",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Reported Out of Committee (Education) in House with 1 Favorable, 10 On Its Merits",
+      "date": "2025-03-26",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "committee-passage",
+        "committee-passage-favorable"
+      ],
+      "related_entities": [
+        {
+          "name": "Education",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Eric Morrison",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Eric Morrison\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Josue O Ortega",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Josue O Ortega\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Bryant L. Richardson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Bryant L. Richardson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Dave G. Lawson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Dave G. Lawson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Claire Snyder-Hall",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Claire Snyder-Hall\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Madinah Wilson-Anton",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Madinah Wilson-Anton\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=141953&legislationTypeId=1&docTypeId=2&legislationName=HB78",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=141953&legislationTypeId=1&docTypeId=2&legislationName=HB78",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=141953",
+      "note": "text/html"
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:36Z"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Senate proposal of amendment concurred in with further amendment thereto, as offered by Rep. Harple of Glover, Brady of Williston, Brown of Richmond, Conlon of Cornwall, Dobrovich of Williamstown, Long of Newfane, McCann of Montpelier, Quimby of Lyndon, Taylor of Milton, and Toof of St. Albans Town",
+    "date": "2025-05-23",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 209"
+}

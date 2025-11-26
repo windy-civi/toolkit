@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Entered on Notice Calendar",
+    "date": "2025-06-13",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 474"
+}

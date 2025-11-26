@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Committee of Conference appointed: Senators Cummings, Chittenden, and Brock",
+    "date": "2025-05-09",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 51"
+}

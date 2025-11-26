@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Notice Calendar: Senate Proposal of Amendment to House Proposal of Amendment to Senate Proposal of Amendment",
+    "date": "2025-05-08",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 398"
+}

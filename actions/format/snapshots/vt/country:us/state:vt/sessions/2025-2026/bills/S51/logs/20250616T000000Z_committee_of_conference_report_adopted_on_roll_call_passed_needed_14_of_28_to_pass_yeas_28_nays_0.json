@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Committee of Conference report adopted on roll call Passed -- Needed 14 of 28 to Pass -- Yeas = 28, Nays = 0",
+    "date": "2025-06-16",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 51"
+}

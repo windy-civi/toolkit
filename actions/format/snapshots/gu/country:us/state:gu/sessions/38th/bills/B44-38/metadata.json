@@ -1,0 +1,47 @@
+{
+  "legislative_session": "38th",
+  "identifier": "B 44-38",
+  "title": "AN ACT MAKING APPROPRIATIONS FOR THE OPERATIONS OF THE EXECUTIVE BRANCH OF THE GOVERNMENT OF GUAM FOR FISCAL YEAR ENDING SEPTEMBER 30, 2026, MAKING OTHER APPROPRIATIONS, AND ESTABLISHING MISCELLANEOUS AND ADMINISTRATIVE PROVISIONS.",
+  "from_organization": "~{\"classification\": \"legislature\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [],
+  "sponsorships": [],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill No. 44-38 (COR)",
+      "links": [
+        {
+          "url": "http://guamlegislature.gov/38th_Guam_Legislature/Bill_History_38th/STATUS Bill No. 44-38 (COR).pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://guamlegislature.gov/bills/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/territory:gu/government",
+    "name": "Guam",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/territory:gu"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T05:55:44Z"
+  }
+}

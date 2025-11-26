@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Housing & Land Use) in Senate with 5 Favorable, 1 On Its Merits",
+    "date": "2025-05-21",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Housing & Land Use",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 144"
+}

@@ -1,0 +1,217 @@
+{
+  "identifier": "3/14/2025--Recommendation of amendment by Committee on Judiciary agreed to on roll call, requested by Senator Hardy, Passed -- Needed 15 of 30 to Pass -- Yeas = 30, Nays = 0--http://legislature.vermont.gov/bill/loadBillRollCallDetails/2026/17",
+  "motion_text": "Recommendation of amendment by Committee on Judiciary agreed to on roll call, requested by Senator Hardy, Passed -- Needed 15 of 30 to Pass -- Yeas = 30, Nays = 0",
+  "motion_classification": [
+    "passage"
+  ],
+  "start_date": "2025-03-14",
+  "result": "pass",
+  "organization": "~{\"classification\": \"upper\"}",
+  "legislative_session": "2025-2026",
+  "bill": "1e89fe56-ca8c-11f0-a4a1-6ad870686b80",
+  "bill_action": null,
+  "bill_identifier": "JRS 15",
+  "votes": [
+    {
+      "option": "yes",
+      "voter_name": "Baruth",
+      "voter_id": "~{\"name\": \"Baruth\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Beck",
+      "voter_id": "~{\"name\": \"Beck\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Bongartz",
+      "voter_id": "~{\"name\": \"Bongartz\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Brennan",
+      "voter_id": "~{\"name\": \"Brennan\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Brock",
+      "voter_id": "~{\"name\": \"Brock\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Chittenden",
+      "voter_id": "~{\"name\": \"Chittenden\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Clarkson",
+      "voter_id": "~{\"name\": \"Clarkson\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Collamore",
+      "voter_id": "~{\"name\": \"Collamore\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Cummings",
+      "voter_id": "~{\"name\": \"Cummings\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Douglass",
+      "voter_id": "~{\"name\": \"Douglass\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Gulick",
+      "voter_id": "~{\"name\": \"Gulick\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Hardy",
+      "voter_id": "~{\"name\": \"Hardy\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Harrison",
+      "voter_id": "~{\"name\": \"Harrison\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Hart",
+      "voter_id": "~{\"name\": \"Hart\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Hashim",
+      "voter_id": "~{\"name\": \"Hashim\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Heffernan",
+      "voter_id": "~{\"name\": \"Heffernan\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Ingalls",
+      "voter_id": "~{\"name\": \"Ingalls\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Lyons",
+      "voter_id": "~{\"name\": \"Lyons\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Major",
+      "voter_id": "~{\"name\": \"Major\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Mattos",
+      "voter_id": "~{\"name\": \"Mattos\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Norris",
+      "voter_id": "~{\"name\": \"Norris\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Perchlik",
+      "voter_id": "~{\"name\": \"Perchlik\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Plunkett",
+      "voter_id": "~{\"name\": \"Plunkett\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Ram Hinsdale",
+      "voter_id": "~{\"name\": \"Ram Hinsdale\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Vyhovsky",
+      "voter_id": "~{\"name\": \"Vyhovsky\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Watson",
+      "voter_id": "~{\"name\": \"Watson\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Weeks",
+      "voter_id": "~{\"name\": \"Weeks\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Westman",
+      "voter_id": "~{\"name\": \"Westman\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "White",
+      "voter_id": "~{\"name\": \"White\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Williams",
+      "voter_id": "~{\"name\": \"Williams\"}",
+      "note": ""
+    }
+  ],
+  "counts": [
+    {
+      "option": "yes",
+      "value": 30
+    },
+    {
+      "option": "no",
+      "value": 0
+    },
+    {
+      "option": "not voting",
+      "value": 0
+    }
+  ],
+  "sources": [
+    {
+      "url": "http://legislature.vermont.gov/bill/loadBillRollCallDetails/2026/17",
+      "note": ""
+    }
+  ],
+  "extras": {}
+}

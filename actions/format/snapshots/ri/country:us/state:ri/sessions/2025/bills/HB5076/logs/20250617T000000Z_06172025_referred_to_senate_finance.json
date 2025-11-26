@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "06/17/2025 Referred to Senate Finance",
+    "date": "2025-06-17",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB5076"
+}

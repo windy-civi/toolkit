@@ -1,0 +1,18 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Revenue & Finance) in House with 6 On Its Merits",
+    "date": "2025-05-22",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage"
+    ],
+    "related_entities": [
+      {
+        "name": "Revenue & Finance",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 99"
+}

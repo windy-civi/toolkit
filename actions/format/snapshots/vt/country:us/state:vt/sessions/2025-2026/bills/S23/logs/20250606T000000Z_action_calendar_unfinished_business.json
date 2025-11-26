@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Action Calendar: Unfinished Business",
+    "date": "2025-06-06",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 23"
+}

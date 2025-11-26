@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "05/13/2025 Senate passed Sub A",
+    "date": "2025-05-13",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB343"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Senate Message: Vetoed by Governor June 9, 2025",
+    "date": "2025-06-13",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "executive-veto"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 125"
+}

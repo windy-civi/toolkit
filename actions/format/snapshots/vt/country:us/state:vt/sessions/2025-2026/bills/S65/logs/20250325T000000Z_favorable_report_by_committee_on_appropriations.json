@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Favorable report by Committee on Appropriations",
+    "date": "2025-03-25",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 65"
+}

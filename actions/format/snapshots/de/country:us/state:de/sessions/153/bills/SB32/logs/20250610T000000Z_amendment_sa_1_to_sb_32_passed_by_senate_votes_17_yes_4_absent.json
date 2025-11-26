@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment SA 1 to SB 32 - Passed By Senate. Votes: 17 YES 4 ABSENT",
+    "date": "2025-06-10",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB 32"
+}

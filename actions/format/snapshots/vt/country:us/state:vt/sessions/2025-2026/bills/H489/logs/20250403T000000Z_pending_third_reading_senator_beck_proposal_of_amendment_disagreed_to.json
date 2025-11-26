@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "Pending third reading, Senator Beck proposal of amendment, disagreed to",
+    "date": "2025-04-03",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction",
+      "reading-3"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 489"
+}

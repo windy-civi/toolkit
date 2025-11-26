@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Delivered to Governor on June 6, 2025",
+    "date": "2025-06-06",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "executive-receipt"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 126"
+}

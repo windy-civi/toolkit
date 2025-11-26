@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "01/31/2025 Scheduled for hearing and/or consideration  (02/06/2025)",
+    "date": "2025-01-31",
+    "organization_id": "~{\"classification\": \"legislature\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "HB5252"
+}

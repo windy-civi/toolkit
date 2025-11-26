@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Passed By House. Votes: 40 YES 1 VACANT",
+    "date": "2025-06-26",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB 93"
+}

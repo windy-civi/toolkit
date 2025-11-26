@@ -1,0 +1,181 @@
+{
+  "legislative_session": "153",
+  "identifier": "SB 14",
+  "title": "AN ACT PROPOSING AN AMENDMENT TO ARTICLE II OF THE DELAWARE CONSTITUTION RELATING TO REDISTRICTING.",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "This Act is the first leg of a constitutional amendment to create an independent redistricting commission to redistrict Senatorial and Representative districts following each federal decennial census.\r\n\r\nThe purpose of this Act is to establish more transparency in government, and to strengthen citizens' faith in the election and redistricting processes that serve as the foundation of democracy in this State. To achieve this purpose, this Act establishes the Independent Redistricting Commission (\u201cCommission\u201d). \r\n\r\nThe Commission is responsible for drawing the boundaries of Delaware's Representative and Senatorial districts every 10 years, following each decennial census. \r\n\r\nThe process begins with the selection of a pool of 24 potential Commission members by a bipartisan judicial panel from applications filed with the Commissioner of Elections. The pool must include 8 candidates from each of the State\u2019s two largest political parties and 8 candidates that are not a member of either of the State\u2019s two largest parties. \r\n\r\nBefore the selection of Commission members from the pool of 24 potential Commission members, the following individuals each have the opportunity to strike one candidate from the pool: the Speaker of the House of Representatives, the House Minority Leader, the President Pro Tempore of the Senate, and the Senate Minority Leader. From the pool of remaining candidates, the Commissioner of Elections will draw by lot until the following conditions are satisfied: \r\n(1) The Commission has 5 members, with 1 member from each county, plus 1 member from the City of Wilmington, plus 1 member from anywhere in this State.\r\n(2) Two members of the Commission are members of the State\u2019s largest political party, 2 members of the Commission are members of the State\u2019s second largest political party, and 1 member of the Commission who is not a member of either of the State\u2019s two largest political parties. \r\n\r\nEligible candidates may not be, and may not have in the 5 years before appointment been, a federal or state lobbyist, an officer of a federal or state political party, an officer of a campaign committee, or an elected federal or state official. Commissioners are also prohibited from running for the General Assembly in the election following the redistricting and from registering as a federal or state lobbyist for 5 years following the term as a Commissioner. \r\n\r\nOnce established, the Commission must prepare a preliminary redistricting plan and report for public distribution, and 4 public hearings must be held before a final redistricting plan and report is approved by the Commission. The Commission is to be guided in this task by standards and criteria established in this Act, including that the redistricting plan provide effective representation for all residents of this State, including racial, ethnic, and language minorities, and meeting the following criteria:\r\n(1) The districts are to be formed of contiguous territory.\r\n(2) The districts are to be nearly equal in population, with no more than 5% population deviation between districts.\r\n(3) The districts are to be bounded by major roads and streams or other natural boundaries.\r\n(4) The districts are to be created so as to not unduly favor any person or political party. \r\n(5) The districts are to comply with all standards mandated by federal law, including the federal Voting Rights Act, 42 U.S.C. \u00a7\u00a7 1971 et. seq., or any successor law.\r\n(6) The districts are to comply with the criteria for counting incarcerated individuals for redistricting purposes, as established by an act of the General Assembly.\r\n(7) The districts are to be created to consider and preserve communities of interest. \r\n\r\nThe Commission is to be advised in its efforts by 4 advisory committees, one for each county and one for the City of Wilmington. Each advisory committee is to consist of 12 members appointed by the Commission. The members must be diverse in terms of race, ethnicity, gender, and geographic location, and, to ensure that an advisory committee makes well-informed recommendations, expert members in the fields of election law, redistricting, demographics, political science, community organizing, and data visualization must be appointed through a transparent and inclusive process.\r\n\r\nFor the Commission\u2019s final redistricting plan and report to become law, the plan and report must pass both Houses of the General Assembly with the concurrence of a majority of all members elected to each House, but not presented to the Governor for action. If the General Assembly fails to pass the Commission\u2019s final plan and report or revised final plan and report, the Supreme Court shall redistrict the Representative and Senatorial districts in compliance with the standards and criteria in this Act. If the Commission fails to adopt a preliminary, final, or revised final redistricting plan and report, the Supreme Court shall redistrict the Representative and Senatorial districts in compliance with the standards and criteria in this Act.\r\n\r\nThe Supreme Court has original and exclusive jurisdiction to resolve challenges to the final redistricting plan and report enacted by the General Assembly or itself. If a redistricting plan and report adopted by the General Assembly is adjudicated unconstitutional or in violation of the law of this State or federal law, the Supreme Court shall redistrict the Representative and Senatorial districts in compliance with the standards and criteria in this Act.\r\n\r\nThis Act requires a greater than majority vote for passage because \u00a7 1 of Article XVI of the Delaware Constitution requires the affirmative vote of two-thirds of the members elected to each house of the General Assembly to amend the Delaware Constitution. \r\n\r\nAmending the Delaware Constitution requires not only the passing of the changes in this Act, but also passage of the same changes after the next general election by the next General Assembly."
+    }
+  ],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Const. Amend/First Leg/Redistricting Commission/Create"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced and Assigned to Executive Committee in Senate",
+      "date": "2025-01-03",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Executive",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:34Z"
+      }
+    },
+    {
+      "description": "Reported Out of Committee (Executive) in Senate with 3 Favorable, 3 On Its Merits",
+      "date": "2025-05-14",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "committee-passage",
+        "committee-passage-favorable"
+      ],
+      "related_entities": [
+        {
+          "name": "Executive",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:34Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Kyra L. Hoffner",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Kyra L. Hoffner\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Bryan Townsend",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Bryan Townsend\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Claire Snyder-Hall",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Claire Snyder-Hall\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Melanie Ross Levin",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Melanie Ross Levin\"}",
+      "organization_id": null
+    },
+    {
+      "name": "David P. Sokola",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"David P. Sokola\"}",
+      "organization_id": null
+    },
+    {
+      "name": "David L. Wilson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"David L. Wilson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Bryant L. Richardson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Bryant L. Richardson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Spiros Mantzavinos",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Spiros Mantzavinos\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Cyndie Romer",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Cyndie Romer\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Lyndon D. Yearick",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Lyndon D. Yearick\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=141748&legislationTypeId=1&docTypeId=2&legislationName=SB14",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=141748&legislationTypeId=1&docTypeId=2&legislationName=SB14",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=141748",
+      "note": "text/html"
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:34Z"
+  }
+}

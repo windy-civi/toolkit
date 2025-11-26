@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "05/23/2025 Placed on House Calendar  (05/27/2025)",
+    "date": "2025-05-23",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "reading-3"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB6232"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "02/25/2025 Committee recommends passage in concurrence",
+    "date": "2025-02-25",
+    "organization_id": "~{\"classification\": \"legislature\"}",
+    "classification": [
+      "committee-passage-favorable"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB5035"
+}

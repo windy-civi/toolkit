@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Delivered to the Governor on May 30, 2025",
+    "date": "2025-05-30",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 482"
+}

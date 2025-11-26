@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "03/12/2025 Referred to House Finance",
+    "date": "2025-03-12",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB57"
+}

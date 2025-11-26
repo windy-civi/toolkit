@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Capital Improvement) in Senate with 4 Favorable",
+    "date": "2025-06-26",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Capital Improvement",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 200"
+}

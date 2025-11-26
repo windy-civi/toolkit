@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Reported Enrolled; Signed by Speaker; Transmitted to Senate",
+    "date": "2025-04-01",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 0454"
+}

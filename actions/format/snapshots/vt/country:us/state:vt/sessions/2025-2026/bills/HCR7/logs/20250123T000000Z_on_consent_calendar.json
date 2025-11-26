@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "On Consent Calendar",
+    "date": "2025-01-23",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "HCR 7"
+}

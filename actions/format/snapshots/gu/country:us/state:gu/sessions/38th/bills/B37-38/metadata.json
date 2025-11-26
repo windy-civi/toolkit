@@ -1,0 +1,56 @@
+{
+  "legislative_session": "38th",
+  "identifier": "B 37-38",
+  "title": "AN ACT TO APPROPRIATE ONE MILLION DOLLARS ($1,000,000) FROM THE FISCAL YEAR 2025 GENERAL FUND REVENUES COLLECTED IN EXCESS OF THE ADOPTED LEVELS ENUMERATED IN PUBLIC LAW 37-125 TO THE GUAM UNIQUE MERCHANDISE AND ART (GUMA) FOR THE PURPOSE OF PROVIDING MENTORING AND FINANCIAL ASSISTANCE TO START-UP BUSINESSES BEING DEVELOPED WITH THEIR PROGRAM",
+  "from_organization": "~{\"classification\": \"legislature\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [],
+  "sponsorships": [
+    {
+      "name": "Joe S. San Agustin",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"legislature\", \"name\": \"Joe S. San Agustin\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill No. 37-38 (COR)",
+      "links": [
+        {
+          "url": "http://guamlegislature.gov/38th_Guam_Legislature/Bill_History_38th/STATUS Bill No. 37-38 (COR).pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://guamlegislature.gov/bills/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/territory:gu/government",
+    "name": "Guam",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/territory:gu"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T05:55:44Z"
+  }
+}

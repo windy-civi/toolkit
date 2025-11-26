@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "05/15/2025 Committee recommended measure be held for further study",
+    "date": "2025-05-15",
+    "organization_id": "~{\"classification\": \"legislature\"}",
+    "classification": [
+      "committee-failure"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB6321"
+}

@@ -1,0 +1,18 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Elections & Government Affairs) in House with 6 On Its Merits",
+    "date": "2025-03-19",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage"
+    ],
+    "related_entities": [
+      {
+        "name": "Elections & Government Affairs",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 65"
+}

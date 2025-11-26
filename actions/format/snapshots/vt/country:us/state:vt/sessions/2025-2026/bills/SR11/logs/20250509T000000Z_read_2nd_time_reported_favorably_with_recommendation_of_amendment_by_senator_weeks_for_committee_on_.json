@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "Read 2nd time, reported favorably with recommendation of amendment by Senator Weeks for Committee on Economic Development, Housing and General Affairs",
+    "date": "2025-05-09",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage-favorable",
+      "reading-2"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SR 11"
+}

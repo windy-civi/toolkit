@@ -1,0 +1,180 @@
+{
+  "legislative_session": "153",
+  "identifier": "HB 141",
+  "title": "AN ACT TO AMEND TITLES 11 AND 24 OF THE DELAWARE CODE RELATING TO FIREARMS.",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "This Act directs the Department of Safety and Homeland Security (DSHS) to develop a Firearm Responsibilities Notice for distribution to gun purchasers to ensure dissemination of important information relating to safe and lawful handling of firearms. It mandates that licensed importers, manufacturers, and dealers cannot sell, transfer, or deliver a firearm to another person without requiring the buyer to review and sign a Firearm Responsibilities Notice. Licensed dealers that provide background checks to facilitate a sale between unlicensed persons are also responsible for providing a copy of the Firearm Responsibilities Notice to the prospective buyer and retaining a copy of the Firearm Responsibilities Notice signed by the prospective buyer. The purpose of the Firearm Responsibilities Notice is to deter straw purchases and other illegal transfer of firearms, to ensure awareness of Delaware\u2019s gun safety laws, and to increase the reporting of lost or stolen firearms. The Firearm Responsibilities Notice is also intended to prevent accidental shootings by providing information on gun safety and available gun safety courses. It is also designed to reduce suicides by providing the national suicide prevention hotline number. \r\nThis bill requires licensed firearm dealers to securely maintain a record of all signed Firearm Responsibilities Notices. This bill tasks the Department with creating the Firearm Responsibilities Notice, in consultation with the Department of Justice and other stakeholders, posting the Firearm Responsibilities Notice to its website, and providing (free of charge) the Firearm Responsibilities Notice to licensed importers, licensed manufacturers, and licensed dealers in the State. \r\nAll licensed deadly weapons dealers in this State are mandated to keep and securely store signed Firearm Responsibilities Notices for at least 3 years as part of the records required to be kept and maintained in the place of business at all times. \r\nA violation of provisions of Title 24 relating to records or background checks for sales between unlicensed persons is already a misdemeanor, punishable by a maximum fine of $250 or $500 and 6 months imprisonment. This law will expand the scope of those misdemeanors, thus requiring a 2/3 vote.\r\nThe bill is effective 180 days after enactment. The DSHS is required to conduct outreach to licensed importers, licensed manufacturers, and licensed dealers in Delaware prior to the effective date to make them aware of the new requirements imposed by this Act and provide access to the Firearm Responsibilities Notice as developed by the Department."
+    }
+  ],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Firearms Responsibilities Notice/DSHS"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced and Assigned to Judiciary Committee in House",
+      "date": "2025-05-07",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Judiciary",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:37Z"
+      }
+    },
+    {
+      "description": "Not Worked in Committee",
+      "date": "2025-06-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:37Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Kimberly Williams",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kimberly Williams\"}",
+      "organization_id": null
+    },
+    {
+      "name": "William Bush",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"William Bush\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Josue O Ortega",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Josue O Ortega\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Bryant L. Richardson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Bryant L. Richardson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Eric Morrison",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Eric Morrison\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Cyndie Romer",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Cyndie Romer\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Melanie Ross Levin",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Melanie Ross Levin\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Claire Snyder-Hall",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Claire Snyder-Hall\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Mara Gorman",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Mara Gorman\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Sarah McBride",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Sarah McBride\"}",
+      "organization_id": null
+    },
+    {
+      "name": "David P. Sokola",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"David P. Sokola\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142209&legislationTypeId=1&docTypeId=2&legislationName=HB141",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142209&legislationTypeId=1&docTypeId=2&legislationName=HB141",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=142209",
+      "note": "text/html"
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:37Z"
+  }
+}

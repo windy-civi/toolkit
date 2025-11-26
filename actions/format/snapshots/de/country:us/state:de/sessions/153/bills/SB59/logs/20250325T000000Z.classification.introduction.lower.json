@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Assigned to Natural Resources & Energy Committee in House",
+    "date": "2025-03-25",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": [
+      {
+        "name": "Natural Resources & Energy",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 59"
+}

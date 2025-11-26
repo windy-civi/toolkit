@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "Vetoed by the Governor on April 4, 2025",
+    "date": "2025-04-04",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "executive-veto",
+      "executive-veto"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 489"
+}

@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "03/27/2025 Introduced, referred to Senate Health and Human Services",
+    "date": "2025-03-27",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB897"
+}

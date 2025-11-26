@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Environment, Energy & Transportation) in Senate with 3 Favorable, 3 On Its Merits",
+    "date": "2025-06-10",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Environment, Energy & Transportation",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 159"
+}

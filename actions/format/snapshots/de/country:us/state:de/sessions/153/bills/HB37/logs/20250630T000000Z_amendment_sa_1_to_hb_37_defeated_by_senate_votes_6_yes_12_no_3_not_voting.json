@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment SA 1 to HB 37 - Defeated By Senate. Votes: 6 YES 12 NO 3 NOT VOTING",
+    "date": "2025-06-30",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-failure"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB 37"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Read 1st time & referred to Committee on Rules",
+    "date": "2025-05-13",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 230"
+}

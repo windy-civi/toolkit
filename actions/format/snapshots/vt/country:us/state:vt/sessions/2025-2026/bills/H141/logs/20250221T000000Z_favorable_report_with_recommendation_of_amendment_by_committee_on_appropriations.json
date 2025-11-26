@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Favorable report with recommendation of amendment by Committee on Appropriations",
+    "date": "2025-02-21",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 141"
+}

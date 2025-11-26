@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Consideration postponed without objection",
+    "date": "2025-04-25",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 27"
+}

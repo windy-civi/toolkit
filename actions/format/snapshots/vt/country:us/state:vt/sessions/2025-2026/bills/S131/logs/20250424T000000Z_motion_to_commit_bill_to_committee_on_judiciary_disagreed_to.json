@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Motion to commit bill to Committee on Judiciary disagreed to.",
+    "date": "2025-04-24",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 131"
+}

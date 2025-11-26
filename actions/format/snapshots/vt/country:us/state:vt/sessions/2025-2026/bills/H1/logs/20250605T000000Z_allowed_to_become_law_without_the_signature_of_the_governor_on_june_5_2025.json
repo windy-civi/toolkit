@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Allowed to become law without the signature of the Governor on June 5, 2025",
+    "date": "2025-06-05",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 1"
+}

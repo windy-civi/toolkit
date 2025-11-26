@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment SA 1 to SB 123 - Introduced and Placed With Bill",
+    "date": "2025-06-17",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB 123"
+}

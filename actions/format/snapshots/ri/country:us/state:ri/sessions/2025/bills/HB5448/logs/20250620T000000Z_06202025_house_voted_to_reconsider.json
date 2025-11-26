@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "06/20/2025 House voted to reconsider",
+    "date": "2025-06-20",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "HB5448"
+}

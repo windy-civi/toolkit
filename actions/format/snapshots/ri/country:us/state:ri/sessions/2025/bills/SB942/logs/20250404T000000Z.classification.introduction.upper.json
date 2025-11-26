@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "04/04/2025 Introduced, referred to Senate Housing and Municipal Government",
+    "date": "2025-04-04",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB942"
+}

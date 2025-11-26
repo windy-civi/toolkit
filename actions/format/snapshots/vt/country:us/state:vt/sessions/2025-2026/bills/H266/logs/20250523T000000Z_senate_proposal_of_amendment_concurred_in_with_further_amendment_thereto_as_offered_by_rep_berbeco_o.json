@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Senate proposal of amendment concurred in with further amendment thereto, as offered by Rep. Berbeco of Winooski, Black of Essex, Cina of Burlington, Cordes of Bristol, Critchlow of Colchester, Demar of Enosburgh, Goldman of Rockingham, Houghton of Essex Junction, McFaun of Barre Town, Page of Newport City, and Powers of Waterford",
+    "date": "2025-05-23",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 266"
+}

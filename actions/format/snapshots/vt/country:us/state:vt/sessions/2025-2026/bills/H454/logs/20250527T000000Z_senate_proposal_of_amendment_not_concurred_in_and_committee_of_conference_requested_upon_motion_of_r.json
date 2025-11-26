@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Senate proposal of amendment not concurred in and Committee of Conference requested upon motion of Rep. Conlon of Cornwall",
+    "date": "2025-05-27",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 454"
+}

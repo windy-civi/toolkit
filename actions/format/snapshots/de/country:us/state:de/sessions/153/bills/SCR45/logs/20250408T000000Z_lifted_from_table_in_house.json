@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Lifted From Table in House",
+    "date": "2025-04-08",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "SCR 45"
+}

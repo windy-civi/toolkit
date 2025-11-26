@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Rep. Bartholomew of Hartland raised a Point of Order",
+    "date": "2025-05-23",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 127"
+}

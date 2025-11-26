@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Senate Message: Passed in concurrence",
+    "date": "2025-05-08",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 491"
+}

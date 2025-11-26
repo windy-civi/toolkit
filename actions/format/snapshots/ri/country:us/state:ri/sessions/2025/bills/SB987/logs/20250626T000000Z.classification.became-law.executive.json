@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "06/26/2025 Effective without Governor's signature",
+    "date": "2025-06-26",
+    "organization_id": "~{\"classification\": \"executive\"}",
+    "classification": [
+      "became-law"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB987"
+}

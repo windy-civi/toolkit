@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Read 1st time & placed on action calendar per Rule 51",
+    "date": "2025-03-21",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "JRH 3"
+}

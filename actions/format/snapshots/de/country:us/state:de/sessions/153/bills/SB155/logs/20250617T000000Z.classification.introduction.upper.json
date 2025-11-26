@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Adopted in lieu of the original bill SB 155, and Assigned to Elections & Government Affairs Committee in Senate",
+    "date": "2025-06-17",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": [
+      {
+        "name": "Elections & Government Affairs",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 155"
+}

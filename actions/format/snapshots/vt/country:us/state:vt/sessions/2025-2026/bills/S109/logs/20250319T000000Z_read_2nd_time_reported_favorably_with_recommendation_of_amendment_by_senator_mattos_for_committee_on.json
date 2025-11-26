@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "Read 2nd time, reported favorably with recommendation of amendment by Senator Mattos for Committee on Judiciary",
+    "date": "2025-03-19",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage-favorable",
+      "reading-2"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 109"
+}

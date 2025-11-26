@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment SA 2 to SB 43 - Passed By Senate. Votes: 19 YES 2 VACANT",
+    "date": "2025-01-30",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB 43"
+}

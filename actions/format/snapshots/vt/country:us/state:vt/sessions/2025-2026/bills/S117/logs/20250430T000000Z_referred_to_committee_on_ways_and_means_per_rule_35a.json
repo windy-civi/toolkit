@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Referred to Committee on Ways and Means per Rule 35(a)",
+    "date": "2025-04-30",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 117"
+}

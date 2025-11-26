@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Returned Signed by the President; Ordered Transmitted to Governor",
+    "date": "2025-04-02",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "executive-receipt"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 0445"
+}

@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Received from the House enrolled/signed by Speaker",
+    "date": "2025-04-01",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 0454"
+}

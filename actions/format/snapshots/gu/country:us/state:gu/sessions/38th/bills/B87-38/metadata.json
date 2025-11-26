@@ -1,0 +1,56 @@
+{
+  "legislative_session": "38th",
+  "identifier": "B 87-38",
+  "title": "AN ACT TO A NEW \u00a7 12130 TO ARTICLE 1, CHAPTER 12, GUAM CODE ANNOTATED RELATIVE TO PROVIDING ALTERNATIVES TO SHORT-TERM LEASES OF LAND FOR CONSTRUCTION PROJECT STAGING, STORAGE OF SUPPLIES, CONSTRUCTION MATERIALS OR EQUIPMENT FOR AGENCIES WHOSE LEASE RATES ARE APPROVED BY THE PUC AND NOTWITHSTANDING SUCH APPROVED LEASE RATES.",
+  "from_organization": "~{\"classification\": \"legislature\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [],
+  "sponsorships": [
+    {
+      "name": "V. Anthony Ada",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"legislature\", \"name\": \"V. Anthony Ada\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill No. 87-38 (COR)",
+      "links": [
+        {
+          "url": "http://guamlegislature.gov/38th_Guam_Legislature/Bill_History_38th/STATUS Bill No. 87-38 (COR).pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://guamlegislature.gov/bills/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/territory:gu/government",
+    "name": "Guam",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/territory:gu"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T05:55:44Z"
+  }
+}

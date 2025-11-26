@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Point of order sustained by the President",
+    "date": "2025-06-16",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 454"
+}

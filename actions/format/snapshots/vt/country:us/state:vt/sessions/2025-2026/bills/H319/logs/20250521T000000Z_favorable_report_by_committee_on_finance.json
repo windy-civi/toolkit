@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Favorable report by Committee on Finance",
+    "date": "2025-05-21",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 319"
+}

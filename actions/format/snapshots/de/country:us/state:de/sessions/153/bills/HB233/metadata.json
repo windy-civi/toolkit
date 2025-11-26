@@ -1,0 +1,85 @@
+{
+  "legislative_session": "153",
+  "identifier": "HB 233",
+  "title": "AN ACT TO AMEND TITLE 26 OF THE DELAWARE CODE RELATING TO LARGE ENERGY USE FACILITIES.",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "This Act requires regulated utilities to establish a separate rate for large energy-use facilities that mitigates the risk of costs associated with expanding infrastructure and maintaining reliability in the face of growing demand from being shifted to residential, small business, and other electric customers. The Public Service Commission will consider the following factors in determining whether to approve a rate application:\r\n1. Whether the rates have the potential to result in increased rates or unwarranted risk to other retail electricity customers.\r\n2. Whether the rates will provide for equitable contributions to grid efficiency, reliability, and resiliency.\r\n3. Whether the rates will impede the utility\u2019s ability to meet renewable energy targets and reduce greenhouse gases consistent with state policy.\r\n4. Whether the rates will allow for procurement of, or contracts for, generation resources that support the electric utility\u2019s ability to meet renewable energy targets and reduce emissions of greenhouse gases consistent with state policy.\r\n5. Meet any other conditions required by the Commission in the public interest.\r\n\r\nThis Act takes effect upon enactment and regulated utilities must file an application to establish rates required under this Act within 180 days of the effective date."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced and Assigned to Natural Resources & Energy Committee in House",
+      "date": "2025-06-30",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Natural Resources & Energy",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Frank Burns",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Frank Burns\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142655&legislationTypeId=1&docTypeId=2&legislationName=HB233",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142655&legislationTypeId=1&docTypeId=2&legislationName=HB233",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=142655",
+      "note": "text/html"
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:36Z"
+  }
+}

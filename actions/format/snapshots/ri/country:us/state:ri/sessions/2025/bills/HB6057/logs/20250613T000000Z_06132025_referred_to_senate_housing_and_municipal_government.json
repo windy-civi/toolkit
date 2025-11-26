@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "06/13/2025 Referred to Senate Housing and Municipal Government",
+    "date": "2025-06-13",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB6057"
+}

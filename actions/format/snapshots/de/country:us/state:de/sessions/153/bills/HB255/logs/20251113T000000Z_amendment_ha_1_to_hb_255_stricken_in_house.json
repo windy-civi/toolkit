@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Amendment HA 1 to HB 255 - Stricken in House",
+    "date": "2025-11-13",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "HB 255"
+}

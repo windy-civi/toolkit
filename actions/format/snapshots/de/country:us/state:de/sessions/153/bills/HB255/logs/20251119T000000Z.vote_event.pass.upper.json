@@ -1,0 +1,162 @@
+{
+  "identifier": "",
+  "motion_text": "3/5",
+  "motion_classification": [],
+  "start_date": "2025-11-19",
+  "result": "pass",
+  "organization": "~{\"classification\": \"upper\"}",
+  "legislative_session": "153",
+  "bill": "a451201e-ca8c-11f0-8677-32549feb6cd6",
+  "bill_action": null,
+  "bill_identifier": "HB 255",
+  "votes": [
+    {
+      "option": "other",
+      "voter_name": "Darius J. Brown",
+      "voter_id": "~{\"name\": \"Darius J. Brown\"}",
+      "note": ""
+    },
+    {
+      "option": "no",
+      "voter_name": "Eric Buckson",
+      "voter_id": "~{\"name\": \"Eric Buckson\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Daniel Cruce",
+      "voter_id": "~{\"name\": \"Daniel Cruce\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Stephanie L. Hansen",
+      "voter_id": "~{\"name\": \"Stephanie L. Hansen\"}",
+      "note": ""
+    },
+    {
+      "option": "no",
+      "voter_name": "Gerald W. Hocker",
+      "voter_id": "~{\"name\": \"Gerald W. Hocker\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Kyra L. Hoffner",
+      "voter_id": "~{\"name\": \"Kyra L. Hoffner\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Russell Huxtable",
+      "voter_id": "~{\"name\": \"Russell Huxtable\"}",
+      "note": ""
+    },
+    {
+      "option": "no",
+      "voter_name": "Dave G. Lawson",
+      "voter_id": "~{\"name\": \"Dave G. Lawson\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "S. Elizabeth Lockman",
+      "voter_id": "~{\"name\": \"S. Elizabeth Lockman\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Spiros Mantzavinos",
+      "voter_id": "~{\"name\": \"Spiros Mantzavinos\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Trey Paradee",
+      "voter_id": "~{\"name\": \"Trey Paradee\"}",
+      "note": ""
+    },
+    {
+      "option": "no",
+      "voter_name": "Brian Pettyjohn",
+      "voter_id": "~{\"name\": \"Brian Pettyjohn\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Marie Pinkney",
+      "voter_id": "~{\"name\": \"Marie Pinkney\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Nicole Poore",
+      "voter_id": "~{\"name\": \"Nicole Poore\"}",
+      "note": ""
+    },
+    {
+      "option": "no",
+      "voter_name": "Bryant L. Richardson",
+      "voter_id": "~{\"name\": \"Bryant L. Richardson\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Ray Seigfried",
+      "voter_id": "~{\"name\": \"Ray Seigfried\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "David P. Sokola",
+      "voter_id": "~{\"name\": \"David P. Sokola\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Laura V. Sturgeon",
+      "voter_id": "~{\"name\": \"Laura V. Sturgeon\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Bryan Townsend",
+      "voter_id": "~{\"name\": \"Bryan Townsend\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "John \"Jack\" Walsh",
+      "voter_id": "~{\"name\": \"John \\\"Jack\\\" Walsh\"}",
+      "note": ""
+    },
+    {
+      "option": "no",
+      "voter_name": "David L. Wilson",
+      "voter_id": "~{\"name\": \"David L. Wilson\"}",
+      "note": ""
+    }
+  ],
+  "counts": [
+    {
+      "option": "yes",
+      "value": 14
+    },
+    {
+      "option": "no",
+      "value": 6
+    },
+    {
+      "option": "other",
+      "value": 1
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/json/RollCallController/GenerateRollCallPdf?rollCallId=57664&chamberId=1",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "dedupe_key": "HB 255 in 153#57664#3/5#upper#2025-11-19"
+}

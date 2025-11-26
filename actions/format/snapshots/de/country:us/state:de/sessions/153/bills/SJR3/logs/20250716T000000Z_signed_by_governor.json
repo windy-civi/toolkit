@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Signed by Governor",
+    "date": "2025-07-16",
+    "organization_id": "~{\"classification\": \"executive\"}",
+    "classification": [
+      "executive-signature"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SJR 3"
+}

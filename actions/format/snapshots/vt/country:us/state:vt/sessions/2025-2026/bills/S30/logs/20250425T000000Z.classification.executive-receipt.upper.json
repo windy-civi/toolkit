@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Delivered to Governor on April 25, 2025",
+    "date": "2025-04-25",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "executive-receipt"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 30"
+}

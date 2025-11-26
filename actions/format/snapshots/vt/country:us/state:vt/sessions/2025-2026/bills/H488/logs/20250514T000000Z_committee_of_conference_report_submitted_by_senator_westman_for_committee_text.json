@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Committee of Conference report submitted by Senator Westman for Committee, text",
+    "date": "2025-05-14",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 488"
+}

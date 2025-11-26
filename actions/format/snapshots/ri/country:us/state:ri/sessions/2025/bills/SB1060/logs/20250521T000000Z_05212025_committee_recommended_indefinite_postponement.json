@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "05/21/2025 Committee recommended indefinite postponement",
+    "date": "2025-05-21",
+    "organization_id": "~{\"classification\": \"legislature\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "SB1060"
+}

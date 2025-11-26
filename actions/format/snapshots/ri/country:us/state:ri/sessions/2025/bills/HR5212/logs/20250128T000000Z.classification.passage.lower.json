@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "01/28/2025 House read and passed",
+    "date": "2025-01-28",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HR5212"
+}

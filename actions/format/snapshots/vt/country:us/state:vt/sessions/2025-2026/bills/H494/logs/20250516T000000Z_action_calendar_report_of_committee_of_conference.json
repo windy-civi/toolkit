@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Action Calendar: Report of Committee of Conference",
+    "date": "2025-05-16",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 494"
+}

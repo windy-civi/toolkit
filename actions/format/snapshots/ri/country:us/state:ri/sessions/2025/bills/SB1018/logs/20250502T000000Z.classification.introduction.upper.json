@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "05/02/2025 Introduced, referred to Senate Special Legislation and Veterans Affairs",
+    "date": "2025-05-02",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB1018"
+}

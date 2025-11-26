@@ -1,0 +1,121 @@
+{
+  "legislative_session": "153",
+  "identifier": "HB 13",
+  "title": "AN ACT TO AMEND TITLE 30 OF THE DELAWARE CODE RELATING TO PERSONAL INCOME TAX.",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "Like under House Bill No. 13 (HB 13) and House Substitute No. 1 for HB 13 (HS 1 for HB 13), this Act adjusts the existing personal income tax brackets and applicable tax rates. Under this Act, for taxable years beginning after December 31, 2025, taxable income between $60,000 and $150,000 will continue to be taxed at a rate of 6.6%, but taxable income above $150,000 will be taxed at higher rates. \r\n\r\nThe result of the changes under this Act will be that those with a taxable income of $188,500 or less will see no increase in personal income taxes, with 94% of Delaware taxpayers receiving an overall tax decrease.\r\n\r\nLike HS 1 for HB 13, House Substitute No. 2 for HB 13 differs from HB 13 as follows:\r\n\u2022 Creates additional tax brackets for taxable income not in excess of $60,000.\r\n\u2022 Decreases the tax rate for all tax brackets for taxable income not in excess of $60,000.\r\n\u2022 Creates 3 additional tax brackets for taxable income above $60,000 instead of 2.\r\n\u2022 Names this Act the \u201cThe John Kowalko, Jr., Fairness in Taxation Act\u201d.\r\n\r\nIn addition, House Substitute No. 2 for HB 13 differs from HS 1 for HB 13 as follows: \r\n\u2022  Further decreases the tax rate for all tax brackets for taxable income not in excess of $60,000.\r\n\u2022  Revises the tax brackets so that tax rates increase for taxable income above $150,000 instead of $125,000.\r\n\u2022  Adjusts the personal income tax filing threshold to align with the revised tax brackets. \r\n\u2022 Makes technical corrections to conform existing law to the standards of the Delaware Legislative Drafting Manual."
+    }
+  ],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Adopted in lieu of the original bill HB 13, and Assigned to Revenue & Finance Committee in House",
+      "date": "2025-06-17",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Revenue & Finance",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:37Z"
+      }
+    },
+    {
+      "description": "Motion to Release Failed",
+      "date": "2025-06-18",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:37Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Sean M. Lynn",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Sean M. Lynn\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Claire Snyder-Hall",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Claire Snyder-Hall\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Eric Morrison",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Eric Morrison\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Spiros Mantzavinos",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Spiros Mantzavinos\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142529&legislationTypeId=6&docTypeId=2&legislationName=HS2forHB13",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142529&legislationTypeId=6&docTypeId=2&legislationName=HS2forHB13",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=142529",
+      "note": "text/html"
+    }
+  ],
+  "extras": {
+    "substitute": "HS 2"
+  },
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:37Z"
+  }
+}

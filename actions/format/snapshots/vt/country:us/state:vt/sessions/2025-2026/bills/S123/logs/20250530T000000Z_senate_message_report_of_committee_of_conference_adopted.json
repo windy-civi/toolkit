@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Senate Message: Report of Committee of Conference adopted",
+    "date": "2025-05-30",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 123"
+}

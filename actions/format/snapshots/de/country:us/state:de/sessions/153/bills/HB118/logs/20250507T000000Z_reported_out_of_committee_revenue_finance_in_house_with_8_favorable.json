@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Revenue & Finance) in House with 8 Favorable",
+    "date": "2025-05-07",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Revenue & Finance",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 118"
+}

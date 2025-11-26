@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Defeated By House. Votes: 12 YES 23 NO 1 NOT VOTING 5 ABSENT",
+    "date": "2025-05-06",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "failure"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB 8"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Introduced, read first time; referred to: Finance",
+    "date": "2025-03-27",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 0451"
+}

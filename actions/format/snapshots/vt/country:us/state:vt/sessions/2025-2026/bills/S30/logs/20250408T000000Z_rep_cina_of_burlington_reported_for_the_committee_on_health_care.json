@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Rep. Cina of Burlington reported for the Committee on Health Care",
+    "date": "2025-04-08",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 30"
+}

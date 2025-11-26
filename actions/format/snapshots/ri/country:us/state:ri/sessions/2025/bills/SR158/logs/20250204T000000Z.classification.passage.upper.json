@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "02/04/2025 Senate read and passed",
+    "date": "2025-02-04",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SR158"
+}

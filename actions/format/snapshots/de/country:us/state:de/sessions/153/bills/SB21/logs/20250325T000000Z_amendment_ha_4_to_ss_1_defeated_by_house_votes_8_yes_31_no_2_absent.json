@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment HA 4 to SS 1 - Defeated By House. Votes: 8 YES 31 NO 2 ABSENT",
+    "date": "2025-03-25",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-failure"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB 21"
+}

@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Rep. Hooper of Burlington moved to postpone action until 4/30/2025, which was agreed to",
+    "date": "2025-04-29",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 463"
+}

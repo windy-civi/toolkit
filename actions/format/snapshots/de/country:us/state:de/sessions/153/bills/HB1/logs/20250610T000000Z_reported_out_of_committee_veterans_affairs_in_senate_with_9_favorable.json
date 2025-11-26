@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Veterans Affairs) in Senate with 9 Favorable",
+    "date": "2025-06-10",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Veterans Affairs",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 1"
+}

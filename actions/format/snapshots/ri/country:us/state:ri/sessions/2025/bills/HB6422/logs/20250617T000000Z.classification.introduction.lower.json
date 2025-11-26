@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "06/17/2025 Introduced, referred to House Corporations",
+    "date": "2025-06-17",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB6422"
+}

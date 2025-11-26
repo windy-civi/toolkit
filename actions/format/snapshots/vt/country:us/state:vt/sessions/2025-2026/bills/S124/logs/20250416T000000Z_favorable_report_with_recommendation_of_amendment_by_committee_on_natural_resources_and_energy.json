@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Favorable report with recommendation of amendment by Committee on Natural Resources and Energy",
+    "date": "2025-04-16",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 124"
+}

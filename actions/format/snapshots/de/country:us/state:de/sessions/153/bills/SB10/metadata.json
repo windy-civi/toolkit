@@ -1,0 +1,429 @@
+{
+  "legislative_session": "153",
+  "identifier": "SB 10",
+  "title": "AN ACT TO AMEND TITLE 11 AND TITLE 29 OF THE DELAWARE CODE RELATING TO MODIFICATION OF SENTENCES OF INCARCERATION.",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "Currently, the Department of Correction (\u201cDepartment\u201d) biennially reviews individuals sentenced to more than 1 year of incarceration to determine if there is good cause to recommend a sentence modification to the Board of Parole for an individual who is not a substantial risk to the community or the individual\u2019s self. Good cause includes the individual\u2019s rehabilitation, serious medical illness or infirmity, and prison overcrowding. While any individual is eligible for consideration due to a serious medical illness or infirmity, only those who have served at least \u00bd of their sentence for a violent felony or all of the statutorily mandated term of incarceration are eligible for consideration for rehabilitation, prison overcrowding, or another reason. If the Department recommends an individual for sentence modification, the Board of Parole considers the application and, if the Board approves, the sentencing court then makes a final determination on the sentence modification.\r\n\r\nThis Act, which is named in honor of Richard \u201cMouse\u201d Smith, a Delaware civil rights leader, who spent decades advocating on issues addressed by this Act, is a substitute for Senate Bill No. 10. Like Senate Bill No. 10, this Act revises the process for sentence modification in 3 ways. First, this Act removes the Board of Parole from the sentence modification process and provides that applications for sentence modification are made directly to the sentencing court.\r\n\r\nSecond, this Act provides that an individual who is sentenced to incarceration for more than 1 year may seek a sentence modification in 3 circumstances:\r\n(1) The application for a sentence modification is based solely on the person\u2019s serious medical illness or infirmity.\r\n(2) The person is 60 years of age or older, has served at least 15 years of the originally imposed Level V sentence, and the application for sentence modification is based solely on the person\u2019s rehabilitation.\r\n(3) The person has served at least 25 years of the originally imposed Level V sentence and the application for sentence modification is based solely on the person\u2019s rehabilitation.\r\n\r\nThird, this Act provides that an individual who is sentenced to incarceration for more than 1 year and whose sentence is reviewed by the Department, but who the Department does not recommend for sentence modification, may directly apply to the court for a sentence modification.\r\n\r\nLike Senate Bill No. 10, this Act also makes clear that the Department and sentencing court must consider if a sentence modification resulting in the release of an individual who is incarcerated would constitute a substantial risk to a victim of, or witness to, an offense that is the subject of the sentence modification and that the sentencing court must provide an opportunity for the victim and the Department of Justice to be heard.\r\n\r\nThis Act differs from Senate Bill No. 10 as follows:\r\n(1) Providing that a person is not eligible for a sentence modification under this Act if the person is serving a statutorily mandated term of incarceration at Level V for a conviction of any offense under this title and has not yet served all of the statutorily mandated portion of the Level V sentence. Senate Bill No. 10 provided the person was not eligible until the person had served \u00bd of the statutorily mandated portion of the Level V sentence.\r\n(2) Making clear that the person\u2019s attorney may file the sentence modification for the person.\r\n(3) Making clear that an application for a sentence modification may be filed by those who have served the period of incarceration provided under paragraph (a)(5) and have good cause.\r\n(4) Requiring the Department, on completion of the Department\u2019s eligibility review under paragraph (d)(1), to provide the person with information regarding the person\u2019s right to counsel.\r\n(5) Providing that the person may retain a private attorney at the person's own expense or request the court refer the person to the Office of Defense Services, and that the person may proceed without an attorney only as provided under court rules.\r\n(6) Requiring the Department to biennially conduct the eligibility review required under paragraph (d)(1). Senate Bill No. 10 would have required the Department to make these determinations annually. \r\n(7) Requiring the Department to provide to the court, with an application for sentence modification the Department files, a written statement of the satisfied requirements under this Act that form the Department\u2019s basis for recommending the sentence modification. \r\n(8) Requiring the Department to provide to the person, the person\u2019s attorney of record, or the Office of Defense Services a written statement of the Department\u2019s reasons for not recommending a sentence modification, including the unsatisfied requirements of this Act that form the Department\u2019s basis for not recommending the sentence modification.\r\n(9) Authorizing the court to summarily dismiss an application that does not include the statements from the Department required by this Act, except for an application based solely on the person\u2019s serious medical illness or infirmity.\r\n(10) Authorizing the court to summarily dismiss an application if the court determines summary dismissal is warranted.\r\n(11) Giving the court discretion to determine how long a person whose application for sentence modification is denied because the court determines the person constitutes a substantial risk to the community or the person\u2019s application lacks good cause. This Act provides the period set by the court may not exceed 3 years. \r\n(12) Making clear that if the court denies an application for sentence modification based on a person\u2019s serious medical illness or infirmity, the person may submit a subsequent application if at least 60 days have passed since the date of the court\u2019s denial and if the application demonstrates a material change in the person\u2019s circumstances."
+    }
+  ],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Richard \u2018Mouse\u2019 Smith Compassionate Release Act"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "was introduced and adopted in lieu of SB 10",
+      "date": "2025-05-20",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Passed By Senate. Votes: 15 YES 5 NO 1 ABSENT",
+      "date": "2025-05-22",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Assigned to Administration Committee in House",
+      "date": "2025-06-05",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Administration",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Reported Out of Committee (Administration) in House with 3 On Its Merits",
+      "date": "2025-06-18",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "committee-passage"
+      ],
+      "related_entities": [
+        {
+          "name": "Administration",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Assigned to Appropriations Committee in House",
+      "date": "2025-06-20",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Appropriations",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Reported Out of Committee (Appropriations) in House with 1 Favorable, 3 On Its Merits",
+      "date": "2025-06-25",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "committee-passage",
+        "committee-passage-favorable"
+      ],
+      "related_entities": [
+        {
+          "name": "Appropriations",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Amendment HA 1 to SS 1 - Stricken in House",
+      "date": "2025-06-26",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Amendment HA 2 to SS 1 - Stricken in House",
+      "date": "2025-06-26",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Amendment HA 3 to SS 1 - Passed In House by Voice Vote",
+      "date": "2025-06-26",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "amendment-passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Passed By House. Votes: 28 YES 12 NO 1 VACANT",
+      "date": "2025-06-26",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Passed By Senate. Votes: 19 YES 2 NO",
+      "date": "2025-06-30",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Signed by Governor",
+      "date": "2025-07-14",
+      "organization_id": "~{\"classification\": \"executive\"}",
+      "classification": [
+        "executive-signature"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Bryan Townsend",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Bryan Townsend\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Marie Pinkney",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Marie Pinkney\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Trey Paradee",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Trey Paradee\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Sarah McBride",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Sarah McBride\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Claire Snyder-Hall",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Claire Snyder-Hall\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Josue O Ortega",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Josue O Ortega\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Ray Seigfried",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Ray Seigfried\"}",
+      "organization_id": null
+    },
+    {
+      "name": "David P. Sokola",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"David P. Sokola\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Laura V. Sturgeon",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Laura V. Sturgeon\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Darius J. Brown",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Darius J. Brown\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Franklin D. Cooke",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Franklin D. Cooke\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Mara Gorman",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Mara Gorman\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Kerri Evelyn Harris",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Kerri Evelyn Harris\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Russell Huxtable",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Russell Huxtable\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Spiros Mantzavinos",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Spiros Mantzavinos\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Eric Morrison",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Eric Morrison\"}",
+      "organization_id": null
+    },
+    {
+      "name": "David L. Wilson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"David L. Wilson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Cyndie Romer",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Cyndie Romer\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Melanie Ross Levin",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Melanie Ross Levin\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Dave G. Lawson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Dave G. Lawson\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142344&legislationTypeId=6&docTypeId=2&legislationName=SS1forSB10",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142344&legislationTypeId=6&docTypeId=2&legislationName=SS1forSB10",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "HA 3 to SS 1 for SB 10",
+      "links": [
+        {
+          "url": "http://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142650&legislationTypeId=5&docTypeId=2",
+          "media_type": "application/pdf"
+        },
+        {
+          "url": "http://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142650&legislationTypeId=5&docTypeId=2",
+          "media_type": "text/html"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Fiscal Note",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GetPdfDocument?fileAttachmentId=649054",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [
+    {
+      "publication": "The Laws of Delaware",
+      "citation": "Volume 85 Chapter 76",
+      "citation_type": "chapter",
+      "effective": null,
+      "expires": null,
+      "url": "https://legis.delaware.gov/SessionLaws/Chapter/GetPdfDocument?fileAttachmentId=650694"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=142344",
+      "note": "text/html"
+    }
+  ],
+  "extras": {
+    "substitute": "SS 1",
+    "amendment": "HA 3"
+  },
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:36Z"
+  }
+}

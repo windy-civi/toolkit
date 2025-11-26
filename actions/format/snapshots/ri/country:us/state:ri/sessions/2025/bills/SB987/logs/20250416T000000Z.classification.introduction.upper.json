@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "04/16/2025 Introduced, referred to Senate Labor and Gaming",
+    "date": "2025-04-16",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB987"
+}

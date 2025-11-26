@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Committee bill read first time and referred to Committee on Ways and Means per Rule 35(a)",
+    "date": "2025-03-25",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 493"
+}

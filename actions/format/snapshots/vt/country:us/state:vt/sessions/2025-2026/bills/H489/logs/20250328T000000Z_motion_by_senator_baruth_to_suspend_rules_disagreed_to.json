@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Motion by Senator Baruth to suspend rules disagreed to",
+    "date": "2025-03-28",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 489"
+}

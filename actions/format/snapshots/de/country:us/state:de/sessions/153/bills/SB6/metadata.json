@@ -1,0 +1,232 @@
+{
+  "legislative_session": "153",
+  "identifier": "SB 6",
+  "title": "AN ACT TO AMEND TITLE 18 OF THE DELAWARE CODE RELATING TO THE DELAWARE PRE-AUTHORIZATION ACT OF 2025.",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "This Legislation is the Delaware Pre-Authorization Reform Act of 2025.\r\nSection 1 of the Act applies to health Insurance Contracts regulated under Chapter 33 of Title 18. \r\nSection 1 provides that changes in utilization review terms for a health-care service, such as the clinical criteria used to conduct utilization reviews for a health-care service, will apply only upon re-authorization of the health-care service. Covered persons must be notified at least 6 months before any changes to utilization review terms, except in certain circumstances such as changes in clinical guideline status \r\nIn addition, Section 1 sets qualifications for who may make determinations with regard to requests for pre- authorization of health-care services and appeals of adverse determinations; a timeline and required contents for the notification of an outcome of appeal of an adverse determination or a notification that additional information is necessary to make the determination of appeal; and requirements for any utilization review entity used to perform utilization review by an insurer, health-benefit plan, or health-service corporation.\r\nSection 1 also shortens the timelines for the determination of pre-authorization requests and notification to the health-care provider of the determination. For requests for pre-authorization of non-urgent health-care services not submitted electronically, the utilization review entity must notify the health-care provider within 5 business days of receipt of the request; for requests submitted electronically, notification must be given within 3 business days of receipt. For requests for pre-authorization for urgent health-care services submitted electronically, notification must be given within 24 hours of receipt.\r\nBy January 1, 2027, insurers, health-benefit plans, health-service corporations, and utilization review entities must accept and respond to electronic pre-authorization requests through the same platform as the electronic request was submitted.\r\nIn addition, Section 1 extends the time period that a pre-authorization is valid for from 60 days to 90 days. Finally, Section 1 provides that no more than 1 pre-authorization may be required for a single episode of care, and that if pre-authorization is granted as to a health-care service that is part of a group of services for which a bundled payment is charged, pre-authorization for the other health-care services included in the group is deemed to be approved as well.\r\nSection 2 of the Act applies to Group and Blanket Health Insurance under Chapter 35 of Title 18 and makes the same changes to pre-authorization standards and procedures that Section 1 of the Act makes to Health Insurance Contracts regulated under Chapter 33 of Title 18.\r\nSection 3 of the Act provides that the State Employee Benefits Committee established under \u00a7 9602 of the Title 29 of the Delaware Code must ensure that carriers administering plans for group health insurance comply with the requirements and provisions for pre-authorization set forth in Chapter 33, Subchapter II and Chapter 35, Subchapter V of Title 18.\r\nSection 4 of the Act provides that the Act will apply to health insurance policies, contracts, or certificates issued, modified, or renewed after December 31, 2026. \r\nSection 5 of the Act provides that the Department of Health and Social Services must, to the extent feasible, assure that contracts awarded to carriers providing health insurance relating to Medicaid assistance comply with the requirements and provisions for pre-authorization set forth in Chapter 33, Subchapter II and Chapter 35, Subchapter V of Title 18.\r\nSection 6 provides that this Act is known as the \"Delaware Pre-Authorization Reform Act of 2025.\""
+    }
+  ],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Delaware Pre-Authorization Reform Act of 2025"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced and Assigned to Banking, Business, Insurance & Technology Committee in Senate",
+      "date": "2025-04-10",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Banking, Business, Insurance & Technology",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:37Z"
+      }
+    },
+    {
+      "description": "Reported Out of Committee (Banking, Business, Insurance & Technology) in Senate with 7 On Its Merits",
+      "date": "2025-04-17",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "committee-passage"
+      ],
+      "related_entities": [
+        {
+          "name": "Banking, Business, Insurance & Technology",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:37Z"
+      }
+    },
+    {
+      "description": "Amendment SA 1 to SB 6 - Introduced and Placed With Bill",
+      "date": "2025-05-14",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "amendment-introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:37Z"
+      }
+    },
+    {
+      "description": "Stricken in Senate",
+      "date": "2025-05-15",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:37Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Bryan Townsend",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Bryan Townsend\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Nicole Poore",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Nicole Poore\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Trey Paradee",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Trey Paradee\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Claire Snyder-Hall",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Claire Snyder-Hall\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Russell Huxtable",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Russell Huxtable\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Bryant L. Richardson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Bryant L. Richardson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Ray Seigfried",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Ray Seigfried\"}",
+      "organization_id": null
+    },
+    {
+      "name": "David P. Sokola",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"David P. Sokola\"}",
+      "organization_id": null
+    },
+    {
+      "name": "John \"Jack\" Walsh",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"John \\\"Jack\\\" Walsh\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Eric Morrison",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Eric Morrison\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Cyndie Romer",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Cyndie Romer\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Melanie Ross Levin",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Melanie Ross Levin\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142107&legislationTypeId=1&docTypeId=2&legislationName=SB6",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142107&legislationTypeId=1&docTypeId=2&legislationName=SB6",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Fiscal Note",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GetPdfDocument?fileAttachmentId=648237",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=142107",
+      "note": "text/html"
+    }
+  ],
+  "extras": {
+    "amendment": "SA 1"
+  },
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:37Z"
+  }
+}

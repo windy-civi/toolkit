@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Assigned to Health & Social Services Committee in Senate",
+    "date": "2025-04-17",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": [
+      {
+        "name": "Health & Social Services",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HJR 2"
+}

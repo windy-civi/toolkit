@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "06/27/2025 Transmitted to Governor",
+    "date": "2025-06-27",
+    "organization_id": "~{\"classification\": \"executive\"}",
+    "classification": [
+      "executive-receipt"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB179"
+}

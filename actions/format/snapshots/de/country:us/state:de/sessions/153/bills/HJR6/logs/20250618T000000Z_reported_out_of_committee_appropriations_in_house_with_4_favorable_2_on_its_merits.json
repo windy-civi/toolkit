@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Appropriations) in House with 4 Favorable, 2 On Its Merits",
+    "date": "2025-06-18",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Appropriations",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HJR 6"
+}

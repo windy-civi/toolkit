@@ -1,0 +1,239 @@
+{
+  "legislative_session": "153",
+  "identifier": "SB 98",
+  "title": "AN ACT TO AMEND TITLE 6 OF THE DELAWARE CODE RELATING TO THE DELAWARE LIMITED LIABILITY COMPANY ACT.",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "This Act continues the practice of amending periodically the Delaware Limited Liability Company Act (\u201cLLC Act\u201d) to keep it current and to maintain its national preeminence. The following is a section-by-section review of proposed amendments to the LLC Act.\r\n\r\nSection 1 amends \u00a7 18-104(e) of the LLC Act, which addresses certain duties of a registered agent of a limited liability company. Amended \u00a7 18-104(e) specifies that a registered agent may not perform its duties or functions solely through the use of a virtual office, the retention by the agent of a mail forwarding service, or both. Amended \u00a7 18-104(e) defines \u201cvirtual office\u201d as the performance of duties or functions solely through the internet or solely through other means of remote communication.\r\n\r\nSection 2 amends \u00a7 18-106(e) of the LLC Act to provide that \u00a7 18-106(e) applies to ratification or waiver of a void or voidable act or transaction by any member, manager, or other person in respect of a limited liability company, in addition to acts or transactions by a limited liability company. This Section also amends \u00a7 18-106(e) to provide that ratification or waiver pursuant to \u00a7 18-106(e) may be express or implied, including by the statements, action, inaction, or acquiescence of or by the members, managers, or other persons. Further, this Section amends \u00a7 18-106(e) to clarify that in a circumstance in which \u00a7 18-106(e) requires notice of the ratification or waiver to be given, the giving of the notice is not a condition to the effectiveness of the ratification or waiver. The amendments to \u00a7 18-106(e) in this Section are intended to provide rules different from the rules applied in existing case law that \u00a7 18-106(e) is limited to ratification or waiver of a limited liability company\u2019s own acts and transactions and that \u00a7 18-106(e) does not apply to ratification or waiver by conduct.  \r\n\r\nSection 3 amends \u00a7 18-203(b) of the LLC Act to confirm that, in addition to correcting a certificate of cancellation, a certificate of correction may nullify a certificate of cancellation.\r\n\r\nSection 4 amends \u00a7 18-209(c) of the LLC Act to provide that a certificate of formation must be attached to a certificate of consolidation for a consolidation in which the resulting entity from such consolidation is a domestic limited liability company.\r\n\r\nSection 5 amends \u00a7 18-211(a) of the LLC Act, which provides for the correction of certificates filed with the Secretary of State. The amendment confirms that, in addition to correcting a previously filed certificate, a certificate of correction may nullify a previously filed certificate by specifying the inaccuracy or defect with respect to such previously filed certificate and providing that the previously filed certificate is nullified. Such a provision is sufficient if it states that the previously filed certificate is nullified or void or uses words of similar meaning.\r\n\r\nSection 6 amends \u00a7 18-302 of the LLC Act to confirm that a limited liability company agreement may be amended in connection with a division of a limited liability company and a merger of registered series of a limited liability company, as is specifically contemplated by \u00a7\u00a7 18-217(f) and 18-221(e) of the LLC Act, respectively.\r\n\r\nSection 7 amends \u00a7 18-1107(c) of the LLC Act to confirm that when the existence of a domestic limited liability company or registered series, or the registration of a foreign limited liability company, will cease by the filing of a certificate under the LLC Act, the full amount of the annual tax for the calendar year in which such certificate becomes effective is due and payable before the filing of such certificate.\r\n\r\nSection 8 provides that the amendments to the LLC Act take effect on August 1, 2025."
+    }
+  ],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Limited Liability Company Act/Updates"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced and Assigned to Judiciary Committee in Senate",
+      "date": "2025-04-08",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Judiciary",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:34Z"
+      }
+    },
+    {
+      "description": "Reported Out of Committee (Judiciary) in Senate with 2 Favorable, 2 On Its Merits",
+      "date": "2025-04-17",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "committee-passage",
+        "committee-passage-favorable"
+      ],
+      "related_entities": [
+        {
+          "name": "Judiciary",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:34Z"
+      }
+    },
+    {
+      "description": "Passed By Senate. Votes: 20 YES 1 ABSENT",
+      "date": "2025-05-06",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:34Z"
+      }
+    },
+    {
+      "description": "Assigned to Judiciary Committee in House",
+      "date": "2025-05-07",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Judiciary",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:34Z"
+      }
+    },
+    {
+      "description": "Reported Out of Committee (Judiciary) in House with 8 On Its Merits",
+      "date": "2025-05-21",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "committee-passage"
+      ],
+      "related_entities": [
+        {
+          "name": "Judiciary",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:34Z"
+      }
+    },
+    {
+      "description": "Passed By House. Votes: 39 YES 1 ABSENT 1 VACANT",
+      "date": "2025-06-25",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:34Z"
+      }
+    },
+    {
+      "description": "Signed by Governor",
+      "date": "2025-06-30",
+      "organization_id": "~{\"classification\": \"executive\"}",
+      "classification": [
+        "executive-signature"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:34Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Darius J. Brown",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Darius J. Brown\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Bryan Townsend",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Bryan Townsend\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Brian Pettyjohn",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Brian Pettyjohn\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Nicole Poore",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Nicole Poore\"}",
+      "organization_id": null
+    },
+    {
+      "name": "William Bush",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"William Bush\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Claire Snyder-Hall",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Claire Snyder-Hall\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Spiros Mantzavinos",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Spiros Mantzavinos\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142069&legislationTypeId=1&docTypeId=2&legislationName=SB98",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142069&legislationTypeId=1&docTypeId=2&legislationName=SB98",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [
+    {
+      "publication": "The Laws of Delaware",
+      "citation": "Volume 85 Chapter 47",
+      "citation_type": "chapter",
+      "effective": null,
+      "expires": null,
+      "url": "https://legis.delaware.gov/SessionLaws/Chapter/GetPdfDocument?fileAttachmentId=650612"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=142069",
+      "note": "text/html"
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:34Z"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "House message: House refused to concur in Senate proposal of amendment & requested Conference Committee; House Conference Committee members appointed",
+    "date": "2025-05-02",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 488"
+}

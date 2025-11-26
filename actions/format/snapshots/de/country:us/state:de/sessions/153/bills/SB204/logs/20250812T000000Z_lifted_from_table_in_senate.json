@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Lifted From Table in Senate",
+    "date": "2025-08-12",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "SB 204"
+}

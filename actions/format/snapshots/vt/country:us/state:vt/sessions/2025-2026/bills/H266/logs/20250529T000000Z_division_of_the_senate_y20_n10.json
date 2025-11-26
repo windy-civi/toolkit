@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Division of the Senate Y-20, N-10",
+    "date": "2025-05-29",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 266"
+}

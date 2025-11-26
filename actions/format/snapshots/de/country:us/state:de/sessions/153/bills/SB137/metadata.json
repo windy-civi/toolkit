@@ -1,0 +1,145 @@
+{
+  "legislative_session": "153",
+  "identifier": "SB 137",
+  "title": "AN ACT TO AMEND TITLE 5 OF THE DELAWARE CODE RELATING TO EARNED WAGE ACCESS SERVICES PROVIDERS.",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "Earned Wage Access (EWA) is a Fintech product that allows workers to voluntarily access the money they have already earned during a pay-period for work they have already completed, ahead of their scheduled payday. Users primarily access EWA services through a mobile app and are only able to withdraw wages their EWA provider has verified that they have already earned. This verification process, coupled with the fact that EWA transactions are non-recourse and credit-invisible make the product distinct from loans and credit cards. \r\nAs an innovative financial product with distinct characteristics that do not fit within existing regulations, EWA requires a distinct regulatory framework. Currently, more than 100,000 workers in Delaware have already used Earned Wage Access services, which are mostly unregulated in the state. This bill helps ensure that responsible EWA providers can operate under the supervision of Delaware\u2019s banking regulator and continue to serve users in the state of Delaware. Moreover, this bill codifies a regulatory framework that recognizes the distinct characteristics of EWA products and will keep Delawareans protected from bad actors who might seek to use the \u201cEarned Wage Access\u201d moniker, while instead offering a predatory product.  \r\nSpecifically, this bill protects consumers in Delaware by creating a new Earned Wage Access provider license, issued by the Office of the State Bank Commissioner to companies whose products meet the following criteria, ensuring that:\r\n\u2022\tAll users have at least one reasonable no-cost option for each transaction\r\n\u2022\tAll fees and gratuities are clearly and transparently represented to users before they confirm their transactions\r\n\u2022\tEWA transactions are credit-invisible, that providers do not check a user\u2019s credit before issuing EWA services, nor do they report to a credit agency if a user cancels their service \r\n\u2022\tEWA providers do not pursue recourse against users including charging interest, late fees, or sending unresolved EWA transactions to collections"
+    }
+  ],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Earned Wage Access/Provider Licence/Create"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced and Assigned to Banking, Business, Insurance & Technology Committee in Senate",
+      "date": "2025-05-13",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Banking, Business, Insurance & Technology",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Reported Out of Committee (Banking, Business, Insurance & Technology) in Senate with 1 Favorable, 6 On Its Merits",
+      "date": "2025-06-18",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "committee-passage",
+        "committee-passage-favorable"
+      ],
+      "related_entities": [
+        {
+          "name": "Banking, Business, Insurance & Technology",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Spiros Mantzavinos",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Spiros Mantzavinos\"}",
+      "organization_id": null
+    },
+    {
+      "name": "William Bush",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"William Bush\"}",
+      "organization_id": null
+    },
+    {
+      "name": "David P. Sokola",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"David P. Sokola\"}",
+      "organization_id": null
+    },
+    {
+      "name": "John \"Jack\" Walsh",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"John \\\"Jack\\\" Walsh\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142264&legislationTypeId=1&docTypeId=2&legislationName=SB137",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142264&legislationTypeId=1&docTypeId=2&legislationName=SB137",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Fiscal Note",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GetPdfDocument?fileAttachmentId=649294",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=142264",
+      "note": "text/html"
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:36Z"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "05/14/2025 Referred to House State Government & Elections",
+    "date": "2025-05-14",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB238"
+}

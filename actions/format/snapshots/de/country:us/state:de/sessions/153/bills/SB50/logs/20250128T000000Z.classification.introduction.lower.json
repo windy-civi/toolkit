@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Assigned to Capital Infrastructure Committee in House",
+    "date": "2025-01-28",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": [
+      {
+        "name": "Capital Infrastructure",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 50"
+}

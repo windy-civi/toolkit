@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "Pending third reading, motion to amend Senate proposal of amendment by Senator(s) Douglass, Harrison, Ingalls, Major, Plunkett, and Watson   agreed to",
+    "date": "2025-05-27",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction",
+      "reading-3"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 50"
+}

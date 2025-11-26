@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment SA 3 to SB 4 - Introduced and Placed With Bill",
+    "date": "2025-05-21",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB 4"
+}

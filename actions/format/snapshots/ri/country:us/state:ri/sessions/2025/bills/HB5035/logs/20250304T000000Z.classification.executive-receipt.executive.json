@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "03/04/2025 Transmitted to Governor",
+    "date": "2025-03-04",
+    "organization_id": "~{\"classification\": \"executive\"}",
+    "classification": [
+      "executive-receipt"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB5035"
+}

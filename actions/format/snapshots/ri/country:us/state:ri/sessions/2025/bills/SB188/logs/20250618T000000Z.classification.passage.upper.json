@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "06/18/2025 Senate passed Sub A as amended (floor amendment)",
+    "date": "2025-06-18",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB188"
+}

@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Labor) in House with 2 Favorable, 6 On Its Merits",
+    "date": "2025-06-17",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Labor",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 63"
+}

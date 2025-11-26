@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Favorable report by Committee on Government Operations",
+    "date": "2025-05-16",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 504"
+}

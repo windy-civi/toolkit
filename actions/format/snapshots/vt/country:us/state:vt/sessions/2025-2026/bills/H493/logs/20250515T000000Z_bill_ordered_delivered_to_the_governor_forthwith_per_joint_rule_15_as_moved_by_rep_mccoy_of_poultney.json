@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Bill ordered delivered to the Governor forthwith per Joint Rule 15 as moved by Rep. McCoy of Poultney",
+    "date": "2025-05-15",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 493"
+}

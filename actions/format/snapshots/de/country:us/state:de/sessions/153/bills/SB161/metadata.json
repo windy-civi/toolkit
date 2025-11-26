@@ -1,0 +1,98 @@
+{
+  "legislative_session": "153",
+  "identifier": "SB 161",
+  "title": "AN ACT TO AMEND TITLES 16 AND 29 OF THE DELAWARE CODE RELATING TO BEHAVIORAL HEALTH.",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "This Act authorizes the Division of Substance Abuse and Mental Health to issue licenses and adopt and enforce comprehensive regulations for behavioral health provider organizations and treatment programs. It requires provider organizations to obtain licenses to operate behavioral health treatment programs, with exemptions for certain practitioners and programs. It creates civil and criminal penalties for the provision of treatment services or the operation of programs without proper licensing or in violation of law or regulation.\r\n\u00a0\r\nThis Act also establishes rights for community clients such as freedom from abuse, neglect, and exploitation; privacy; individualized treatment plans; and participation in their care. Residential clients have additional rights, including communication, personal belongings, and voting assistance. In addition to client rights, it establishes duties for provider organizations, which include treating clients respectfully, providing clear information, maintaining confidentiality, and establishing grievance procedures.\r\n\u00a0\r\nFurthermore, this Act requires provider organization staff to report incidents, including those involving abuse, neglect, or serious injury. It authorizes the Division to investigate reports and then take disciplinary action or refer the report to law enforcement.\r\n\u00a0\r\nThis Act also makes technical corrections to conform existing law to the standards of the Delaware Legislative Drafting Manual.\r\n\u00a0\r\nSections 6, 7, 10, 11, and 12 of this Act take effect immediately. Sections 1 through 5, 8, and 9 of this Act take effect immediately and are to be implemented the earlier of the following: 2 years after its enactment into law or notice by the Director of the Division published in the Register of Regulations that final regulations to implement this Act have been adopted.\r\n\u00a0\r\nThis Act requires a greater than majority vote for passage because \u00a7 11 of Article VIII of the Delaware Constitution requires the affirmative vote of three-fifths of the members elected to each house of the General Assembly to impose or levy a tax or license fee.\r\n\r\nThis Act requires a greater than majority vote for passage because \u00a7 28 of Article IV of the Delaware Constitution requires the affirmative vote of two-thirds vote when the General Assembly gives criminal jurisdiction to inferior courts."
+    }
+  ],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "DSAMH/Behavioral Health/Issue Licenses"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced and Assigned to Health & Social Services Committee in Senate",
+      "date": "2025-05-21",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Health & Social Services",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Marie Pinkney",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Marie Pinkney\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Sarah McBride",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Sarah McBride\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142374&legislationTypeId=1&docTypeId=2&legislationName=SB161",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142374&legislationTypeId=1&docTypeId=2&legislationName=SB161",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=142374",
+      "note": "text/html"
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:36Z"
+  }
+}

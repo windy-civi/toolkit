@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "02/28/2025 Introduced, referred to Senate Rules, Government Ethics and Oversight",
+    "date": "2025-02-28",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SR594"
+}

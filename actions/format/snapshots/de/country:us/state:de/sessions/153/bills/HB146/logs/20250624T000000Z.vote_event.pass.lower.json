@@ -1,0 +1,276 @@
+{
+  "identifier": "",
+  "motion_text": "2/3",
+  "motion_classification": [],
+  "start_date": "2025-06-24",
+  "result": "pass",
+  "organization": "~{\"classification\": \"lower\"}",
+  "legislative_session": "153",
+  "bill": "ef799ef4-ca8c-11f0-8677-32549feb6cd6",
+  "bill_action": null,
+  "bill_identifier": "HB 146",
+  "votes": [
+    {
+      "option": "yes",
+      "voter_name": "Stephanie  T. Bolden",
+      "voter_id": "~{\"name\": \"Stephanie  T. Bolden\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Frank Burns",
+      "voter_id": "~{\"name\": \"Frank Burns\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "William Bush",
+      "voter_id": "~{\"name\": \"William Bush\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "William J. Carson",
+      "voter_id": "~{\"name\": \"William J. Carson\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Nnamdi O. Chukwuocha",
+      "voter_id": "~{\"name\": \"Nnamdi O. Chukwuocha\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Richard G. Collins",
+      "voter_id": "~{\"name\": \"Richard G. Collins\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Franklin D. Cooke",
+      "voter_id": "~{\"name\": \"Franklin D. Cooke\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Daniel B. Short",
+      "voter_id": "~{\"name\": \"Daniel B. Short\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Timothy D. Dukes",
+      "voter_id": "~{\"name\": \"Timothy D. Dukes\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Mara Gorman",
+      "voter_id": "~{\"name\": \"Mara Gorman\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Ronald E. Gray",
+      "voter_id": "~{\"name\": \"Ronald E. Gray\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Krista Griffith",
+      "voter_id": "~{\"name\": \"Krista Griffith\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Kerri Evelyn Harris",
+      "voter_id": "~{\"name\": \"Kerri Evelyn Harris\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Debra Heffernan",
+      "voter_id": "~{\"name\": \"Debra Heffernan\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Kevin S Hensley",
+      "voter_id": "~{\"name\": \"Kevin S Hensley\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Jeff Hilovsky",
+      "voter_id": "~{\"name\": \"Jeff Hilovsky\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Valerie Jones Giltner",
+      "voter_id": "~{\"name\": \"Valerie Jones Giltner\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Kendra Johnson",
+      "voter_id": "~{\"name\": \"Kendra Johnson\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Kimberly Williams",
+      "voter_id": "~{\"name\": \"Kimberly Williams\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Kamela T Smith",
+      "voter_id": "~{\"name\": \"Kamela T Smith\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Larry Lambert",
+      "voter_id": "~{\"name\": \"Larry Lambert\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Sean M. Lynn",
+      "voter_id": "~{\"name\": \"Sean M. Lynn\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Michael F. Smith",
+      "voter_id": "~{\"name\": \"Michael F. Smith\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Melissa Minor-Brown",
+      "voter_id": "~{\"name\": \"Melissa Minor-Brown\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Shannon Morris",
+      "voter_id": "~{\"name\": \"Shannon Morris\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Eric Morrison",
+      "voter_id": "~{\"name\": \"Eric Morrison\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "DeShanna U Neal",
+      "voter_id": "~{\"name\": \"DeShanna U Neal\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Josue O Ortega",
+      "voter_id": "~{\"name\": \"Josue O Ortega\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Edward S. Osienski",
+      "voter_id": "~{\"name\": \"Edward S. Osienski\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Sophie Phillips",
+      "voter_id": "~{\"name\": \"Sophie Phillips\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Charles S Postles Jr.",
+      "voter_id": "~{\"name\": \"Charles S Postles Jr.\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Cyndie Romer",
+      "voter_id": "~{\"name\": \"Cyndie Romer\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Melanie Ross Levin",
+      "voter_id": "~{\"name\": \"Melanie Ross Levin\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Sherae'a Moore",
+      "voter_id": "~{\"name\": \"Sherae'a Moore\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Bryan W. Shupe",
+      "voter_id": "~{\"name\": \"Bryan W. Shupe\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Claire Snyder-Hall",
+      "voter_id": "~{\"name\": \"Claire Snyder-Hall\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Jeffrey N. Spiegelman",
+      "voter_id": "~{\"name\": \"Jeffrey N. Spiegelman\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Jesse R. Vanderwende",
+      "voter_id": "~{\"name\": \"Jesse R. Vanderwende\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Madinah Wilson-Anton",
+      "voter_id": "~{\"name\": \"Madinah Wilson-Anton\"}",
+      "note": ""
+    },
+    {
+      "option": "yes",
+      "voter_name": "Lyndon D. Yearick",
+      "voter_id": "~{\"name\": \"Lyndon D. Yearick\"}",
+      "note": ""
+    }
+  ],
+  "counts": [
+    {
+      "option": "yes",
+      "value": 40
+    },
+    {
+      "option": "no",
+      "value": 0
+    },
+    {
+      "option": "other",
+      "value": 1
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/json/RollCallController/GenerateRollCallPdf?rollCallId=57298&chamberId=2",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "dedupe_key": "HB 146 in 153#57298#2/3#lower#2025-06-24"
+}

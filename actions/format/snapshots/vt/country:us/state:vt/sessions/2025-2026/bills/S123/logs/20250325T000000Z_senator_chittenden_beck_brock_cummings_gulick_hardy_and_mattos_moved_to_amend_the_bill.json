@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Senator Chittenden, Beck, Brock, Cummings, Gulick, Hardy, and Mattos moved to amend the bill",
+    "date": "2025-03-25",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 123"
+}

@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Senator Williams moved to relieve the Comm. on Natural Resources and Energy of the bill",
+    "date": "2025-02-25",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 68"
+}

@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "05/09/2025 Introduced, referred to Senate Artificial Intelligence & Emerging Technol",
+    "date": "2025-05-09",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB1037"
+}

@@ -1,0 +1,265 @@
+{
+  "legislative_session": "153",
+  "identifier": "SB 115",
+  "title": "AN ACT TO AMEND TITLE 25 OF THE DELAWARE CODE RELATING TO SUMMARY POSSESSION.",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "This Act provides a pathway for former defendants in eviction actions to have the eviction filings against them shielded from public view. Being the subject of an eviction filing can prevent an individual from securing housing for years after any judgment in the case has been satisfied. Even tenants who prevailed in eviction actions may be denied housing by landlords who turn away any applicant with a prior eviction filing, regardless of the outcome of the case. The well-known health, social, and economic consequences of eviction can thus linger for years after an eviction filing, and trap individuals \u2013 including many children and families \u2013 in a cycle of poverty and housing instability. The effects are particularly acute among already marginalized groups, such as Black and female renters. By shielding eviction records when an individual has met certain requirements, this Act will help break down barriers to stable housing and economic security. \r\n\r\nUnder this Act, the Court must grant shielding upon a motion by the defendant if the Court finds any of the following to be true: \r\n\r\n1. The judgment against the defendant was a judgment on the merits, a default judgment, or a stipulated judgment, 5 or more years have passed since the judgment was entered, the defendant has satisfied any monetary award included in the judgment, and the defendant has had no other similar judgments within 5 years of the defendant\u2019s motion to shield.\r\n2. The parties resolved the action through a stipulated agreement, and the defendant has complied with the terms of the stipulated agreement.\r\n3. The plaintiff withdrew the complaint.\r\n4. The Court dismissed the plaintiff\u2019s complaint.\r\n5. The final judgment was in favor of the defendant. \r\n6. The plaintiff and the defendant have agreed to the shielding. \r\n7. The shielding of the records is clearly in the interests of justice.\r\n\t\r\nThe Court may not charge a filing fee for a motion to shield. Once the Court has granted the shielding, the Court has 45 days to effectuate it. An individual whose eviction record has been shielded can answer questions about prior evictions as if the shielded action was never filed.\r\n\r\nThis Act is a second Substitute for Senate Bill No. 115. Like Senate Substitute No. 1 for Senate Bill No. 115, Senate Substitute No. 2 for Senate Bill No. 115 does the following:\r\n\r\n1. Adds judgement by stipulation to the list of judgments for which shielding is available after 5 years if the defendant has satisfied any monetary award included in the judgment.  \r\n2. Creates exceptions that make the shielded records available to the Department of Justice and the defendant in the action.\r\n3. Allows for records of shielded actions to be available to the public for purposes of preserving case law, provided that all identifying information is redacted or otherwise obscured.  \r\n4. Makes minor technical changes.  \r\n\r\nThe primary differences between Senate Substitute No. 1 for Senate Bill No. 115 and Senate Substitute No. 2 for Senate Bill No. 115 are as follows: \r\n\r\n1. Senate Substitute No. 2 replaces the term \u201cexpungement\u201d with the term \u201cshielding\u201d to better reflect how the Court will be handling records.\r\n2. Senate Substitute No. 2 eliminates the provision in Senate Substitute No. 1 that would have allowed certain eviction records to be automatically shielded. \r\n3. Senate Substitute No. 2 adds a requirement that a defendant seeking shielding under paragraph (a)(1) of \u00a7 5720 (lines 6 through 9) have no other similar judgments against them within 5 years of the motion to shield. \r\n\r\nSenate Substitute No 2. also adds language specifying that redacted records are being made available for purposes of preserving important case law, and that the Court is responsible only for databases and systems that it controls."
+    }
+  ],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Expungement/Evictions/Defendents/Allow"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "was introduced and adopted in lieu of SB 115",
+      "date": "2025-06-11",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Passed By Senate. Votes: 19 YES 2 ABSENT",
+      "date": "2025-06-12",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Assigned to Housing Committee in House",
+      "date": "2025-06-12",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Housing",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Reported Out of Committee (Housing) in House with 5 Favorable, 2 On Its Merits",
+      "date": "2025-06-17",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "committee-passage",
+        "committee-passage-favorable"
+      ],
+      "related_entities": [
+        {
+          "name": "Housing",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Assigned to Appropriations Committee in House",
+      "date": "2025-06-18",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Appropriations",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Reported Out of Committee (Appropriations) in House with 4 On Its Merits",
+      "date": "2025-06-25",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "committee-passage"
+      ],
+      "related_entities": [
+        {
+          "name": "Appropriations",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Passed By House. Votes: 27 YES 12 NO 1 ABSENT 1 VACANT",
+      "date": "2025-07-01",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    },
+    {
+      "description": "Signed by Governor",
+      "date": "2025-07-29",
+      "organization_id": "~{\"classification\": \"executive\"}",
+      "classification": [
+        "executive-signature"
+      ],
+      "related_entities": [],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:36Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "S. Elizabeth Lockman",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"S. Elizabeth Lockman\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Ray Seigfried",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Ray Seigfried\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Marie Pinkney",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Marie Pinkney\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Sarah McBride",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Sarah McBride\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Mara Gorman",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Mara Gorman\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Spiros Mantzavinos",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Spiros Mantzavinos\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Josue O Ortega",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Josue O Ortega\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=142511&legislationTypeId=6&docTypeId=2&legislationName=SS2forSB115",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142511&legislationTypeId=6&docTypeId=2&legislationName=SS2forSB115",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Fiscal Note",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GetPdfDocument?fileAttachmentId=649465",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [
+    {
+      "publication": "The Laws of Delaware",
+      "citation": "Volume 85 Chapter 106",
+      "citation_type": "chapter",
+      "effective": null,
+      "expires": null,
+      "url": "https://legis.delaware.gov/SessionLaws/Chapter/GetPdfDocument?fileAttachmentId=650760"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=142511",
+      "note": "text/html"
+    }
+  ],
+  "extras": {
+    "substitute": "SS 2"
+  },
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:36Z"
+  }
+}

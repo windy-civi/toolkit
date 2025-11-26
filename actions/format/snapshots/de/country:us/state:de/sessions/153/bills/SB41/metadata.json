@@ -1,0 +1,156 @@
+{
+  "legislative_session": "153",
+  "identifier": "SB 41",
+  "title": "AN ACT TO AMEND TITLE 16 OF THE DELAWARE CODE RELATING TO PURE FOOD AND DRUGS.",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [
+    {
+      "note": "synopsis",
+      "abstract": "This Act is a substitute for Senate Substitute No. 1 for Senate Bill No. 41. \r\n\r\nThis Act differs from SS 1 for SB 41 in that it removes the ban on the manufacture, sale, delivery, distribution, holding with the intent to sell, and offering for sale in Delaware of food that contains Red dye 40 (CAS no. 25956-17-6). \r\n\r\nLike SB 41 and SS 1 for SB 41, this Act bans the manufacture, sale, delivery, distribution, holding with the intent to sell, and offering for sale in Delaware of food that contains Red dye 3 (CAS no. 16423-68-0). For purposes of this chapter and section, food includes drink, ice, confectionary, and condiments. Red dye 3 is a color additive made from petroleum that gives foods a bright cherry-red color. Red dye 3, also labeled Red 3 or FD&C Red No. 3, is a synthetic additive used to color food and drink that has been linked to behavioral concerns in children and cancer. Red dye 3 is in thousands of foods, including those marketed to children. The U.S. Department of Agriculture\u2019s Branded Foods Database at FoodData Central identified 9,201 U.S. food products that contain Red dye 3, including hundreds of products made by the country\u2019s biggest food companies. However, Red dye 3 does not need to be in our food supply. Companies could replace Red dye 3 with natural colors from foods like beets, red cabbage, or black currants, or could simply leave it out entirely. Red dye 3 is added to food only to make it look more appealing.\r\n\r\nAfter the release of SB 41, the Food and Drug Administration (FDA) revoked the authorization to use Red dye 3 in food and ingested drugs under the Delaney Clause of the federal Food, Drug, and Cosmetic Act. The Delaney Clause prohibits FDA authorization of a food or color additive if it has been found to induce cancer in humans or animals. This Act establishes a State prohibition against Red dye 3 in food products to ensure it will remain banned in the State of Delaware. \r\n\r\nThe civil penalty provision for violation of this Act remains the same as in SB 41 and SS 1 for SB 41; any person that violates this Act is subject to a civil penalty as follows:\r\n(1) For a first occurrence, not to exceed $5,000, in addition to costs.\r\n(2) For a subsequent occurrence, not to exceed $10,000, in addition to costs.\r\nEach day on which a violation of this Act occurs constitutes a separate occurrence.\r\n\r\nThis Act retains the same effective date as SS 1 for SB 41. This Act takes effect on January 15, 2027, to align with the date by which Red dye 3 must be removed from foods under federal law."
+    }
+  ],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Red Dye 3/Ban/Food/Sale/Manufacture"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Adopted in lieu of the original bill SB 41, and Assigned to Health & Social Services Committee in Senate",
+      "date": "2025-02-20",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction",
+        "referral-committee"
+      ],
+      "related_entities": [
+        {
+          "name": "Health & Social Services",
+          "entity_type": "organization",
+          "organization_id": null
+        }
+      ],
+      "_processing": {
+        "log_file_created": "2025-11-26T06:11:35Z"
+      }
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "Eric Buckson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Eric Buckson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Michael F. Smith",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Michael F. Smith\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Laura V. Sturgeon",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Laura V. Sturgeon\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Dave G. Lawson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Dave G. Lawson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Ray Seigfried",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"upper\", \"name\": \"Ray Seigfried\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Eric Morrison",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Eric Morrison\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Melanie Ross Levin",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Melanie Ross Levin\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Bryan W. Shupe",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Bryan W. Shupe\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Madinah Wilson-Anton",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"lower\", \"name\": \"Madinah Wilson-Anton\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=141861&legislationTypeId=6&docTypeId=2&legislationName=SS2forSB41",
+          "media_type": "text/html"
+        },
+        {
+          "url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=141861&legislationTypeId=6&docTypeId=2&legislationName=SS2forSB41",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legis.delaware.gov/BillDetail?LegislationId=141861",
+      "note": "text/html"
+    }
+  ],
+  "extras": {
+    "substitute": "SS 2"
+  },
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:de/government",
+    "name": "Delaware",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:de"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T06:11:35Z"
+  }
+}

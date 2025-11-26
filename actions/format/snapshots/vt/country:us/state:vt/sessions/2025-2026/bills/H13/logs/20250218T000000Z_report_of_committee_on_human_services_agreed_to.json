@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Report of Committee on Human Services agreed to",
+    "date": "2025-02-18",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 13"
+}

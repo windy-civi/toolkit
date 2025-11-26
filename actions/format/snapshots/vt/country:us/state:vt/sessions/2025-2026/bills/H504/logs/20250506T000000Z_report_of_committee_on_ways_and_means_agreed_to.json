@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Report of Committee on Ways and Means agreed to",
+    "date": "2025-05-06",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 504"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "01/23/2025 Committee recommends passage of Sub A",
+    "date": "2025-01-23",
+    "organization_id": "~{\"classification\": \"legislature\"}",
+    "classification": [
+      "committee-passage-favorable"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HR5007"
+}

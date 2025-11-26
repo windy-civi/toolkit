@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment SA 2 to SR 2 - Introduced and Placed With Bill",
+    "date": "2024-12-16",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SR 2"
+}

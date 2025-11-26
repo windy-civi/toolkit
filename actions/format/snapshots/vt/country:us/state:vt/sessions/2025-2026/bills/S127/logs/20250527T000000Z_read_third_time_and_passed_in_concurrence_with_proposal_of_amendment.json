@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "Read third time and passed in concurrence with proposal of amendment",
+    "date": "2025-05-27",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-introduction",
+      "reading-3"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 127"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment HA 3 to HB 255 - Introduced and Placed With Bill",
+    "date": "2025-11-13",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB 255"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Amendment HA 5 to HB 241 - Defeated By House. Votes: 15 YES 24 NO 2 ABSENT",
+    "date": "2025-08-12",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "amendment-failure"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB 241"
+}

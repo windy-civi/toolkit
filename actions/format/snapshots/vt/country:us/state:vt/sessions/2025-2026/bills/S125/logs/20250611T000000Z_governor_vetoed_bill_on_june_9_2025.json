@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Governor vetoed bill on June 9, 2025",
+    "date": "2025-06-11",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "executive-veto"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 125"
+}

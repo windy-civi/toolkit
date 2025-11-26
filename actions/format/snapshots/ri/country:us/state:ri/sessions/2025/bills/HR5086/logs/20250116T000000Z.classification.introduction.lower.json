@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "01/16/2025 Introduced, referred to House State Government & Elections",
+    "date": "2025-01-16",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HR5086"
+}

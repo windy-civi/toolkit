@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "02/05/2025 Placed on the Senate Consent Calendar  (02/11/2025)",
+    "date": "2025-02-05",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "reading-3"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SR164"
+}

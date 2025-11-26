@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Defeated By House. Votes: 15 YES 6 NO 18 NOT VOTING 2 ABSENT. Reason Taken: HB 245 MTSR",
+    "date": "2025-08-13",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "failure"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB 245"
+}

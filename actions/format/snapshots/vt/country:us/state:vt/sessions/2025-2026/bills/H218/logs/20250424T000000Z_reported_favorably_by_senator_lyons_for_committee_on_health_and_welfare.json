@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Reported favorably by Senator Lyons for Committee on Health and Welfare",
+    "date": "2025-04-24",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage-favorable"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "H 218"
+}

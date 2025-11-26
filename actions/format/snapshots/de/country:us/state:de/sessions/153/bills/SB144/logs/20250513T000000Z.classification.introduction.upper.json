@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Introduced and Assigned to Housing & Land Use Committee in Senate",
+    "date": "2025-05-13",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction",
+      "referral-committee"
+    ],
+    "related_entities": [
+      {
+        "name": "Housing & Land Use",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 144"
+}

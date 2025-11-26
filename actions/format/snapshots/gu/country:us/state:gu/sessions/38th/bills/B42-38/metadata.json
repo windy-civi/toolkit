@@ -1,0 +1,64 @@
+{
+  "legislative_session": "38th",
+  "identifier": "B 42-38",
+  "title": "AN ACT TO AMEND \u00a7 88102; ADD A NEW \u00a7 88109; AND TO AMEND \u00a7 88104(g) AND (h), ALL OF CHAPTER 88, TITLE 5, GUAM CODE ANNOTATED, RELATIVE TO STRENGTHENING THE FISCAL SUSTAINABILITY; ESTABLISHING THE PERSONNEL POLICY; AND INCREASING STIPENDS PAID TO COMMISSION MEMBERS, RESPECTIVELY, OF I KUMISI\u00d3N I FINO\u2019 CHAMORU YAN I FINA\u2019N\u00c5\u2019GUEN I HISTORIA YAN I LINA\u2019LA\u2019 I TAOTAO T\u00c5NO\u2019.",
+  "from_organization": "~{\"classification\": \"legislature\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [],
+  "abstracts": [],
+  "other_titles": [],
+  "other_identifiers": [],
+  "actions": [],
+  "sponsorships": [
+    {
+      "name": "William A. Parkinson",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"chamber\": \"legislature\", \"name\": \"William A. Parkinson\"}",
+      "organization_id": null
+    },
+    {
+      "name": "Tina Rose Mu\u00f1a-Barnes",
+      "classification": "cosponsor",
+      "entity_type": "person",
+      "primary": false,
+      "person_id": "~{\"chamber\": \"legislature\", \"name\": \"Tina Rose Mu\\u00f1a-Barnes\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill No. 42-38 (COR)",
+      "links": [
+        {
+          "url": "http://guamlegislature.gov/38th_Guam_Legislature/Bill_History_38th/STATUS Bill No. 42-38 (COR).pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://guamlegislature.gov/bills/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/territory:gu/government",
+    "name": "Guam",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/territory:gu"
+  },
+  "_processing": {
+    "logs_latest_update": "2025-11-26T05:55:44Z"
+  }
+}

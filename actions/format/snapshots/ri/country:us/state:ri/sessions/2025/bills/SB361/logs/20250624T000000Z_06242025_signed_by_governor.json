@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "06/24/2025 Signed by Governor",
+    "date": "2025-06-24",
+    "organization_id": "~{\"classification\": \"executive\"}",
+    "classification": [
+      "executive-signature"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SB361"
+}

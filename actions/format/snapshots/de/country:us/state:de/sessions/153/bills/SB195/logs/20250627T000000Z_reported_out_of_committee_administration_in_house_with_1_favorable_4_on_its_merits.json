@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Administration) in House with 1 Favorable, 4 On Its Merits",
+    "date": "2025-06-27",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Administration",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "SB 195"
+}

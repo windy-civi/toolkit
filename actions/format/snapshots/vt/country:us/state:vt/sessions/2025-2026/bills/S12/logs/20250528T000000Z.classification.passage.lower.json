@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Committee of Conference report adopted (Senate bill)",
+    "date": "2025-05-28",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 12"
+}

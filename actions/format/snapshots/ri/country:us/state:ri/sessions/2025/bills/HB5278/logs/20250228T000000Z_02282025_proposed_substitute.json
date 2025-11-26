@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "02/28/2025 Proposed Substitute",
+    "date": "2025-02-28",
+    "organization_id": "~{\"classification\": \"legislature\"}",
+    "classification": [
+      "substitution"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HB5278"
+}

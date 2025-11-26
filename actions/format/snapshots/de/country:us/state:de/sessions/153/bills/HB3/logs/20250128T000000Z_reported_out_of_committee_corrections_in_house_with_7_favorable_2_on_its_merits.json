@@ -1,0 +1,19 @@
+{
+  "action": {
+    "description": "Reported Out of Committee (Corrections) in House with 7 Favorable, 2 On Its Merits",
+    "date": "2025-01-28",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage",
+      "committee-passage-favorable"
+    ],
+    "related_entities": [
+      {
+        "name": "Corrections",
+        "entity_type": "organization",
+        "organization_id": null
+      }
+    ]
+  },
+  "bill_id": "HB 3"
+}
