@@ -65,21 +65,55 @@ runs:
       env:
         PIPENV_VENV_IN_PROJECT: "1"
         PIPENV_IGNORE_VIRTUALENVS: "1"
+        PIPENV_PIPFILE: ${{ github.action_path }}/Pipfile
       run: |
         set -euo pipefail
+        ACTION_DIR="${{ github.action_path }}"
+        PIPFILE_PATH="$ACTION_DIR/Pipfile"
+        
+        # Verify Pipfile exists
+        if [ ! -f "$PIPFILE_PATH" ]; then
+          echo "::error::❌ Pipfile not found at $PIPFILE_PATH"
+          ls -la "$ACTION_DIR" || true
+          exit 1
+        fi
+        
         python -m pip install --upgrade pip
         pip install pipenv
         # Tell pipenv to use the Python installed by setup-python action
+        # Explicitly set Pipfile location to ensure pipenv uses the correct one
+        export PIPENV_PIPFILE="$PIPFILE_PATH"
+        cd "$ACTION_DIR"
         pipenv install --deploy --dev --python python
 
     - name: Run formatter
       shell: bash
+      working-directory: ${{ github.action_path }}
       env:
         OPENSTATE_DATA_FOLDER: ${{ runner.temp }}/scrape-snapshot-nightly
         GIT_REPO_FOLDER: ${{ github.workspace }}
         STATE: ${{ inputs.state }}
+        PIPENV_PIPFILE: ${{ github.action_path }}/Pipfile
       run: |
         set -euo pipefail
+        ACTION_DIR="${{ github.action_path }}"
+        PIPFILE_PATH="$ACTION_DIR/Pipfile"
+        
+        # Verify Pipfile and main.py exist
+        if [ ! -f "$PIPFILE_PATH" ]; then
+          echo "::error::❌ Pipfile not found at $PIPFILE_PATH"
+          ls -la "$ACTION_DIR" || true
+          exit 1
+        fi
+        if [ ! -f "$ACTION_DIR/main.py" ]; then
+          echo "::error::❌ main.py not found at $ACTION_DIR/main.py"
+          ls -la "$ACTION_DIR" || true
+          exit 1
+        fi
+        
+        # Ensure we're in the action directory and pipenv knows where the Pipfile is
+        cd "$ACTION_DIR"
+        export PIPENV_PIPFILE="$PIPFILE_PATH"
 
         # Capture formatter output
         FORMATTER_OUTPUT=$(pipenv run python main.py \
