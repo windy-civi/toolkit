@@ -2,7 +2,7 @@ name: OpenStates Scrape for ✏️{ locale.key }✏️
 
 on:
   schedule:
-    - cron: "0 2 * * *"  # Daily at 2 AM UTC (~9 PM ET, ~6 PM PT)
+    - cron: "50 23 * * *"  # Daily at 23:50 UTC (~5:50 PM CST)
   workflow_dispatch:
     inputs:
       force-update:
