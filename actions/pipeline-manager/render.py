@@ -83,11 +83,13 @@ def parse_config(config_file):
     marker_open = "✏️{"  # default
     marker_close = "}✏️"  # default
     templates = {}  # Dictionary mapping template names to their folder-name values
+    org_username = ""  # GitHub organization/username
     
     current_locale = None
     in_locale = False
     in_template_markers = False
     in_templates = False
+    in_org = False
     current_template = None
     locale_config_str = ""
     
@@ -95,6 +97,23 @@ def parse_config(config_file):
     with open(config_file, 'r') as f:
         for line in f:
             line = line.rstrip('\n')
+            
+            # Check for org section
+            if re.match(r'^org:\s*$', line):
+                in_org = True
+                continue
+            
+            # Parse org.username
+            if in_org:
+                match = re.match(r'^  username:\s*(.+)$', line)
+                if match:
+                    value = match.group(1).strip()
+                    # Remove quotes using sed
+                    value = run_shell(f"echo '{value}' | sed \"s/^['\\\"]//; s/['\\\"]$//\"")
+                    org_username = value
+                elif re.match(r'^[a-z]', line):
+                    # We've left the org section
+                    in_org = False
             
             # Check for template_markers section
             if re.match(r'^template_markers:\s*$', line):
@@ -180,7 +199,7 @@ def parse_config(config_file):
         all_locales.append(current_locale)
         all_configs.append(locale_config_str)
     
-    return all_locales, all_configs, marker_open, marker_close, templates
+    return all_locales, all_configs, marker_open, marker_close, templates, org_username
 
 
 def render_folder_name(folder_name_template, locale, marker_open, marker_close):
@@ -285,7 +304,7 @@ def main():
     os.makedirs(output_dir, exist_ok=True)
     
     # Parse config using shell commands
-    all_locales, all_configs, marker_open, marker_close, templates = parse_config(config_file)
+    all_locales, all_configs, marker_open, marker_close, templates, org_username = parse_config(config_file)
     
     # Process each locale
     for locale, config_str in zip(all_locales, all_configs):
