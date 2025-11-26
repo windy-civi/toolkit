@@ -46,6 +46,13 @@
             "folder-name": {
               "type": "string",
               "description": "The folder name for the locale"
+            },
+            "fully_override_dirs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "List of directory names that should be fully overridden when applying templates. Files in these directories that don't exist in the template will be deleted."
             }
           },
           "additionalProperties": false

@@ -16,7 +16,7 @@ import argparse
 import json
 import shutil
 from pathlib import Path
-from typing import Dict, Set, List, Tuple
+from typing import Dict, Set, List, Tuple, Optional
 
 
 def run_shell(cmd: str, check: bool = True, capture_output: bool = True) -> str:
@@ -112,11 +112,17 @@ def get_expected_repos(config_file: Path, generated_dir: Path) -> Tuple[Dict[str
         generated_path = generated_dir / folder_name
         
         if generated_path.exists():
+            # Get fully_override_dirs from template config
+            fully_override_dirs = None
+            if template in templates and 'fully_override_dirs' in templates[template]:
+                fully_override_dirs = templates[template]['fully_override_dirs']
+            
             expected_repos[folder_name] = {
                 'locale': locale,
                 'generated_path': generated_path,
                 'config': config_str,
-                'template': template
+                'template': template,
+                'fully_override_dirs': fully_override_dirs
             }
     
     return expected_repos, org_username
@@ -245,14 +251,28 @@ def delete_repo(org: str, repo_name: str, dry_run: bool = False) -> bool:
         return False
 
 
-def update_repo(org: str, repo_name: str, generated_path: Path, dry_run: bool = False) -> bool:
-    """Update template files in an existing repository."""
+def update_repo(org: str, repo_name: str, generated_path: Path, dry_run: bool = False, fully_override_dirs: Optional[List[str]] = None) -> bool:
+    """Update template files in an existing repository.
+    
+    Args:
+        org: GitHub organization name
+        repo_name: Repository name
+        generated_path: Path to generated template files
+        dry_run: If True, don't make changes
+        fully_override_dirs: List of directory names (like '.github') that should be fully overridden.
+                             Files in these directories that don't exist in generated will be deleted.
+    """
+    if fully_override_dirs is None:
+        fully_override_dirs = ['.github']  # Default: fully override .github directory
+    
     full_repo = f"{org}/{repo_name}"
     
     print(f"  ✏️  Updating repository: {full_repo}")
     
     if dry_run:
         print(f"     [DRY RUN] Would update template files")
+        if fully_override_dirs:
+            print(f"     [DRY RUN] Fully override directories: {', '.join(fully_override_dirs)}")
         return True
     
     temp_dir = Path(subprocess.check_output(["mktemp", "-d"], text=True).strip())
@@ -266,10 +286,15 @@ def update_repo(org: str, repo_name: str, generated_path: Path, dry_run: bool = 
         
         # Get all files from generated_path
         generated_files = {}
+        generated_dirs = set()  # Track which directories have files in generated
         for item in generated_path.rglob("*"):
             if item.is_file():
                 rel_path = item.relative_to(generated_path)
                 generated_files[rel_path] = item
+                # Track parent directories
+                for parent in rel_path.parents:
+                    if str(parent) != '.':
+                        generated_dirs.add(parent)
         
         # Update or create files
         for rel_path, source_file in generated_files.items():
@@ -285,23 +310,62 @@ def update_repo(org: str, repo_name: str, generated_path: Path, dry_run: bool = 
                 shutil.copy2(source_file, dest_path)
                 changes_made = True
         
-        # Remove files that don't exist in generated (but keep data directories)
-        # We only remove template files, not data files
-        repo_files = set()
+        # Get all files in repo (excluding .git and data directories)
+        repo_files = {}
+        data_dirs = ('.git', 'country:us', '.windycivi', '_data')
         for item in repo_dir.rglob("*"):
             if item.is_file():
                 rel_path = item.relative_to(repo_dir)
                 # Skip data directories and .git
-                if not any(part in ('.git', 'country:us', '.windycivi', '_data') for part in rel_path.parts):
-                    repo_files.add(rel_path)
+                if not any(part in data_dirs for part in rel_path.parts):
+                    repo_files[rel_path] = item
         
-        # Only remove template files that are in .github or root level
-        for repo_file in repo_files:
-            if repo_file not in generated_files:
-                # Only remove if it's a template file (in .github or root)
-                if repo_file.parts[0] == '.github' or len(repo_file.parts) == 1:
-                    (repo_dir / repo_file).unlink()
+        # For fully override directories, delete files that don't exist in generated
+        deleted_files = []
+        for repo_file_path, repo_file in repo_files.items():
+            # Check if this file is in a fully override directory
+            is_in_override_dir = any(
+                repo_file_path.parts[0] == override_dir 
+                for override_dir in fully_override_dirs
+            )
+            
+            if is_in_override_dir:
+                # In a fully override directory - delete if not in generated
+                if repo_file_path not in generated_files:
+                    print(f"     🗑️  Deleting {repo_file_path} (not in template)")
+                    repo_file.unlink()
+                    deleted_files.append(repo_file_path)
                     changes_made = True
+            else:
+                # Not in a fully override directory - only remove root-level template files
+                # (preserve data files and other user-created files)
+                if repo_file_path not in generated_files:
+                    # Only remove if it's a root-level file (not in any subdirectory)
+                    if len(repo_file_path.parts) == 1:
+                        # Check if it's a common template file (README.md, etc.)
+                        if repo_file_path.name in ('README.md',):
+                            print(f"     🗑️  Deleting {repo_file_path} (not in template)")
+                            repo_file.unlink()
+                            deleted_files.append(repo_file_path)
+                            changes_made = True
+        
+        # Clean up empty directories in fully override directories
+        for override_dir in fully_override_dirs:
+            override_path = repo_dir / override_dir
+            if override_path.exists() and override_path.is_dir():
+                # Remove empty subdirectories
+                for root, dirs, files in os.walk(override_path, topdown=False):
+                    root_path = Path(root)
+                    # Skip if directory is not empty or is the override_dir itself
+                    if root_path == override_path:
+                        continue
+                    try:
+                        if not any(root_path.iterdir()):
+                            print(f"     🗑️  Removing empty directory {root_path.relative_to(repo_dir)}")
+                            root_path.rmdir()
+                            changes_made = True
+                    except OSError:
+                        pass  # Directory not empty or doesn't exist
         
         if not changes_made:
             print(f"     ℹ️  No changes needed")
@@ -442,7 +506,9 @@ def main():
         success_count = 0
         for repo_name in sorted(to_update):
             repo_info = expected_repos[repo_name]
-            if update_repo(org, repo_name, repo_info['generated_path'], args.dry_run):
+            # Get fully_override_dirs from template config, default to ['.github'] if not specified
+            fully_override_dirs = repo_info.get('fully_override_dirs', ['.github'])
+            if update_repo(org, repo_name, repo_info['generated_path'], args.dry_run, fully_override_dirs=fully_override_dirs):
                 success_count += 1
         print()
         print(f"✅ Updated {success_count}/{len(to_update)} repositories")

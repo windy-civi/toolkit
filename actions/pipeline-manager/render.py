@@ -154,14 +154,19 @@ def parse_config(config_file):
             
             # Parse templates section
             if in_templates:
-                # Check if this is a template name (2 spaces, template name, colon)
-                match = re.match(r'^  ([a-z-]+):\s*$', line)
+                # Check if this is a template name (2 spaces, template name with hyphens, colon)
+                # Template names are like "openstates-to-ocd-files", not 2-letter codes
+                match = re.match(r'^  ([a-z][a-z-]+):\s*$', line)
                 if match:
-                    current_template = match.group(1)
-                    templates[current_template] = {}
-                    continue
+                    template_name = match.group(1)
+                    # Only treat as template if it contains a hyphen (template names have hyphens, locale codes don't)
+                    # Or if it's a known template pattern
+                    if '-' in template_name or len(template_name) > 2:
+                        current_template = template_name
+                        templates[current_template] = {}
+                        continue
                 
-                # Parse folder-name within template
+                # Parse folder-name and fully_override_dirs within template
                 if current_template:
                     match = re.match(r'^    folder-name:\s*(.+)$', line)
                     if match:
@@ -169,7 +174,30 @@ def parse_config(config_file):
                         # Remove quotes using sed
                         value = run_shell(f"echo '{value}' | sed \"s/^['\\\"]//; s/['\\\"]$//\"")
                         templates[current_template]['folder-name'] = value
-                    elif re.match(r'^[a-z]', line):
+                        continue
+                    
+                    # Parse fully_override_dirs (array)
+                    match = re.match(r'^    fully_override_dirs:\s*$', line)
+                    if match:
+                        templates[current_template]['fully_override_dirs'] = []
+                        continue
+                    
+                    # Parse array items (6 spaces for list items)
+                    if 'fully_override_dirs' in templates[current_template]:
+                        match = re.match(r'^      -\s*(.+)$', line)
+                        if match:
+                            value = match.group(1).strip()
+                            # Remove quotes using sed
+                            value = run_shell(f"echo '{value}' | sed \"s/^['\\\"]//; s/['\\\"]$//\"")
+                            templates[current_template]['fully_override_dirs'].append(value)
+                            continue
+                        # If we hit a line that's not an array item and not indented with 4 spaces, we're done with the array
+                        elif not re.match(r'^    ', line):
+                            # Remove the key if we're leaving the templates section
+                            pass
+                    
+                    # Check if we've left the templates section (line starts with 2 spaces and a lowercase letter, but not 4 spaces)
+                    if re.match(r'^  [a-z]', line) and not re.match(r'^    ', line):
                         # We've left the templates section
                         in_templates = False
                         current_template = None
