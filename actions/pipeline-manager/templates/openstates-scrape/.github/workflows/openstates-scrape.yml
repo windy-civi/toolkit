@@ -51,7 +51,7 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             /repos/${{ env.FILES_REPO }}/dispatches \
             -f event_type='scrape-complete' \
-            -f client_payload='{"state":"${{ env.STATE_CODE }}","triggered_by":"${{ github.repository }}"}'
+            -F client_payload='{"state":"${{ env.STATE_CODE }}","triggered_by":"${{ github.repository }}"}'
           echo "✅ Triggered format workflow"
         env:
           GH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
