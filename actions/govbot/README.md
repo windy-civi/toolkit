@@ -13,9 +13,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/windy-civi/toolkit/main/ac
 The script will:
 
 - Install it to `~/.govbot/bin/govbot` (creating the directory if needed)
-- Append `export PATH="$HOME/.govbot/bin:$PATH"` to your first available shell profile (`~/.zshrc`, `~/.zprofile`, `~/.bash_profile`, `~/.bashrc`, or `~/.profile`) if it’s not already set
+- Append `export PATH="$HOME/.govbot/bin:$PATH"` to your first available shell profile (`~/.zshrc`, `~/.zprofile`, `~/.bash_profile`, `~/.bashrc`, or `~/.profile`) if it's not already set
+- Auto-source the profile so `govbot` is immediately available
 
-After the script finishes, reload your shell (`exec $SHELL` or `source ~/.zshrc`):
+After the script finishes, you can start using it right away:
 
 ```bash
 govbot # to see help

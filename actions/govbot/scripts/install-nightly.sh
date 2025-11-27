@@ -85,22 +85,25 @@ download_binary() {
 }
 
 ensure_path_entry() {
+  local already_in_path=false
   if [[ ":${PATH}:" == *":${INSTALL_DIR}:"* ]]; then
     log "PATH already contains ${INSTALL_DIR}"
-    return
+    already_in_path=true
   fi
 
-  local profile added=false
+  local profile added=false sourced_profile=""
   for profile in "${PROFILE_CANDIDATES[@]}"; do
     if [[ -f "${profile}" ]]; then
       if grep -Fq "${INSTALL_DIR}" "${profile}"; then
         log "${profile} already exports ${INSTALL_DIR}"
         added=true
+        sourced_profile="${profile}"
         break
       else
         printf '\n# Added by govbot installer\nexport PATH="%s:$PATH"\n' "${INSTALL_DIR}" >> "${profile}"
         log "Appended PATH update to ${profile}"
         added=true
+        sourced_profile="${profile}"
         break
       fi
     fi
@@ -111,9 +114,15 @@ ensure_path_entry() {
     printf '#!/usr/bin/env bash\n' > "${profile}"
     printf '# Added by govbot installer\nexport PATH="%s:$PATH"\n' "${INSTALL_DIR}" >> "${profile}"
     log "Created ${profile} with PATH update"
+    sourced_profile="${profile}"
   fi
 
-  log "Reload your shell or run: source <profile>"
+  # Auto-source the profile if PATH doesn't already contain the install dir
+  if [[ "${already_in_path}" = false ]] && [[ -n "${sourced_profile}" ]]; then
+    log "Sourcing ${sourced_profile} to update current session"
+    # shellcheck disable=SC1090
+    source "${sourced_profile}"
+  fi
 }
 
 main() {
@@ -128,10 +137,8 @@ main() {
 govbot installed at: ${INSTALLED_PATH}
 Latest nightly tag: ${LATEST_TAG}
 
-If this is your first install, restart your shell or run:
-  source <your-shell-profile>
-
-Run 'govbot' to get started.
+Your shell profile has been updated and sourced.
+Run 'govbot' to get started!
 EOF
 }
 
