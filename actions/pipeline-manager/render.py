@@ -202,9 +202,9 @@ def parse_config(config_file):
                         in_templates = False
                         current_template = None
             
-            # Check if this is a locale key (2 spaces, 2 lowercase letters, colon)
-            # Using shell-style regex: ^  [a-z]{2}:$
-            match = re.match(r'^  ([a-z]{2}):\s*$', line)
+            # Check if this is a locale key (2 spaces, 2+ lowercase letters, colon)
+            # Using shell-style regex: ^  [a-z]{2,}:$
+            match = re.match(r'^  ([a-z]{2,}):\s*$', line)
             if match:
                 # Save previous locale
                 if current_locale:
@@ -282,7 +282,7 @@ def parse_config(config_file):
                         locale_config_str = f"{key}={value}"
                     else:
                         locale_config_str = f"{locale_config_str}|{key}={value}"
-                elif re.match(r'^[a-z]', line) and not re.match(r'^  [a-z]{2}:', line):
+                elif re.match(r'^[a-z]', line) and not re.match(r'^  [a-z]{2,}:', line):
                     # We've left the locales section
                     in_locale = False
     
