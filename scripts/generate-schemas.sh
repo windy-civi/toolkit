@@ -101,6 +101,7 @@ for data_file in "${DATA_FILES[@]}"; do
     echo "📦 Generating Rust types..."
     docker run --rm \
         -v "${PROJECT_ROOT}:/local" \
+        -u "$(id -u):$(id -g)" \
         openapitools/openapi-generator-cli generate \
         -i "/local/${OPENAPI_REL_PATH}" \
         -g rust \
@@ -116,6 +117,7 @@ for data_file in "${DATA_FILES[@]}"; do
     echo "🐍 Generating Python types..."
     docker run --rm \
         -v "${PROJECT_ROOT}:/local" \
+        -u "$(id -u):$(id -g)" \
         openapitools/openapi-generator-cli generate \
         -i "/local/${OPENAPI_REL_PATH}" \
         -g python \
@@ -131,6 +133,7 @@ for data_file in "${DATA_FILES[@]}"; do
     echo "📘 Generating TypeScript types..."
     docker run --rm \
         -v "${PROJECT_ROOT}:/local" \
+        -u "$(id -u):$(id -g)" \
         openapitools/openapi-generator-cli generate \
         -i "/local/${OPENAPI_REL_PATH}" \
         -g typescript-axios \
@@ -143,11 +146,22 @@ for data_file in "${DATA_FILES[@]}"; do
     echo "✅ TypeScript code generated in ${generated_dir}/typescript"
     echo ""
     
+    # Fix permissions on generated files (Docker may create them as root)
+    if [ -d "$generated_dir" ]; then
+        chmod -R u+w "$generated_dir" 2>/dev/null || true
+        # Try to fix ownership if we have sudo (CI environments)
+        if command -v sudo &> /dev/null && [ -n "$SUDO_USER" ] || [ "$(id -u)" = "0" ]; then
+            chown -R "$(id -u):$(id -g)" "$generated_dir" 2>/dev/null || true
+        fi
+    fi
+    
     # Post-process: Clean up index files to only export models
     echo "🧹 Cleaning up index files..."
     
     # TypeScript: Only export models
     if [ -f "${generated_dir}/typescript/index.ts" ]; then
+        # Remove file first to avoid permission issues
+        rm -f "${generated_dir}/typescript/index.ts"
         # Extract model names from the generated API file
         # This is a simplified version - you may need to adjust based on actual generated structure
         cat > "${generated_dir}/typescript/index.ts" << 'EOF'
@@ -173,6 +187,7 @@ EOF
     
     # Rust: Remove API module from lib.rs
     if [ -f "${generated_dir}/rust/src/lib.rs" ]; then
+        rm -f "${generated_dir}/rust/src/lib.rs"
         cat > "${generated_dir}/rust/src/lib.rs" << 'EOF'
 #![allow(unused_imports)]
 #![allow(clippy::too_many_arguments)]
@@ -187,6 +202,7 @@ EOF
     
     # Python: Clean up __init__.py to only export models
     if [ -f "${generated_dir}/python/legislative_data_api/__init__.py" ]; then
+        rm -f "${generated_dir}/python/legislative_data_api/__init__.py"
         cat > "${generated_dir}/python/legislative_data_api/__init__.py" << 'EOF'
 # coding: utf-8
 
