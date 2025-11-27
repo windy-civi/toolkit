@@ -1,9 +1,8 @@
 name: OpenStates Scrape for ✏️{ locale.key }✏️
 
 on:
-  # schedule:
-  #   - cron: "50 23 * * *"  # Daily at 23:50 UTC (~5:50 PM CST)
-  # ⚠️ Schedule disabled while setting up files workflow
+  schedule:
+    - cron: "0 8 * * *"  # Daily at 8:00 AM UTC (2:00 AM Chicago time)
   workflow_dispatch:
     inputs:
       force-update:
