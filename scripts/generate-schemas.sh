@@ -1,12 +1,20 @@
 #!/bin/bash
 # Generate Rust and Python types/parsers from OpenAPI specs
 # Recursively finds *data.json files and transforms them to OpenAPI, then generates code
-# Uses OpenAPI Generator: https://openapi-generator.tech/docs/installation
+# Uses OpenAPI Generator via Docker: https://openapi-generator.tech/docs/installation
+# Requires: Docker, Rust
 
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
+# Check for Docker
+if ! command -v docker &> /dev/null; then
+    echo "Error: Docker is required but not found."
+    echo "Please install Docker (https://www.docker.com)"
+    exit 1
+fi
 
 # Get input folder (default to schemas if not provided)
 INPUT_FOLDER="${1:-${PROJECT_ROOT}/schemas}"
@@ -39,6 +47,19 @@ for file in "${DATA_FILES[@]}"; do
 done
 echo ""
 
+# Clean up generated folders to ensure fresh generation
+echo "🧹 Cleaning up existing generated folders..."
+for data_file in "${DATA_FILES[@]}"; do
+    data_dir="$(dirname "$data_file")"
+    generated_dir="${data_dir}/generated"
+    
+    if [ -d "$generated_dir" ]; then
+        echo "Removing: $generated_dir"
+        rm -rf "$generated_dir"
+    fi
+done
+echo ""
+
 # Transform each data.json file to OpenAPI
 echo "🔄 Transforming data.json files to OpenAPI specs..."
 for data_file in "${DATA_FILES[@]}"; do
@@ -49,20 +70,6 @@ for data_file in "${DATA_FILES[@]}"; do
     "$GOV_DATA_TO_OPENAPI" transform --input "$data_file" --output "$output_file"
     echo ""
 done
-
-# Check if Java is available, otherwise use Docker
-if command -v java &> /dev/null && java -version &> /dev/null; then
-    USE_DOCKER=false
-    GENERATOR_CMD="npx @openapitools/openapi-generator-cli"
-elif command -v docker &> /dev/null; then
-    USE_DOCKER=true
-    GENERATOR_CMD="docker run --rm -v \"${SCRIPT_DIR}:/local\" openapitools/openapi-generator-cli"
-    echo "⚠️  Java not found, using Docker instead"
-else
-    echo "Error: Neither Java nor Docker is available."
-    echo "Please install Java (https://www.java.com) or Docker (https://www.docker.com)"
-    exit 1
-fi
 
 # Generate code for each OpenAPI spec
 for data_file in "${DATA_FILES[@]}"; do
@@ -78,102 +85,60 @@ for data_file in "${DATA_FILES[@]}"; do
     echo "📄 Generating code from: $openapi_spec"
     echo ""
     
-    # Generate Rust code (models only)
-    echo "📦 Generating Rust types..."
     OPENAPI_REL_PATH="${openapi_spec#$PROJECT_ROOT/}"
     RUST_OUT_REL_PATH="${generated_dir#$PROJECT_ROOT/}/rust"
+    PYTHON_OUT_REL_PATH="${generated_dir#$PROJECT_ROOT/}/python"
+    TS_OUT_REL_PATH="${generated_dir#$PROJECT_ROOT/}/typescript"
     
-    if [ "$USE_DOCKER" = true ]; then
-        docker run --rm \
-            -v "${PROJECT_ROOT}:/local" \
-            openapitools/openapi-generator-cli generate \
-            -i "/local/${OPENAPI_REL_PATH}" \
-            -g rust \
-            -o "/local/${RUST_OUT_REL_PATH}" \
-            --skip-validate-spec \
-            --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
-            --additional-properties=packageName=legislative_data_api,packageVersion=1.0.0
-    else
-        IGNORE_FILE="${generated_dir}/.openapi-generator-ignore"
-        IGNORE_ARG=""
-        if [ -f "$IGNORE_FILE" ]; then
-            IGNORE_ARG="--ignore-file-override $IGNORE_FILE"
-        fi
-        npx @openapitools/openapi-generator-cli generate \
-            -i "$openapi_spec" \
-            -g rust \
-            -o "${generated_dir}/rust" \
-            --skip-validate-spec \
-            --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
-            $IGNORE_ARG \
-            --additional-properties=packageName=legislative_data_api,packageVersion=1.0.0
+    IGNORE_FILE="${generated_dir}/.openapi-generator-ignore"
+    IGNORE_ARG=""
+    if [ -f "$IGNORE_FILE" ]; then
+        IGNORE_REL_PATH="${IGNORE_FILE#$PROJECT_ROOT/}"
+        IGNORE_ARG="--ignore-file-override /local/${IGNORE_REL_PATH}"
     fi
     
+    # Generate Rust code (models only)
+    echo "📦 Generating Rust types..."
+    docker run --rm \
+        -v "${PROJECT_ROOT}:/local" \
+        openapitools/openapi-generator-cli generate \
+        -i "/local/${OPENAPI_REL_PATH}" \
+        -g rust \
+        -o "/local/${RUST_OUT_REL_PATH}" \
+        --skip-validate-spec \
+        --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
+        $IGNORE_ARG \
+        --additional-properties=packageName=legislative_data_api,packageVersion=1.0.0
     echo "✅ Rust code generated in ${generated_dir}/rust"
     echo ""
     
     # Generate Python code (models only)
     echo "🐍 Generating Python types..."
-    PYTHON_OUT_REL_PATH="${generated_dir#$PROJECT_ROOT/}/python"
-    
-    if [ "$USE_DOCKER" = true ]; then
-        docker run --rm \
-            -v "${PROJECT_ROOT}:/local" \
-            openapitools/openapi-generator-cli generate \
-            -i "/local/${OPENAPI_REL_PATH}" \
-            -g python \
-            -o "/local/${PYTHON_OUT_REL_PATH}" \
-            --skip-validate-spec \
-            --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
-            --additional-properties=packageName=legislative_data_api,packageVersion=1.0.0,packageUrl=https://github.com/windy-civi/toolkit
-    else
-        IGNORE_FILE="${generated_dir}/.openapi-generator-ignore"
-        IGNORE_ARG=""
-        if [ -f "$IGNORE_FILE" ]; then
-            IGNORE_ARG="--ignore-file-override $IGNORE_FILE"
-        fi
-        npx @openapitools/openapi-generator-cli generate \
-            -i "$openapi_spec" \
-            -g python \
-            -o "${generated_dir}/python" \
-            --skip-validate-spec \
-            --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
-            $IGNORE_ARG \
-            --additional-properties=packageName=legislative_data_api,packageVersion=1.0.0,packageUrl=https://github.com/windy-civi/toolkit
-    fi
-    
+    docker run --rm \
+        -v "${PROJECT_ROOT}:/local" \
+        openapitools/openapi-generator-cli generate \
+        -i "/local/${OPENAPI_REL_PATH}" \
+        -g python \
+        -o "/local/${PYTHON_OUT_REL_PATH}" \
+        --skip-validate-spec \
+        --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
+        $IGNORE_ARG \
+        --additional-properties=packageName=legislative_data_api,packageVersion=1.0.0,packageUrl=https://github.com/windy-civi/toolkit
     echo "✅ Python code generated in ${generated_dir}/python"
     echo ""
     
     # Generate TypeScript code (models only)
     echo "📘 Generating TypeScript types..."
-    TS_OUT_REL_PATH="${generated_dir#$PROJECT_ROOT/}/typescript"
-    
-    if [ "$USE_DOCKER" = true ]; then
-        docker run --rm \
-            -v "${PROJECT_ROOT}:/local" \
-            openapitools/openapi-generator-cli generate \
-            -i "/local/${OPENAPI_REL_PATH}" \
-            -g typescript-axios \
-            -o "/local/${TS_OUT_REL_PATH}" \
-            --skip-validate-spec \
-            --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
-            --additional-properties=packageName=legislative-data-api,packageVersion=1.0.0,npmName=@windy-civi/legislative-data-api
-    else
-        IGNORE_FILE="${generated_dir}/.openapi-generator-ignore"
-        IGNORE_ARG=""
-        if [ -f "$IGNORE_FILE" ]; then
-            IGNORE_ARG="--ignore-file-override $IGNORE_FILE"
-        fi
-        npx @openapitools/openapi-generator-cli generate \
-            -i "$openapi_spec" \
-            -g typescript-axios \
-            -o "${generated_dir}/typescript" \
-            --skip-validate-spec \
-            --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
-            $IGNORE_ARG \
-            --additional-properties=packageName=legislative-data-api,packageVersion=1.0.0,npmName=@windy-civi/legislative-data-api
-    fi
+    docker run --rm \
+        -v "${PROJECT_ROOT}:/local" \
+        openapitools/openapi-generator-cli generate \
+        -i "/local/${OPENAPI_REL_PATH}" \
+        -g typescript-axios \
+        -o "/local/${TS_OUT_REL_PATH}" \
+        --skip-validate-spec \
+        --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
+        $IGNORE_ARG \
+        --additional-properties=packageName=legislative-data-api,packageVersion=1.0.0,npmName=@windy-civi/legislative-data-api
     
     echo "✅ TypeScript code generated in ${generated_dir}/typescript"
     echo ""

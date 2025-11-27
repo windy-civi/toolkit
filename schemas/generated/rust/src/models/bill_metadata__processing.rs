@@ -14,20 +14,20 @@ use serde::{Deserialize, Serialize};
 /// BillMetadataProcessing : Processing metadata
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BillMetadataProcessing {
-    /// ISO 8601 timestamp of when text extraction was last updated
-    #[serde(rename = "text_extraction_latest_update", skip_serializing_if = "Option::is_none")]
-    pub text_extraction_latest_update: Option<String>,
     /// ISO 8601 timestamp of when logs were last updated
     #[serde(rename = "logs_latest_update", skip_serializing_if = "Option::is_none")]
     pub logs_latest_update: Option<String>,
+    /// ISO 8601 timestamp of when text extraction was last updated
+    #[serde(rename = "text_extraction_latest_update", skip_serializing_if = "Option::is_none")]
+    pub text_extraction_latest_update: Option<String>,
 }
 
 impl BillMetadataProcessing {
     /// Processing metadata
     pub fn new() -> BillMetadataProcessing {
         BillMetadataProcessing {
-            text_extraction_latest_update: None,
             logs_latest_update: None,
+            text_extraction_latest_update: None,
         }
     }
 }

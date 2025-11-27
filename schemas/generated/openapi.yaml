@@ -7,54 +7,6 @@ info:
     name: Chi Hack Night
     email: info@chihacknight.org
 paths:
-  /{jurisdiction}/{session}/bills/{bill_id}-{title}/metadata:
-    summary: Bill Metadata
-    description: Bill metadata.json files from formatted snapshots
-    get:
-      operationId: get_bill_metadata
-      summary: Bill Metadata
-      description: Bill metadata.json files from formatted snapshots
-      parameters:
-      - name: jurisdiction
-        in: path
-        required: true
-        schema:
-          type: string
-          description: Jurisdiction code (e.g., wy, il)
-          pattern: ^[a-z]{2}$
-        description: Jurisdiction code (e.g., wy, il)
-      - name: session
-        in: path
-        required: true
-        schema:
-          type: string
-          description: Legislative session year (e.g., 2024)
-          pattern: ^\d{4}$
-        description: Legislative session year (e.g., 2024)
-      - name: bill_id
-        in: path
-        required: true
-        schema:
-          type: string
-          description: Bill identifier (e.g., SF0001, HB1234)
-          pattern: ^[A-Z]{2,4}\d+$
-        description: Bill identifier (e.g., SF0001, HB1234)
-      - name: title
-        in: path
-        required: true
-        schema:
-          type: string
-          description: URL-safe bill title
-        description: URL-safe bill title
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/bill_metadata'
-        '404':
-          description: Not found
   /{jurisdiction}/{session}/bills/{bill_id}-{title}/logs/{timestamp}:
     summary: Bill Vote Event Logs
     description: Vote event log files from formatted snapshots (logs/*.voteevent.json)
@@ -111,155 +63,105 @@ paths:
             application/octet-stream:
               schema:
                 $ref: '#/components/schemas/bill_vote_event_logs'
+  /{jurisdiction}/{session}/bills/{bill_id}-{title}/metadata:
+    summary: Bill Metadata
+    description: Bill metadata.json files from formatted snapshots
+    get:
+      operationId: get_bill_metadata
+      summary: Bill Metadata
+      description: Bill metadata.json files from formatted snapshots
+      parameters:
+      - name: jurisdiction
+        in: path
+        required: true
+        schema:
+          type: string
+          description: Jurisdiction code (e.g., wy, il)
+          pattern: ^[a-z]{2}$
+        description: Jurisdiction code (e.g., wy, il)
+      - name: session
+        in: path
+        required: true
+        schema:
+          type: string
+          description: Legislative session year (e.g., 2024)
+          pattern: ^\d{4}$
+        description: Legislative session year (e.g., 2024)
+      - name: bill_id
+        in: path
+        required: true
+        schema:
+          type: string
+          description: Bill identifier (e.g., SF0001, HB1234)
+          pattern: ^[A-Z]{2,4}\d+$
+        description: Bill identifier (e.g., SF0001, HB1234)
+      - name: title
+        in: path
+        required: true
+        schema:
+          type: string
+          description: URL-safe bill title
+        description: URL-safe bill title
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bill_metadata'
+        '404':
+          description: Not found
 components:
   schemas:
-    bill_metadata:
-      type: object
-      properties:
-        _processing:
-          type: object
-          properties:
-            text_extraction_latest_update:
-              type: string
-              description: ISO 8601 timestamp of when text extraction was last updated
-              format: date-time
-            logs_latest_update:
-              type: string
-              description: ISO 8601 timestamp of when logs were last updated
-              format: date-time
-          description: Processing metadata
-        other_identifiers:
-          type: array
-          items:
-            type: string
-          description: Array of other identifier strings
-        actions:
-          type: array
-          description: Array of action objects representing bill history
-        abstracts:
-          type: array
-          items:
-            type: object
-            properties:
-              note:
-                type: string
-              abstract:
-                type: string
-          description: Array of abstract objects
-        related_bills:
-          type: array
-          items:
-            type: object
-          description: Array of related bill objects
-        subject:
-          type: array
-          items:
-            type: string
-          description: Array of subject tags
-        from_organization:
-          type: string
-          description: The organization that introduced the bill, may be a JSON string
-          nullable: true
-        documents:
-          type: array
-          description: Array of document objects
-        legislative_session:
-          type: string
-          description: The legislative session identifier
-        sponsorships:
-          type: array
-          description: Array of sponsorship objects
-        title:
-          type: string
-          description: The title of the bill
-        extras:
-          type: object
-          description: Additional metadata specific to the jurisdiction
-        classification:
-          type: array
-          items:
-            type: string
-          description: Array of classification strings (e.g., ['bill'])
-        sources:
-          type: array
-          description: Array of source objects
-        citations:
-          type: array
-          items:
-            type: object
-          description: Array of citation objects
-        other_titles:
-          type: array
-          items:
-            type: object
-            properties:
-              title:
-                type: string
-              note:
-                type: string
-          description: Array of alternative title objects
-        identifier:
-          type: string
-          description: The bill identifier (e.g., SF0001)
-        versions:
-          type: array
-          description: Array of version objects
-      required:
-      - legislative_session
-      - identifier
-      - title
-      - classification
-      - jurisdiction
-      description: Schema for validating bill metadata.json files from formatted snapshots
     bill_vote_event_logs:
       type: object
       properties:
+        motion_classification:
+          type: array
+          items:
+            type: string
+          description: Array of motion classification strings
         motion_text:
           type: string
           description: Text describing the motion being voted on
         bill_identifier:
           type: string
           description: The bill identifier (e.g., SF0001)
+        organization:
+          type: string
+          description: The organization conducting the vote, may be a JSON string
+        legislative_session:
+          type: string
+          description: The legislative session identifier
+        result:
+          type: string
+          description: Result of the vote
+        votes:
+          type: array
+          description: Array of individual vote objects
+        sources:
+          type: array
+          description: Array of source objects
+        bill_action:
+          type: string
+          description: Optional reference to a specific bill action
+          nullable: true
+        counts:
+          type: array
+          description: Array of vote count objects
+        identifier:
+          type: string
+          description: Optional identifier for the vote event (may be empty string)
+        start_date:
+          type: string
+          description: ISO 8601 timestamp of when the vote occurred
+          format: date-time
         bill:
           type: string
           description: ID reference to the related bill
         extras:
           type: object
           description: Additional metadata specific to the jurisdiction
-        legislative_session:
-          type: string
-          description: The legislative session identifier
-        identifier:
-          type: string
-          description: Optional identifier for the vote event (may be empty string)
-        counts:
-          type: array
-          description: Array of vote count objects
-        motion_classification:
-          type: array
-          items:
-            type: string
-          description: Array of motion classification strings
-        organization:
-          type: string
-          description: The organization conducting the vote, may be a JSON string
-        result:
-          type: string
-          description: Result of the vote
-        sources:
-          type: array
-          description: Array of source objects
-        start_date:
-          type: string
-          description: ISO 8601 timestamp of when the vote occurred
-          format: date-time
-        bill_action:
-          type: string
-          description: Optional reference to a specific bill action
-          nullable: true
-        votes:
-          type: array
-          description: Array of individual vote objects
       required:
       - identifier
       - motion_text
@@ -286,3 +188,101 @@ components:
       - action
       - bill_id
       description: Schema for validating action log files from formatted snapshots (includes both action logs and classification logs)
+    bill_metadata:
+      type: object
+      properties:
+        documents:
+          type: array
+          description: Array of document objects
+        legislative_session:
+          type: string
+          description: The legislative session identifier
+        identifier:
+          type: string
+          description: The bill identifier (e.g., SF0001)
+        related_bills:
+          type: array
+          items:
+            type: object
+          description: Array of related bill objects
+        title:
+          type: string
+          description: The title of the bill
+        other_identifiers:
+          type: array
+          items:
+            type: string
+          description: Array of other identifier strings
+        subject:
+          type: array
+          items:
+            type: string
+          description: Array of subject tags
+        other_titles:
+          type: array
+          items:
+            type: object
+            properties:
+              title:
+                type: string
+              note:
+                type: string
+          description: Array of alternative title objects
+        actions:
+          type: array
+          description: Array of action objects representing bill history
+        sources:
+          type: array
+          description: Array of source objects
+        versions:
+          type: array
+          description: Array of version objects
+        citations:
+          type: array
+          items:
+            type: object
+          description: Array of citation objects
+        from_organization:
+          type: string
+          description: The organization that introduced the bill, may be a JSON string
+          nullable: true
+        abstracts:
+          type: array
+          items:
+            type: object
+            properties:
+              abstract:
+                type: string
+              note:
+                type: string
+          description: Array of abstract objects
+        extras:
+          type: object
+          description: Additional metadata specific to the jurisdiction
+        _processing:
+          type: object
+          properties:
+            logs_latest_update:
+              type: string
+              description: ISO 8601 timestamp of when logs were last updated
+              format: date-time
+            text_extraction_latest_update:
+              type: string
+              description: ISO 8601 timestamp of when text extraction was last updated
+              format: date-time
+          description: Processing metadata
+        classification:
+          type: array
+          items:
+            type: string
+          description: Array of classification strings (e.g., ['bill'])
+        sponsorships:
+          type: array
+          description: Array of sponsorship objects
+      required:
+      - legislative_session
+      - identifier
+      - title
+      - classification
+      - jurisdiction
+      description: Schema for validating bill metadata.json files from formatted snapshots

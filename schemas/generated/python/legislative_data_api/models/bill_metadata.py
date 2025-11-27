@@ -30,25 +30,25 @@ class BillMetadata(BaseModel):
     """
     Schema for validating bill metadata.json files from formatted snapshots
     """ # noqa: E501
-    processing: Optional[BillMetadataProcessing] = Field(default=None, alias="_processing")
-    other_identifiers: Optional[List[StrictStr]] = Field(default=None, description="Array of other identifier strings")
-    actions: Optional[List[StrictStr]] = Field(default=None, description="Array of action objects representing bill history")
-    abstracts: Optional[List[BillMetadataAbstractsInner]] = Field(default=None, description="Array of abstract objects")
-    related_bills: Optional[List[Dict[str, Any]]] = Field(default=None, description="Array of related bill objects")
-    subject: Optional[List[StrictStr]] = Field(default=None, description="Array of subject tags")
-    from_organization: Optional[StrictStr] = Field(default=None, description="The organization that introduced the bill, may be a JSON string")
     documents: Optional[List[StrictStr]] = Field(default=None, description="Array of document objects")
     legislative_session: StrictStr = Field(description="The legislative session identifier")
-    sponsorships: Optional[List[StrictStr]] = Field(default=None, description="Array of sponsorship objects")
-    title: StrictStr = Field(description="The title of the bill")
-    extras: Optional[Dict[str, Any]] = Field(default=None, description="Additional metadata specific to the jurisdiction")
-    classification: List[StrictStr] = Field(description="Array of classification strings (e.g., ['bill'])")
-    sources: Optional[List[StrictStr]] = Field(default=None, description="Array of source objects")
-    citations: Optional[List[Dict[str, Any]]] = Field(default=None, description="Array of citation objects")
-    other_titles: Optional[List[BillMetadataOtherTitlesInner]] = Field(default=None, description="Array of alternative title objects")
     identifier: StrictStr = Field(description="The bill identifier (e.g., SF0001)")
+    related_bills: Optional[List[Dict[str, Any]]] = Field(default=None, description="Array of related bill objects")
+    title: StrictStr = Field(description="The title of the bill")
+    other_identifiers: Optional[List[StrictStr]] = Field(default=None, description="Array of other identifier strings")
+    subject: Optional[List[StrictStr]] = Field(default=None, description="Array of subject tags")
+    other_titles: Optional[List[BillMetadataOtherTitlesInner]] = Field(default=None, description="Array of alternative title objects")
+    actions: Optional[List[StrictStr]] = Field(default=None, description="Array of action objects representing bill history")
+    sources: Optional[List[StrictStr]] = Field(default=None, description="Array of source objects")
     versions: Optional[List[StrictStr]] = Field(default=None, description="Array of version objects")
-    __properties: ClassVar[List[str]] = ["_processing", "other_identifiers", "actions", "abstracts", "related_bills", "subject", "from_organization", "documents", "legislative_session", "sponsorships", "title", "extras", "classification", "sources", "citations", "other_titles", "identifier", "versions"]
+    citations: Optional[List[Dict[str, Any]]] = Field(default=None, description="Array of citation objects")
+    from_organization: Optional[StrictStr] = Field(default=None, description="The organization that introduced the bill, may be a JSON string")
+    abstracts: Optional[List[BillMetadataAbstractsInner]] = Field(default=None, description="Array of abstract objects")
+    extras: Optional[Dict[str, Any]] = Field(default=None, description="Additional metadata specific to the jurisdiction")
+    processing: Optional[BillMetadataProcessing] = Field(default=None, alias="_processing")
+    classification: List[StrictStr] = Field(description="Array of classification strings (e.g., ['bill'])")
+    sponsorships: Optional[List[StrictStr]] = Field(default=None, description="Array of sponsorship objects")
+    __properties: ClassVar[List[str]] = ["documents", "legislative_session", "identifier", "related_bills", "title", "other_identifiers", "subject", "other_titles", "actions", "sources", "versions", "citations", "from_organization", "abstracts", "extras", "_processing", "classification", "sponsorships"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -89,16 +89,6 @@ class BillMetadata(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of processing
-        if self.processing:
-            _dict['_processing'] = self.processing.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in abstracts (list)
-        _items = []
-        if self.abstracts:
-            for _item_abstracts in self.abstracts:
-                if _item_abstracts:
-                    _items.append(_item_abstracts.to_dict())
-            _dict['abstracts'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in other_titles (list)
         _items = []
         if self.other_titles:
@@ -106,6 +96,16 @@ class BillMetadata(BaseModel):
                 if _item_other_titles:
                     _items.append(_item_other_titles.to_dict())
             _dict['other_titles'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in abstracts (list)
+        _items = []
+        if self.abstracts:
+            for _item_abstracts in self.abstracts:
+                if _item_abstracts:
+                    _items.append(_item_abstracts.to_dict())
+            _dict['abstracts'] = _items
+        # override the default output from pydantic by calling `to_dict()` of processing
+        if self.processing:
+            _dict['_processing'] = self.processing.to_dict()
         # set to None if from_organization (nullable) is None
         # and model_fields_set contains the field
         if self.from_organization is None and "from_organization" in self.model_fields_set:
@@ -123,24 +123,24 @@ class BillMetadata(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "_processing": BillMetadataProcessing.from_dict(obj["_processing"]) if obj.get("_processing") is not None else None,
-            "other_identifiers": obj.get("other_identifiers"),
-            "actions": obj.get("actions"),
-            "abstracts": [BillMetadataAbstractsInner.from_dict(_item) for _item in obj["abstracts"]] if obj.get("abstracts") is not None else None,
-            "related_bills": obj.get("related_bills"),
-            "subject": obj.get("subject"),
-            "from_organization": obj.get("from_organization"),
             "documents": obj.get("documents"),
             "legislative_session": obj.get("legislative_session"),
-            "sponsorships": obj.get("sponsorships"),
-            "title": obj.get("title"),
-            "extras": obj.get("extras"),
-            "classification": obj.get("classification"),
-            "sources": obj.get("sources"),
-            "citations": obj.get("citations"),
-            "other_titles": [BillMetadataOtherTitlesInner.from_dict(_item) for _item in obj["other_titles"]] if obj.get("other_titles") is not None else None,
             "identifier": obj.get("identifier"),
-            "versions": obj.get("versions")
+            "related_bills": obj.get("related_bills"),
+            "title": obj.get("title"),
+            "other_identifiers": obj.get("other_identifiers"),
+            "subject": obj.get("subject"),
+            "other_titles": [BillMetadataOtherTitlesInner.from_dict(_item) for _item in obj["other_titles"]] if obj.get("other_titles") is not None else None,
+            "actions": obj.get("actions"),
+            "sources": obj.get("sources"),
+            "versions": obj.get("versions"),
+            "citations": obj.get("citations"),
+            "from_organization": obj.get("from_organization"),
+            "abstracts": [BillMetadataAbstractsInner.from_dict(_item) for _item in obj["abstracts"]] if obj.get("abstracts") is not None else None,
+            "extras": obj.get("extras"),
+            "_processing": BillMetadataProcessing.from_dict(obj["_processing"]) if obj.get("_processing") is not None else None,
+            "classification": obj.get("classification"),
+            "sponsorships": obj.get("sponsorships")
         })
         return _obj
 

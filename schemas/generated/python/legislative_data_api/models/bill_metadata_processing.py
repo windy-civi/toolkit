@@ -28,9 +28,9 @@ class BillMetadataProcessing(BaseModel):
     """
     Processing metadata
     """ # noqa: E501
-    text_extraction_latest_update: Optional[datetime] = Field(default=None, description="ISO 8601 timestamp of when text extraction was last updated")
     logs_latest_update: Optional[datetime] = Field(default=None, description="ISO 8601 timestamp of when logs were last updated")
-    __properties: ClassVar[List[str]] = ["text_extraction_latest_update", "logs_latest_update"]
+    text_extraction_latest_update: Optional[datetime] = Field(default=None, description="ISO 8601 timestamp of when text extraction was last updated")
+    __properties: ClassVar[List[str]] = ["logs_latest_update", "text_extraction_latest_update"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,8 +83,8 @@ class BillMetadataProcessing(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "text_extraction_latest_update": obj.get("text_extraction_latest_update"),
-            "logs_latest_update": obj.get("logs_latest_update")
+            "logs_latest_update": obj.get("logs_latest_update"),
+            "text_extraction_latest_update": obj.get("text_extraction_latest_update")
         })
         return _obj
 

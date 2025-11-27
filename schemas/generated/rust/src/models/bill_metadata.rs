@@ -14,83 +14,83 @@ use serde::{Deserialize, Serialize};
 /// BillMetadata : Schema for validating bill metadata.json files from formatted snapshots
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BillMetadata {
-    #[serde(rename = "_processing", skip_serializing_if = "Option::is_none")]
-    pub _processing: Option<Box<models::BillMetadataProcessing>>,
-    /// Array of other identifier strings
-    #[serde(rename = "other_identifiers", skip_serializing_if = "Option::is_none")]
-    pub other_identifiers: Option<Vec<String>>,
-    /// Array of action objects representing bill history
-    #[serde(rename = "actions", skip_serializing_if = "Option::is_none")]
-    pub actions: Option<Vec<String>>,
-    /// Array of abstract objects
-    #[serde(rename = "abstracts", skip_serializing_if = "Option::is_none")]
-    pub abstracts: Option<Vec<models::BillMetadataAbstractsInner>>,
-    /// Array of related bill objects
-    #[serde(rename = "related_bills", skip_serializing_if = "Option::is_none")]
-    pub related_bills: Option<Vec<serde_json::Value>>,
-    /// Array of subject tags
-    #[serde(rename = "subject", skip_serializing_if = "Option::is_none")]
-    pub subject: Option<Vec<String>>,
-    /// The organization that introduced the bill, may be a JSON string
-    #[serde(rename = "from_organization", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub from_organization: Option<Option<String>>,
     /// Array of document objects
     #[serde(rename = "documents", skip_serializing_if = "Option::is_none")]
     pub documents: Option<Vec<String>>,
     /// The legislative session identifier
     #[serde(rename = "legislative_session")]
     pub legislative_session: String,
-    /// Array of sponsorship objects
-    #[serde(rename = "sponsorships", skip_serializing_if = "Option::is_none")]
-    pub sponsorships: Option<Vec<String>>,
-    /// The title of the bill
-    #[serde(rename = "title")]
-    pub title: String,
-    /// Additional metadata specific to the jurisdiction
-    #[serde(rename = "extras", skip_serializing_if = "Option::is_none")]
-    pub extras: Option<serde_json::Value>,
-    /// Array of classification strings (e.g., ['bill'])
-    #[serde(rename = "classification")]
-    pub classification: Vec<String>,
-    /// Array of source objects
-    #[serde(rename = "sources", skip_serializing_if = "Option::is_none")]
-    pub sources: Option<Vec<String>>,
-    /// Array of citation objects
-    #[serde(rename = "citations", skip_serializing_if = "Option::is_none")]
-    pub citations: Option<Vec<serde_json::Value>>,
-    /// Array of alternative title objects
-    #[serde(rename = "other_titles", skip_serializing_if = "Option::is_none")]
-    pub other_titles: Option<Vec<models::BillMetadataOtherTitlesInner>>,
     /// The bill identifier (e.g., SF0001)
     #[serde(rename = "identifier")]
     pub identifier: String,
+    /// Array of related bill objects
+    #[serde(rename = "related_bills", skip_serializing_if = "Option::is_none")]
+    pub related_bills: Option<Vec<serde_json::Value>>,
+    /// The title of the bill
+    #[serde(rename = "title")]
+    pub title: String,
+    /// Array of other identifier strings
+    #[serde(rename = "other_identifiers", skip_serializing_if = "Option::is_none")]
+    pub other_identifiers: Option<Vec<String>>,
+    /// Array of subject tags
+    #[serde(rename = "subject", skip_serializing_if = "Option::is_none")]
+    pub subject: Option<Vec<String>>,
+    /// Array of alternative title objects
+    #[serde(rename = "other_titles", skip_serializing_if = "Option::is_none")]
+    pub other_titles: Option<Vec<models::BillMetadataOtherTitlesInner>>,
+    /// Array of action objects representing bill history
+    #[serde(rename = "actions", skip_serializing_if = "Option::is_none")]
+    pub actions: Option<Vec<String>>,
+    /// Array of source objects
+    #[serde(rename = "sources", skip_serializing_if = "Option::is_none")]
+    pub sources: Option<Vec<String>>,
     /// Array of version objects
     #[serde(rename = "versions", skip_serializing_if = "Option::is_none")]
     pub versions: Option<Vec<String>>,
+    /// Array of citation objects
+    #[serde(rename = "citations", skip_serializing_if = "Option::is_none")]
+    pub citations: Option<Vec<serde_json::Value>>,
+    /// The organization that introduced the bill, may be a JSON string
+    #[serde(rename = "from_organization", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub from_organization: Option<Option<String>>,
+    /// Array of abstract objects
+    #[serde(rename = "abstracts", skip_serializing_if = "Option::is_none")]
+    pub abstracts: Option<Vec<models::BillMetadataAbstractsInner>>,
+    /// Additional metadata specific to the jurisdiction
+    #[serde(rename = "extras", skip_serializing_if = "Option::is_none")]
+    pub extras: Option<serde_json::Value>,
+    #[serde(rename = "_processing", skip_serializing_if = "Option::is_none")]
+    pub _processing: Option<Box<models::BillMetadataProcessing>>,
+    /// Array of classification strings (e.g., ['bill'])
+    #[serde(rename = "classification")]
+    pub classification: Vec<String>,
+    /// Array of sponsorship objects
+    #[serde(rename = "sponsorships", skip_serializing_if = "Option::is_none")]
+    pub sponsorships: Option<Vec<String>>,
 }
 
 impl BillMetadata {
     /// Schema for validating bill metadata.json files from formatted snapshots
-    pub fn new(legislative_session: String, title: String, classification: Vec<String>, identifier: String) -> BillMetadata {
+    pub fn new(legislative_session: String, identifier: String, title: String, classification: Vec<String>) -> BillMetadata {
         BillMetadata {
-            _processing: None,
-            other_identifiers: None,
-            actions: None,
-            abstracts: None,
-            related_bills: None,
-            subject: None,
-            from_organization: None,
             documents: None,
             legislative_session,
-            sponsorships: None,
-            title,
-            extras: None,
-            classification,
-            sources: None,
-            citations: None,
-            other_titles: None,
             identifier,
+            related_bills: None,
+            title,
+            other_identifiers: None,
+            subject: None,
+            other_titles: None,
+            actions: None,
+            sources: None,
             versions: None,
+            citations: None,
+            from_organization: None,
+            abstracts: None,
+            extras: None,
+            _processing: None,
+            classification,
+            sponsorships: None,
         }
     }
 }

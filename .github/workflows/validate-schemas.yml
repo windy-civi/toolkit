@@ -33,13 +33,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cargo-
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install OpenAPI Generator CLI
-        run: npm install -g @openapitools/openapi-generator-cli
 
       - name: Generate schemas
         run: |

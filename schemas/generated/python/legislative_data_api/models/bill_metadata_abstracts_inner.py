@@ -27,9 +27,9 @@ class BillMetadataAbstractsInner(BaseModel):
     """
     BillMetadataAbstractsInner
     """ # noqa: E501
-    note: Optional[StrictStr] = None
     abstract: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["note", "abstract"]
+    note: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["abstract", "note"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,8 +82,8 @@ class BillMetadataAbstractsInner(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "note": obj.get("note"),
-            "abstract": obj.get("abstract")
+            "abstract": obj.get("abstract"),
+            "note": obj.get("note")
         })
         return _obj
 
