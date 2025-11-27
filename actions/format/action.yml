@@ -30,7 +30,7 @@ runs:
       run: |
         echo "📥 Cloning data from ${{ inputs.scraper-repo }}..."
         git clone --depth 1 https://github.com/${{ inputs.scraper-repo }}.git scraper-data
-        
+
         # Check if _data folder exists
         if [ -d "scraper-data/_data/${{ inputs.state }}" ]; then
           echo "✅ Found scraped data in _data/${{ inputs.state }}"

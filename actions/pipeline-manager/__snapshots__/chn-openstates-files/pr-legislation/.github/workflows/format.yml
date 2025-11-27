@@ -3,7 +3,7 @@ name: Format Data for pr
 on:
   # Triggered by scraper repo when scrape completes
   repository_dispatch:
-    types: [scrape-complete]
+    types: [scrape-and-format-complete]
   # Manual trigger
   workflow_dispatch:
     inputs:
