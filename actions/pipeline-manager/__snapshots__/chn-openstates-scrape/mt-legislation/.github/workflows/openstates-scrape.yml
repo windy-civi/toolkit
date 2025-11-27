@@ -21,10 +21,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    outputs:
-      scrape-artifact-name: ${{ steps.scrape.outputs.scrape-artifact-name }}
-      scrape-tarball-path: ${{ steps.scrape.outputs.scrape-tarball-path }}
-      manifest-path: ${{ steps.scrape.outputs.manifest-path }}
 
     steps:
       - name: Checkout state repo

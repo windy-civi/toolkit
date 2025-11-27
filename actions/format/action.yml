@@ -6,17 +6,12 @@ inputs:
     description: "State abbreviation (e.g., id, il, tx, ny, or 'usa')"
     required: true
   github-token:
-    description: "GitHub token for releases/artifacts"
+    description: "GitHub token for API calls"
     required: true
     default: "${{ github.token }}"
-  scrape-artifact-name:
-    description: "Name of the scrape artifact to download (ignored if scrape-data-path provided)"
-    required: false
-    default: "scrape-snapshot-nightly"
   scrape-data-path:
-    description: "Path to pre-existing scraped data directory (skips artifact download if provided)"
-    required: false
-    default: ""
+    description: "Path to scraped data directory (e.g., scraper-data/_data/wy)"
+    required: true
   force-update:
     description: "Force push even if upstream changed"
     required: false
@@ -30,31 +25,15 @@ runs:
       with:
         python-version: "3.13"
 
-    - name: Download scrape artifact
-      if: inputs.scrape-data-path == ''
-      uses: actions/download-artifact@v4
-      with:
-        name: ${{ inputs.scrape-artifact-name }}
-        path: ${{ github.workspace }}
-
-    - name: Extract tarball for formatter
-      if: inputs.scrape-data-path == ''
+    - name: Verify scrape data exists
       shell: bash
       run: |
-        set -euo pipefail
-        mkdir -p "${RUNNER_TEMP}/scrape-snapshot-nightly"
-        tar xzf "${GITHUB_WORKSPACE}/scrape-snapshot-nightly.tgz" -C "${RUNNER_TEMP}/scrape-snapshot-nightly"
-        echo "✅ Extraction complete"
+        echo "📂 Using scrape data from: ${{ inputs.scrape-data-path }}"
 
-    - name: Use provided scrape data path
-      if: inputs.scrape-data-path != ''
-      shell: bash
-      run: |
-        echo "📂 Using pre-existing scrape data from: ${{ inputs.scrape-data-path }}"
-
-        # Verify source exists
+        # Verify source exists - fail if not
         if [ ! -d "${{ inputs.scrape-data-path }}" ]; then
-          echo "❌ Source directory does not exist: ${{ inputs.scrape-data-path }}"
+          echo "❌ Scrape data directory does not exist: ${{ inputs.scrape-data-path }}"
+          echo "   Make sure to clone the scraper repo first."
           exit 1
         fi
 
@@ -68,6 +47,12 @@ runs:
 
         FILE_COUNT=$(find "$TARGET_DIR" -type f -name "*.json" | wc -l)
         echo "📋 Files copied: $FILE_COUNT JSON files"
+        
+        if [ "$FILE_COUNT" -eq 0 ]; then
+          echo "❌ No JSON files found in scrape data"
+          exit 1
+        fi
+        
         echo "✅ Scrape data ready"
 
     - name: Ensure jq present

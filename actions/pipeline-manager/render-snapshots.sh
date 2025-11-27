@@ -17,30 +17,30 @@ for generated_config_dir in ./generated/*/; do
   if [ ! -d "$generated_config_dir" ]; then
     continue
   fi
-  
+
   config_name=$(basename "$generated_config_dir")
   config_output_dir="$output_dir/$config_name"
-  
+
   echo ""
   echo "Processing snapshots for $config_name..."
-  
+
   # Get sorted list of directories for this config
   dirs=($(find "$generated_config_dir" -mindepth 1 -maxdepth 1 -type d | sort))
   total=${#dirs[@]}
-  
+
   if [ $total -eq 0 ]; then
     echo "  No directories generated for $config_name, skipping..."
     continue
   fi
-  
+
   echo "  Generated $total directories"
-  
+
   # Clear this config's output directory
   if [ -d "$config_output_dir" ]; then
     rm -rf "$config_output_dir"
   fi
   mkdir -p "$config_output_dir"
-  
+
   # Copy sample locales to snapshot directory
   sampled_count=0
   for locale in "${SAMPLE_LOCALES[@]}"; do
@@ -53,7 +53,7 @@ for generated_config_dir in ./generated/*/; do
       echo "  ⚠ Not found: ${locale}-legislation"
     fi
   done
-  
+
   echo "  Summary: $sampled_count directories in $config_output_dir"
 done
 
