@@ -13,17 +13,17 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BillMetadataOtherTitlesInner {
-    #[serde(rename = "title", skip_serializing_if = "Option::is_none")]
-    pub title: Option<String>,
     #[serde(rename = "note", skip_serializing_if = "Option::is_none")]
     pub note: Option<String>,
+    #[serde(rename = "title", skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
 }
 
 impl BillMetadataOtherTitlesInner {
     pub fn new() -> BillMetadataOtherTitlesInner {
         BillMetadataOtherTitlesInner {
-            title: None,
             note: None,
+            title: None,
         }
     }
 }

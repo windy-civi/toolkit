@@ -27,9 +27,9 @@ class BillMetadataOtherTitlesInner(BaseModel):
     """
     BillMetadataOtherTitlesInner
     """ # noqa: E501
-    title: Optional[StrictStr] = None
     note: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["title", "note"]
+    title: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["note", "title"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,8 +82,8 @@ class BillMetadataOtherTitlesInner(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "title": obj.get("title"),
-            "note": obj.get("note")
+            "note": obj.get("note"),
+            "title": obj.get("title")
         })
         return _obj
 
