@@ -1,19 +1,54 @@
 #!/bin/bash
-# Generate Rust and Python types/parsers from OpenAPI spec
+# Generate Rust and Python types/parsers from OpenAPI specs
+# Recursively finds *data.json files and transforms them to OpenAPI, then generates code
 # Uses OpenAPI Generator: https://openapi-generator.tech/docs/installation
 
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
-OPENAPI_SPEC="${PROJECT_ROOT}/schemas/generated/openapi.yaml"
-GENERATED_DIR="${PROJECT_ROOT}/schemas/generated"
 
-if [ ! -f "$OPENAPI_SPEC" ]; then
-    echo "Error: openapi.yaml not found at $OPENAPI_SPEC"
-    echo "Please run: pod2openapi transform --input schemas/ocd-files.data.json"
+# Get input folder (default to schemas if not provided)
+INPUT_FOLDER="${1:-${PROJECT_ROOT}/schemas}"
+
+if [ ! -d "$INPUT_FOLDER" ]; then
+    echo "Error: Input folder not found: $INPUT_FOLDER"
+    echo "Usage: $0 [input_folder]"
     exit 1
 fi
+
+# Build the Rust tool first
+echo "🔨 Building gov-data-to-openapi..."
+cd "${SCRIPT_DIR}/gov-data-to-openapi"
+cargo build --release
+GOV_DATA_TO_OPENAPI="${SCRIPT_DIR}/gov-data-to-openapi/target/release/gov-data-to-openapi"
+cd "$PROJECT_ROOT"
+
+# Find all *data.json files recursively
+echo "🔍 Searching for *data.json files in: $INPUT_FOLDER"
+DATA_FILES=($(find "$INPUT_FOLDER" -type f -name "*data.json"))
+
+if [ ${#DATA_FILES[@]} -eq 0 ]; then
+    echo "Error: No *data.json files found in $INPUT_FOLDER"
+    exit 1
+fi
+
+echo "Found ${#DATA_FILES[@]} data.json file(s):"
+for file in "${DATA_FILES[@]}"; do
+    echo "  - $file"
+done
+echo ""
+
+# Transform each data.json file to OpenAPI
+echo "🔄 Transforming data.json files to OpenAPI specs..."
+for data_file in "${DATA_FILES[@]}"; do
+    data_dir="$(dirname "$data_file")"
+    output_file="${data_dir}/generated/openapi.yaml"
+    
+    echo "Processing: $data_file"
+    "$GOV_DATA_TO_OPENAPI" transform --input "$data_file" --output "$output_file"
+    echo ""
+done
 
 # Check if Java is available, otherwise use Docker
 if command -v java &> /dev/null && java -version &> /dev/null; then
@@ -29,105 +64,133 @@ else
     exit 1
 fi
 
-echo "Generating code from OpenAPI spec: $OPENAPI_SPEC"
-echo ""
-
-# Generate Rust code (models only)
-echo "📦 Generating Rust types..."
-if [ "$USE_DOCKER" = true ]; then
-    docker run --rm \
-        -v "${PROJECT_ROOT}:/local" \
-        openapitools/openapi-generator-cli generate \
-        -i /local/schemas/generated/openapi.yaml \
-        -g rust \
-        -o /local/schemas/generated/rust \
-        --skip-validate-spec \
-        --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
-        --ignore-file-override /local/schemas/generated/.openapi-generator-ignore \
-        --additional-properties=packageName=legislative_data_api,packageVersion=1.0.0
-else
-    npx @openapitools/openapi-generator-cli generate \
-        -i "$OPENAPI_SPEC" \
-        -g rust \
-        -o "${GENERATED_DIR}/rust" \
-        --skip-validate-spec \
-        --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
-        --ignore-file-override /local/schemas/generated/.openapi-generator-ignore \
-        --additional-properties=packageName=legislative_data_api,packageVersion=1.0.0
-fi
-
-echo "✅ Rust code generated in ${GENERATED_DIR}/rust"
-echo ""
-
-# Generate Python code (models only)
-echo "🐍 Generating Python types..."
-if [ "$USE_DOCKER" = true ]; then
-    docker run --rm \
-        -v "${PROJECT_ROOT}:/local" \
-        openapitools/openapi-generator-cli generate \
-        -i /local/schemas/generated/openapi.yaml \
-        -g python \
-        -o /local/schemas/generated/python \
-        --skip-validate-spec \
-        --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
-        --ignore-file-override /local/schemas/generated/.openapi-generator-ignore \
-        --additional-properties=packageName=legislative_data_api,packageVersion=1.0.0,packageUrl=https://github.com/windy-civi/toolkit
-else
-    npx @openapitools/openapi-generator-cli generate \
-        -i "$OPENAPI_SPEC" \
-        -g python \
-        -o "${GENERATED_DIR}/python" \
-        --skip-validate-spec \
-        --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
-        --ignore-file-override /local/schemas/generated/.openapi-generator-ignore \
-        --additional-properties=packageName=legislative_data_api,packageVersion=1.0.0,packageUrl=https://github.com/windy-civi/toolkit
-fi
-
-echo "✅ Python code generated in ${GENERATED_DIR}/python"
-echo ""
-
-# Generate TypeScript code (models only)
-echo "📘 Generating TypeScript types..."
-if [ "$USE_DOCKER" = true ]; then
-    docker run --rm \
-        -v "${PROJECT_ROOT}:/local" \
-        openapitools/openapi-generator-cli generate \
-        -i /local/schemas/generated/openapi.yaml \
-        -g typescript-axios \
-        -o /local/schemas/generated/typescript \
-        --skip-validate-spec \
-        --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
-        --ignore-file-override /local/schemas/generated/.openapi-generator-ignore \
-        --additional-properties=packageName=legislative-data-api,packageVersion=1.0.0,npmName=@windy-civi/legislative-data-api
-else
-    npx @openapitools/openapi-generator-cli generate \
-        -i "$OPENAPI_SPEC" \
-        -g typescript-axios \
-        -o "${GENERATED_DIR}/typescript" \
-        --skip-validate-spec \
-        --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
-        --ignore-file-override /local/schemas/generated/.openapi-generator-ignore \
-        --additional-properties=packageName=legislative-data-api,packageVersion=1.0.0,npmName=@windy-civi/legislative-data-api
-fi
-
-echo "✅ TypeScript code generated in ${GENERATED_DIR}/typescript"
-echo ""
-
-# Post-process: Clean up index files to only export models
-echo "🧹 Cleaning up index files..."
-
-# TypeScript: Only export models
-if [ -f "${GENERATED_DIR}/typescript/index.ts" ]; then
-    cat > "${GENERATED_DIR}/typescript/index.ts" << 'EOF'
+# Generate code for each OpenAPI spec
+for data_file in "${DATA_FILES[@]}"; do
+    data_dir="$(dirname "$data_file")"
+    openapi_spec="${data_dir}/generated/openapi.yaml"
+    generated_dir="${data_dir}/generated"
+    
+    if [ ! -f "$openapi_spec" ]; then
+        echo "⚠️  Skipping $data_file: openapi.yaml not found"
+        continue
+    fi
+    
+    echo "📄 Generating code from: $openapi_spec"
+    echo ""
+    
+    # Generate Rust code (models only)
+    echo "📦 Generating Rust types..."
+    OPENAPI_REL_PATH="${openapi_spec#$PROJECT_ROOT/}"
+    RUST_OUT_REL_PATH="${generated_dir#$PROJECT_ROOT/}/rust"
+    
+    if [ "$USE_DOCKER" = true ]; then
+        docker run --rm \
+            -v "${PROJECT_ROOT}:/local" \
+            openapitools/openapi-generator-cli generate \
+            -i "/local/${OPENAPI_REL_PATH}" \
+            -g rust \
+            -o "/local/${RUST_OUT_REL_PATH}" \
+            --skip-validate-spec \
+            --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
+            --additional-properties=packageName=legislative_data_api,packageVersion=1.0.0
+    else
+        IGNORE_FILE="${generated_dir}/.openapi-generator-ignore"
+        IGNORE_ARG=""
+        if [ -f "$IGNORE_FILE" ]; then
+            IGNORE_ARG="--ignore-file-override $IGNORE_FILE"
+        fi
+        npx @openapitools/openapi-generator-cli generate \
+            -i "$openapi_spec" \
+            -g rust \
+            -o "${generated_dir}/rust" \
+            --skip-validate-spec \
+            --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
+            $IGNORE_ARG \
+            --additional-properties=packageName=legislative_data_api,packageVersion=1.0.0
+    fi
+    
+    echo "✅ Rust code generated in ${generated_dir}/rust"
+    echo ""
+    
+    # Generate Python code (models only)
+    echo "🐍 Generating Python types..."
+    PYTHON_OUT_REL_PATH="${generated_dir#$PROJECT_ROOT/}/python"
+    
+    if [ "$USE_DOCKER" = true ]; then
+        docker run --rm \
+            -v "${PROJECT_ROOT}:/local" \
+            openapitools/openapi-generator-cli generate \
+            -i "/local/${OPENAPI_REL_PATH}" \
+            -g python \
+            -o "/local/${PYTHON_OUT_REL_PATH}" \
+            --skip-validate-spec \
+            --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
+            --additional-properties=packageName=legislative_data_api,packageVersion=1.0.0,packageUrl=https://github.com/windy-civi/toolkit
+    else
+        IGNORE_FILE="${generated_dir}/.openapi-generator-ignore"
+        IGNORE_ARG=""
+        if [ -f "$IGNORE_FILE" ]; then
+            IGNORE_ARG="--ignore-file-override $IGNORE_FILE"
+        fi
+        npx @openapitools/openapi-generator-cli generate \
+            -i "$openapi_spec" \
+            -g python \
+            -o "${generated_dir}/python" \
+            --skip-validate-spec \
+            --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
+            $IGNORE_ARG \
+            --additional-properties=packageName=legislative_data_api,packageVersion=1.0.0,packageUrl=https://github.com/windy-civi/toolkit
+    fi
+    
+    echo "✅ Python code generated in ${generated_dir}/python"
+    echo ""
+    
+    # Generate TypeScript code (models only)
+    echo "📘 Generating TypeScript types..."
+    TS_OUT_REL_PATH="${generated_dir#$PROJECT_ROOT/}/typescript"
+    
+    if [ "$USE_DOCKER" = true ]; then
+        docker run --rm \
+            -v "${PROJECT_ROOT}:/local" \
+            openapitools/openapi-generator-cli generate \
+            -i "/local/${OPENAPI_REL_PATH}" \
+            -g typescript-axios \
+            -o "/local/${TS_OUT_REL_PATH}" \
+            --skip-validate-spec \
+            --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
+            --additional-properties=packageName=legislative-data-api,packageVersion=1.0.0,npmName=@windy-civi/legislative-data-api
+    else
+        IGNORE_FILE="${generated_dir}/.openapi-generator-ignore"
+        IGNORE_ARG=""
+        if [ -f "$IGNORE_FILE" ]; then
+            IGNORE_ARG="--ignore-file-override $IGNORE_FILE"
+        fi
+        npx @openapitools/openapi-generator-cli generate \
+            -i "$openapi_spec" \
+            -g typescript-axios \
+            -o "${generated_dir}/typescript" \
+            --skip-validate-spec \
+            --global-property=models,supportingFiles,modelDocs=false,modelTests=false,apiDocs=false,apiTests=false \
+            $IGNORE_ARG \
+            --additional-properties=packageName=legislative-data-api,packageVersion=1.0.0,npmName=@windy-civi/legislative-data-api
+    fi
+    
+    echo "✅ TypeScript code generated in ${generated_dir}/typescript"
+    echo ""
+    
+    # Post-process: Clean up index files to only export models
+    echo "🧹 Cleaning up index files..."
+    
+    # TypeScript: Only export models
+    if [ -f "${generated_dir}/typescript/index.ts" ]; then
+        # Extract model names from the generated API file
+        # This is a simplified version - you may need to adjust based on actual generated structure
+        cat > "${generated_dir}/typescript/index.ts" << 'EOF'
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Legislative Data API
- * API for 3 datasets
- *
- * The version of the OpenAPI document: 1.0.0
- * Contact: info@chihacknight.org
- *
+ * 
  * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
  * https://openapi-generator.tech
  * Do not edit the class manually.
@@ -141,11 +204,11 @@ export type { BillMetadataOtherTitlesInner } from './api';
 export type { BillMetadataProcessing } from './api';
 export type { BillVoteEventLogs } from './api';
 EOF
-fi
-
-# Rust: Remove API module from lib.rs
-if [ -f "${GENERATED_DIR}/rust/src/lib.rs" ]; then
-    cat > "${GENERATED_DIR}/rust/src/lib.rs" << 'EOF'
+    fi
+    
+    # Rust: Remove API module from lib.rs
+    if [ -f "${generated_dir}/rust/src/lib.rs" ]; then
+        cat > "${generated_dir}/rust/src/lib.rs" << 'EOF'
 #![allow(unused_imports)]
 #![allow(clippy::too_many_arguments)]
 
@@ -155,11 +218,11 @@ extern crate serde_json;
 
 pub mod models;
 EOF
-fi
-
-# Python: Clean up __init__.py to only export models
-if [ -f "${GENERATED_DIR}/python/legislative_data_api/__init__.py" ]; then
-    cat > "${GENERATED_DIR}/python/legislative_data_api/__init__.py" << 'EOF'
+    fi
+    
+    # Python: Clean up __init__.py to only export models
+    if [ -f "${generated_dir}/python/legislative_data_api/__init__.py" ]; then
+        cat > "${generated_dir}/python/legislative_data_api/__init__.py" << 'EOF'
 # coding: utf-8
 
 # flake8: noqa
@@ -167,10 +230,6 @@ if [ -f "${GENERATED_DIR}/python/legislative_data_api/__init__.py" ]; then
 """
     Legislative Data API
 
-    API for 3 datasets
-
-    The version of the OpenAPI document: 1.0.0
-    Contact: info@chihacknight.org
     Generated by OpenAPI Generator (https://openapi-generator.tech)
 
     Do not edit the class manually.
@@ -196,15 +255,12 @@ __all__ = [
     "BillVoteEventLogs",
 ]
 EOF
-fi
-
-echo "✅ Cleanup complete!"
-echo ""
+    fi
+    
+    echo "✅ Cleanup complete for ${data_file}!"
+    echo ""
+done
 
 echo "🎉 Code generation complete!"
 echo ""
-echo "Generated code:"
-echo "  - Rust:       ${GENERATED_DIR}/rust"
-echo "  - Python:     ${GENERATED_DIR}/python"
-echo "  - TypeScript: ${GENERATED_DIR}/typescript"
-
+echo "Processed ${#DATA_FILES[@]} data.json file(s) and generated code for each."

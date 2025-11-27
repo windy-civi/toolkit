@@ -31,24 +31,24 @@ class BillMetadata(BaseModel):
     Schema for validating bill metadata.json files from formatted snapshots
     """ # noqa: E501
     processing: Optional[BillMetadataProcessing] = Field(default=None, alias="_processing")
-    versions: Optional[List[StrictStr]] = Field(default=None, description="Array of version objects")
-    sources: Optional[List[StrictStr]] = Field(default=None, description="Array of source objects")
-    identifier: StrictStr = Field(description="The bill identifier (e.g., SF0001)")
-    subject: Optional[List[StrictStr]] = Field(default=None, description="Array of subject tags")
-    extras: Optional[Dict[str, Any]] = Field(default=None, description="Additional metadata specific to the jurisdiction")
+    other_identifiers: Optional[List[StrictStr]] = Field(default=None, description="Array of other identifier strings")
+    actions: Optional[List[StrictStr]] = Field(default=None, description="Array of action objects representing bill history")
+    abstracts: Optional[List[BillMetadataAbstractsInner]] = Field(default=None, description="Array of abstract objects")
     related_bills: Optional[List[Dict[str, Any]]] = Field(default=None, description="Array of related bill objects")
-    classification: List[StrictStr] = Field(description="Array of classification strings (e.g., ['bill'])")
+    subject: Optional[List[StrictStr]] = Field(default=None, description="Array of subject tags")
     from_organization: Optional[StrictStr] = Field(default=None, description="The organization that introduced the bill, may be a JSON string")
+    documents: Optional[List[StrictStr]] = Field(default=None, description="Array of document objects")
     legislative_session: StrictStr = Field(description="The legislative session identifier")
     sponsorships: Optional[List[StrictStr]] = Field(default=None, description="Array of sponsorship objects")
-    citations: Optional[List[Dict[str, Any]]] = Field(default=None, description="Array of citation objects")
-    abstracts: Optional[List[BillMetadataAbstractsInner]] = Field(default=None, description="Array of abstract objects")
-    actions: Optional[List[StrictStr]] = Field(default=None, description="Array of action objects representing bill history")
-    other_titles: Optional[List[BillMetadataOtherTitlesInner]] = Field(default=None, description="Array of alternative title objects")
-    other_identifiers: Optional[List[StrictStr]] = Field(default=None, description="Array of other identifier strings")
     title: StrictStr = Field(description="The title of the bill")
-    documents: Optional[List[StrictStr]] = Field(default=None, description="Array of document objects")
-    __properties: ClassVar[List[str]] = ["_processing", "versions", "sources", "identifier", "subject", "extras", "related_bills", "classification", "from_organization", "legislative_session", "sponsorships", "citations", "abstracts", "actions", "other_titles", "other_identifiers", "title", "documents"]
+    extras: Optional[Dict[str, Any]] = Field(default=None, description="Additional metadata specific to the jurisdiction")
+    classification: List[StrictStr] = Field(description="Array of classification strings (e.g., ['bill'])")
+    sources: Optional[List[StrictStr]] = Field(default=None, description="Array of source objects")
+    citations: Optional[List[Dict[str, Any]]] = Field(default=None, description="Array of citation objects")
+    other_titles: Optional[List[BillMetadataOtherTitlesInner]] = Field(default=None, description="Array of alternative title objects")
+    identifier: StrictStr = Field(description="The bill identifier (e.g., SF0001)")
+    versions: Optional[List[StrictStr]] = Field(default=None, description="Array of version objects")
+    __properties: ClassVar[List[str]] = ["_processing", "other_identifiers", "actions", "abstracts", "related_bills", "subject", "from_organization", "documents", "legislative_session", "sponsorships", "title", "extras", "classification", "sources", "citations", "other_titles", "identifier", "versions"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -124,23 +124,23 @@ class BillMetadata(BaseModel):
 
         _obj = cls.model_validate({
             "_processing": BillMetadataProcessing.from_dict(obj["_processing"]) if obj.get("_processing") is not None else None,
-            "versions": obj.get("versions"),
-            "sources": obj.get("sources"),
-            "identifier": obj.get("identifier"),
-            "subject": obj.get("subject"),
-            "extras": obj.get("extras"),
+            "other_identifiers": obj.get("other_identifiers"),
+            "actions": obj.get("actions"),
+            "abstracts": [BillMetadataAbstractsInner.from_dict(_item) for _item in obj["abstracts"]] if obj.get("abstracts") is not None else None,
             "related_bills": obj.get("related_bills"),
-            "classification": obj.get("classification"),
+            "subject": obj.get("subject"),
             "from_organization": obj.get("from_organization"),
+            "documents": obj.get("documents"),
             "legislative_session": obj.get("legislative_session"),
             "sponsorships": obj.get("sponsorships"),
-            "citations": obj.get("citations"),
-            "abstracts": [BillMetadataAbstractsInner.from_dict(_item) for _item in obj["abstracts"]] if obj.get("abstracts") is not None else None,
-            "actions": obj.get("actions"),
-            "other_titles": [BillMetadataOtherTitlesInner.from_dict(_item) for _item in obj["other_titles"]] if obj.get("other_titles") is not None else None,
-            "other_identifiers": obj.get("other_identifiers"),
             "title": obj.get("title"),
-            "documents": obj.get("documents")
+            "extras": obj.get("extras"),
+            "classification": obj.get("classification"),
+            "sources": obj.get("sources"),
+            "citations": obj.get("citations"),
+            "other_titles": [BillMetadataOtherTitlesInner.from_dict(_item) for _item in obj["other_titles"]] if obj.get("other_titles") is not None else None,
+            "identifier": obj.get("identifier"),
+            "versions": obj.get("versions")
         })
         return _obj
 

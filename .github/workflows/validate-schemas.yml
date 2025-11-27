@@ -1,0 +1,63 @@
+name: Validate Schemas
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate-schemas-and-verify-no-diff:
+    name: Generate Schemas and Verify No Diff
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo registry
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            scripts/gov-data-to-openapi/target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('scripts/gov-data-to-openapi/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install OpenAPI Generator CLI
+        run: npm install -g @openapitools/openapi-generator-cli
+
+      - name: Generate schemas
+        run: |
+          chmod +x scripts/generate-schemas.sh
+          ./scripts/generate-schemas.sh
+
+      - name: Check for changes
+        id: verify
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "❌ Generated files are out of sync!"
+            echo ""
+            echo "The following files have been modified:"
+            git status --short
+            echo ""
+            echo "Please run './scripts/generate-schemas.sh' and commit the changes."
+            exit 1
+          else
+            echo "✅ All generated files are up to date!"
+          fi
+

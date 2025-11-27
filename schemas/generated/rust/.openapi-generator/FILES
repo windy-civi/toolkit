@@ -1,5 +1,11 @@
+.gitignore
+.openapi-generator-ignore
+.travis.yml
 Cargo.toml
 README.md
+git_push.sh
+src/apis/configuration.rs
+src/apis/mod.rs
 src/lib.rs
 src/models/bill_action_logs.rs
 src/models/bill_metadata.rs

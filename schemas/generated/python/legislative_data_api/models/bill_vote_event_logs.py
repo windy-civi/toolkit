@@ -28,21 +28,21 @@ class BillVoteEventLogs(BaseModel):
     """
     Schema for validating vote event log files from formatted snapshots
     """ # noqa: E501
-    bill_identifier: StrictStr = Field(description="The bill identifier (e.g., SF0001)")
-    extras: Dict[str, Any] = Field(description="Additional metadata specific to the jurisdiction")
-    bill_action: Optional[StrictStr] = Field(description="Optional reference to a specific bill action")
-    start_date: datetime = Field(description="ISO 8601 timestamp of when the vote occurred")
     motion_text: StrictStr = Field(description="Text describing the motion being voted on")
-    counts: List[StrictStr] = Field(description="Array of vote count objects")
-    legislative_session: StrictStr = Field(description="The legislative session identifier")
+    bill_identifier: StrictStr = Field(description="The bill identifier (e.g., SF0001)")
     bill: StrictStr = Field(description="ID reference to the related bill")
-    votes: List[StrictStr] = Field(description="Array of individual vote objects")
-    motion_classification: List[StrictStr] = Field(description="Array of motion classification strings")
+    extras: Dict[str, Any] = Field(description="Additional metadata specific to the jurisdiction")
+    legislative_session: StrictStr = Field(description="The legislative session identifier")
     identifier: StrictStr = Field(description="Optional identifier for the vote event (may be empty string)")
+    counts: List[StrictStr] = Field(description="Array of vote count objects")
+    motion_classification: List[StrictStr] = Field(description="Array of motion classification strings")
     organization: StrictStr = Field(description="The organization conducting the vote, may be a JSON string")
     result: StrictStr = Field(description="Result of the vote")
     sources: List[StrictStr] = Field(description="Array of source objects")
-    __properties: ClassVar[List[str]] = ["bill_identifier", "extras", "bill_action", "start_date", "motion_text", "counts", "legislative_session", "bill", "votes", "motion_classification", "identifier", "organization", "result", "sources"]
+    start_date: datetime = Field(description="ISO 8601 timestamp of when the vote occurred")
+    bill_action: Optional[StrictStr] = Field(description="Optional reference to a specific bill action")
+    votes: List[StrictStr] = Field(description="Array of individual vote objects")
+    __properties: ClassVar[List[str]] = ["motion_text", "bill_identifier", "bill", "extras", "legislative_session", "identifier", "counts", "motion_classification", "organization", "result", "sources", "start_date", "bill_action", "votes"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -100,20 +100,20 @@ class BillVoteEventLogs(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "bill_identifier": obj.get("bill_identifier"),
-            "extras": obj.get("extras"),
-            "bill_action": obj.get("bill_action"),
-            "start_date": obj.get("start_date"),
             "motion_text": obj.get("motion_text"),
-            "counts": obj.get("counts"),
-            "legislative_session": obj.get("legislative_session"),
+            "bill_identifier": obj.get("bill_identifier"),
             "bill": obj.get("bill"),
-            "votes": obj.get("votes"),
-            "motion_classification": obj.get("motion_classification"),
+            "extras": obj.get("extras"),
+            "legislative_session": obj.get("legislative_session"),
             "identifier": obj.get("identifier"),
+            "counts": obj.get("counts"),
+            "motion_classification": obj.get("motion_classification"),
             "organization": obj.get("organization"),
             "result": obj.get("result"),
-            "sources": obj.get("sources")
+            "sources": obj.get("sources"),
+            "start_date": obj.get("start_date"),
+            "bill_action": obj.get("bill_action"),
+            "votes": obj.get("votes")
         })
         return _obj
 

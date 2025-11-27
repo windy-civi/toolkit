@@ -1,10 +1,10 @@
 [package]
-name = "pod-to-openapi"
+name = "gov-data-to-openapi"
 version = "0.1.0"
 edition = "2021"
 
 [[bin]]
-name = "pod2openapi"
+name = "gov-data-to-openapi"
 path = "src/main.rs"
 
 [dependencies]
@@ -14,8 +14,4 @@ serde_yaml = "0.9"
 clap = { version = "4.0", features = ["derive"] }
 anyhow = "1.0"
 regex = "1.10"
-indexmap = { version = "2.0", features = ["serde"] }
-
-[dev-dependencies]
-tempfile = "3.0"
 

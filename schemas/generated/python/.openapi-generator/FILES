@@ -1,6 +1,16 @@
+.github/workflows/python.yml
+.gitignore
+.gitlab-ci.yml
+.openapi-generator-ignore
+.travis.yml
 README.md
+git_push.sh
 legislative_data_api/__init__.py
 legislative_data_api/api/__init__.py
+legislative_data_api/api_client.py
+legislative_data_api/api_response.py
+legislative_data_api/configuration.py
+legislative_data_api/exceptions.py
 legislative_data_api/models/__init__.py
 legislative_data_api/models/bill_action_logs.py
 legislative_data_api/models/bill_metadata.py
@@ -9,7 +19,10 @@ legislative_data_api/models/bill_metadata_other_titles_inner.py
 legislative_data_api/models/bill_metadata_processing.py
 legislative_data_api/models/bill_vote_event_logs.py
 legislative_data_api/py.typed
+legislative_data_api/rest.py
 pyproject.toml
 requirements.txt
 setup.cfg
 setup.py
+test-requirements.txt
+tox.ini
