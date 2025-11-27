@@ -2,7 +2,7 @@ use anyhow::{Context, Result};
 use clap::{Parser, Subcommand};
 use regex::Regex;
 use serde::{Deserialize, Serialize};
-use std::collections::HashMap;
+use std::collections::BTreeMap;
 use std::fs;
 use std::path::{Path, PathBuf};
 
@@ -85,7 +85,7 @@ pub struct ParameterSchema {
 pub struct OpenApiDocument {
     pub openapi: String,
     pub info: Info,
-    pub paths: HashMap<String, PathItem>,
+    pub paths: BTreeMap<String, PathItem>,
     pub components: Option<Components>,
 }
 
@@ -117,7 +117,7 @@ pub struct Operation {
     pub summary: String,
     pub description: Option<String>,
     pub parameters: Vec<Parameter>,
-    pub responses: HashMap<String, Response>,
+    pub responses: BTreeMap<String, Response>,
 }
 
 #[derive(Debug, Serialize)]
@@ -134,7 +134,7 @@ pub struct Parameter {
 pub struct Response {
     pub description: String,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub content: Option<HashMap<String, MediaType>>,
+    pub content: Option<BTreeMap<String, MediaType>>,
 }
 
 #[derive(Debug, Serialize)]
@@ -150,7 +150,7 @@ pub struct SchemaRef {
 
 #[derive(Debug, Serialize)]
 pub struct Components {
-    pub schemas: HashMap<String, Schema>,
+    pub schemas: BTreeMap<String, Schema>,
 }
 
 #[derive(Debug, Serialize)]
@@ -158,7 +158,7 @@ pub struct Schema {
     #[serde(rename = "type")]
     pub type_: String,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub properties: Option<HashMap<String, Schema>>,
+    pub properties: Option<BTreeMap<String, Schema>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub required: Option<Vec<String>>,
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -272,10 +272,14 @@ fn transform_catalog(catalog: &Catalog, base_dir: Option<&Path>) -> Result<OpenA
         }),
     };
 
-    let mut paths = HashMap::new();
-    let mut schemas = HashMap::new();
+    let mut paths = BTreeMap::new();
+    let mut schemas = BTreeMap::new();
 
-    for dataset in &catalog.dataset {
+    // Sort datasets by identifier for deterministic processing
+    let mut sorted_datasets: Vec<_> = catalog.dataset.iter().collect();
+    sorted_datasets.sort_by_key(|d| &d.identifier);
+
+    for dataset in sorted_datasets {
         if let Some(ref fs_path) = dataset.filesystem_path {
             let openapi_path = to_openapi_path(fs_path)?;
             let parsed = parse_file_pattern(fs_path)?;
@@ -367,7 +371,7 @@ fn create_path_item(dataset: &Dataset, extensions: &[String]) -> Result<PathItem
         });
     }
 
-    let mut content = HashMap::new();
+    let mut content = BTreeMap::new();
     for ext in extensions {
         let media_type = extension_to_media_type(ext);
         content.insert(
@@ -383,7 +387,8 @@ fn create_path_item(dataset: &Dataset, extensions: &[String]) -> Result<PathItem
         );
     }
 
-    let mut responses = HashMap::new();
+    let mut responses = BTreeMap::new();
+    // Insert in sorted order: 200 before 404
     responses.insert(
         "200".to_string(),
         Response {
@@ -415,7 +420,7 @@ fn create_path_item(dataset: &Dataset, extensions: &[String]) -> Result<PathItem
 }
 
 fn create_schema(dataset: &Dataset) -> Schema {
-    let mut properties = HashMap::new();
+    let mut properties = BTreeMap::new();
 
     properties.insert(
         "identifier".to_string(),
@@ -519,11 +524,14 @@ fn load_schema_from_file(schema_path: &Path, dataset: &Dataset) -> Result<Schema
         .map(|s| s.to_string())
         .or_else(|| Some(dataset.description.clone()));
 
-    let mut properties = HashMap::new();
+    let mut properties = BTreeMap::new();
     let mut required = Vec::new();
 
+    // Sort properties by key for deterministic ordering
     if let Some(props) = json_schema.get("properties").and_then(|v| v.as_object()) {
-        for (key, value) in props {
+        let mut sorted_props: Vec<_> = props.iter().collect();
+        sorted_props.sort_by_key(|(k, _)| *k);
+        for (key, value) in sorted_props {
             if let Some(schema) = convert_json_schema_property(value) {
                 properties.insert(key.clone(), schema);
             }
@@ -599,9 +607,12 @@ fn convert_json_schema_property(prop: &serde_json::Value) -> Option<Schema> {
         .map(|s| s.to_string());
 
     let (properties, items) = if type_ == "object" {
-        let mut props = HashMap::new();
+        let mut props = BTreeMap::new();
         if let Some(obj_props) = prop.get("properties").and_then(|v| v.as_object()) {
-            for (key, value) in obj_props {
+            // Sort properties by key for deterministic ordering
+            let mut sorted_props: Vec<_> = obj_props.iter().collect();
+            sorted_props.sort_by_key(|(k, _)| *k);
+            for (key, value) in sorted_props {
                 if let Some(schema) = convert_json_schema_property(value) {
                     props.insert(key.clone(), schema);
                 }

@@ -32,9 +32,9 @@ cargo build --release
 GOV_DATA_TO_OPENAPI="${SCRIPT_DIR}/gov-data-to-openapi/target/release/gov-data-to-openapi"
 cd "$PROJECT_ROOT"
 
-# Find all *data.json files recursively
+# Find all *data.json files recursively and sort for deterministic processing
 echo "🔍 Searching for *data.json files in: $INPUT_FOLDER"
-DATA_FILES=($(find "$INPUT_FOLDER" -type f -name "*data.json"))
+DATA_FILES=($(find "$INPUT_FOLDER" -type f -name "*data.json" | sort))
 
 if [ ${#DATA_FILES[@]} -eq 0 ]; then
     echo "Error: No *data.json files found in $INPUT_FOLDER"
@@ -159,12 +159,14 @@ for data_file in "${DATA_FILES[@]}"; do
     echo "🧹 Cleaning up index files..."
     
     # TypeScript: Only export models
-    if [ -f "${generated_dir}/typescript/index.ts" ]; then
+    if [ -f "${generated_dir}/typescript/index.ts" ] && [ -f "${generated_dir}/typescript/api.ts" ]; then
         # Remove file first to avoid permission issues
         rm -f "${generated_dir}/typescript/index.ts"
-        # Extract model names from the generated API file
-        # This is a simplified version - you may need to adjust based on actual generated structure
-        cat > "${generated_dir}/typescript/index.ts" << 'EOF'
+        # Extract model names from the generated API file (export interface or export type)
+        MODEL_NAMES=$(grep -E "^export (interface|type) " "${generated_dir}/typescript/api.ts" | sed -E 's/^export (interface|type) ([A-Za-z0-9_]+).*/\2/' | sort)
+        
+        # Generate index.ts with dynamic exports
+        cat > "${generated_dir}/typescript/index.ts" << 'HEADER'
 /* tslint:disable */
 /* eslint-disable */
 /**
@@ -176,13 +178,11 @@ for data_file in "${DATA_FILES[@]}"; do
  */
 
 // Export model types only
-export type { BillActionLogs } from './api';
-export type { BillMetadata } from './api';
-export type { BillMetadataAbstractsInner } from './api';
-export type { BillMetadataOtherTitlesInner } from './api';
-export type { BillMetadataProcessing } from './api';
-export type { BillVoteEventLogs } from './api';
-EOF
+HEADER
+        
+        for model in $MODEL_NAMES; do
+            echo "export type { ${model} } from './api';" >> "${generated_dir}/typescript/index.ts"
+        done
     fi
     
     # Rust: Remove API module from lib.rs
@@ -201,9 +201,15 @@ EOF
     fi
     
     # Python: Clean up __init__.py to only export models
-    if [ -f "${generated_dir}/python/legislative_data_api/__init__.py" ]; then
+    if [ -f "${generated_dir}/python/legislative_data_api/__init__.py" ] && [ -d "${generated_dir}/python/legislative_data_api/models" ]; then
         rm -f "${generated_dir}/python/legislative_data_api/__init__.py"
-        cat > "${generated_dir}/python/legislative_data_api/__init__.py" << 'EOF'
+        
+        # Extract model file names and class names
+        # Find all model files and extract class names from them
+        MODEL_FILES=$(find "${generated_dir}/python/legislative_data_api/models" -name "*.py" ! -name "__init__.py" | sort)
+        
+        # Generate __init__.py with dynamic imports
+        cat > "${generated_dir}/python/legislative_data_api/__init__.py" << 'HEADER'
 # coding: utf-8
 
 # flake8: noqa
@@ -220,22 +226,28 @@ EOF
 __version__ = "1.0.0"
 
 # import models into sdk package
-from legislative_data_api.models.bill_action_logs import BillActionLogs as BillActionLogs
-from legislative_data_api.models.bill_metadata import BillMetadata as BillMetadata
-from legislative_data_api.models.bill_metadata_abstracts_inner import BillMetadataAbstractsInner as BillMetadataAbstractsInner
-from legislative_data_api.models.bill_metadata_other_titles_inner import BillMetadataOtherTitlesInner as BillMetadataOtherTitlesInner
-from legislative_data_api.models.bill_metadata_processing import BillMetadataProcessing as BillMetadataProcessing
-from legislative_data_api.models.bill_vote_event_logs import BillVoteEventLogs as BillVoteEventLogs
-
-__all__ = [
-    "BillActionLogs",
-    "BillMetadata",
-    "BillMetadataAbstractsInner",
-    "BillMetadataOtherTitlesInner",
-    "BillMetadataProcessing",
-    "BillVoteEventLogs",
-]
-EOF
+HEADER
+        
+        # Extract class names from model files by reading the first class definition
+        ALL_MODELS=""
+        for model_file in $MODEL_FILES; do
+            MODEL_BASENAME=$(basename "$model_file" .py)
+            # Extract class name from the file (first class definition)
+            CLASS_NAME=$(grep -E "^class [A-Za-z0-9_]+" "$model_file" | head -1 | sed -E 's/^class ([A-Za-z0-9_]+).*/\1/')
+            if [ -n "$CLASS_NAME" ]; then
+                echo "from legislative_data_api.models.${MODEL_BASENAME} import ${CLASS_NAME} as ${CLASS_NAME}" >> "${generated_dir}/python/legislative_data_api/__init__.py"
+                if [ -z "$ALL_MODELS" ]; then
+                    ALL_MODELS="\"${CLASS_NAME}\""
+                else
+                    ALL_MODELS="${ALL_MODELS},\n    \"${CLASS_NAME}\""
+                fi
+            fi
+        done
+        
+        echo "" >> "${generated_dir}/python/legislative_data_api/__init__.py"
+        echo "__all__ = [" >> "${generated_dir}/python/legislative_data_api/__init__.py"
+        echo -e "    ${ALL_MODELS}," >> "${generated_dir}/python/legislative_data_api/__init__.py"
+        echo "]" >> "${generated_dir}/python/legislative_data_api/__init__.py"
     fi
     
     echo "✅ Cleanup complete for ${data_file}!"

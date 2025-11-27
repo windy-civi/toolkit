@@ -14,36 +14,6 @@ use serde::{Deserialize, Serialize};
 /// BillVoteEventLogs : Schema for validating vote event log files from formatted snapshots
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BillVoteEventLogs {
-    /// Text describing the motion being voted on
-    #[serde(rename = "motion_text")]
-    pub motion_text: String,
-    /// Result of the vote
-    #[serde(rename = "result")]
-    pub result: String,
-    /// ISO 8601 timestamp of when the vote occurred
-    #[serde(rename = "start_date")]
-    pub start_date: String,
-    /// The legislative session identifier
-    #[serde(rename = "legislative_session")]
-    pub legislative_session: String,
-    /// Array of individual vote objects
-    #[serde(rename = "votes")]
-    pub votes: Vec<String>,
-    /// Array of motion classification strings
-    #[serde(rename = "motion_classification")]
-    pub motion_classification: Vec<String>,
-    /// Array of source objects
-    #[serde(rename = "sources")]
-    pub sources: Vec<String>,
-    /// The organization conducting the vote, may be a JSON string
-    #[serde(rename = "organization")]
-    pub organization: String,
-    /// Additional metadata specific to the jurisdiction
-    #[serde(rename = "extras")]
-    pub extras: serde_json::Value,
-    /// Optional identifier for the vote event (may be empty string)
-    #[serde(rename = "identifier")]
-    pub identifier: String,
     /// ID reference to the related bill
     #[serde(rename = "bill")]
     pub bill: String,
@@ -56,26 +26,56 @@ pub struct BillVoteEventLogs {
     /// Array of vote count objects
     #[serde(rename = "counts")]
     pub counts: Vec<String>,
+    /// Additional metadata specific to the jurisdiction
+    #[serde(rename = "extras")]
+    pub extras: serde_json::Value,
+    /// Optional identifier for the vote event (may be empty string)
+    #[serde(rename = "identifier")]
+    pub identifier: String,
+    /// The legislative session identifier
+    #[serde(rename = "legislative_session")]
+    pub legislative_session: String,
+    /// Array of motion classification strings
+    #[serde(rename = "motion_classification")]
+    pub motion_classification: Vec<String>,
+    /// Text describing the motion being voted on
+    #[serde(rename = "motion_text")]
+    pub motion_text: String,
+    /// The organization conducting the vote, may be a JSON string
+    #[serde(rename = "organization")]
+    pub organization: String,
+    /// Result of the vote
+    #[serde(rename = "result")]
+    pub result: String,
+    /// Array of source objects
+    #[serde(rename = "sources")]
+    pub sources: Vec<String>,
+    /// ISO 8601 timestamp of when the vote occurred
+    #[serde(rename = "start_date")]
+    pub start_date: String,
+    /// Array of individual vote objects
+    #[serde(rename = "votes")]
+    pub votes: Vec<String>,
 }
 
 impl BillVoteEventLogs {
     /// Schema for validating vote event log files from formatted snapshots
-    pub fn new(motion_text: String, result: String, start_date: String, legislative_session: String, votes: Vec<String>, motion_classification: Vec<String>, sources: Vec<String>, organization: String, extras: serde_json::Value, identifier: String, bill: String, bill_action: Option<String>, bill_identifier: String, counts: Vec<String>) -> BillVoteEventLogs {
+    pub fn new(bill: String, bill_action: Option<String>, bill_identifier: String, counts: Vec<String>, extras: serde_json::Value, identifier: String, legislative_session: String, motion_classification: Vec<String>, motion_text: String, organization: String, result: String, sources: Vec<String>, start_date: String, votes: Vec<String>) -> BillVoteEventLogs {
         BillVoteEventLogs {
-            motion_text,
-            result,
-            start_date,
-            legislative_session,
-            votes,
-            motion_classification,
-            sources,
-            organization,
-            extras,
-            identifier,
             bill,
             bill_action,
             bill_identifier,
             counts,
+            extras,
+            identifier,
+            legislative_session,
+            motion_classification,
+            motion_text,
+            organization,
+            result,
+            sources,
+            start_date,
+            votes,
         }
     }
 }

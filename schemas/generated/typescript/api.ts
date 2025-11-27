@@ -36,18 +36,51 @@ export interface BillActionLogs {
  * Schema for validating bill metadata.json files from formatted snapshots
  */
 export interface BillMetadata {
+    '_processing'?: BillMetadataProcessing;
     /**
-     * The title of the bill
+     * Array of abstract objects
      */
-    'title': string;
+    'abstracts'?: Array<BillMetadataAbstractsInner>;
+    /**
+     * Array of action objects representing bill history
+     */
+    'actions'?: Array<string>;
+    /**
+     * Array of citation objects
+     */
+    'citations'?: Array<object>;
+    /**
+     * Array of classification strings (e.g., [\'bill\'])
+     */
+    'classification': Array<string>;
+    /**
+     * Array of document objects
+     */
+    'documents'?: Array<string>;
     /**
      * Additional metadata specific to the jurisdiction
      */
     'extras'?: object;
     /**
+     * The organization that introduced the bill, may be a JSON string
+     */
+    'from_organization'?: string | null;
+    /**
+     * The bill identifier (e.g., SF0001)
+     */
+    'identifier': string;
+    /**
+     * The legislative session identifier
+     */
+    'legislative_session': string;
+    /**
      * Array of other identifier strings
      */
     'other_identifiers'?: Array<string>;
+    /**
+     * Array of alternative title objects
+     */
+    'other_titles'?: Array<BillMetadataOtherTitlesInner>;
     /**
      * Array of related bill objects
      */
@@ -57,54 +90,21 @@ export interface BillMetadata {
      */
     'sources'?: Array<string>;
     /**
-     * The legislative session identifier
+     * Array of sponsorship objects
      */
-    'legislative_session': string;
-    /**
-     * Array of citation objects
-     */
-    'citations'?: Array<object>;
+    'sponsorships'?: Array<string>;
     /**
      * Array of subject tags
      */
     'subject'?: Array<string>;
     /**
-     * Array of alternative title objects
+     * The title of the bill
      */
-    'other_titles'?: Array<BillMetadataOtherTitlesInner>;
-    /**
-     * Array of classification strings (e.g., [\'bill\'])
-     */
-    'classification': Array<string>;
+    'title': string;
     /**
      * Array of version objects
      */
     'versions'?: Array<string>;
-    '_processing'?: BillMetadataProcessing;
-    /**
-     * The bill identifier (e.g., SF0001)
-     */
-    'identifier': string;
-    /**
-     * The organization that introduced the bill, may be a JSON string
-     */
-    'from_organization'?: string | null;
-    /**
-     * Array of sponsorship objects
-     */
-    'sponsorships'?: Array<string>;
-    /**
-     * Array of document objects
-     */
-    'documents'?: Array<string>;
-    /**
-     * Array of abstract objects
-     */
-    'abstracts'?: Array<BillMetadataAbstractsInner>;
-    /**
-     * Array of action objects representing bill history
-     */
-    'actions'?: Array<string>;
 }
 export interface BillMetadataAbstractsInner {
     'abstract'?: string;
@@ -132,46 +132,6 @@ export interface BillMetadataProcessing {
  */
 export interface BillVoteEventLogs {
     /**
-     * Text describing the motion being voted on
-     */
-    'motion_text': string;
-    /**
-     * Result of the vote
-     */
-    'result': string;
-    /**
-     * ISO 8601 timestamp of when the vote occurred
-     */
-    'start_date': string;
-    /**
-     * The legislative session identifier
-     */
-    'legislative_session': string;
-    /**
-     * Array of individual vote objects
-     */
-    'votes': Array<string>;
-    /**
-     * Array of motion classification strings
-     */
-    'motion_classification': Array<string>;
-    /**
-     * Array of source objects
-     */
-    'sources': Array<string>;
-    /**
-     * The organization conducting the vote, may be a JSON string
-     */
-    'organization': string;
-    /**
-     * Additional metadata specific to the jurisdiction
-     */
-    'extras': object;
-    /**
-     * Optional identifier for the vote event (may be empty string)
-     */
-    'identifier': string;
-    /**
      * ID reference to the related bill
      */
     'bill': string;
@@ -187,5 +147,45 @@ export interface BillVoteEventLogs {
      * Array of vote count objects
      */
     'counts': Array<string>;
+    /**
+     * Additional metadata specific to the jurisdiction
+     */
+    'extras': object;
+    /**
+     * Optional identifier for the vote event (may be empty string)
+     */
+    'identifier': string;
+    /**
+     * The legislative session identifier
+     */
+    'legislative_session': string;
+    /**
+     * Array of motion classification strings
+     */
+    'motion_classification': Array<string>;
+    /**
+     * Text describing the motion being voted on
+     */
+    'motion_text': string;
+    /**
+     * The organization conducting the vote, may be a JSON string
+     */
+    'organization': string;
+    /**
+     * Result of the vote
+     */
+    'result': string;
+    /**
+     * Array of source objects
+     */
+    'sources': Array<string>;
+    /**
+     * ISO 8601 timestamp of when the vote occurred
+     */
+    'start_date': string;
+    /**
+     * Array of individual vote objects
+     */
+    'votes': Array<string>;
 }
 

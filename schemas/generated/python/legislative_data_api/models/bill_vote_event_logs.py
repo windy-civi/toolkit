@@ -28,21 +28,21 @@ class BillVoteEventLogs(BaseModel):
     """
     Schema for validating vote event log files from formatted snapshots
     """ # noqa: E501
-    motion_text: StrictStr = Field(description="Text describing the motion being voted on")
-    result: StrictStr = Field(description="Result of the vote")
-    start_date: datetime = Field(description="ISO 8601 timestamp of when the vote occurred")
-    legislative_session: StrictStr = Field(description="The legislative session identifier")
-    votes: List[StrictStr] = Field(description="Array of individual vote objects")
-    motion_classification: List[StrictStr] = Field(description="Array of motion classification strings")
-    sources: List[StrictStr] = Field(description="Array of source objects")
-    organization: StrictStr = Field(description="The organization conducting the vote, may be a JSON string")
-    extras: Dict[str, Any] = Field(description="Additional metadata specific to the jurisdiction")
-    identifier: StrictStr = Field(description="Optional identifier for the vote event (may be empty string)")
     bill: StrictStr = Field(description="ID reference to the related bill")
     bill_action: Optional[StrictStr] = Field(description="Optional reference to a specific bill action")
     bill_identifier: StrictStr = Field(description="The bill identifier (e.g., SF0001)")
     counts: List[StrictStr] = Field(description="Array of vote count objects")
-    __properties: ClassVar[List[str]] = ["motion_text", "result", "start_date", "legislative_session", "votes", "motion_classification", "sources", "organization", "extras", "identifier", "bill", "bill_action", "bill_identifier", "counts"]
+    extras: Dict[str, Any] = Field(description="Additional metadata specific to the jurisdiction")
+    identifier: StrictStr = Field(description="Optional identifier for the vote event (may be empty string)")
+    legislative_session: StrictStr = Field(description="The legislative session identifier")
+    motion_classification: List[StrictStr] = Field(description="Array of motion classification strings")
+    motion_text: StrictStr = Field(description="Text describing the motion being voted on")
+    organization: StrictStr = Field(description="The organization conducting the vote, may be a JSON string")
+    result: StrictStr = Field(description="Result of the vote")
+    sources: List[StrictStr] = Field(description="Array of source objects")
+    start_date: datetime = Field(description="ISO 8601 timestamp of when the vote occurred")
+    votes: List[StrictStr] = Field(description="Array of individual vote objects")
+    __properties: ClassVar[List[str]] = ["bill", "bill_action", "bill_identifier", "counts", "extras", "identifier", "legislative_session", "motion_classification", "motion_text", "organization", "result", "sources", "start_date", "votes"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -100,20 +100,20 @@ class BillVoteEventLogs(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "motion_text": obj.get("motion_text"),
-            "result": obj.get("result"),
-            "start_date": obj.get("start_date"),
-            "legislative_session": obj.get("legislative_session"),
-            "votes": obj.get("votes"),
-            "motion_classification": obj.get("motion_classification"),
-            "sources": obj.get("sources"),
-            "organization": obj.get("organization"),
-            "extras": obj.get("extras"),
-            "identifier": obj.get("identifier"),
             "bill": obj.get("bill"),
             "bill_action": obj.get("bill_action"),
             "bill_identifier": obj.get("bill_identifier"),
-            "counts": obj.get("counts")
+            "counts": obj.get("counts"),
+            "extras": obj.get("extras"),
+            "identifier": obj.get("identifier"),
+            "legislative_session": obj.get("legislative_session"),
+            "motion_classification": obj.get("motion_classification"),
+            "motion_text": obj.get("motion_text"),
+            "organization": obj.get("organization"),
+            "result": obj.get("result"),
+            "sources": obj.get("sources"),
+            "start_date": obj.get("start_date"),
+            "votes": obj.get("votes")
         })
         return _obj
 
