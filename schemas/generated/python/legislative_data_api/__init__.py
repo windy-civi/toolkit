@@ -15,17 +15,17 @@ __version__ = "1.0.0"
 
 # import models into sdk package
 from legislative_data_api.models.bill_action_logs import BillActionLogs as BillActionLogs
-from legislative_data_api.models.bill_metadata import BillMetadata as BillMetadata
 from legislative_data_api.models.bill_metadata_abstracts_inner import BillMetadataAbstractsInner as BillMetadataAbstractsInner
 from legislative_data_api.models.bill_metadata_other_titles_inner import BillMetadataOtherTitlesInner as BillMetadataOtherTitlesInner
 from legislative_data_api.models.bill_metadata_processing import BillMetadataProcessing as BillMetadataProcessing
+from legislative_data_api.models.bill_metadata import BillMetadata as BillMetadata
 from legislative_data_api.models.bill_vote_event_logs import BillVoteEventLogs as BillVoteEventLogs
 
 __all__ = [
     "BillActionLogs",
-    "BillMetadata",
     "BillMetadataAbstractsInner",
     "BillMetadataOtherTitlesInner",
     "BillMetadataProcessing",
+    "BillMetadata",
     "BillVoteEventLogs",
 ]
