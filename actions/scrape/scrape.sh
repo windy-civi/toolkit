@@ -109,8 +109,9 @@ EXCEPTIONS=$(grep -iE '^\w+Error:|^\w+Exception:|^\w+Warning:' "$SCRAPE_LOG" 2>/
 
 # Find other error indicators (ERROR/EXCEPTION/TRACEBACK in caps, exclude INFO logs and "failed" in vote messages)
 # Only match actual error keywords in caps, not "failed" in vote outcomes
+# Exclude ALL lines that contain " INFO " (case-insensitive) to filter out informational logs
 OTHER_ERRORS=$(grep -E '(ERROR|EXCEPTION|TRACEBACK|AssertionError|TimeoutError|ConnectionError|HTTPError)' "$SCRAPE_LOG" 2>/dev/null | \
-  grep -vE '(^\d+:\d+:\d+ INFO|scrape attempt|retry|retrying|resolved|recovered|succeeded)' | \
+  grep -viE '( INFO |scrape attempt|retry|retrying|resolved|recovered|succeeded)' | \
   head -10 || echo "")
 
 # Combine errors, prioritizing tracebacks
