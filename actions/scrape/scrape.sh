@@ -103,13 +103,14 @@ DURATION=$(grep -A2 'bills scrape:' "$SCRAPE_LOG" 2>/dev/null | grep -oP 'durati
 # First, find traceback blocks (multi-line)
 TRACEBACKS=$(grep -A 10 '^Traceback (most recent call last):' "$SCRAPE_LOG" 2>/dev/null | head -30 || echo "")
 
-# Find exception lines (but exclude common retry/resolved messages)
+# Find exception lines (but exclude common retry/resolved messages and INFO level logs)
 EXCEPTIONS=$(grep -iE '^\w+Error:|^\w+Exception:|^\w+Warning:' "$SCRAPE_LOG" 2>/dev/null | \
-  grep -vE '(retry|retrying|resolved|recovered|succeeded after)' | head -10 || echo "")
+  grep -vE '(retry|retrying|resolved|recovered|succeeded after|^\d+:\d+:\d+ INFO)' | head -10 || echo "")
 
-# Find other error indicators (but filter out retry messages)
-OTHER_ERRORS=$(grep -iE '(error|exception|failed|timeout)' "$SCRAPE_LOG" 2>/dev/null | \
-  grep -vE '(scrape attempt|retry|retrying|resolved|recovered|succeeded|warning.*resolved)' | \
+# Find other error indicators (ERROR/EXCEPTION/TRACEBACK in caps, exclude INFO logs and "failed" in vote messages)
+# Only match actual error keywords in caps, not "failed" in vote outcomes
+OTHER_ERRORS=$(grep -E '(ERROR|EXCEPTION|TRACEBACK|AssertionError|TimeoutError|ConnectionError|HTTPError)' "$SCRAPE_LOG" 2>/dev/null | \
+  grep -vE '(^\d+:\d+:\d+ INFO|scrape attempt|retry|retrying|resolved|recovered|succeeded)' | \
   head -10 || echo "")
 
 # Combine errors, prioritizing tracebacks
