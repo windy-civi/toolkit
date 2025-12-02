@@ -13,11 +13,11 @@ locales:
   al:
     template: openstates-scrape
     name: Alabama
-    toolkit_branch: main
+    toolkit_branch: feature/scrape-summary-with-errors
   ak:
     template: openstates-scrape
     name: Alaska
-    toolkit_branch: main
+    toolkit_branch: feature/scrape-summary-with-errors
   az:
     template: openstates-scrape
     name: Arizona
@@ -43,7 +43,7 @@ locales:
   de:
     template: openstates-scrape
     name: Delaware
-    toolkit_branch: main
+    toolkit_branch: feature/scrape-summary-with-errors
     labels:
       - working
   fl:
@@ -221,7 +221,7 @@ locales:
   sd:
     template: openstates-scrape
     name: South Dakota
-    toolkit_branch: main
+    toolkit_branch: feature/scrape-summary-with-errors
   tn:
     template: openstates-scrape
     name: Tennessee
@@ -271,7 +271,7 @@ locales:
   wy:
     template: openstates-scrape
     name: Wyoming
-    toolkit_branch: main
+    toolkit_branch: feature/scrape-summary-with-errors
     labels:
       - working
   pr:
