@@ -275,6 +275,28 @@ runs:
           fi
         fi
 
+    - name: Fail action if scrape failed
+      shell: bash
+      run: |
+        set -euo pipefail
+        
+        SUMMARY_FILE="${GITHUB_WORKSPACE}/scrape-summary.json"
+        
+        # Check if scrape failed by reading exit code from summary
+        if [ -f "$SUMMARY_FILE" ]; then
+          EXIT_CODE=$(jq -r '.exit_code // 0' "$SUMMARY_FILE")
+          
+          if [ "$EXIT_CODE" != "0" ]; then
+            echo "❌ Scrape failed with exit code $EXIT_CODE"
+            echo "::error::Scrape failed for ${{ inputs.state }}. Check the summary above for details."
+            exit 1
+          else
+            echo "✅ Scrape succeeded"
+          fi
+        else
+          echo "⚠️ No summary file found, assuming success"
+        fi
+
     - name: Extract files to workspace
       if: inputs.commit-and-push == 'true'
       shell: bash
