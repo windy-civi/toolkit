@@ -53,21 +53,26 @@ fi
 echo "Found ${COUNT_JSON} JSON files in $JSON_DIR"
 if [ "$COUNT_JSON" -gt 0 ]; then
   # Copy files directly to workspace _data directory
+  # Clean the directory first to avoid accumulating stale files with different UUIDs
   mkdir -p "${OUTPUT_DIR}/_data/${STATE}"
-
+  
   # Copy all files from JSON_DIR to output directory
   if [ -d "$JSON_DIR" ]; then
-    # Use rsync if available (more reliable), otherwise use cp with proper glob handling
+    # Use rsync if available (more reliable), with --delete to remove stale files
     if command -v rsync >/dev/null 2>&1; then
-      rsync -av "$JSON_DIR/" "${OUTPUT_DIR}/_data/${STATE}/"
+      echo "🧹 Syncing scraped files (removing stale files)..."
+      rsync -av --delete "$JSON_DIR/" "${OUTPUT_DIR}/_data/${STATE}/"
     else
-      # Use find to copy files reliably
+      # Fallback: clean directory manually then copy
+      echo "🧹 Cleaning _data/${STATE}/ directory..."
+      rm -rf "${OUTPUT_DIR}/_data/${STATE}"
+      mkdir -p "${OUTPUT_DIR}/_data/${STATE}"
       find "$JSON_DIR" -type f -exec cp {} "${OUTPUT_DIR}/_data/${STATE}/" \;
     fi
-
+    
     # Verify files were copied
     COPIED_COUNT=$(find "${OUTPUT_DIR}/_data/${STATE}" -type f -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
-    echo "✅ Copied ${COPIED_COUNT} scraped files to ${OUTPUT_DIR}/_data/${STATE}/"
+    echo "✅ ${COPIED_COUNT} scraped files in ${OUTPUT_DIR}/_data/${STATE}/"
   fi
 
   # Also create tarball for artifacts/releases
