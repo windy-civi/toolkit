@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       scraper-fork:
-        description: 'GitHub user/org with fork (e.g., YOUR_USERNAME)'
+        description: "GitHub user/org with fork (e.g., YOUR_USERNAME)"
         required: true
       scraper-branch:
-        description: 'Branch to test (e.g., fix/mo-empty-title)'
+        description: "Branch to test (e.g., fix/mo-empty-title)"
         required: true
-        default: 'main'
+        default: "main"
       force-update:
         type: boolean
         description: "Force update even if data exists"
