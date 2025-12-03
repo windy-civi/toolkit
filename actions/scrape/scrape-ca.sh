@@ -26,7 +26,7 @@ echo "🐬 Starting MySQL container..." | tee -a "$SCRAPE_LOG"
 MYSQL_CONTAINER="ca-mysql-$(date +%s)"
 docker run -d \
   --name "$MYSQL_CONTAINER" \
-  -e MYSQL_ROOT_PASSWORD=openstates \
+  -e MYSQL_ALLOW_EMPTY_PASSWORD=yes \
   -e MYSQL_DATABASE=capublic \
   -v "$(pwd)/mysql_data":/var/lib/mysql \
   mysql:8.0 2>&1 | tee -a "$SCRAPE_LOG"
@@ -45,7 +45,8 @@ if docker run --rm \
   --link "$MYSQL_CONTAINER":mysql \
   -e MYSQL_HOST=mysql \
   -e MYSQL_USER=root \
-  -e MYSQL_ALLOW_EMPTY_PASSWORD=yes \
+  -e MYSQL_PASSWORD="" \
+  -e MYSQL_DATABASE=capublic \
   --entrypoint /bin/bash \
   openstates/scrapers:${DOCKER_IMAGE_TAG} \
   -c "apt-get update -qq && apt-get install -y -qq pkg-config default-libmysqlclient-dev build-essential && /root/.cache/pypoetry/virtualenvs/*/bin/pip install -q 'sqlalchemy<2.0' pymysql mysqlclient && poetry run python -m scrapers.ca.download" 2>&1 | tee -a "$SCRAPE_LOG"
@@ -62,14 +63,13 @@ if docker run --rm \
   --link "$MYSQL_CONTAINER":mysql \
   -e MYSQL_HOST=mysql \
   -e MYSQL_USER=root \
-  -e MYSQL_PASSWORD=openstates \
+  -e MYSQL_PASSWORD="" \
   -e MYSQL_DATABASE=capublic \
-  -e CA_CONNECTION_STRING='mysql+pymysql://root:openstates@mysql/capublic' \
   -v "$(pwd)/_working/_data":/opt/openstates/openstates/_data \
   -v "$(pwd)/_working/_cache":/opt/openstates/openstates/_cache \
   --entrypoint /bin/bash \
   openstates/scrapers:${DOCKER_IMAGE_TAG} \
-  -c "apt-get update && apt-get install -y pkg-config default-libmysqlclient-dev build-essential && /root/.cache/pypoetry/virtualenvs/*/bin/pip install 'sqlalchemy<2.0' pymysql mysqlclient && /root/.cache/pypoetry/virtualenvs/*/bin/os-update ca bills --scrape --fastmode" 2>&1 | tee -a "$SCRAPE_LOG"
+  -c "apt-get update -qq && apt-get install -y -qq pkg-config default-libmysqlclient-dev build-essential && /root/.cache/pypoetry/virtualenvs/*/bin/pip install -q 'sqlalchemy<2.0' pymysql mysqlclient && /root/.cache/pypoetry/virtualenvs/*/bin/os-update ca bills --scrape --fastmode" 2>&1 | tee -a "$SCRAPE_LOG"
 then
   echo "✅ California scrape completed" | tee -a "$SCRAPE_LOG"
 else
