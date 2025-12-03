@@ -17,6 +17,14 @@ if [ -z "$STATE" ]; then
   exit 1
 fi
 
+# Use test Docker image if provided, otherwise use official image
+if [ -n "${TEST_DOCKER_IMAGE:-}" ]; then
+  DOCKER_IMAGE="$TEST_DOCKER_IMAGE"
+  echo "🧪 Using test Docker image: ${DOCKER_IMAGE}"
+else
+  DOCKER_IMAGE="openstates/scrapers:${DOCKER_IMAGE_TAG}"
+fi
+
 cd "$WORKING_DIR"
 mkdir -p _working/_data _working/_cache
 
@@ -27,13 +35,16 @@ SCRAPE_LOG="${OUTPUT_DIR}/scrape-output.log"
 echo "🕷️ Scraping ${STATE} (with retries + DNS override)..."
 exit_code=1
 for i in 1 2 3; do
-  docker pull openstates/scrapers:${DOCKER_IMAGE_TAG} || true
+  # Only pull if using official image (test images are built locally)
+  if [ -z "${TEST_DOCKER_IMAGE:-}" ]; then
+    docker pull ${DOCKER_IMAGE} || true
+  fi
   # Capture output to log file while still displaying it
   if docker run \
       --dns 8.8.8.8 --dns 1.1.1.1 \
       -v "$(pwd)/_working/_data":/opt/openstates/openstates/_data \
       -v "$(pwd)/_working/_cache":/opt/openstates/openstates/_cache \
-      openstates/scrapers:${DOCKER_IMAGE_TAG} \
+      ${DOCKER_IMAGE} \
       ${STATE} bills --scrape --fastmode 2>&1 | tee -a "$SCRAPE_LOG"
   then
     exit_code=0
@@ -55,7 +66,7 @@ if [ "$COUNT_JSON" -gt 0 ]; then
   # Copy files directly to workspace _data directory
   # Clean the directory first to avoid accumulating stale files with different UUIDs
   mkdir -p "${OUTPUT_DIR}/_data/${STATE}"
-  
+
   # Copy all files from JSON_DIR to output directory
   if [ -d "$JSON_DIR" ]; then
     # Use rsync if available (more reliable), with --delete to remove stale files
@@ -69,7 +80,7 @@ if [ "$COUNT_JSON" -gt 0 ]; then
       mkdir -p "${OUTPUT_DIR}/_data/${STATE}"
       find "$JSON_DIR" -type f -exec cp {} "${OUTPUT_DIR}/_data/${STATE}/" \;
     fi
-    
+
     # Verify files were copied
     COPIED_COUNT=$(find "${OUTPUT_DIR}/_data/${STATE}" -type f -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
     echo "✅ ${COPIED_COUNT} scraped files in ${OUTPUT_DIR}/_data/${STATE}/"
