@@ -78,7 +78,7 @@ runs:
         set -euo pipefail
         # Persist image tag for later steps (manifest)
         echo "DOCKER_IMAGE_TAG=${DOCKER_IMAGE_TAG}" >> "${GITHUB_ENV}"
-        
+
         bash "${{ github.action_path }}/scrape.sh" "${{ inputs.state }}" "${DOCKER_IMAGE_TAG}" "$(pwd)" "${{ github.workspace }}" "${API_KEYS_JSON}" || true
 
         # Check if tarball was created
@@ -284,13 +284,13 @@ runs:
       shell: bash
       run: |
         set -euo pipefail
-        
+
         SUMMARY_FILE="${GITHUB_WORKSPACE}/scrape-summary.json"
-        
+
         # Check if scrape failed by reading exit code from summary
         if [ -f "$SUMMARY_FILE" ]; then
           EXIT_CODE=$(jq -r '.exit_code // 0' "$SUMMARY_FILE")
-          
+
           if [ "$EXIT_CODE" != "0" ]; then
             echo "❌ Scrape failed with exit code $EXIT_CODE"
             echo "::error::Scrape failed for ${{ inputs.state }}. Check the summary above for details."
