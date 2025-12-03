@@ -25,6 +25,10 @@ inputs:
     description: "Git branch to push to"
     required: false
     default: "main"
+  test-docker-image:
+    description: "Override Docker image for testing (e.g., test-scrapers:local)"
+    required: false
+    default: ""
 
 outputs:
   scrape-artifact-name:
@@ -69,6 +73,7 @@ runs:
       working-directory: ${{ runner.temp }}
       env:
         DOCKER_IMAGE_TAG: latest
+        TEST_DOCKER_IMAGE: ${{ inputs.test-docker-image }}
       run: |
         set -euo pipefail
         # Persist image tag for later steps (manifest)
@@ -279,13 +284,13 @@ runs:
       shell: bash
       run: |
         set -euo pipefail
-        
+
         SUMMARY_FILE="${GITHUB_WORKSPACE}/scrape-summary.json"
-        
+
         # Check if scrape failed by reading exit code from summary
         if [ -f "$SUMMARY_FILE" ]; then
           EXIT_CODE=$(jq -r '.exit_code // 0' "$SUMMARY_FILE")
-          
+
           if [ "$EXIT_CODE" != "0" ]; then
             echo "❌ Scrape failed with exit code $EXIT_CODE"
             echo "::error::Scrape failed for ${{ inputs.state }}. Check the summary above for details."
