@@ -48,7 +48,7 @@ if docker run --rm \
   -e MYSQL_ALLOW_EMPTY_PASSWORD=yes \
   --entrypoint /bin/bash \
   openstates/scrapers:${DOCKER_IMAGE_TAG} \
-  -c "/root/.cache/pypoetry/virtualenvs/*/bin/pip install 'sqlalchemy<2.0' pymysql && poetry run python -m scrapers.ca.download" 2>&1 | tee -a "$SCRAPE_LOG"
+  -c "apt-get update -qq && apt-get install -y -qq pkg-config default-libmysqlclient-dev build-essential && /root/.cache/pypoetry/virtualenvs/*/bin/pip install -q 'sqlalchemy<2.0' pymysql mysqlclient && poetry run python -m scrapers.ca.download" 2>&1 | tee -a "$SCRAPE_LOG"
 then
   echo "✅ CA data downloaded and loaded into MySQL" | tee -a "$SCRAPE_LOG"
 else
