@@ -35,18 +35,14 @@ docker run -d \
 echo "⏳ Waiting for MySQL to initialize..." | tee -a "$SCRAPE_LOG"
 sleep 15
 
-# Try to use California-specific Docker image (has sqlalchemy)
-# If not available, try to use 'california' tag, fallback to latest
-echo "📥 Pulling California scraper image..." | tee -a "$SCRAPE_LOG"
-CA_IMAGE="openstates/scrapers:california"
-if ! docker pull "$CA_IMAGE" 2>&1 | tee -a "$SCRAPE_LOG"; then
-  echo "⚠️ CA-specific image not found, trying latest..." | tee -a "$SCRAPE_LOG"
-  CA_IMAGE="openstates/scrapers:${DOCKER_IMAGE_TAG}"
-  docker pull "$CA_IMAGE" 2>&1 | tee -a "$SCRAPE_LOG" || true
-fi
+# Use standard scraper image and install sqlalchemy at runtime
+echo "📥 Pulling scraper image and installing sqlalchemy..." | tee -a "$SCRAPE_LOG"
+docker pull openstates/scrapers:${DOCKER_IMAGE_TAG} 2>&1 | tee -a "$SCRAPE_LOG" || true
 
 # Try to run CA scraper with MySQL connection
+# Install sqlalchemy and pymysql at runtime, then run the scraper
 exit_code=0
+echo "🔧 Installing sqlalchemy and running CA scraper..." | tee -a "$SCRAPE_LOG"
 if docker run --rm \
   --link "$MYSQL_CONTAINER":mysql \
   -e MYSQL_HOST=mysql \
@@ -55,8 +51,9 @@ if docker run --rm \
   -e MYSQL_DATABASE=capublic \
   -v "$(pwd)/_working/_data":/opt/openstates/openstates/_data \
   -v "$(pwd)/_working/_cache":/opt/openstates/openstates/_cache \
-  "$CA_IMAGE" \
-  ca bills --scrape --fastmode 2>&1 | tee -a "$SCRAPE_LOG"
+  --entrypoint /bin/bash \
+  openstates/scrapers:${DOCKER_IMAGE_TAG} \
+  -c "pip install sqlalchemy pymysql && os-update ca bills --scrape --fastmode" 2>&1 | tee -a "$SCRAPE_LOG"
 then
   echo "✅ California scrape completed" | tee -a "$SCRAPE_LOG"
 else
