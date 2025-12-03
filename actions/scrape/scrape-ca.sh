@@ -21,15 +21,15 @@ SCRAPE_LOG="${OUTPUT_DIR}/scrape-output.log"
 
 echo "🕷️ Scraping California (MySQL-based)..." | tee -a "$SCRAPE_LOG"
 
-# Start MySQL container
-echo "🐬 Starting MySQL container..." | tee -a "$SCRAPE_LOG"
+# Start MariaDB container (matches OpenStates docker-compose config)
+echo "🐬 Starting MariaDB container..." | tee -a "$SCRAPE_LOG"
 MYSQL_CONTAINER="ca-mysql-$(date +%s)"
 docker run -d \
   --name "$MYSQL_CONTAINER" \
   -e MYSQL_ALLOW_EMPTY_PASSWORD=yes \
   -e MYSQL_DATABASE=capublic \
   -v "$(pwd)/mysql_data":/var/lib/mysql \
-  mysql:8.0 2>&1 | tee -a "$SCRAPE_LOG"
+  mariadb:10.5 2>&1 | tee -a "$SCRAPE_LOG"
 
 # Wait for MySQL to be ready
 echo "⏳ Waiting for MySQL to initialize..." | tee -a "$SCRAPE_LOG"
