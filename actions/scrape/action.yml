@@ -77,7 +77,7 @@ runs:
         # Use CA-specific script for California (MySQL-based)
         if [ "${{ inputs.state }}" = "ca" ]; then
           echo "🏛️ Using California-specific MySQL scraper..."
-          bash "${{ github.action_path }}/scrape-ca.sh" "$(pwd)" "${{ github.workspace }}" || true
+          bash "${{ github.action_path }}/scrape-ca.sh" "$(pwd)" "${{ github.workspace }}" "${DOCKER_IMAGE_TAG}" || true
         else
           bash "${{ github.action_path }}/scrape.sh" "${{ inputs.state }}" "${DOCKER_IMAGE_TAG}" "$(pwd)" "${{ github.workspace }}" || true
         fi

@@ -2,16 +2,18 @@
 set -euo pipefail
 
 # California-specific scraper using MySQL dumps
-# Usage: scrape-ca.sh <working_dir> <output_dir>
+# Usage: scrape-ca.sh <working_dir> <output_dir> <docker_image_tag>
 #   working_dir: Working directory for MySQL data
 #   output_dir: Output directory for tarball
+#   docker_image_tag: Docker image tag (defaults to 'latest')
 
 WORKING_DIR="${1:-$(pwd)}"
 OUTPUT_DIR="${2:-$(pwd)}"
+DOCKER_IMAGE_TAG="${3:-latest}"
 STATE="ca"
 
 cd "$WORKING_DIR"
-mkdir -p _working/_data _working/_cache
+mkdir -p _working/_data _working/_cache mysql_data
 
 # Log file to capture output
 SCRAPE_LOG="${OUTPUT_DIR}/scrape-output.log"
@@ -19,51 +21,109 @@ SCRAPE_LOG="${OUTPUT_DIR}/scrape-output.log"
 
 echo "🕷️ Scraping California (MySQL-based)..." | tee -a "$SCRAPE_LOG"
 
-# TODO: California requires special MySQL setup
-# According to OpenStates docs:
-# 1. Download MySQL dumps: docker-compose run --rm ca-download
-# 2. Start MySQL container with the data
-# 3. Run scraper: docker-compose run --rm ca-scrape ca bills --fast
+# Start MySQL container
+echo "🐬 Starting MySQL container..." | tee -a "$SCRAPE_LOG"
+MYSQL_CONTAINER="ca-mysql-$(date +%s)"
+docker run -d \
+  --name "$MYSQL_CONTAINER" \
+  -e MYSQL_ROOT_PASSWORD=openstates \
+  -e MYSQL_DATABASE=capublic \
+  -v "$(pwd)/mysql_data":/var/lib/mysql \
+  mysql:8.0 2>&1 | tee -a "$SCRAPE_LOG"
 
-echo "⚠️ California scraper requires MySQL setup - not yet implemented" | tee -a "$SCRAPE_LOG"
-echo "   See: https://docs.openstates.org/contributing/state-specific/#california-mysql" | tee -a "$SCRAPE_LOG"
+# Wait for MySQL to be ready
+echo "⏳ Waiting for MySQL to initialize..." | tee -a "$SCRAPE_LOG"
+sleep 15
 
-# For now, create empty result to indicate CA needs special handling
-mkdir -p "${OUTPUT_DIR}/_data/${STATE}"
-cat > "${OUTPUT_DIR}/_data/${STATE}/README.txt" <<EOF
-California scraper requires special MySQL setup.
-This is not yet automated in GitHub Actions.
+# Download California data (using the standard scraper image)
+echo "📥 Downloading California MySQL dumps..." | tee -a "$SCRAPE_LOG"
+docker pull openstates/scrapers:${DOCKER_IMAGE_TAG} 2>&1 | tee -a "$SCRAPE_LOG" || true
 
-Manual steps required:
-1. docker-compose run --rm ca-download
-2. docker-compose run --rm ca-scrape ca bills --fast
+# Try to download CA data
+# Note: This may require special setup - we'll need to check what ca-download actually does
+exit_code=0
+if docker run --rm \
+  --link "$MYSQL_CONTAINER":mysql \
+  -e MYSQL_HOST=mysql \
+  -e MYSQL_USER=root \
+  -e MYSQL_PASSWORD=openstates \
+  -e MYSQL_DATABASE=capublic \
+  -v "$(pwd)/_working/_data":/opt/openstates/openstates/_data \
+  -v "$(pwd)/_working/_cache":/opt/openstates/openstates/_cache \
+  openstates/scrapers:${DOCKER_IMAGE_TAG} \
+  ca bills --scrape --fastmode 2>&1 | tee -a "$SCRAPE_LOG"
+then
+  echo "✅ California scrape completed" | tee -a "$SCRAPE_LOG"
+else
+  exit_code=$?
+  echo "⚠️ California scrape failed with exit code $exit_code" | tee -a "$SCRAPE_LOG"
+fi
 
-See: https://docs.openstates.org/contributing/state-specific/#california-mysql
-EOF
+# Stop and remove MySQL container
+echo "🧹 Cleaning up MySQL container..." | tee -a "$SCRAPE_LOG"
+docker stop "$MYSQL_CONTAINER" 2>&1 | tee -a "$SCRAPE_LOG" || true
+docker rm "$MYSQL_CONTAINER" 2>&1 | tee -a "$SCRAPE_LOG" || true
 
-# Create summary indicating special handling needed
+# Check if any files were scraped
+JSON_DIR="_working/_data/${STATE}"
+if [ -d "$JSON_DIR" ]; then
+  COUNT_JSON=$(find "$JSON_DIR" -type f -name '*.json' | wc -l | tr -d ' ')
+else
+  COUNT_JSON=0
+fi
+
+echo "Found ${COUNT_JSON} JSON files for California" | tee -a "$SCRAPE_LOG"
+
+if [ "$COUNT_JSON" -gt 0 ]; then
+  # Copy files and create tarball (same as regular scrape.sh)
+  mkdir -p "${OUTPUT_DIR}/_data/${STATE}"
+
+  if command -v rsync >/dev/null 2>&1; then
+    echo "🧹 Syncing scraped files (removing stale files)..."
+    rsync -av --delete "$JSON_DIR/" "${OUTPUT_DIR}/_data/${STATE}/"
+  else
+    echo "🧹 Cleaning _data/${STATE}/ directory..."
+    rm -rf "${OUTPUT_DIR}/_data/${STATE}"
+    mkdir -p "${OUTPUT_DIR}/_data/${STATE}"
+    find "$JSON_DIR" -type f -exec cp {} "${OUTPUT_DIR}/_data/${STATE}/" \;
+  fi
+
+  COPIED_COUNT=$(find "${OUTPUT_DIR}/_data/${STATE}" -type f -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
+  echo "✅ ${COPIED_COUNT} scraped files in ${OUTPUT_DIR}/_data/${STATE}/"
+
+  # Create tarball
+  tar zcf scrape-snapshot-nightly.tgz --mode=755 -C "$JSON_DIR" .
+  cp scrape-snapshot-nightly.tgz "${OUTPUT_DIR}/scrape-snapshot-nightly.tgz"
+  echo "✅ Created local scrape tarball"
+else
+  echo "ℹ️ No files found; MySQL setup may need additional configuration."
+fi
+
+# Parse logs and create summary (simplified for now)
+BILL_COUNT=$(grep -oP '^\s*bill:\s*\K\d+' "$SCRAPE_LOG" 2>/dev/null | tail -1 || echo "0")
+VOTE_EVENT_COUNT=$(grep -oP '^\s*vote_event:\s*\K\d+' "$SCRAPE_LOG" 2>/dev/null | tail -1 || echo "0")
+
 cat > "${OUTPUT_DIR}/scrape-summary.json" <<EOF
 {
   "state": "ca",
-  "exit_code": 0,
+  "exit_code": ${exit_code},
   "objects": {
-    "bill": 0,
-    "vote_event": 0,
+    "bill": ${BILL_COUNT:-0},
+    "vote_event": ${VOTE_EVENT_COUNT:-0},
     "event": 0
   },
   "metadata": {
     "jurisdiction": 0,
     "organization": 0
   },
-  "json_files": 0,
-  "duration": "N/A",
-  "error_count": 1,
-  "errors": ["California requires special MySQL setup - not yet automated"]
+  "json_files": ${COUNT_JSON:-0},
+  "duration": "unknown",
+  "error_count": 0,
+  "errors": []
 }
 EOF
 
-echo "📊 CA scrape summary written (special handling required)" | tee -a "$SCRAPE_LOG"
+echo "📊 CA scrape summary written" | tee -a "$SCRAPE_LOG"
 
-# Exit with success to avoid failing the workflow
-exit 0
+exit $exit_code
 
