@@ -40,7 +40,7 @@ echo "📥 Pulling scraper image..." | tee -a "$SCRAPE_LOG"
 docker pull openstates/scrapers:${DOCKER_IMAGE_TAG} 2>&1 | tee -a "$SCRAPE_LOG" || true
 
 # Step 1: Download CA MySQL data using the download module
-echo "📥 Downloading California MySQL dumps..." | tee -a "$SCRAPE_LOG"
+echo "📥 Downloading California MySQL dumps (installing dependencies first)..." | tee -a "$SCRAPE_LOG"
 if docker run --rm \
   --link "$MYSQL_CONTAINER":mysql \
   -e MYSQL_HOST=mysql \
@@ -48,7 +48,7 @@ if docker run --rm \
   -e MYSQL_ALLOW_EMPTY_PASSWORD=yes \
   --entrypoint /bin/bash \
   openstates/scrapers:${DOCKER_IMAGE_TAG} \
-  -c "poetry run python -m scrapers.ca.download" 2>&1 | tee -a "$SCRAPE_LOG"
+  -c "/root/.cache/pypoetry/virtualenvs/*/bin/pip install 'sqlalchemy<2.0' pymysql && poetry run python -m scrapers.ca.download" 2>&1 | tee -a "$SCRAPE_LOG"
 then
   echo "✅ CA data downloaded and loaded into MySQL" | tee -a "$SCRAPE_LOG"
 else
