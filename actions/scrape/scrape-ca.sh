@@ -35,12 +35,17 @@ docker run -d \
 echo "⏳ Waiting for MySQL to initialize..." | tee -a "$SCRAPE_LOG"
 sleep 15
 
-# Download California data (using the standard scraper image)
-echo "📥 Downloading California MySQL dumps..." | tee -a "$SCRAPE_LOG"
-docker pull openstates/scrapers:${DOCKER_IMAGE_TAG} 2>&1 | tee -a "$SCRAPE_LOG" || true
+# Try to use California-specific Docker image (has sqlalchemy)
+# If not available, try to use 'california' tag, fallback to latest
+echo "📥 Pulling California scraper image..." | tee -a "$SCRAPE_LOG"
+CA_IMAGE="openstates/scrapers:california"
+if ! docker pull "$CA_IMAGE" 2>&1 | tee -a "$SCRAPE_LOG"; then
+  echo "⚠️ CA-specific image not found, trying latest..." | tee -a "$SCRAPE_LOG"
+  CA_IMAGE="openstates/scrapers:${DOCKER_IMAGE_TAG}"
+  docker pull "$CA_IMAGE" 2>&1 | tee -a "$SCRAPE_LOG" || true
+fi
 
-# Try to download CA data
-# Note: This may require special setup - we'll need to check what ca-download actually does
+# Try to run CA scraper with MySQL connection
 exit_code=0
 if docker run --rm \
   --link "$MYSQL_CONTAINER":mysql \
@@ -50,7 +55,7 @@ if docker run --rm \
   -e MYSQL_DATABASE=capublic \
   -v "$(pwd)/_working/_data":/opt/openstates/openstates/_data \
   -v "$(pwd)/_working/_cache":/opt/openstates/openstates/_cache \
-  openstates/scrapers:${DOCKER_IMAGE_TAG} \
+  "$CA_IMAGE" \
   ca bills --scrape --fastmode 2>&1 | tee -a "$SCRAPE_LOG"
 then
   echo "✅ California scrape completed" | tee -a "$SCRAPE_LOG"
