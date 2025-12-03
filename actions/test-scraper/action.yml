@@ -1,0 +1,68 @@
+name: "Test OpenStates Scraper"
+description: "Build and test OpenStates scraper changes from a fork"
+
+inputs:
+  scraper-fork:
+    description: "GitHub user/org with fork (e.g., YOUR_USERNAME)"
+    required: true
+  scraper-branch:
+    description: "Branch to test (e.g., fix/mo-empty-title)"
+    required: true
+  state:
+    description: "State abbreviation to test (e.g., mo, ca, tx)"
+    required: true
+  github-token:
+    description: "GitHub token for operations"
+    required: true
+    default: "${{ github.token }}"
+  force-update:
+    description: "Force update even if data exists"
+    required: false
+    default: "false"
+
+outputs:
+  test-result:
+    description: "Test result summary"
+    value: ${{ steps.test.outputs.result }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Build test Docker image from fork
+      shell: bash
+      run: |
+        echo "🔨 Building test Docker image..."
+        echo "  Repository: https://github.com/${{ inputs.scraper-fork }}/openstates-scrapers"
+        echo "  Branch: ${{ inputs.scraper-branch }}"
+        echo ""
+
+        docker build -t test-scrapers:local \
+          https://github.com/${{ inputs.scraper-fork }}/openstates-scrapers.git#${{ inputs.scraper-branch }}
+
+        echo "✅ Test Docker image built successfully"
+
+    - name: Run scraper with test image
+      id: test
+      uses: windy-civi/toolkit/actions/scrape@feature/test-scraper-workflow
+      with:
+        state: ${{ inputs.state }}
+        github-token: ${{ inputs.github-token }}
+        commit-and-push: false
+        force-update: ${{ inputs.force-update }}
+        branch: main
+        test-docker-image: test-scrapers:local
+
+    - name: Display test results
+      if: always()
+      shell: bash
+      run: |
+        echo "🧪 Test scrape completed for ${{ inputs.state }}"
+        echo ""
+
+        if [ -f scrape-summary.json ]; then
+          echo "📊 Scrape Summary:"
+          cat scrape-summary.json | jq '.' || cat scrape-summary.json
+        else
+          echo "⚠️ No summary file generated"
+        fi
+
