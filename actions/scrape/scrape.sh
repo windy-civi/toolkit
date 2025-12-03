@@ -41,7 +41,7 @@ if [ -n "$API_KEYS_JSON" ] && [ "$API_KEYS_JSON" != "{}" ]; then
     "VIRGINIA_FTP_USER"
     "VIRGINIA_FTP_PASSWORD"
   )
-  
+
   for key_name in "${API_KEY_NAMES[@]}"; do
     # Try to extract key value from JSON using jq (if available) or fallback to grep
     if command -v jq >/dev/null 2>&1; then
@@ -50,7 +50,7 @@ if [ -n "$API_KEYS_JSON" ] && [ "$API_KEYS_JSON" != "{}" ]; then
       # Fallback: use grep/sed to extract (basic parsing)
       key_value=$(echo "$API_KEYS_JSON" | grep -o "\"${key_name}\"[[:space:]]*:[[:space:]]*\"[^\"]*\"" | sed 's/.*"\([^"]*\)"$/\1/' || echo "")
     fi
-    
+
     if [ -n "$key_value" ] && [ "$key_value" != "null" ]; then
       # Add to array with proper quoting for values with spaces
       DOCKER_ENV_FLAGS+=(-e "${key_name}=${key_value}")
