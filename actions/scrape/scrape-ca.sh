@@ -49,11 +49,12 @@ if docker run --rm \
   -e MYSQL_USER=root \
   -e MYSQL_PASSWORD=openstates \
   -e MYSQL_DATABASE=capublic \
+  -e CA_CONNECTION_STRING='mysql+pymysql://root:openstates@mysql/capublic' \
   -v "$(pwd)/_working/_data":/opt/openstates/openstates/_data \
   -v "$(pwd)/_working/_cache":/opt/openstates/openstates/_cache \
   --entrypoint /bin/bash \
   openstates/scrapers:${DOCKER_IMAGE_TAG} \
-  -c "/root/.cache/pypoetry/virtualenvs/*/bin/pip install 'sqlalchemy<2.0' pymysql mysqlclient && /root/.cache/pypoetry/virtualenvs/*/bin/os-update ca bills --scrape --fastmode" 2>&1 | tee -a "$SCRAPE_LOG"
+  -c "/root/.cache/pypoetry/virtualenvs/*/bin/pip install 'sqlalchemy<2.0' pymysql && /root/.cache/pypoetry/virtualenvs/*/bin/os-update ca bills --scrape --fastmode" 2>&1 | tee -a "$SCRAPE_LOG"
 then
   echo "✅ California scrape completed" | tee -a "$SCRAPE_LOG"
 else
