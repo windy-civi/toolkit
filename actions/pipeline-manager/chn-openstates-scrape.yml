@@ -175,7 +175,7 @@ locales:
   ny:
     template: openstates-scrape
     name: New York
-    toolkit_branch: main
+    toolkit_branch: feature/scrape-api-keys
   nc:
     template: openstates-scrape
     name: North Carolina
