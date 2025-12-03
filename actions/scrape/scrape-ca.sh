@@ -53,7 +53,7 @@ if docker run --rm \
   -v "$(pwd)/_working/_cache":/opt/openstates/openstates/_cache \
   --entrypoint /bin/bash \
   openstates/scrapers:${DOCKER_IMAGE_TAG} \
-  -c "pip install sqlalchemy pymysql && python -m openstates.cli.update ca bills --scrape --fastmode" 2>&1 | tee -a "$SCRAPE_LOG"
+  -c "pip install sqlalchemy pymysql && /root/.cache/pypoetry/virtualenvs/*/bin/os-update ca bills --scrape --fastmode" 2>&1 | tee -a "$SCRAPE_LOG"
 then
   echo "✅ California scrape completed" | tee -a "$SCRAPE_LOG"
 else
