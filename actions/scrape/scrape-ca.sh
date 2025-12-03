@@ -36,11 +36,26 @@ echo "⏳ Waiting for MySQL to initialize..." | tee -a "$SCRAPE_LOG"
 sleep 15
 
 # Use standard scraper image and install sqlalchemy at runtime
-echo "📥 Pulling scraper image and installing sqlalchemy..." | tee -a "$SCRAPE_LOG"
+echo "📥 Pulling scraper image..." | tee -a "$SCRAPE_LOG"
 docker pull openstates/scrapers:${DOCKER_IMAGE_TAG} 2>&1 | tee -a "$SCRAPE_LOG" || true
 
-# Try to run CA scraper with MySQL connection
-# Install sqlalchemy and pymysql at runtime, then run the scraper
+# Step 1: Download CA MySQL data using the download module
+echo "📥 Downloading California MySQL dumps..." | tee -a "$SCRAPE_LOG"
+if docker run --rm \
+  --link "$MYSQL_CONTAINER":mysql \
+  -e MYSQL_HOST=mysql \
+  -e MYSQL_USER=root \
+  -e MYSQL_ALLOW_EMPTY_PASSWORD=yes \
+  --entrypoint /bin/bash \
+  openstates/scrapers:${DOCKER_IMAGE_TAG} \
+  -c "poetry run python -m scrapers.ca.download" 2>&1 | tee -a "$SCRAPE_LOG"
+then
+  echo "✅ CA data downloaded and loaded into MySQL" | tee -a "$SCRAPE_LOG"
+else
+  echo "⚠️ CA data download failed, continuing anyway..." | tee -a "$SCRAPE_LOG"
+fi
+
+# Step 2: Install dependencies and run CA scraper
 exit_code=0
 echo "🔧 Installing sqlalchemy and running CA scraper..." | tee -a "$SCRAPE_LOG"
 if docker run --rm \
