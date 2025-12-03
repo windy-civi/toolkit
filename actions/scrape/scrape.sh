@@ -27,7 +27,8 @@ SCRAPE_LOG="${OUTPUT_DIR}/scrape-output.log"
 > "$SCRAPE_LOG"  # Clear/create log file
 
 # Parse API keys from JSON and build Docker env flags
-DOCKER_ENV_FLAGS=""
+# Use array to properly handle values with spaces/special chars
+DOCKER_ENV_FLAGS=()
 if [ -n "$API_KEYS_JSON" ] && [ "$API_KEYS_JSON" != "{}" ]; then
   echo "🔑 Parsing API keys..."
   # Extract all keys from JSON and build -e flags for Docker
@@ -51,7 +52,8 @@ if [ -n "$API_KEYS_JSON" ] && [ "$API_KEYS_JSON" != "{}" ]; then
     fi
     
     if [ -n "$key_value" ] && [ "$key_value" != "null" ]; then
-      DOCKER_ENV_FLAGS="$DOCKER_ENV_FLAGS -e ${key_name}=${key_value}"
+      # Add to array with proper quoting for values with spaces
+      DOCKER_ENV_FLAGS+=(-e "${key_name}=${key_value}")
       echo "  ✓ Set ${key_name}"
     fi
   done
@@ -62,12 +64,11 @@ exit_code=1
 for i in 1 2 3; do
   docker pull openstates/scrapers:${DOCKER_IMAGE_TAG} || true
   # Capture output to log file while still displaying it
-  # shellcheck disable=SC2086
   if docker run \
       --dns 8.8.8.8 --dns 1.1.1.1 \
       -v "$(pwd)/_working/_data":/opt/openstates/openstates/_data \
       -v "$(pwd)/_working/_cache":/opt/openstates/openstates/_cache \
-      ${DOCKER_ENV_FLAGS} \
+      "${DOCKER_ENV_FLAGS[@]}" \
       openstates/scrapers:${DOCKER_IMAGE_TAG} \
       ${STATE} bills --scrape --fastmode 2>&1 | tee -a "$SCRAPE_LOG"
   then
@@ -90,7 +91,7 @@ if [ "$COUNT_JSON" -gt 0 ]; then
   # Copy files directly to workspace _data directory
   # Clean the directory first to avoid accumulating stale files with different UUIDs
   mkdir -p "${OUTPUT_DIR}/_data/${STATE}"
-  
+
   # Copy all files from JSON_DIR to output directory
   if [ -d "$JSON_DIR" ]; then
     # Use rsync if available (more reliable), with --delete to remove stale files
@@ -104,7 +105,7 @@ if [ "$COUNT_JSON" -gt 0 ]; then
       mkdir -p "${OUTPUT_DIR}/_data/${STATE}"
       find "$JSON_DIR" -type f -exec cp {} "${OUTPUT_DIR}/_data/${STATE}/" \;
     fi
-    
+
     # Verify files were copied
     COPIED_COUNT=$(find "${OUTPUT_DIR}/_data/${STATE}" -type f -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
     echo "✅ ${COPIED_COUNT} scraped files in ${OUTPUT_DIR}/_data/${STATE}/"
