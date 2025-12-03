@@ -1,0 +1,41 @@
+name: Test OpenStates Scraper for ✏️{ locale.key }✏️
+
+on:
+  workflow_dispatch:
+    inputs:
+      scraper-fork:
+        description: 'GitHub user/org with fork (e.g., YOUR_USERNAME)'
+        required: true
+      scraper-branch:
+        description: 'Branch to test (e.g., fix/mo-empty-title)'
+        required: true
+        default: 'main'
+      force-update:
+        type: boolean
+        description: "Force update even if data exists"
+        default: false
+
+env:
+  STATE_CODE: ✏️{ locale.key }✏️
+
+jobs:
+  test-scrape:
+    name: "🧪 Test Scraper for ✏️{ locale.name }✏️"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout state repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Test scraper with fork
+        uses: windy-civi/toolkit/actions/test-scraper@✏️{ locale.toolkit_branch }✏️
+        with:
+          scraper-fork: ${{ inputs.scraper-fork }}
+          scraper-branch: ${{ inputs.scraper-branch }}
+          state: ${{ env.STATE_CODE }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          force-update: ${{ inputs.force-update }}
