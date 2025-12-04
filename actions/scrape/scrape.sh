@@ -64,6 +64,9 @@ exit_code=1
 for i in 1 2 3; do
   docker pull openstates/scrapers:${DOCKER_IMAGE_TAG} || true
   # Capture output to log file while still displaying it
+  # SECURITY NOTE: Environment variables containing API keys and credentials are passed to Docker.
+  # Ensure that scrape logs (scrape-output.log) do not echo sensitive values and that Docker
+  # logging is configured appropriately to avoid exposing credentials.
   if docker run \
       --dns 8.8.8.8 --dns 1.1.1.1 \
       -v "$(pwd)/_working/_data":/opt/openstates/openstates/_data \
