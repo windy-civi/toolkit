@@ -63,7 +63,8 @@ for i in 1 2 3; do
   docker pull openstates/scrapers:${DOCKER_IMAGE_TAG} || true
   # Capture output to log file while still displaying it
   # Virginia uses csv_bills scraper (no API key needed)
-  # Try passing --session before scraper name
+  # NOTE: VA 2026 session starts Jan 14, 2026. Will fail until openstates-scrapers
+  # Docker image is updated with 2026 session mapping. Code is correct and ready.
   if [ "${STATE}" = "va" ]; then
     if docker run \
         --dns 8.8.8.8 --dns 1.1.1.1 \
