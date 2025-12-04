@@ -38,7 +38,6 @@ if [ -n "$API_KEYS_JSON" ] && [ "$API_KEYS_JSON" != "{}" ]; then
     "NEW_YORK_API_KEY"
     "INDIANA_API_KEY"
     "USER_AGENT"
-    "VIRGINIA_API_KEY"
   )
 
   for key_name in "${API_KEY_NAMES[@]}"; do
@@ -63,13 +62,20 @@ exit_code=1
 for i in 1 2 3; do
   docker pull openstates/scrapers:${DOCKER_IMAGE_TAG} || true
   # Capture output to log file while still displaying it
+  # Virginia uses csv_bills scraper (no API key needed)
+  if [ "${STATE}" = "va" ]; then
+    SCRAPER_TYPE="csv_bills"
+  else
+    SCRAPER_TYPE="bills"
+  fi
+
   if docker run \
       --dns 8.8.8.8 --dns 1.1.1.1 \
       -v "$(pwd)/_working/_data":/opt/openstates/openstates/_data \
       -v "$(pwd)/_working/_cache":/opt/openstates/openstates/_cache \
       "${DOCKER_ENV_FLAGS[@]+"${DOCKER_ENV_FLAGS[@]}"}" \
       openstates/scrapers:${DOCKER_IMAGE_TAG} \
-      ${STATE} bills --scrape --fastmode 2>&1 | tee -a "$SCRAPE_LOG"
+      ${STATE} ${SCRAPER_TYPE} --scrape --fastmode 2>&1 | tee -a "$SCRAPE_LOG"
   then
     exit_code=0
     break
