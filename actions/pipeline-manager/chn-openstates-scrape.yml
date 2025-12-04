@@ -43,7 +43,7 @@ locales:
   dc:
     template: openstates-scrape
     name: District of Columbia
-    toolkit_branch: main
+    toolkit_branch: feature/virginia-api-key
   de:
     template: openstates-scrape
     name: Delaware
@@ -79,7 +79,7 @@ locales:
   in:
     template: openstates-scrape
     name: Indiana
-    toolkit_branch: main
+    toolkit_branch: feature/virginia-api-key
   ia:
     template: openstates-scrape
     name: Iowa
@@ -175,7 +175,7 @@ locales:
   ny:
     template: openstates-scrape
     name: New York
-    toolkit_branch: main
+    toolkit_branch: feature/virginia-api-key
   nc:
     template: openstates-scrape
     name: North Carolina
@@ -253,7 +253,7 @@ locales:
   va:
     template: openstates-scrape
     name: Virginia
-    toolkit_branch: main
+    toolkit_branch: feature/virginia-api-key
   wa:
     template: openstates-scrape
     name: Washington
