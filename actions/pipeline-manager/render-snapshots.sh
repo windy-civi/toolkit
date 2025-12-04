@@ -6,8 +6,8 @@ output_dir="./__snapshots__"
 # Selected to provide geographic diversity: ak (northwest), id (mountain), mt (plains), pr (territory), wy (mountain)
 SAMPLE_LOCALES=("ak" "id" "mt" "pr" "wy")
 
-# Render all config files (render.py finds and processes all *.yml files)
-python3 render.py -o "generated"
+# Render only the states we need for snapshots (much faster)
+python3 render.py -o "generated" --test-states "ak,id,mt,pr,wy"
 
 # Create output directory
 mkdir -p "$output_dir"
