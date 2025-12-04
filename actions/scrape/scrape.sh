@@ -65,9 +65,11 @@ for i in 1 2 3; do
   # Virginia uses csv_bills scraper (no API key needed)
   # Use 2025 session since 2026 mapping doesn't exist yet in openstates
   if [ "${STATE}" = "va" ]; then
-    SCRAPER_ARGS=(csv_bills --scrape --fastmode --session 2025)
+    SCRAPER_TYPE="csv_bills"
+    SCRAPER_ARGS=(--scrape --fastmode --session 2025)
   else
-    SCRAPER_ARGS=(bills --scrape --fastmode)
+    SCRAPER_TYPE="bills"
+    SCRAPER_ARGS=(--scrape --fastmode)
   fi
 
   if docker run \
@@ -76,7 +78,7 @@ for i in 1 2 3; do
       -v "$(pwd)/_working/_cache":/opt/openstates/openstates/_cache \
       "${DOCKER_ENV_FLAGS[@]+"${DOCKER_ENV_FLAGS[@]}"}" \
       openstates/scrapers:${DOCKER_IMAGE_TAG} \
-      ${STATE} "${SCRAPER_ARGS[@]}" 2>&1 | tee -a "$SCRAPE_LOG"
+      ${STATE} ${SCRAPER_TYPE} "${SCRAPER_ARGS[@]}" 2>&1 | tee -a "$SCRAPE_LOG"
   then
     exit_code=0
     break
