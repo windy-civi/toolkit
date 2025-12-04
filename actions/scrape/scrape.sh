@@ -62,23 +62,26 @@ exit_code=1
 for i in 1 2 3; do
   docker pull openstates/scrapers:${DOCKER_IMAGE_TAG} || true
   # Capture output to log file while still displaying it
-  # Virginia uses csv_bills scraper (no API key needed)
-  # Use 2025 session since 2026 mapping doesn't exist yet in openstates
+  # Virginia uses csv_bills scraper (no API key needed) with 2025 session
   if [ "${STATE}" = "va" ]; then
-    SCRAPER_TYPE="csv_bills"
-    SCRAPER_ARGS=(--scrape --fastmode --session 2025)
-  else
-    SCRAPER_TYPE="bills"
-    SCRAPER_ARGS=(--scrape --fastmode)
-  fi
-
-  if docker run \
+    if docker run \
+        --dns 8.8.8.8 --dns 1.1.1.1 \
+        -v "$(pwd)/_working/_data":/opt/openstates/openstates/_data \
+        -v "$(pwd)/_working/_cache":/opt/openstates/openstates/_cache \
+        "${DOCKER_ENV_FLAGS[@]+"${DOCKER_ENV_FLAGS[@]}"}" \
+        openstates/scrapers:${DOCKER_IMAGE_TAG} \
+        ${STATE} csv_bills --scrape --fastmode --session 2025 2>&1 | tee -a "$SCRAPE_LOG"
+    then
+      exit_code=0
+      break
+    fi
+  elif docker run \
       --dns 8.8.8.8 --dns 1.1.1.1 \
       -v "$(pwd)/_working/_data":/opt/openstates/openstates/_data \
       -v "$(pwd)/_working/_cache":/opt/openstates/openstates/_cache \
       "${DOCKER_ENV_FLAGS[@]+"${DOCKER_ENV_FLAGS[@]}"}" \
       openstates/scrapers:${DOCKER_IMAGE_TAG} \
-      ${STATE} ${SCRAPER_TYPE} "${SCRAPER_ARGS[@]}" 2>&1 | tee -a "$SCRAPE_LOG"
+      ${STATE} bills --scrape --fastmode 2>&1 | tee -a "$SCRAPE_LOG"
   then
     exit_code=0
     break
