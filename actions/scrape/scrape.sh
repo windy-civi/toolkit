@@ -38,8 +38,7 @@ if [ -n "$API_KEYS_JSON" ] && [ "$API_KEYS_JSON" != "{}" ]; then
     "NEW_YORK_API_KEY"
     "INDIANA_API_KEY"
     "USER_AGENT"
-    "VIRGINIA_FTP_USER"
-    "VIRGINIA_FTP_PASSWORD"
+    "VIRGINIA_API_KEY"
   )
 
   for key_name in "${API_KEY_NAMES[@]}"; do
