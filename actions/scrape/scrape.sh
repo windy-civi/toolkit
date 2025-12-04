@@ -63,7 +63,7 @@ for i in 1 2 3; do
   docker pull openstates/scrapers:${DOCKER_IMAGE_TAG} || true
   # Capture output to log file while still displaying it
   # Virginia uses csv_bills scraper (no API key needed)
-  # Pass 2025 as positional argument after --fastmode
+  # Note: csv_bills will auto-detect latest session, may fail if 2026 not yet mapped
   if [ "${STATE}" = "va" ]; then
     if docker run \
         --dns 8.8.8.8 --dns 1.1.1.1 \
@@ -71,7 +71,7 @@ for i in 1 2 3; do
         -v "$(pwd)/_working/_cache":/opt/openstates/openstates/_cache \
         "${DOCKER_ENV_FLAGS[@]+"${DOCKER_ENV_FLAGS[@]}"}" \
         openstates/scrapers:${DOCKER_IMAGE_TAG} \
-        ${STATE} csv_bills --scrape --fastmode 2025 2>&1 | tee -a "$SCRAPE_LOG"
+        ${STATE} csv_bills --scrape --fastmode 2>&1 | tee -a "$SCRAPE_LOG"
     then
       exit_code=0
       break
