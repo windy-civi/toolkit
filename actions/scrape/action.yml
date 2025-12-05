@@ -26,7 +26,7 @@ inputs:
     required: false
     default: "main"
   api-keys:
-    description: "JSON object with API keys for states that require them (e.g., DC_API_KEY, NEW_YORK_API_KEY)"
+    description: "JSON object with API keys for states that require them (e.g., DC_API_KEY, NEW_YORK_API_KEY, INDIANA_API_KEY, USER_AGENT). Note: Virginia uses csv_bills scraper and requires no API key."
     required: false
     default: "{}"
 
@@ -84,7 +84,7 @@ runs:
           echo "🏛️ Using California-specific MySQL scraper..."
           bash "${{ github.action_path }}/scrape-ca.sh" "$(pwd)" "${{ github.workspace }}" "${DOCKER_IMAGE_TAG}" || true
         else
-          bash "${{ github.action_path }}/scrape.sh" "${{ inputs.state }}" "${DOCKER_IMAGE_TAG}" "$(pwd)" "${{ github.workspace }}" || true
+          bash "${{ github.action_path }}/scrape.sh" "${{ inputs.state }}" "${DOCKER_IMAGE_TAG}" "$(pwd)" "${{ github.workspace }}" "${API_KEYS_JSON}" || true
         fi
 
         # Check if tarball was created

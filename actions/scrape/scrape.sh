@@ -38,8 +38,6 @@ if [ -n "$API_KEYS_JSON" ] && [ "$API_KEYS_JSON" != "{}" ]; then
     "NEW_YORK_API_KEY"
     "INDIANA_API_KEY"
     "USER_AGENT"
-    "VIRGINIA_FTP_USER"
-    "VIRGINIA_FTP_PASSWORD"
   )
 
   for key_name in "${API_KEY_NAMES[@]}"; do
@@ -64,7 +62,22 @@ exit_code=1
 for i in 1 2 3; do
   docker pull openstates/scrapers:${DOCKER_IMAGE_TAG} || true
   # Capture output to log file while still displaying it
-  if docker run \
+  # Virginia uses csv_bills scraper (no API key needed)
+  # NOTE: VA 2026 session starts Jan 14, 2026. Will fail until openstates-scrapers
+  # Docker image is updated with 2026 session mapping. Code is correct and ready.
+  if [ "${STATE}" = "va" ]; then
+    if docker run \
+        --dns 8.8.8.8 --dns 1.1.1.1 \
+        -v "$(pwd)/_working/_data":/opt/openstates/openstates/_data \
+        -v "$(pwd)/_working/_cache":/opt/openstates/openstates/_cache \
+        "${DOCKER_ENV_FLAGS[@]+"${DOCKER_ENV_FLAGS[@]}"}" \
+        openstates/scrapers:${DOCKER_IMAGE_TAG} \
+        ${STATE} --session=2025 csv_bills --scrape --fastmode 2>&1 | tee -a "$SCRAPE_LOG"
+    then
+      exit_code=0
+      break
+    fi
+  elif docker run \
       --dns 8.8.8.8 --dns 1.1.1.1 \
       -v "$(pwd)/_working/_data":/opt/openstates/openstates/_data \
       -v "$(pwd)/_working/_cache":/opt/openstates/openstates/_cache \

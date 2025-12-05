@@ -41,9 +41,7 @@ jobs:
               "DC_API_KEY": "${{ secrets.DC_API_KEY }}",
               "NEW_YORK_API_KEY": "${{ secrets.NEW_YORK_API_KEY }}",
               "INDIANA_API_KEY": "${{ secrets.INDIANA_API_KEY }}",
-              "USER_AGENT": "${{ secrets.USER_AGENT }}",
-              "VIRGINIA_FTP_USER": "${{ secrets.VIRGINIA_FTP_USER }}",
-              "VIRGINIA_FTP_PASSWORD": "${{ secrets.VIRGINIA_FTP_PASSWORD }}"
+              "USER_AGENT": "${{ secrets.USER_AGENT }}"
             }
 
       - name: Trigger files repo to format data
