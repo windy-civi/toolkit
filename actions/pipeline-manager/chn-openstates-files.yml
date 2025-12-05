@@ -12,17 +12,20 @@ templates:
 locales:
   al:
     template: openstates-to-ocd-files
-    toolkit_branch: main
-    name: Alabama
     toolkit_branch: main # Defaults to main, but can make whatever.
+    name: Alabama
     disabled_jobs:
       - extract-text # Exclude extract-text.yml workflow
+    labels:
+      - working
   ak:
     disabled_jobs:
       - extract-text
     template: openstates-to-ocd-files
     toolkit_branch: main
     name: Alaska
+    labels:
+      - working
   az:
     disabled_jobs:
       - extract-text
@@ -43,12 +46,16 @@ locales:
     template: openstates-to-ocd-files
     toolkit_branch: main
     name: California
+    labels:
+      - working
   co:
     disabled_jobs:
       - extract-text
     template: openstates-to-ocd-files
     toolkit_branch: main
     name: Colorado
+    labels:
+      - working
   ct:
     disabled_jobs:
       - extract-text
@@ -85,12 +92,16 @@ locales:
     template: openstates-to-ocd-files
     toolkit_branch: main
     name: Hawaii
+    labels:
+      - working
   id:
     disabled_jobs:
       - extract-text
     template: openstates-to-ocd-files
     toolkit_branch: main
     name: Idaho
+    labels:
+      - working
   il:
     disabled_jobs:
       - extract-text
@@ -105,6 +116,8 @@ locales:
     template: openstates-to-ocd-files
     toolkit_branch: main
     name: Indiana
+    labels:
+      - working
   ia:
     disabled_jobs:
       - extract-text
@@ -143,24 +156,32 @@ locales:
     template: openstates-to-ocd-files
     toolkit_branch: main
     name: Maine
+    labels:
+      - working
   md:
     disabled_jobs:
       - extract-text
     template: openstates-to-ocd-files
     toolkit_branch: main
     name: Maryland
+    labels:
+      - working
   ma:
     disabled_jobs:
       - extract-text
     template: openstates-to-ocd-files
     toolkit_branch: main
     name: Massachusetts
+    labels:
+      - working
   mi:
     disabled_jobs:
       - extract-text
     template: openstates-to-ocd-files
     toolkit_branch: main
     name: Michigan
+    labels:
+      - working
   mn:
     disabled_jobs:
       - extract-text
@@ -175,6 +196,8 @@ locales:
     template: openstates-to-ocd-files
     toolkit_branch: main
     name: Mississippi
+    labels:
+      - working
   mo:
     disabled_jobs:
       - extract-text
@@ -237,6 +260,8 @@ locales:
     template: openstates-to-ocd-files
     toolkit_branch: main
     name: New York
+    labels:
+      - working
   nc:
     disabled_jobs:
       - extract-text
@@ -259,6 +284,8 @@ locales:
     template: openstates-to-ocd-files
     toolkit_branch: main
     name: Ohio
+    labels:
+      - working
   ok:
     disabled_jobs:
       - extract-text
@@ -305,6 +332,8 @@ locales:
     template: openstates-to-ocd-files
     toolkit_branch: main
     name: South Dakota
+    labels:
+      - working
   tn:
     disabled_jobs:
       - extract-text
@@ -319,8 +348,6 @@ locales:
     template: openstates-to-ocd-files
     toolkit_branch: main
     name: Texas
-    labels:
-      - working
   ut:
     disabled_jobs:
       - extract-text
