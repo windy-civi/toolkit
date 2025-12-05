@@ -14,6 +14,7 @@ govbot clone # to show
 govbot clone {{locale}} {{locale}} # to download specific items
 govbot delete {{locale}} # to delete specific items
 govbot delete all # to delete everything
+govbot load # load bill metadata into DuckDB database
 ```
 
 ## Contribute
@@ -42,4 +43,46 @@ We build snapshots off `examples`. Add examples to make a test.
 
 ```bash
 GOVBOT_REPO_URL_TEMPLATE="https://gitsite.com/org/{locale}.git" govbot ...
+```
+
+## Using DuckDB
+
+Query the cloned repos with DuckDB! See [DUCKDB.md](./DUCKDB.md) for detailed examples.
+
+### Quick Start (Command Line)
+
+```sql
+-- Load JSON extension
+INSTALL json;
+LOAD json;
+
+-- Query all bill metadata
+SELECT * 
+FROM read_json_auto('~/.govbot/repos/**/bills/*/metadata.json')
+LIMIT 10;
+```
+
+### Using DuckDB UI
+
+Load data into a database file and open in the web UI:
+
+```bash
+# Load all data into a database (default: govbot.duckdb)
+govbot load
+
+# Or specify a custom database file
+govbot load --database my-bills.duckdb
+
+# With memory limit and thread settings
+govbot load --memory-limit 32GB --threads 8
+
+# Open in DuckDB UI (opens in your browser)
+duckdb --ui govbot.duckdb
+```
+
+### Helper Scripts
+
+```bash
+# Run example queries
+./duckdb-query.sh examples/duckdb-example.sql
 ```
