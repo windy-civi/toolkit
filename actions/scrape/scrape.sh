@@ -107,16 +107,16 @@ if [ "$COUNT_JSON" -gt 0 ]; then
 
   # Copy all files from JSON_DIR to output directory
   if [ -d "$JSON_DIR" ]; then
-    # Use rsync if available (more reliable), with --delete to remove stale files
+    # Delete entire directory first for clean state, then copy all new files
+    echo "🧹 Cleaning _data/${STATE}/ directory..."
+    rm -rf "${OUTPUT_DIR}/_data/${STATE}"
+    mkdir -p "${OUTPUT_DIR}/_data/${STATE}"
+
+    # Copy all files (use rsync if available for better performance, otherwise cp)
     if command -v rsync >/dev/null 2>&1; then
-      echo "🧹 Syncing scraped files (removing stale files)..."
-      rsync -av --delete "$JSON_DIR/" "${OUTPUT_DIR}/_data/${STATE}/"
+      rsync -a "$JSON_DIR/" "${OUTPUT_DIR}/_data/${STATE}/"
     else
-      # Fallback: clean directory manually then copy
-      echo "🧹 Cleaning _data/${STATE}/ directory..."
-      rm -rf "${OUTPUT_DIR}/_data/${STATE}"
-      mkdir -p "${OUTPUT_DIR}/_data/${STATE}"
-      find "$JSON_DIR" -type f -exec cp {} "${OUTPUT_DIR}/_data/${STATE}/" \;
+      cp -r "$JSON_DIR"/* "${OUTPUT_DIR}/_data/${STATE}/" 2>/dev/null || true
     fi
 
     # Verify files were copied
