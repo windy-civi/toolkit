@@ -7,19 +7,31 @@ govbot clone --list
 
 Output:
 Available locales:
+  ak
+  al
   ar
+  ca
+  co
   de
   fl
   ga
   gu
+  hi
   ia
+  id
   il
+  in
   ks
   ky
   la
+  ma
+  md
+  me
+  mi
   mn
   mo
   mp
+  ms
   mt
   nc
   nd
@@ -28,14 +40,16 @@ Available locales:
   nj
   nm
   nv
+  ny
+  oh
   ok
   or
   pa
   pr
   ri
   sc
+  sd
   tn
-  tx
   usa
   ut
   vi
