@@ -170,13 +170,13 @@ impl std::fmt::Display for WorkingLocale {{
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Get paths relative to the binary location
     // manifest_dir is /Users/sartaj/Git/toolkit/actions/govbot
-    // config is at /Users/sartaj/Git/toolkit/actions/pipeline-manager/config.yml
+    // config is at /Users/sartaj/Git/toolkit/actions/pipeline-manager/chn-openstates-files.yml
     let manifest_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     let config_path = manifest_dir
         .parent()
         .unwrap() // /Users/sartaj/Git/toolkit/actions
         .join("pipeline-manager")
-        .join("config.yml");
+        .join("chn-openstates-files.yml");
     let output_path = manifest_dir.join("src").join("locale_generated.rs");
 
     if !config_path.exists() {
