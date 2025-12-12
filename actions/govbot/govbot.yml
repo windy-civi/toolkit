@@ -1,0 +1,85 @@
+tags:
+  education:
+    description: "Legislation related to schools, education funding, curriculum standards, teacher certification, higher education policy, student loans, charter schools, public school administration, educational standards, and academic programs"
+    threshold: 0.3
+    examples:
+      - "School funding bill"
+      - "Teacher certification requirements"
+      - "Higher education tuition"
+      - "Charter school authorization"
+
+  budget:
+    description: "Legislation concerning state budgets, appropriations, revenue, taxes, fiscal policy, spending bills, budget allocations, financial planning, and economic policy"
+    threshold: 0.3
+    examples:
+      - "State budget appropriation"
+      - "Tax revenue bill"
+      - "Fiscal year spending"
+      - "Budget allocation"
+
+  healthcare:
+    description: "Legislation affecting healthcare access, insurance, medical services, public health, hospitals, health insurance, Medicaid, Medicare, prescription drugs, mental health services, and healthcare providers"
+    threshold: 0.3
+    examples:
+      - "Healthcare access expansion"
+      - "Medicaid funding"
+      - "Mental health services"
+      - "Prescription drug pricing"
+
+  environment:
+    description: "Legislation related to environmental protection, climate change, pollution control, renewable energy, conservation, natural resources, water quality, air quality, and environmental regulations"
+    threshold: 0.3
+    examples:
+      - "Renewable energy standards"
+      - "Water quality protection"
+      - "Climate change mitigation"
+      - "Environmental conservation"
+
+  criminal_justice:
+    description: "Legislation concerning law enforcement, criminal law, sentencing, prisons, police reform, criminal justice reform, bail reform, sentencing guidelines, and public safety"
+    threshold: 0.3
+    examples:
+      - "Criminal sentencing reform"
+      - "Police accountability"
+      - "Bail reform legislation"
+      - "Prison reform"
+
+  lgbtq:
+    description: |
+      Legislation related to lesbian, gay, bisexual, transgender, queer, and gender non-conforming people, including:
+      - Legal rights and protections for sexual orientation, gender identity, and gender expression
+      - Anti-discrimination measures in employment, housing, education, healthcare, and public services
+      - Marriage equality, domestic partnerships, civil unions, and adoption rights for same-sex couples
+      - Policies addressing harassment, bullying, and hate crimes targeting LGBTQ+ individuals
+      - Bans or restrictions on conversion therapy and gender-affirming healthcare
+      - Transgender rights regarding bathroom access, participation in sports, and changing identification documents
+      - Religious exemptions or freedom laws affecting LGBTQ+ rights
+      - Recognition of non-binary or intersex status in legal or governmental contexts
+    threshold: 0.3
+    examples:
+      - "Expands anti-discrimination protections to include sexual orientation and gender identity in employment and housing"
+      - "Allows for gender marker changes on birth certificates and driver's licenses without surgery"
+      - "Establishes penalties for hate crimes motivated by sexual orientation or gender identity"
+      - "Permits same-sex couples to jointly adopt children"
+      - "Prohibits conversion therapy for minors"
+      - "Protects access to gender-affirming health care for transgender youth"
+      - "Restricts participation of transgender students in school athletics"
+      - "Defines public accommodation access for transgender individuals"
+
+  housing:
+    description: "Legislation related to housing policy, affordable housing, rent control, tenant rights, housing development, zoning, homelessness, housing assistance, and real estate regulation"
+    threshold: 0.3
+    examples:
+      - "Affordable housing development"
+      - "Rent control measures"
+      - "Tenant protection laws"
+      - "Homelessness assistance"
+
+  transportation:
+    description: "Legislation concerning transportation infrastructure, roads, highways, public transit, traffic laws, vehicle regulations, transportation funding, and transportation safety"
+    threshold: 0.3
+    examples:
+      - "Highway infrastructure funding"
+      - "Public transit expansion"
+      - "Traffic safety regulations"
+      - "Vehicle emissions standards"

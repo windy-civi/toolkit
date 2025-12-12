@@ -1,13 +1,15 @@
 use clap::{Parser, Subcommand};
 use govbot::git;
+use govbot::TagMatcher;
 use futures::StreamExt;
 use futures::stream;
-use std::io::{self, Write};
+use std::io::{self, Write, BufRead, BufReader};
 use std::path::PathBuf;
-use std::process::Command as ProcessCommand;
 use serde_json;
 use jwalk::WalkDir;
 use std::fs;
+use std::process::Command as ProcessCommand;
+use std::collections::HashMap;
 
 /// Write a line to stdout, gracefully handling broken pipe errors
 /// This is essential for piping to tools like yq, jq, etc.
@@ -155,6 +157,19 @@ enum Command {
     /// Update govbot to the latest nightly version
     /// Downloads and installs the latest nightly build from GitHub releases
     Update,
+
+    /// Tag bills using semantic or built-in similarity based on govbot.yml in the current directory.
+    /// Reads JSON lines from stdin (from `govbot logs`), processes entries with bill identifiers,
+    /// and writes per-tag files under the directory containing govbot.yml.
+    Tag {
+        /// Output directory (defaults to the directory containing govbot.yml)
+        #[arg(long = "output-dir")]
+        output_dir: Option<String>,
+
+        /// Govbot directory (default: $CWD/.govbot/repos, or GOVBOT_DIR env var)
+        #[arg(long = "govbot-dir")]
+        govbot_dir: Option<String>,
+    },
 }
 
 fn print_available_commands() {
@@ -163,6 +178,7 @@ fn print_available_commands() {
     println!("  delete  Delete data pipeline repositories (use 'delete all' to delete all)");
     println!("  logs    Process and display pipeline log files");
     println!("  load    Load bill metadata into a DuckDB database file");
+    println!("  tag     Tag bills using AI based on log entries");
     println!("  update  Update govbot to the latest nightly version");
 }
 
@@ -1214,6 +1230,318 @@ async fn run_load_command(cmd: Command) -> anyhow::Result<()> {
     Ok(())
 }
 
+/// Extract country, state, and session_id from a log path
+/// Path format: .../country:us/state:il/sessions/104th/bills/...
+fn extract_path_info(path: &str) -> Option<(String, String, String)> {
+    // Find country: pattern
+    let country_start = path.find("country:")?;
+    let country_end = path[country_start + 8..].find('/').unwrap_or(path.len() - country_start - 8);
+    let country = path[country_start + 8..country_start + 8 + country_end].to_string();
+    
+    // Find state: pattern
+    let state_start = path.find("/state:")?;
+    let state_end = path[state_start + 7..].find('/').unwrap_or(path.len() - state_start - 7);
+    let state = path[state_start + 7..state_start + 7 + state_end].to_string();
+    
+    // Find sessions/ pattern
+    let sessions_start = path.find("/sessions/")?;
+    let session_end = path[sessions_start + 10..].find('/').unwrap_or(path.len() - sessions_start - 10);
+    let session_id = path[sessions_start + 10..sessions_start + 10 + session_end].to_string();
+    
+    Some((country, state, session_id))
+}
+
+/// Download a file from a URL to a local path
+fn download_file(url: &str, path: &std::path::Path) -> anyhow::Result<()> {
+    eprintln!("Downloading {}...", url);
+    let response = reqwest::blocking::get(url)?;
+    if !response.status().is_success() {
+        return Err(anyhow::anyhow!("Failed to download {}: HTTP {}", url, response.status()));
+    }
+    let mut file = std::fs::File::create(path)?;
+    std::io::copy(&mut response.bytes()?.as_ref(), &mut file)?;
+    Ok(())
+}
+
+/// Ensure embedding model and tokenizer exist; if missing, download them from Hugging Face.
+/// Returns true if files are present/ready, false otherwise.
+fn ensure_embedding_files(model_dir: &std::path::Path) -> bool {
+    let model_path = model_dir.join("model.onnx");
+    let tokenizer_path = model_dir.join("tokenizer.json");
+    let _vocab_path = model_dir.join("vocab.txt");
+
+    if model_path.exists() && tokenizer_path.exists() {
+        return true;
+    }
+
+    eprintln!("Embedding files not found. Downloading all-MiniLM-L6-v2 (ONNX) to {}...", model_dir.display());
+
+    // Use Xenova ONNX exports
+    let onnx_url = "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model.onnx";
+    let tokenizer_url = "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json";
+
+    // Download tokenizer.json
+    if !tokenizer_path.exists() {
+        if let Err(e) = download_file(tokenizer_url, &tokenizer_path) {
+            eprintln!("Failed to download tokenizer.json: {}", e);
+            return false;
+        }
+    }
+
+    // Download ONNX model
+    if !model_path.exists() {
+        if let Err(e) = download_file(onnx_url, &model_path) {
+            eprintln!("Failed to download ONNX model: {}", e);
+            return false;
+        }
+    }
+
+    if !model_path.exists() || !tokenizer_path.exists() {
+        eprintln!(
+            "Download completed but model.onnx or tokenizer.json not found in {}",
+            model_dir.display()
+        );
+        return false;
+    }
+
+    eprintln!("✅ Successfully downloaded embedding files!");
+    true
+}
+
+/// Tag result structure: (tag_key, similarity_score)
+type TagResult = (String, f64);
+
+async fn run_tag_command(cmd: Command) -> anyhow::Result<()> {
+    let Command::Tag {
+        output_dir,
+        govbot_dir,
+    } = cmd else {
+        unreachable!()
+    };
+
+    // Check if govbot.yml exists in current directory
+    let current_dir = std::env::current_dir()?;
+    let default_tags_cfg = current_dir.join("govbot.yml");
+
+    // Model/tokenizer directory: prefer user-specified govbot-dir or env GOVBOT_DIR, else default .govbot
+    let model_dir: PathBuf = if let Some(ref dir) = govbot_dir {
+        PathBuf::from(dir)
+    } else if let Ok(dir) = std::env::var("GOVBOT_DIR") {
+        PathBuf::from(dir)
+    } else {
+        current_dir.join(".govbot")
+    };
+    fs::create_dir_all(&model_dir)?;
+    let model_path = model_dir.join("model.onnx");
+    let tokenizer_path = model_dir.join("tokenizer.json");
+    
+    // Determine if we should use embedding mode (govbot.yml present)
+    let use_embedding = default_tags_cfg.exists();
+
+    let embedding_matcher = if use_embedding {
+        // Ensure files exist (download if missing)
+        if !ensure_embedding_files(&model_dir) {
+            eprintln!("Embedding download failed or dependencies missing; falling back to builtin TF-IDF mode.");
+            None
+        } else {
+            let tags_path = default_tags_cfg.clone();
+
+            eprintln!("Using embedding mode:");
+            eprintln!("  Model: {}", model_path.display());
+            eprintln!("  Tokenizer: {}", tokenizer_path.display());
+            eprintln!("  Tags config: {}", tags_path.display());
+
+            Some(
+                TagMatcher::from_files(&model_path, &tokenizer_path, &tags_path)
+                    .map_err(|e| anyhow::anyhow!("Failed to initialize embedding matcher: {}", e))?,
+            )
+        }
+    } else {
+        None
+    };
+    
+    // Load tags for builtin mode (only if not using embedding)
+    let mut tag_thresholds: HashMap<String, f64> = HashMap::new();
+    let tag_list: Vec<String> = if !use_embedding {
+        if default_tags_cfg.exists() {
+            // load from govbot.yml
+            let tag_defs = govbot::embeddings::load_tags_config(&default_tags_cfg)
+                .map_err(|e| anyhow::anyhow!("Failed to parse govbot.yml: {}", e))?;
+            eprintln!("Using govbot.yml for builtin mode (extracting tag names)");
+            let mut names = Vec::new();
+            for tag in tag_defs {
+                tag_thresholds.insert(tag.name.clone(), tag.threshold as f64);
+                names.push(tag.name);
+            }
+            names
+        } else {
+            return Err(anyhow::anyhow!(
+                "govbot.yml not found in current directory"
+            ));
+        }
+    } else {
+        Vec::new() // embedding mode
+    };
+    
+    // Determine output directory
+    // If govbot.yml exists, use its directory as the base output directory
+    let base_output_dir = if default_tags_cfg.exists() {
+        // Use the directory containing govbot.yml
+        default_tags_cfg.parent()
+            .unwrap_or(&current_dir)
+            .to_path_buf()
+    } else if let Some(ref dir) = output_dir {
+        PathBuf::from(dir)
+    } else if let Some(ref dir) = govbot_dir {
+        PathBuf::from(dir)
+    } else if let Ok(dir) = std::env::var("GOVBOT_DIR") {
+        PathBuf::from(dir)
+    } else {
+        // Default to current directory
+        current_dir
+    };
+    
+    // Read JSON lines from stdin
+    let stdin = io::stdin();
+    let reader = BufReader::new(stdin.lock());
+    
+    let mut processed_count = 0;
+    let mut skipped_count = 0;
+    let mut read_count: usize = 0;
+    let _tag_defs = embedding_matcher.as_ref().map(|m| m.tag_definitions());
+    
+    eprintln!("Reading JSON lines from stdin...");
+    
+    for line_result in reader.lines() {
+        let line = line_result?;
+        let line = line.trim();
+        if line.is_empty() {
+            read_count += 1;
+            if read_count % 100 == 0 {
+                eprintln!("Read {} lines (processed {}, skipped {})...", read_count, processed_count, skipped_count);
+            }
+            continue;
+        }
+        
+        read_count += 1;
+        // Parse JSON line
+        match serde_json::from_str::<serde_json::Value>(line) {
+            Ok(json_value) => {
+                // Check for bill identifier
+                let bill_id_opt = json_value
+                    .get("log")
+                    .and_then(|log| {
+                        log.get("bill_id")
+                            .or_else(|| log.get("bill_identifier"))
+                    })
+                    .and_then(|id| id.as_str());
+
+                if let Some(bill_id) = bill_id_opt {
+                    // Extract path info from sources.log
+                    if let Some(log_path) = json_value
+                        .get("sources")
+                        .and_then(|sources| sources.get("log"))
+                        .and_then(|path| path.as_str())
+                    {
+                        if let Some((country, state, session_id)) = extract_path_info(log_path) {
+                            // Choose strategy based on mode
+                            let tags: Vec<TagResult> = if let Some(matcher) = embedding_matcher.as_ref() {
+                                match matcher.match_json_value(&json_value) {
+                                    Ok(results) => results
+                                        .into_iter()
+                                        .map(|(tag, score)| (tag, score as f64))
+                                        .collect(),
+                                    Err(e) => {
+                                        eprintln!("Error running embedding matcher for bill {}: {}", bill_id, e);
+                                        skipped_count += 1;
+                                        continue;
+                                    }
+                                }
+                            } else {
+                                // Use built-in similarity matcher
+                                govbot::match_tags(&tag_list, &json_value)
+                                    .into_iter()
+                .filter(|(tag_key, score)| {
+                    let threshold = tag_thresholds.get(tag_key).copied().unwrap_or(0.3);
+                                        *score >= threshold
+                                    })
+                                    .collect()
+                            };
+                            
+                            if !tags.is_empty() {
+                                // Write per-tag files immediately
+                                let tags_dir = base_output_dir
+                                    .join(&format!("country:{}", country))
+                                    .join(&format!("state:{}", state))
+                                    .join("sessions")
+                                    .join(&session_id)
+                                    .join("tags");
+                                fs::create_dir_all(&tags_dir)?;
+
+                                for (tag_key, score) in tags {
+                                    let tag_path = tags_dir.join(format!("{}.tag.json", tag_key));
+
+                                    // Load existing map if present
+                                    let mut map: serde_json::Map<String, serde_json::Value> = if tag_path.exists() {
+                                        match fs::read_to_string(&tag_path) {
+                                            Ok(contents) => serde_json::from_str(&contents).unwrap_or_default(),
+                                            Err(_) => serde_json::Map::new(),
+                                        }
+                                    } else {
+                                        serde_json::Map::new()
+                                    };
+
+                                    if let Some(num) = serde_json::Number::from_f64(score) {
+                                        map.insert(bill_id.to_string(), serde_json::Value::Number(num));
+                                    }
+
+                                    let json_string = serde_json::to_string_pretty(&serde_json::Value::Object(map))?;
+                                    fs::write(&tag_path, json_string)?;
+                                }
+
+                                processed_count += 1;
+                                if processed_count % 50 == 0 {
+                                    eprintln!("Processed {} entries...", processed_count);
+                                }
+                            } else {
+                                // No tags met thresholds; count as processed-but-unmatched
+                                processed_count += 1;
+                                if processed_count % 200 == 0 {
+                                    eprintln!(
+                                        "Processed {} entries with no tag matches yet (thresholds may be high)...",
+                                        processed_count
+                                    );
+                                }
+                            }
+                        } else {
+                            eprintln!("Warning: Could not extract path info from: {}", log_path);
+                            skipped_count += 1;
+                        }
+                    } else {
+                        eprintln!("Warning: No sources.log found in entry");
+                        skipped_count += 1;
+                    }
+                } else {
+                    skipped_count += 1;
+                }
+            }
+            Err(_e) => {
+                // Skip malformed/empty lines quietly
+                skipped_count += 1;
+            }
+        }
+
+        if read_count % 100 == 0 {
+            eprintln!("Read {} lines (processed {}, skipped {})...", read_count, processed_count, skipped_count);
+        }
+    }
+    
+    eprintln!("\nProcessed: {}, Skipped: {}", processed_count, skipped_count);
+    eprintln!("\n✅ Tagging complete!");
+    
+    Ok(())
+}
+
 async fn run_update_command() -> anyhow::Result<()> {
     let install_script_url = "https://raw.githubusercontent.com/windy-civi/toolkit/main/actions/govbot/scripts/install-nightly.sh";
     
@@ -1261,6 +1589,9 @@ async fn main() -> anyhow::Result<()> {
         }
         Some(Command::Update) => {
             run_update_command().await
+        }
+        Some(cmd @ Command::Tag { .. }) => {
+            run_tag_command(cmd).await
         }
         None => {
             print_available_commands();

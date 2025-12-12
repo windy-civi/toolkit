@@ -142,6 +142,16 @@ govbot logs --repos="il" --limit=10 --join=bill | \
   yq -p json -P
 ```
 
+## Tagging Bills
+
+Tag legislative logs using semantic similarity matching. See [TAGGING.md](./TAGGING.md) for detailed setup instructions.
+
+**Quick start** (with `tags.toml`, `model.onnx`, and `tokenizer.json` in current directory):
+
+```bash
+just govbot logs --repos il --limit 10 | just govbot tag
+```
+
 ## Using DuckDB
 
 Query the cloned repos with DuckDB! See [DUCKDB.md](./DUCKDB.md) for detailed examples.

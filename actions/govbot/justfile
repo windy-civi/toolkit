@@ -140,6 +140,30 @@ run:
 run-args ARGS:
     cargo run -- {{ARGS}}
 
+# Tag bills using AI (reads JSON lines from stdin)
+# Usage: just govbot logs --repos il --limit 10 | just govbot tag --ai-tool "ollama run llama3"
+# Example: just govbot logs --repos il --limit 10 | just govbot tag --ai-tool "ollama"
+# Note: The tag command reads from stdin, so pipe the logs output to it
+tag *ARGS:
+    #!/usr/bin/env bash
+    set -e
+    
+    DEV_DIR=".govbot"
+    
+    # Build release binary if it doesn't exist or if any source files are newer
+    if [ ! -f "target/release/govbot" ] || [ "src" -nt "target/release/govbot" ] || find src -name "*.rs" -newer "target/release/govbot" 2>/dev/null | grep -q .; then
+        echo "🔨 Building release target..."
+        cargo build --release
+    fi
+    
+    # Check if --govbot-dir is already in the arguments
+    ARGS_STR="{{ARGS}}"
+    if [[ "$ARGS_STR" =~ --govbot-dir ]]; then
+        ./target/release/govbot tag {{ARGS}}
+    else
+        ./target/release/govbot tag {{ARGS}} --govbot-dir "$DEV_DIR"
+    fi
+
 # Run the release binary
 run-release:
     cargo run --release
