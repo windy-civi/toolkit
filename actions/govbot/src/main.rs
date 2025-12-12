@@ -10,6 +10,29 @@ use serde_json;
 use jwalk::WalkDir;
 use std::fs;
 
+/// Write a line to stdout, gracefully handling broken pipe errors
+/// This is essential for piping to tools like yq, jq, etc.
+fn write_json_line(line: &str) -> io::Result<()> {
+    let mut stdout = io::stdout();
+    match writeln!(stdout, "{}", line) {
+        Ok(_) => {}
+        Err(e) if e.kind() == io::ErrorKind::BrokenPipe => {
+            // Broken pipe is expected when downstream tool closes early (e.g., yq, head, etc.)
+            return Ok(());
+        }
+        Err(e) => return Err(e),
+    }
+    match stdout.flush() {
+        Ok(_) => {}
+        Err(e) if e.kind() == io::ErrorKind::BrokenPipe => {
+            // Broken pipe is expected when downstream tool closes early
+            return Ok(());
+        }
+        Err(e) => return Err(e),
+    }
+    Ok(())
+}
+
 #[derive(Debug, Clone)]
 struct CloneResult {
     locale: String,
@@ -666,7 +689,8 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
                     }
                     
                     let json = serde_json::to_string(&json_value)?;
-                    println!("{}", json);
+                    // Ignore broken pipe errors (e.g., when piped to yq/jq that closes early)
+                    let _ = write_json_line(&json);
                 }
                 Err(e) => {
                     eprintln!("Error: {}", e);
@@ -906,9 +930,10 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
                                         // Serialize as compact JSON (single line)
                                         match serde_json::to_string(&output_value) {
                                             Ok(json_line) => {
-                                                println!("{}", json_line);
-                                                io::stdout().flush()?;
-                                                file_count += 1;
+                                                // Ignore broken pipe errors (e.g., when piped to yq/jq that closes early)
+                                                if write_json_line(&json_line).is_ok() {
+                                                    file_count += 1;
+                                                }
                                             }
                                             Err(e) => {
                                                 eprintln!("Error serializing JSON from {}: {}", path.display(), e);
