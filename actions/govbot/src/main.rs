@@ -1,12 +1,36 @@
 use clap::{Parser, Subcommand};
-use govbot::prelude::*;
 use govbot::git;
 use futures::StreamExt;
 use futures::stream;
-use std::io::{self, BufRead, Write};
+use std::io::{self, Write};
 use std::path::PathBuf;
 use std::process::Command as ProcessCommand;
 use serde_json;
+use jwalk::WalkDir;
+use std::fs;
+
+/// Write a line to stdout, gracefully handling broken pipe errors
+/// This is essential for piping to tools like yq, jq, etc.
+fn write_json_line(line: &str) -> io::Result<()> {
+    let mut stdout = io::stdout();
+    match writeln!(stdout, "{}", line) {
+        Ok(_) => {}
+        Err(e) if e.kind() == io::ErrorKind::BrokenPipe => {
+            // Broken pipe is expected when downstream tool closes early (e.g., yq, head, etc.)
+            return Ok(());
+        }
+        Err(e) => return Err(e),
+    }
+    match stdout.flush() {
+        Ok(_) => {}
+        Err(e) if e.kind() == io::ErrorKind::BrokenPipe => {
+            // Broken pipe is expected when downstream tool closes early
+            return Ok(());
+        }
+        Err(e) => return Err(e),
+    }
+    Ok(())
+}
 
 #[derive(Debug, Clone)]
 struct CloneResult {
@@ -31,14 +55,15 @@ struct Args {
 
 #[derive(Subcommand, Debug)]
 enum Command {
-    /// Clone or pull data pipeline repositories (default: all locales)
+    /// Clone or pull data pipeline repositories (default: updates existing repos)
     /// Clones if repository doesn't exist, pulls if it does
+    /// Use "govbot clone all" to clone all repos, or "govbot clone <repo>" for specific repos
     Clone {
-        /// Locale names to clone/pull (e.g., usa, il, ca, or "all" for all locales). If not specified, processes all locales.
+        /// Repository names to clone/pull (e.g., usa, il, ca, or "all" for all repos). If not specified, updates existing repos.
         #[arg(num_args = 0..)]
-        locales: Vec<String>,
+        repos: Vec<String>,
 
-        /// Directory containing repositories (default: $HOME/.govbot/repos, or GOVBOT_DIR env var)
+        /// Directory containing repositories (default: $CWD/.govbot/repos, or GOVBOT_DIR env var)
         #[arg(long = "govbot-dir")]
         govbot_dir: Option<String>,
 
@@ -54,38 +79,36 @@ enum Command {
         #[arg(long)]
         verbose: bool,
 
-        /// List available locales instead of cloning/pulling
+        /// List available repos instead of cloning/pulling
         #[arg(long)]
         list: bool,
     },
 
     /// Process and display pipeline log files
     Logs {
-        /// Directory containing cloned repositories (default: $HOME/.govbot/repos, or GOVBOT_DIR env var)
-        #[arg(long = "govbot-dir")]
-        govbot_dir: Option<String>,
+        /// Repos to output (default: `all`) `--repos="il,ca"`
+        #[arg(long, num_args = 0..)]
+        repos: Vec<String>,
+    
+        /// Per repo limit (default: 100) options: `none` | number
+        #[arg(long, default_value = "100")]
+        limit: String,
 
+        /// Join additional datasets default="none" options: `bill` 
+        #[arg(long)]
+        join: Option<String>,
 
-        /// Source names to filter (space-separated)
-        #[arg(short, long, num_args = 0..)]
-        sources: Vec<String>,
+        /// Filter log entries based on per-repo AI generated filters (default: `default`) options: `default` | `none`
+        #[arg(long, default_value = "default", value_parser = ["default", "none"])]
+        filter: String,
 
-        /// Sort order: ASC or DESC
+        /// Sort order (default: DESC) options: `ASC` | `DESC`
         #[arg(long, default_value = "DESC", value_parser = ["ASC", "DESC"])]
         sort: String,
 
-        /// Limit number of results
-        #[arg(long)]
-        limit: Option<usize>,
-
-        /// Join options: minimal_metadata,sponsors
-        #[arg(long, default_value = "minimal_metadata")]
-        join: String,
-
-        /// Read file paths from stdin instead of discovering files
-        /// Useful for stdio pipelines: find ... | govbot logs --stdin
-        #[arg(long)]
-        stdin: bool,
+        /// Govbot directory (default: $CWD/.govbot/repos, or GOVBOT_DIR env var)
+        #[arg(long = "govbot-dir")]
+        govbot_dir: Option<String>,        
     },
 
     /// Delete data pipeline repositories
@@ -95,7 +118,7 @@ enum Command {
         #[arg(num_args = 0..)]
         locales: Vec<String>,
 
-        /// Directory containing repositories (default: $HOME/.govbot/repos, or GOVBOT_DIR env var)
+        /// Directory containing repositories (default: $CWD/.govbot/repos, or GOVBOT_DIR env var)
         #[arg(long = "govbot-dir")]
         govbot_dir: Option<String>,
 
@@ -110,13 +133,13 @@ enum Command {
 
     /// Load bill metadata into a DuckDB database file
     /// Loads all metadata.json files from cloned repos into a DuckDB database for analysis.
-    /// The database file is saved in the base govbot directory (e.g., ~/.govbot/govbot.duckdb)
+    /// The database file is saved in the base govbot directory (e.g., ./.govbot/govbot.duckdb)
     Load {
         /// Output database filename (default: govbot.duckdb). Saved in the base govbot directory.
         #[arg(long, default_value = "govbot.duckdb")]
         database: String,
 
-        /// Directory containing repositories (default: $HOME/.govbot/repos, or GOVBOT_DIR env var)
+        /// Directory containing repositories (default: $CWD/.govbot/repos, or GOVBOT_DIR env var)
         #[arg(long = "govbot-dir")]
         govbot_dir: Option<String>,
 
@@ -128,14 +151,19 @@ enum Command {
         #[arg(long)]
         threads: Option<usize>,
     },
+
+    /// Update govbot to the latest nightly version
+    /// Downloads and installs the latest nightly build from GitHub releases
+    Update,
 }
 
 fn print_available_commands() {
     println!("Available commands:");
-    println!("  clone   Clone or pull data pipeline repositories (default: all locales)");
+    println!("  clone   Clone or pull data pipeline repositories (default: updates existing repos, use 'clone all' to clone all)");
     println!("  delete  Delete data pipeline repositories (use 'delete all' to delete all)");
     println!("  logs    Process and display pipeline log files");
     println!("  load    Load bill metadata into a DuckDB database file");
+    println!("  update  Update govbot to the latest nightly version");
 }
 
 fn get_govbot_dir(govbot_dir: Option<String>) -> anyhow::Result<PathBuf> {
@@ -147,7 +175,7 @@ fn get_govbot_dir(govbot_dir: Option<String>) -> anyhow::Result<PathBuf> {
         // Append /repos to custom govbot-dir from env var
         Ok(PathBuf::from(govbot_dir).join("repos"))
     } else {
-        // Fall back to default: $HOME/.govbot/repos
+        // Fall back to default: $CWD/.govbot/repos
         git::default_repos_dir().map_err(|e| anyhow::anyhow!("{}", e))
     }
 }
@@ -248,18 +276,18 @@ fn print_result(result: &CloneResult) {
 
 /// Perform clone/pull operations and print results as they complete
 async fn perform_clone_operations(
-    locales_to_clone: Vec<String>,
+    repos_to_clone: Vec<String>,
     repos_dir: PathBuf,
     token_str: Option<&str>,
     num_jobs: usize,
     verbose: bool,
 ) -> anyhow::Result<Vec<CloneResult>> {
-    let total = locales_to_clone.len();
+    let total = repos_to_clone.len();
     let mut all_results = Vec::new();
     
     if total == 1 || num_jobs == 1 {
         // Sequential clone/pull - print as we go
-        for (idx, locale) in locales_to_clone.iter().enumerate() {
+        for (idx, locale) in repos_to_clone.iter().enumerate() {
             let mut result = process_single_locale(locale, &repos_dir, token_str, verbose);
             result.position = format!("{}/{}", idx + 1, total);
             print_result(&result);
@@ -270,7 +298,7 @@ async fn perform_clone_operations(
         use std::sync::{Arc, Mutex};
         let completed = Arc::new(Mutex::new(0usize));
         
-        let clone_futures = stream::iter(locales_to_clone.iter())
+        let clone_futures = stream::iter(repos_to_clone.iter())
             .map(|locale| {
                 let locale = locale.clone();
                 let repos_dir = repos_dir.clone();
@@ -323,7 +351,7 @@ async fn perform_clone_operations(
 
 async fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
     let Command::Clone {
-        locales,
+        repos,
         govbot_dir,
         token,
         parallel,
@@ -333,28 +361,19 @@ async fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
         unreachable!()
     };
 
+    // If --list flag is set, show the list
     if list {
-        println!("Available locales:");
+        println!("Available repos:");
         let all_locales = govbot::locale::WorkingLocale::all();
         for locale in all_locales {
             println!("  {}", locale.as_lowercase());
         }
-        println!("  all (clone all locales)");
+        println!("  all (clone all repos)");
         return Ok(());
     }
 
-    // If no locales specified, default to "all"
-    let locales = if locales.is_empty() {
-        vec!["all".to_string()]
-    } else {
-        locales
-    };
-
     let repos_dir = get_govbot_dir(govbot_dir)?;
     
-    // Create directory if it doesn't exist
-    std::fs::create_dir_all(&repos_dir)?;
-
     // Get token from argument or environment variable
     let env_token = std::env::var("TOKEN").ok();
     let token_str = token.as_deref().or(env_token.as_deref());
@@ -364,37 +383,67 @@ async fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
         .or_else(|| std::env::var("GOVBOT_JOBS").ok().and_then(|s| s.parse().ok()))
         .unwrap_or(4);
 
-    // Parse locales and handle "all"
-    let mut locales_to_clone = Vec::new();
-    for locale in locales {
-        let locale = locale.trim().to_lowercase();
-        if locale.is_empty() {
-            continue;
+    // Parse repos and handle "all"
+    let mut repos_to_clone = Vec::new();
+    
+    if repos.is_empty() {
+        // No repos specified: find existing repos to update
+        // Check all known locales to see which repos exist
+        let all_locales = govbot::locale::WorkingLocale::all();
+        for locale in all_locales {
+            let locale_str = locale.as_lowercase();
+            let repo_name = git::build_repo_name(&locale_str);
+            let repo_path = repos_dir.join(&repo_name);
+            
+            // Check if this is a git repository
+            if repo_path.exists() && repo_path.join(".git").exists() {
+                repos_to_clone.push(locale_str.to_string());
+            }
         }
         
-        if locale == "all" {
-            // Add all working locales
-            let all_locales = govbot::locale::WorkingLocale::all();
-            for loc in all_locales {
-                locales_to_clone.push(loc.as_lowercase().to_string());
+        if repos_to_clone.is_empty() {
+            eprintln!("No repos downloaded yet in this directory");
+            eprintln!("to download all gov data, do `govbot clone all`. future syncs are just `govbot clone`");
+            return Ok(());
+        }
+        
+        // Create directory if it doesn't exist (needed for the clone operations)
+        std::fs::create_dir_all(&repos_dir)?;
+    } else {
+        // Create directory if it doesn't exist (needed for the clone operations)
+        std::fs::create_dir_all(&repos_dir)?;
+        
+        // Parse specified repos
+        for repo in repos {
+            let repo = repo.trim().to_lowercase();
+            if repo.is_empty() {
+                continue;
             }
-        } else {
-            // Validate locale
-            let _ = govbot::locale::WorkingLocale::from(locale.as_str());
-            locales_to_clone.push(locale);
+            
+            if repo == "all" {
+                // Add all working locales
+                let all_locales = govbot::locale::WorkingLocale::all();
+                for loc in all_locales {
+                    repos_to_clone.push(loc.as_lowercase().to_string());
+                }
+            } else {
+                // Validate locale
+                let _ = govbot::locale::WorkingLocale::from(repo.as_str());
+                repos_to_clone.push(repo);
+            }
         }
     }
 
-    if locales_to_clone.is_empty() {
+    if repos_to_clone.is_empty() {
         return Ok(());
 }
 
     // Print initial message with count
-    eprintln!("🔁 Syncing {} repos\n", locales_to_clone.len());
+    eprintln!("🔁 Syncing {} repos\n", repos_to_clone.len());
 
     // Perform clone operations and print results as they complete
     let results = perform_clone_operations(
-        locales_to_clone,
+        repos_to_clone,
         repos_dir,
         token_str,
         num_jobs,
@@ -409,7 +458,7 @@ async fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
     if !errors.is_empty() {
         eprintln!("\n❌ Errors occurred: {}/{}", errors.len(), results.len());
     } else if !results.is_empty() {
-        eprintln!("\n✅ Successfully processed all {} locales!", results.len());
+        eprintln!("\n✅ Successfully processed all {} repos!", results.len());
     }
     
     Ok(())
@@ -590,75 +639,430 @@ async fn run_delete_command(cmd: Command) -> anyhow::Result<()> {
 async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
     let Command::Logs {
         govbot_dir,
-        sources,
-        sort,
+        repos,
+        sort: _sort,
         limit,
         join,
-        stdin,
+        filter,
     } = cmd else {
         unreachable!()
+    };
+    
+    // Parse join options - now supports field paths like "bill.title"
+    let join_specs: Vec<(String, Vec<String>)> = if let Some(ref join_str) = join {
+        if join_str.is_empty() {
+            Vec::new()
+        } else {
+            join_str.split(',')
+                .map(|s| s.trim())
+                .filter(|s| !s.is_empty())
+                .filter_map(|s| parse_join_string(s))
+                .collect()
+        }
+    } else {
+        Vec::new()
     };
 
     let git_dir = get_govbot_dir(govbot_dir)?;
 
-    // Build configuration
-    let mut builder = ConfigBuilder::new(&git_dir)
-        .sort_order_str(&sort)?;
+    // Parse limit: "none" means no limit, otherwise parse as usize
+    let limit_parsed: Option<usize> = if limit.to_lowercase() == "none" {
+        None
+    } else {
+        Some(limit.parse().map_err(|e| anyhow::anyhow!("Invalid limit value '{}': {}", limit, e))?)
+    };
 
-    if let Some(limit) = limit {
-        builder = builder.limit(limit);
+    // Parse comma-separated repos if provided as single string
+    let mut repo_list: Vec<String> = if repos.len() == 1 && repos[0].contains(',') {
+        repos[0]
+            .split(',')
+            .map(|s| s.trim().to_string())
+            .filter(|s| !s.is_empty())
+            .collect()
+    } else {
+        repos
+    };
+
+    // Default to "all" if no repos specified
+    if repo_list.is_empty() {
+        repo_list.push("all".to_string());
     }
 
-    if !sources.is_empty() {
-        builder = builder.sources(sources);
-    }
-
-    let config = builder.join_options_str(&join)?.build()?;
-
-    let processor = PipelineProcessor::new(config.clone());
-
-    if stdin {
-        // Read paths from stdin (one per line)
-        let stdin = io::stdin();
-        let paths = stdin
-            .lock()
-            .lines()
-            .filter_map(|line| line.ok())
-            .filter(|line| !line.trim().is_empty());
-
-        let mut stream = PipelineProcessor::process_from_stdin(&config, paths);
-
-        // Write JSON to stdout (one per line)
-        while let Some(result) = stream.next().await {
-            match result {
-                Ok(entry) => {
-                    let json = serde_json::to_string(&entry)?;
-                    println!("{}", json);
-                }
-                Err(e) => {
-                    eprintln!("Error: {}", e);
+    // Expand "all" to existing repos in the directory, or convert locale names to repo names
+    let mut repos_to_process = Vec::new();
+    for locale in repo_list {
+        let locale = locale.trim().to_lowercase();
+        if locale.is_empty() {
+            continue;
+        }
+        
+        if locale == "all" {
+            // Find all existing repos in the directory
+            if git_dir.exists() {
+                let all_locales = govbot::locale::WorkingLocale::all();
+                for loc in all_locales {
+                    let locale_str = loc.as_lowercase();
+                    let repo_name = git::build_repo_name(&locale_str);
+                    let repo_path = git_dir.join(&repo_name);
+                    
+                    // Only add repos that actually exist (for logs, we don't need .git, just the directory)
+                    if repo_path.exists() && repo_path.is_dir() {
+                        repos_to_process.push(repo_name);
+                    }
                 }
             }
+        } else {
+            // Convert locale name to repo name using build_repo_name
+            repos_to_process.push(git::build_repo_name(&locale));
         }
-    } else {
-        // Discover and process files from directory
-        let mut stream = processor.process();
+    }
 
-        // Write JSON to stdout (one per line)
-        while let Some(result) = stream.next().await {
-            match result {
-                Ok(entry) => {
-                    let json = serde_json::to_string(&entry)?;
-                    println!("{}", json);
+    // Per-repo limit
+    let per_repo_limit = limit_parsed;
+
+    // Initialize filter (now has default value "default")
+    let filter_manager = govbot::FilterManager::new(govbot::FilterAlias::from(filter.as_str()));
+
+    // Process each repo (with optional filtering)
+    for repo_name in repos_to_process {
+        let repo_path = git_dir.join(&repo_name);
+        
+        if !repo_path.exists() {
+            eprintln!("Warning: Repository not found: {}", repo_path.display());
+            continue;
+        }
+
+        // Walk the repo directory to find log files matching the pattern:
+        // repo_name/country:{country}/state:{state}/sessions/{session_name}/logs/*.json
+        let mut file_count = 0;
+        
+        for entry_result in WalkDir::new(&repo_path)
+            .process_read_dir(|_depth, _path, _read_dir_state, _children| {
+                // Optional: customize directory reading behavior
+            })
+            .into_iter()
+        {
+            let entry = match entry_result {
+                Ok(e) => e,
+                Err(_) => continue,
+            };
+
+            // Check per-repo limit
+            if let Some(limit) = per_repo_limit {
+                if file_count >= limit {
+                    break;
                 }
-                Err(e) => {
-                    eprintln!("Error: {}", e);
+            }
+
+            let path = entry.path();
+            
+            // Check if it's a JSON file in a logs directory
+            if !path.is_file() {
+                continue;
+            }
+
+            if path.extension().and_then(|s| s.to_str()) != Some("json") {
+                continue;
+            }
+
+            // Check if path matches: country:{country}/state:{state}/sessions/{session_name}/logs/*.json
+            let path_str = path.to_string_lossy();
+            let repo_prefix = repo_path.to_string_lossy();
+            
+            // Get relative path by stripping the repo prefix
+            // Handle both absolute and relative paths
+            let relative_path = if let Some(stripped) = path_str.strip_prefix(&*repo_prefix) {
+                // Remove leading slash if present
+                stripped.strip_prefix('/').unwrap_or(stripped)
+            } else {
+                // If prefix doesn't match, skip this file
+                continue;
+            };
+            
+            // Match pattern: country:*/state:*/sessions/*/logs/*.json
+            // Use a simple regex-like check: must have these components in order
+            if relative_path.starts_with("country:") 
+                && relative_path.contains("/state:") 
+                && relative_path.contains("/sessions/")
+                && relative_path.contains("/logs/")
+                && relative_path.ends_with(".json")
+            {
+                // Verify order by checking positions
+                let country_pos = relative_path.find("country:").unwrap_or(0);
+                let state_pos = relative_path.find("/state:").unwrap_or(usize::MAX);
+                let sessions_pos = relative_path.find("/sessions/").unwrap_or(usize::MAX);
+                let logs_pos = relative_path.find("/logs/").unwrap_or(usize::MAX);
+                
+                // Verify order: country < state < sessions < logs
+                if country_pos < state_pos && state_pos < sessions_pos && sessions_pos < logs_pos {
+                    // Compute relative source path
+                    let source_path_str = compute_relative_source_path(&path, &git_dir);
+                    
+                    // Read JSON file, parse it, and build extensible output structure
+                    match fs::read_to_string(&path) {
+                        Ok(contents) => {
+                            // Parse JSON
+                            match serde_json::from_str::<serde_json::Value>(&contents) {
+                                Ok(json_value) => {
+                                    // Build output with extensible structure:
+                                    // - Data keys (log, bill, etc.) are singular entity names matching source keys
+                                    // - sources object automatically tracks all data sources
+                                    let mut output = serde_json::Map::new();
+                                    
+                                    // Add the log data with key "log" (matching sources.log)
+                                    output.insert("log".to_string(), json_value);
+                                    
+                                    // Add sources with the log path
+                                    let mut sources = serde_json::Map::new();
+                                    sources.insert("log".to_string(), serde_json::Value::String(source_path_str.clone()));
+                                    
+                                    // Join additional datasets if requested
+                                    for (dataset_name, field_path) in &join_specs {
+                                        match dataset_name.as_str() {
+                                            "bill" => {
+                                                // Hardcoded: metadata.json is in the parent directory of logs/
+                                                // log path: .../bills/{bill_id}/logs/file.json
+                                                // metadata path: .../bills/{bill_id}/metadata.json
+                                                let canonical_log_path = match path.canonicalize() {
+                                                    Ok(p) => p,
+                                                    Err(_) => path.clone(),
+                                                };
+                                                
+                                                let metadata_path = canonical_log_path.parent()
+                                                    .and_then(|logs_dir| {
+                                                        logs_dir.parent().map(|bill_dir| {
+                                                            bill_dir.join("metadata.json")
+                                                        })
+                                                    });
+                                                
+                                                if let Some(ref metadata_path) = metadata_path {
+                                                    if metadata_path.exists() {
+                                                        match fs::read_to_string(metadata_path) {
+                                                            Ok(metadata_contents) => {
+                                                                match serde_json::from_str::<serde_json::Value>(&metadata_contents) {
+                                                                    Ok(metadata_value) => {
+                                                                        // If field_path is specified, extract just that field
+                                                                        // Otherwise, include the full bill data
+                                                                        if field_path.is_empty() {
+                                                                            // No field path specified, include full bill data
+                                                                            output.insert("bill".to_string(), metadata_value);
+                                                                        } else {
+                                                                            // Extract specific field(s) from bill data
+                                                                            if let Some(field_value) = extract_json_field(&metadata_value, field_path) {
+                                                                                // Use the full join path as the key (e.g., "bill.title")
+                                                                                let output_key = format!("{}.{}", dataset_name, field_path.join("."));
+                                                                                output.insert(output_key, field_value);
+                                                                            } else {
+                                                                                eprintln!("Warning: Field path {:?} not found in metadata from {}", field_path, metadata_path.display());
+                                                                            }
+                                                                        }
+                                                                        
+                                                                        // Add bill source path
+                                                                        let bill_source_path = compute_relative_source_path(metadata_path, &git_dir);
+                                                                        sources.insert("bill".to_string(), serde_json::Value::String(bill_source_path));
+                                                                    }
+                                                                    Err(e) => {
+                                                                        eprintln!("Error parsing metadata JSON from {}: {}", metadata_path.display(), e);
+                                                                    }
+                                                                }
+                                                            }
+                                                            Err(e) => {
+                                                                eprintln!("Error reading metadata from {}: {}", metadata_path.display(), e);
+                                                            }
+                                                        }
+                                                    } else {
+                                                        eprintln!("Warning: Metadata file does not exist: {}", metadata_path.display());
+                                                    }
+                                                } else {
+                                                    eprintln!("Warning: Could not determine metadata path for log file: {}", relative_path);
+                                                }
+                                            }
+                                            _ => {
+                                                eprintln!("Warning: Unknown join dataset: {}", dataset_name);
+                                            }
+                                        }
+                                    }
+                                    
+                                    output.insert("sources".to_string(), serde_json::Value::Object(sources));
+                                    
+                                    // Extract timestamp from sources.log path (after "logs/" and before "_")
+                                    // Do this after sources is inserted so we can use the final sources.log value
+                                    let timestamp = extract_timestamp_from_path(&source_path_str);
+                                    if let Some(ref ts) = timestamp {
+                                        output.insert("timestamp".to_string(), serde_json::Value::String(ts.clone()));
+                                    }
+                                    
+                                    let output_value = serde_json::Value::Object(output);
+                                    
+                                    // Apply filter
+                                    let should_output = match filter_manager.should_keep(&output_value, &repo_name) {
+                                        govbot::FilterResult::Keep => true,
+                                        govbot::FilterResult::FilterOut => false,
+                                    };
+                                    
+                                    if should_output {
+                                        // Deep prune empty/null values before serialization
+                                        let pruned_value = deep_prune_json(output_value);
+                                        
+                                        // Serialize as compact JSON (single line)
+                                        match serde_json::to_string(&pruned_value) {
+                                            Ok(json_line) => {
+                                                // Ignore broken pipe errors (e.g., when piped to yq/jq that closes early)
+                                                if write_json_line(&json_line).is_ok() {
+                                                    file_count += 1;
+                                                }
+                                            }
+                                            Err(e) => {
+                                                eprintln!("Error serializing JSON from {}: {}", path.display(), e);
+                                            }
+                                        }
+                                    }
+                                }
+                                Err(e) => {
+                                    eprintln!("Error parsing JSON from {}: {}", path.display(), e);
+                                }
+                            }
+                        }
+                        Err(e) => {
+                            eprintln!("Error reading {}: {}", path.display(), e);
+                        }
+                    }
                 }
             }
         }
     }
 
     Ok(())
+}
+
+
+/// Parse a join string like "bill.title" into (dataset_name, field_path)
+fn parse_join_string(join_str: &str) -> Option<(String, Vec<String>)> {
+    let parts: Vec<&str> = join_str.split('.').collect();
+    if parts.is_empty() {
+        return None;
+    }
+    
+    let dataset_name = parts[0].to_string();
+    let field_path = if parts.len() > 1 {
+        parts[1..].iter().map(|s| s.to_string()).collect()
+    } else {
+        Vec::new()
+    };
+    
+    Some((dataset_name, field_path))
+}
+
+/// Extract a value from JSON using a field path (e.g., ["title"] or ["bill", "title"])
+fn extract_json_field(value: &serde_json::Value, field_path: &[String]) -> Option<serde_json::Value> {
+    let mut current = value;
+    
+    for field in field_path {
+        match current {
+            serde_json::Value::Object(map) => {
+                current = map.get(field)?;
+            }
+            serde_json::Value::Array(arr) => {
+                if let Ok(idx) = field.parse::<usize>() {
+                    current = arr.get(idx)?;
+                } else {
+                    return None;
+                }
+            }
+            _ => return None,
+        }
+    }
+    
+    Some(current.clone())
+}
+
+/// Deep prune JSON value by removing null, empty strings, empty arrays, and empty objects
+/// This recursively processes the entire JSON structure
+fn deep_prune_json(value: serde_json::Value) -> serde_json::Value {
+    match value {
+        serde_json::Value::Null => serde_json::Value::Null, // Will be filtered out by parent
+        serde_json::Value::String(s) => {
+            if s.is_empty() {
+                serde_json::Value::Null
+            } else {
+                serde_json::Value::String(s)
+            }
+        }
+        serde_json::Value::Array(arr) => {
+            let pruned: Vec<serde_json::Value> = arr
+                .into_iter()
+                .map(deep_prune_json)
+                .filter(|v| !v.is_null())
+                .collect();
+            if pruned.is_empty() {
+                serde_json::Value::Null
+            } else {
+                serde_json::Value::Array(pruned)
+            }
+        }
+        serde_json::Value::Object(map) => {
+            let mut pruned = serde_json::Map::new();
+            for (k, v) in map {
+                let pruned_value = deep_prune_json(v);
+                // Only include non-null values
+                if !pruned_value.is_null() {
+                    pruned.insert(k, pruned_value);
+                }
+            }
+            if pruned.is_empty() {
+                serde_json::Value::Null
+            } else {
+                serde_json::Value::Object(pruned)
+            }
+        }
+        // For numbers, booleans, keep as-is
+        other => other,
+    }
+}
+
+/// Extract timestamp from a path string (after "logs/" and before "_")
+/// Example: "path/to/logs/20250121T000000Z_filename.json" -> "20250121T000000Z"
+fn extract_timestamp_from_path(path: &str) -> Option<String> {
+    // Find the position of "/logs/"
+    if let Some(logs_pos) = path.find("/logs/") {
+        // Get the substring after "/logs/"
+        let after_logs = &path[logs_pos + 6..];
+        // Find the position of "_" after "logs/"
+        if let Some(underscore_pos) = after_logs.find('_') {
+            // Extract the timestamp (between "logs/" and "_")
+            let timestamp = &after_logs[..underscore_pos];
+            if !timestamp.is_empty() {
+                return Some(timestamp.to_string());
+            }
+        }
+    }
+    None
+}
+
+/// Compute relative path from git_dir to a file, following symlinks
+fn compute_relative_source_path(file_path: &PathBuf, git_dir: &PathBuf) -> String {
+    // Canonicalize the file path to follow symlinks
+    let canonical_file = match file_path.canonicalize() {
+        Ok(p) => p,
+        Err(_) => file_path.clone(),
+    };
+    
+    // Canonicalize git_dir for proper relative path calculation
+    let canonical_git_dir = match git_dir.canonicalize() {
+        Ok(p) => p,
+        Err(_) => git_dir.clone(),
+    };
+    
+    // Get relative path from git_dir to the file
+    match pathdiff::diff_paths(&canonical_file, &canonical_git_dir) {
+        Some(rel_path) => rel_path.to_string_lossy().replace('\\', "/"),
+        None => {
+            // Fallback: use path relative to git_dir directly
+            pathdiff::diff_paths(file_path, git_dir)
+                .map(|p| p.to_string_lossy().replace('\\', "/"))
+                .unwrap_or_else(|| file_path.to_string_lossy().replace('\\', "/"))
+        }
+    }
 }
 
 async fn run_load_command(cmd: Command) -> anyhow::Result<()> {
@@ -676,12 +1080,12 @@ async fn run_load_command(cmd: Command) -> anyhow::Result<()> {
     // Check if directory exists
     if !repos_dir.exists() {
         eprintln!("Error: Govbot repos directory not found: {}", repos_dir.display());
-        eprintln!("Run 'govbot clone' first to clone repositories.");
+        eprintln!("Run 'govbot clone all' first to clone repositories.");
         return Ok(());
     }
 
     // Get base govbot directory (parent of repos)
-    // e.g., if repos_dir is ~/.govbot/repos, base_dir is ~/.govbot
+    // e.g., if repos_dir is ./.govbot/repos, base_dir is ./.govbot
     let base_govbot_dir = repos_dir.parent()
         .ok_or_else(|| anyhow::anyhow!("Could not determine base govbot directory"))?;
     
@@ -810,6 +1214,34 @@ async fn run_load_command(cmd: Command) -> anyhow::Result<()> {
     Ok(())
 }
 
+async fn run_update_command() -> anyhow::Result<()> {
+    let install_script_url = "https://raw.githubusercontent.com/windy-civi/toolkit/main/actions/govbot/scripts/install-nightly.sh";
+    
+    eprintln!("🔄 Updating govbot to latest nightly version...");
+    eprintln!("Downloading and running install script from: {}", install_script_url);
+    
+    // Execute the install script using sh -c "$(curl -fsSL <url>)"
+    let mut cmd = ProcessCommand::new("sh");
+    cmd.arg("-c");
+    cmd.arg(&format!("$(curl -fsSL {})", install_script_url));
+    
+    // Inherit stdin/stdout/stderr so the install script can interact with the user
+    cmd.stdin(std::process::Stdio::inherit());
+    cmd.stdout(std::process::Stdio::inherit());
+    cmd.stderr(std::process::Stdio::inherit());
+    
+    let status = cmd.status()?;
+    
+    if status.success() {
+        eprintln!("\n✅ Update completed successfully!");
+        eprintln!("You may need to restart your terminal or run 'source ~/.zshrc' (or your shell profile) to use the updated version.");
+    } else {
+        return Err(anyhow::anyhow!("Update failed with exit code: {}", status.code().unwrap_or(-1)));
+    }
+    
+    Ok(())
+}
+
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
     let args = Args::parse();
@@ -826,6 +1258,9 @@ async fn main() -> anyhow::Result<()> {
         }
         Some(cmd @ Command::Load { .. }) => {
             run_load_command(cmd).await
+        }
+        Some(Command::Update) => {
+            run_update_command().await
         }
         None => {
             print_available_commands();
