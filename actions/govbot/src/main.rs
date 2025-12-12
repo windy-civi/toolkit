@@ -66,9 +66,9 @@ enum Command {
         govbot_dir: Option<String>,
 
 
-        /// Source names to filter (space-separated)
+        /// Repository names to filter (space-separated)
         #[arg(short, long, num_args = 0..)]
-        sources: Vec<String>,
+        repos: Vec<String>,
 
         /// Sort order: ASC or DESC
         #[arg(long, default_value = "DESC", value_parser = ["ASC", "DESC"])]
@@ -590,7 +590,7 @@ async fn run_delete_command(cmd: Command) -> anyhow::Result<()> {
 async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
     let Command::Logs {
         govbot_dir,
-        sources,
+        repos,
         sort,
         limit,
         join,
@@ -609,8 +609,8 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
         builder = builder.limit(limit);
     }
 
-    if !sources.is_empty() {
-        builder = builder.sources(sources);
+    if !repos.is_empty() {
+        builder = builder.repos(repos);
     }
 
     let config = builder.join_options_str(&join)?.build()?;

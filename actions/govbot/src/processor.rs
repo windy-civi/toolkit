@@ -71,14 +71,14 @@ impl PipelineProcessor {
         let mut files = Vec::new();
         let search_dir = &config.git_dir;
 
-        // If sources are specified, search only in those directories
-        let search_paths = if config.sources.is_empty() {
+        // If repos are specified, search only in those directories
+        let search_paths = if config.repos.is_empty() {
             vec![search_dir.clone()]
         } else {
             config
-                .sources
+                .repos
                 .iter()
-                .map(|source| search_dir.join(git::build_repo_name(source)))
+                .map(|repo| search_dir.join(git::build_repo_name(repo)))
                 .collect()
         };
 

@@ -38,7 +38,7 @@ impl From<&str> for JoinOption {
 #[derive(Debug, Clone)]
 pub struct Config {
     pub git_dir: PathBuf,
-    pub sources: Vec<String>,
+    pub repos: Vec<String>,
     pub sort_order: SortOrder,
     pub limit: Option<usize>,
     pub join_options: Vec<JoinOption>,
@@ -49,7 +49,7 @@ impl Config {
     pub fn new(git_dir: impl Into<PathBuf>) -> Self {
         Self {
             git_dir: git_dir.into(),
-            sources: Vec::new(),
+            repos: Vec::new(),
             sort_order: SortOrder::Descending,
             limit: None,
             join_options: vec![JoinOption::MinimalMetadata],
@@ -96,15 +96,15 @@ impl ConfigBuilder {
         self
     }
 
-    /// Add a source to filter by
-    pub fn add_source(mut self, source: impl Into<String>) -> Self {
-        self.config.sources.push(source.into());
+    /// Add a repository to filter by
+    pub fn add_repo(mut self, repo: impl Into<String>) -> Self {
+        self.config.repos.push(repo.into());
         self
     }
 
-    /// Set multiple sources
-    pub fn sources(mut self, sources: Vec<String>) -> Self {
-        self.config.sources = sources;
+    /// Set multiple repositories
+    pub fn repos(mut self, repos: Vec<String>) -> Self {
+        self.config.repos = repos;
         self
     }
 

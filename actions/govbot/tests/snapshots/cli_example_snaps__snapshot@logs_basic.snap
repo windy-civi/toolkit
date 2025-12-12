@@ -4,7 +4,7 @@ expression: "&formatted_stdout"
 ---
 Command:
 govbot logs  \
-    --sources usa il \
+    --repos usa il \
     --join minimal_metadata,sponsors  \
     --sort DESC  \
     --limit 10  \

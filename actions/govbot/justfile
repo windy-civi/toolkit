@@ -58,7 +58,7 @@ build-release:
 #   just govbot --help
 #   just govbot clone usa il
 #   just govbot clone --govbot-dir custom-dir usa
-#   just govbot logs --sources usa
+#   just govbot logs --repos usa
 govbot *ARGS:
     #!/usr/bin/env bash
     set -e
