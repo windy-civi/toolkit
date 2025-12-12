@@ -6,7 +6,24 @@ set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 GOVBOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
-REPOS_DIR="${REPOS_DIR:-$GOVBOT_DIR/.test-govbot/repos}"
+
+# Default repos directory - can be overridden with REPOS_DIR env var
+# Check for common locations
+if [ -z "$REPOS_DIR" ]; then
+    # Try dev directory first (.govbot/repos in govbot directory)
+    if [ -d "$GOVBOT_DIR/.govbot/repos" ]; then
+        REPOS_DIR="$GOVBOT_DIR/.govbot/repos"
+    # Try home directory
+    elif [ -d "$HOME/.govbot/repos" ]; then
+        REPOS_DIR="$HOME/.govbot/repos"
+    else
+        echo "Error: Could not find repos directory"
+        echo "Set REPOS_DIR environment variable or ensure repos exist in:"
+        echo "  - $GOVBOT_DIR/.govbot/repos"
+        echo "  - $HOME/.govbot/repos"
+        exit 1
+    fi
+fi
 
 # Python script is ready to use - no build needed
 
@@ -81,7 +98,7 @@ for repo_dir in */; do
             echo "📦 Processing: $repo_name / $state_code / $session_id ($log_count log files)"
             
             # Run symlink-logs Python script
-            if python3 "$GOVBOT_DIR/scripts/symlink-logs.py" \
+            if python3 "$SCRIPT_DIR/symlink-logs.py" \
                 --root "$state_dir" \
                 --session "$session_id" \
                 --target "$target_logs_dir" \

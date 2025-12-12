@@ -1,25 +1,28 @@
 #!/usr/bin/env bash
 # Generate DCAT data.json files for all repos
 # Usage: ./scripts/generate-dcat-all.sh [--dry-run]
+# Note: This script is located in actions/govbot/scripts/
+# It automatically detects repos in: .govbot/repos, or ~/.govbot/repos
 
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-TOOLKIT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+GOVBOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+TOOLKIT_ROOT="$(cd "$GOVBOT_DIR/../.." && pwd)"
 
 # Default repos directory - can be overridden with REPOS_DIR env var
 # Check for common locations
 if [ -z "$REPOS_DIR" ]; then
-    # Try govbot test directory first
-    if [ -d "$TOOLKIT_ROOT/actions/govbot/.test-govbot/repos" ]; then
-        REPOS_DIR="$TOOLKIT_ROOT/actions/govbot/.test-govbot/repos"
+    # Try dev directory first (.govbot/repos in govbot directory)
+    if [ -d "$GOVBOT_DIR/.govbot/repos" ]; then
+        REPOS_DIR="$GOVBOT_DIR/.govbot/repos"
     # Try home directory
     elif [ -d "$HOME/.govbot/repos" ]; then
         REPOS_DIR="$HOME/.govbot/repos"
     else
         echo "Error: Could not find repos directory"
         echo "Set REPOS_DIR environment variable or ensure repos exist in:"
-        echo "  - $TOOLKIT_ROOT/actions/govbot/.test-govbot/repos"
+        echo "  - $GOVBOT_DIR/.govbot/repos"
         echo "  - $HOME/.govbot/repos"
         exit 1
     fi
@@ -152,7 +155,7 @@ for repo_dir in */; do
     echo "   URL: $repo_url"
     
     # Run generate-dcat.py script
-    if python3 "$TOOLKIT_ROOT/scripts/generate-dcat.py" \
+    if python3 "$SCRIPT_DIR/generate-dcat.py" \
         --repo-root "$repo_path" \
         --title "$title" \
         --repo-url "$repo_url" \
