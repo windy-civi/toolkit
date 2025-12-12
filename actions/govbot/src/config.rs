@@ -20,18 +20,7 @@ impl From<&str> for SortOrder {
 /// Join options for metadata
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum JoinOption {
-    MinimalMetadata,
-    Sponsors,
-}
-
-impl From<&str> for JoinOption {
-    fn from(s: &str) -> Self {
-        match s.trim() {
-            "minimal_metadata" => JoinOption::MinimalMetadata,
-            "sponsors" => JoinOption::Sponsors,
-            _ => panic!("Invalid join option: {}", s),
-        }
-    }
+    Bill,
 }
 
 /// Configuration for the pipeline processor
@@ -52,7 +41,7 @@ impl Config {
             repos: Vec::new(),
             sort_order: SortOrder::Descending,
             limit: None,
-            join_options: vec![JoinOption::MinimalMetadata],
+            join_options: vec![],
         }
     }
 
@@ -142,15 +131,22 @@ impl ConfigBuilder {
 
     /// Set join options from comma-separated string
     pub fn join_options_str(mut self, options: &str) -> Result<Self> {
+        if options.is_empty() {
+            self.config.join_options = vec![];
+            return Ok(self);
+        }
+
         let opts: Result<Vec<JoinOption>> = options
             .split(',')
             .map(|s| {
                 let trimmed = s.trim();
+                if trimmed.is_empty() {
+                    return Err(Error::Config("Empty join option".to_string()));
+                }
                 match trimmed {
-                    "minimal_metadata" => Ok(JoinOption::MinimalMetadata),
-                    "sponsors" => Ok(JoinOption::Sponsors),
+                    "bill" => Ok(JoinOption::Bill),
                     _ => Err(Error::Config(format!(
-                        "Invalid join value '{}'. Allowed values are: minimal_metadata, sponsors",
+                        "Invalid join value '{}'. Allowed values are: bill",
                         trimmed
                     ))),
                 }

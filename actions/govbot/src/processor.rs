@@ -2,7 +2,7 @@ use crate::config::{Config, JoinOption};
 use crate::error::{Error, Result};
 use crate::git;
 use crate::types::{
-    FileWithTimestamp, LogContent, LogEntry, Metadata, MinimalMetadata, Sponsors,
+    FileWithTimestamp, LogContent, LogEntry, Metadata,
     VoteEventResult,
 };
 use async_stream::stream;
@@ -303,30 +303,10 @@ impl PipelineProcessor {
 
         let log_content = LogContent::VoteEvent { result };
 
-        // Try to load metadata if join options require it
-        let metadata = Self::load_metadata_if_needed(config, &file.path).await?;
-
-        let mut entry = LogEntry {
+        let entry = LogEntry {
             log: log_content,
             filename: file.relative_path.clone(),
-            minimal_metadata: None,
-            sponsors: None,
         };
-
-        // Apply join options
-        if let Some(meta) = metadata {
-            if config.join_options.contains(&JoinOption::MinimalMetadata) {
-                entry.minimal_metadata = Some(MinimalMetadata {
-                    title: meta.title,
-                    description: meta.description,
-                    sources: meta.sources,
-                });
-            }
-
-            if config.join_options.contains(&JoinOption::Sponsors) {
-                entry.sponsors = meta.sponsors.map(|sponsors| Sponsors { sponsors: Some(sponsors) });
-            }
-        }
 
         Ok(Some(entry))
     }
@@ -339,35 +319,17 @@ impl PipelineProcessor {
 
         let log_content = LogContent::Full(log_value);
 
-        // Try to load metadata if join options require it
-        let metadata = Self::load_metadata_if_needed(config, &file.path).await?;
-
-        let mut entry = LogEntry {
+        let entry = LogEntry {
             log: log_content,
             filename: file.relative_path.clone(),
-            minimal_metadata: None,
-            sponsors: None,
         };
-
-        // Apply join options
-        if let Some(meta) = metadata {
-            if config.join_options.contains(&JoinOption::MinimalMetadata) {
-                entry.minimal_metadata = Some(MinimalMetadata {
-                    title: meta.title,
-                    description: meta.description,
-                    sources: meta.sources,
-                });
-            }
-
-            if config.join_options.contains(&JoinOption::Sponsors) {
-                entry.sponsors = meta.sponsors.map(|sponsors| Sponsors { sponsors: Some(sponsors) });
-            }
-        }
 
         Ok(Some(entry))
     }
 
     /// Load metadata from metadata.json if it exists and join options require it
+    /// Note: Currently not used since join_options are empty, but kept for potential future use
+    #[allow(dead_code)]
     async fn load_metadata_if_needed(config: &Config, log_path: &Path) -> Result<Option<Metadata>> {
         // Check if we need metadata at all
         if config.join_options.is_empty() {

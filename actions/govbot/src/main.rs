@@ -80,9 +80,9 @@ enum Command {
         #[arg(long)]
         limit: Option<usize>,
 
-        /// Join options: minimal_metadata,sponsors
-        #[arg(long, default_value = "minimal_metadata")]
-        join: String,
+        /// Join additional datasets (e.g., 'bill' to join metadata.json)
+        #[arg(long)]
+        join: Option<String>,
 
         /// Read file paths from stdin instead of discovering files
         /// Useful for stdio pipelines: find ... | govbot logs --stdin
@@ -593,12 +593,26 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
     let Command::Logs {
         govbot_dir,
         repos,
-        sort: _sort,
+        sort,
         limit,
-        join: _join,
+        join,
         stdin,
     } = cmd else {
         unreachable!()
+    };
+    
+    // Parse join options (comma-separated list of datasets to join)
+    let join_options: Vec<String> = if let Some(ref join_str) = join {
+        if join_str.is_empty() {
+            Vec::new()
+        } else {
+            join_str.split(',')
+                .map(|s| s.trim().to_string())
+                .filter(|s| !s.is_empty())
+                .collect()
+        }
+    } else {
+        Vec::new()
     };
 
     let git_dir = get_govbot_dir(govbot_dir)?;
@@ -607,7 +621,7 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
     if stdin {
         // Build configuration
         let mut builder = ConfigBuilder::new(&git_dir)
-            .sort_order_str(&_sort)?;
+            .sort_order_str(&sort)?;
 
         if let Some(limit) = limit {
             builder = builder.limit(limit);
@@ -617,7 +631,9 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
             builder = builder.repos(repos);
         }
 
-        let config = builder.join_options_str(&_join)?.build()?;
+        // For stdin mode, use empty join if not provided (old processor)
+        let join_for_processor = join.as_deref().unwrap_or("");
+        let config = builder.join_options_str(join_for_processor)?.build()?;
 
         // Read paths from stdin (one per line)
         let stdin = io::stdin();
@@ -764,7 +780,7 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
                             match serde_json::from_str::<serde_json::Value>(&contents) {
                                 Ok(json_value) => {
                                     // Build output with extensible structure:
-                                    // - Data keys (log, metadata, etc.) are singular entity names matching source keys
+                                    // - Data keys (log, bill, etc.) are singular entity names matching source keys
                                     // - sources object automatically tracks all data sources
                                     let mut output = serde_json::Map::new();
                                     
@@ -773,7 +789,61 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
                                     
                                     // Add sources with the log path
                                     let mut sources = serde_json::Map::new();
-                                    sources.insert("log".to_string(), serde_json::Value::String(source_path_str));
+                                    sources.insert("log".to_string(), serde_json::Value::String(source_path_str.clone()));
+                                    
+                                    // Join additional datasets if requested
+                                    for join_option in &join_options {
+                                        match join_option.as_str() {
+                                            "bill" => {
+                                                // For bill, metadata.json is at ../metadata.json relative to the log file
+                                                // Log file structure: .../bills/{bill_id}/logs/{log_file}.json
+                                                // Since log files may be symlinked, we need to canonicalize the path first
+                                                let canonical_log_path = match path.canonicalize() {
+                                                    Ok(p) => p,
+                                                    Err(_) => path.clone(),
+                                                };
+                                                
+                                                // Go up one level from logs/ to bills/{bill_id}/, then join metadata.json
+                                                let metadata_path = canonical_log_path.parent()
+                                                    .and_then(|logs_dir| {
+                                                        // logs_dir should be the logs/ directory
+                                                        logs_dir.parent().map(|bill_dir| {
+                                                            // bill_dir should be the bills/{bill_id}/ directory
+                                                            bill_dir.join("metadata.json")
+                                                        })
+                                                    });
+                                                
+                                                if let Some(ref metadata_path) = metadata_path {
+                                                    if metadata_path.exists() {
+                                                        match fs::read_to_string(metadata_path) {
+                                                            Ok(metadata_contents) => {
+                                                                match serde_json::from_str::<serde_json::Value>(&metadata_contents) {
+                                                                    Ok(metadata_value) => {
+                                                                        // Add bill data
+                                                                        output.insert("bill".to_string(), metadata_value);
+                                                                        
+                                                                        // Add bill source path
+                                                                        let bill_source_path = compute_relative_source_path(metadata_path, &git_dir);
+                                                                        sources.insert("bill".to_string(), serde_json::Value::String(bill_source_path));
+                                                                    }
+                                                                    Err(e) => {
+                                                                        eprintln!("Error parsing metadata JSON from {}: {}", metadata_path.display(), e);
+                                                                    }
+                                                                }
+                                                            }
+                                                            Err(e) => {
+                                                                eprintln!("Error reading metadata from {}: {}", metadata_path.display(), e);
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            _ => {
+                                                eprintln!("Warning: Unknown join option: {}", join_option);
+                                            }
+                                        }
+                                    }
+                                    
                                     output.insert("sources".to_string(), serde_json::Value::Object(sources));
                                     
                                     // Serialize as compact JSON (single line)
