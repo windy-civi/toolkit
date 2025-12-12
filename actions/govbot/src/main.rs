@@ -151,6 +151,10 @@ enum Command {
         #[arg(long)]
         threads: Option<usize>,
     },
+
+    /// Update govbot to the latest nightly version
+    /// Downloads and installs the latest nightly build from GitHub releases
+    Update,
 }
 
 fn print_available_commands() {
@@ -159,6 +163,7 @@ fn print_available_commands() {
     println!("  delete  Delete data pipeline repositories (use 'delete all' to delete all)");
     println!("  logs    Process and display pipeline log files");
     println!("  load    Load bill metadata into a DuckDB database file");
+    println!("  update  Update govbot to the latest nightly version");
 }
 
 fn get_govbot_dir(govbot_dir: Option<String>) -> anyhow::Result<PathBuf> {
@@ -1209,6 +1214,34 @@ async fn run_load_command(cmd: Command) -> anyhow::Result<()> {
     Ok(())
 }
 
+async fn run_update_command() -> anyhow::Result<()> {
+    let install_script_url = "https://raw.githubusercontent.com/windy-civi/toolkit/main/actions/govbot/scripts/install-nightly.sh";
+    
+    eprintln!("🔄 Updating govbot to latest nightly version...");
+    eprintln!("Downloading and running install script from: {}", install_script_url);
+    
+    // Execute the install script using sh -c "$(curl -fsSL <url>)"
+    let mut cmd = ProcessCommand::new("sh");
+    cmd.arg("-c");
+    cmd.arg(&format!("$(curl -fsSL {})", install_script_url));
+    
+    // Inherit stdin/stdout/stderr so the install script can interact with the user
+    cmd.stdin(std::process::Stdio::inherit());
+    cmd.stdout(std::process::Stdio::inherit());
+    cmd.stderr(std::process::Stdio::inherit());
+    
+    let status = cmd.status()?;
+    
+    if status.success() {
+        eprintln!("\n✅ Update completed successfully!");
+        eprintln!("You may need to restart your terminal or run 'source ~/.zshrc' (or your shell profile) to use the updated version.");
+    } else {
+        return Err(anyhow::anyhow!("Update failed with exit code: {}", status.code().unwrap_or(-1)));
+    }
+    
+    Ok(())
+}
+
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
     let args = Args::parse();
@@ -1225,6 +1258,9 @@ async fn main() -> anyhow::Result<()> {
         }
         Some(cmd @ Command::Load { .. }) => {
             run_load_command(cmd).await
+        }
+        Some(Command::Update) => {
+            run_update_command().await
         }
         None => {
             print_available_commands();
