@@ -4,11 +4,12 @@ use govbot::git;
 use futures::StreamExt;
 use futures::stream;
 use std::io::{self, BufRead, Write};
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use std::process::Command as ProcessCommand;
 use serde_json;
 use jwalk::WalkDir;
 use std::fs;
+use std::collections::HashMap;
 
 #[derive(Debug, Clone)]
 struct CloneResult {
@@ -601,14 +602,15 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
         unreachable!()
     };
     
-    // Parse join options (comma-separated list of datasets to join)
-    let join_options: Vec<String> = if let Some(ref join_str) = join {
+    // Parse join options - now supports field paths like "bill.title"
+    let join_specs: Vec<(String, Vec<String>)> = if let Some(ref join_str) = join {
         if join_str.is_empty() {
             Vec::new()
         } else {
             join_str.split(',')
-                .map(|s| s.trim().to_string())
+                .map(|s| s.trim())
                 .filter(|s| !s.is_empty())
+                .filter_map(|s| parse_join_string(s))
                 .collect()
         }
     } else {
@@ -792,23 +794,20 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
                                     sources.insert("log".to_string(), serde_json::Value::String(source_path_str.clone()));
                                     
                                     // Join additional datasets if requested
-                                    for join_option in &join_options {
-                                        match join_option.as_str() {
+                                    for (dataset_name, field_path) in &join_specs {
+                                        match dataset_name.as_str() {
                                             "bill" => {
-                                                // For bill, metadata.json is at ../metadata.json relative to the log file
-                                                // Log file structure: .../bills/{bill_id}/logs/{log_file}.json
-                                                // Since log files may be symlinked, we need to canonicalize the path first
+                                                // Hardcoded: metadata.json is in the parent directory of logs/
+                                                // log path: .../bills/{bill_id}/logs/file.json
+                                                // metadata path: .../bills/{bill_id}/metadata.json
                                                 let canonical_log_path = match path.canonicalize() {
                                                     Ok(p) => p,
                                                     Err(_) => path.clone(),
                                                 };
                                                 
-                                                // Go up one level from logs/ to bills/{bill_id}/, then join metadata.json
                                                 let metadata_path = canonical_log_path.parent()
                                                     .and_then(|logs_dir| {
-                                                        // logs_dir should be the logs/ directory
                                                         logs_dir.parent().map(|bill_dir| {
-                                                            // bill_dir should be the bills/{bill_id}/ directory
                                                             bill_dir.join("metadata.json")
                                                         })
                                                     });
@@ -819,8 +818,21 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
                                                             Ok(metadata_contents) => {
                                                                 match serde_json::from_str::<serde_json::Value>(&metadata_contents) {
                                                                     Ok(metadata_value) => {
-                                                                        // Add bill data
-                                                                        output.insert("bill".to_string(), metadata_value);
+                                                                        // If field_path is specified, extract just that field
+                                                                        // Otherwise, include the full bill data
+                                                                        if field_path.is_empty() {
+                                                                            // No field path specified, include full bill data
+                                                                            output.insert("bill".to_string(), metadata_value);
+                                                                        } else {
+                                                                            // Extract specific field(s) from bill data
+                                                                            if let Some(field_value) = extract_json_field(&metadata_value, field_path) {
+                                                                                // Use the full join path as the key (e.g., "bill.title")
+                                                                                let output_key = format!("{}.{}", dataset_name, field_path.join("."));
+                                                                                output.insert(output_key, field_value);
+                                                                            } else {
+                                                                                eprintln!("Warning: Field path {:?} not found in metadata from {}", field_path, metadata_path.display());
+                                                                            }
+                                                                        }
                                                                         
                                                                         // Add bill source path
                                                                         let bill_source_path = compute_relative_source_path(metadata_path, &git_dir);
@@ -835,11 +847,15 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
                                                                 eprintln!("Error reading metadata from {}: {}", metadata_path.display(), e);
                                                             }
                                                         }
+                                                    } else {
+                                                        eprintln!("Warning: Metadata file does not exist: {}", metadata_path.display());
                                                     }
+                                                } else {
+                                                    eprintln!("Warning: Could not determine metadata path for log file: {}", relative_path);
                                                 }
                                             }
                                             _ => {
-                                                eprintln!("Warning: Unknown join option: {}", join_option);
+                                                eprintln!("Warning: Unknown join dataset: {}", dataset_name);
                                             }
                                         }
                                     }
@@ -873,6 +889,138 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
     }
 
     Ok(())
+}
+
+/// Parse data.json from a repo to extract pathPattern for bill metadata
+fn get_bill_metadata_path_pattern(repo_path: &Path) -> Option<String> {
+    let data_json_path = repo_path.join("data.json");
+    if !data_json_path.exists() {
+        return None;
+    }
+    
+    match fs::read_to_string(&data_json_path) {
+        Ok(contents) => {
+            match serde_json::from_str::<serde_json::Value>(&contents) {
+                Ok(data) => {
+                    // Look for distribution array
+                    if let Some(distributions) = data.get("distribution").and_then(|d| d.as_array()) {
+                        for dist in distributions {
+                            // Check if this distribution has a pathPattern with metadata.json
+                            if let Some(path_pattern) = dist.get("ex:pathPattern")
+                                .or_else(|| dist.get("pathPattern"))
+                                .and_then(|p| p.as_str())
+                            {
+                                if path_pattern.contains("metadata.json") {
+                                    return Some(path_pattern.to_string());
+                                }
+                            }
+                        }
+                    }
+                }
+                Err(_) => {}
+            }
+        }
+        Err(_) => {}
+    }
+    
+    None
+}
+
+/// Extract path variables from a log file path
+/// Example: "country:us/state:il/sessions/2024/bills/HB1234/logs/file.json"
+/// Returns: {"country_code": "us", "jurisdiction_code": "il", "session_id": "2024", "bill_id": "HB1234"}
+fn extract_path_variables(log_path: &str) -> HashMap<String, String> {
+    let mut vars = HashMap::new();
+    
+    // Extract country_code from "country:us"
+    if let Some(country_start) = log_path.find("country:") {
+        let after_country = &log_path[country_start + 8..];
+        if let Some(country_end) = after_country.find('/') {
+            vars.insert("country_code".to_string(), after_country[..country_end].to_string());
+        }
+    }
+    
+    // Extract jurisdiction_code from "state:il"
+    if let Some(state_start) = log_path.find("/state:") {
+        let after_state = &log_path[state_start + 7..];
+        if let Some(state_end) = after_state.find('/') {
+            vars.insert("jurisdiction_code".to_string(), after_state[..state_end].to_string());
+        }
+    }
+    
+    // Extract session_id from "/sessions/{session_id}/"
+    if let Some(sessions_start) = log_path.find("/sessions/") {
+        let after_sessions = &log_path[sessions_start + 10..];
+        if let Some(sessions_end) = after_sessions.find('/') {
+            vars.insert("session_id".to_string(), after_sessions[..sessions_end].to_string());
+        }
+    }
+    
+    // Extract bill_id from "/bills/{bill_id}/"
+    if let Some(bills_start) = log_path.find("/bills/") {
+        let after_bills = &log_path[bills_start + 7..];
+        if let Some(bills_end) = after_bills.find('/') {
+            vars.insert("bill_id".to_string(), after_bills[..bills_end].to_string());
+        }
+    }
+    
+    vars
+}
+
+/// Construct a file path from a pathPattern template and variables
+/// Example: pattern = "country:{country_code}/state:{jurisdiction_code}/sessions/{session_id}/bills/{bill_id}/metadata.json"
+///          vars = {"country_code": "us", "jurisdiction_code": "il", "session_id": "2024", "bill_id": "HB1234"}
+/// Returns: "country:us/state:il/sessions/2024/bills/HB1234/metadata.json"
+fn construct_path_from_pattern(pattern: &str, vars: &HashMap<String, String>) -> String {
+    let mut result = pattern.to_string();
+    
+    // Replace all {variable} placeholders with actual values
+    for (key, value) in vars {
+        let placeholder = format!("{{{}}}", key);
+        result = result.replace(&placeholder, value);
+    }
+    
+    result
+}
+
+/// Parse a join string like "bill.title" into (dataset_name, field_path)
+fn parse_join_string(join_str: &str) -> Option<(String, Vec<String>)> {
+    let parts: Vec<&str> = join_str.split('.').collect();
+    if parts.is_empty() {
+        return None;
+    }
+    
+    let dataset_name = parts[0].to_string();
+    let field_path = if parts.len() > 1 {
+        parts[1..].iter().map(|s| s.to_string()).collect()
+    } else {
+        Vec::new()
+    };
+    
+    Some((dataset_name, field_path))
+}
+
+/// Extract a value from JSON using a field path (e.g., ["title"] or ["bill", "title"])
+fn extract_json_field(value: &serde_json::Value, field_path: &[String]) -> Option<serde_json::Value> {
+    let mut current = value;
+    
+    for field in field_path {
+        match current {
+            serde_json::Value::Object(map) => {
+                current = map.get(field)?;
+            }
+            serde_json::Value::Array(arr) => {
+                if let Ok(idx) = field.parse::<usize>() {
+                    current = arr.get(idx)?;
+                } else {
+                    return None;
+                }
+            }
+            _ => return None,
+        }
+    }
+    
+    Some(current.clone())
 }
 
 /// Compute relative path from git_dir to a file, following symlinks
