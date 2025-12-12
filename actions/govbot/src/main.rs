@@ -754,14 +754,20 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
                 
                 // Verify order: country < state < sessions < logs
                 if country_pos < state_pos && state_pos < sessions_pos && sessions_pos < logs_pos {
-                    // Read JSON file, parse it, and output as a single compact line
+                    // Read JSON file, parse it, and output as a single compact line wrapped in a "log" key
                     match fs::read_to_string(&path) {
                         Ok(contents) => {
-                            // Parse JSON and serialize as compact (single line)
+                            // Parse JSON and wrap it in a "log" key
                             match serde_json::from_str::<serde_json::Value>(&contents) {
                                 Ok(json_value) => {
+                                    // Wrap the JSON in an object with "log" and "repo" keys
+                                    let wrapped = serde_json::json!({
+                                        "log": json_value,
+                                        "repo": repo_name
+                                    });
+                                    
                                     // Serialize as compact JSON (single line)
-                                    match serde_json::to_string(&json_value) {
+                                    match serde_json::to_string(&wrapped) {
                                         Ok(json_line) => {
                                             println!("{}", json_line);
                                             io::stdout().flush()?;
