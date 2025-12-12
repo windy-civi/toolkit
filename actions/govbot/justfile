@@ -63,7 +63,7 @@ govbot *ARGS:
     #!/usr/bin/env bash
     set -e
     
-    TEST_DIR=".test-govbot"
+    DEV_DIR=".govbot"
     
     # Build release binary if it doesn't exist or if any source files are newer
     if [ ! -f "target/release/govbot" ] || [ "src" -nt "target/release/govbot" ] || find src -name "*.rs" -newer "target/release/govbot" 2>/dev/null | grep -q .; then
@@ -78,8 +78,8 @@ govbot *ARGS:
         # echo "📍 Using custom govbot-dir from arguments"
         ./target/release/govbot {{ARGS}}
     else
-        # echo "📍 Using repo-local directory: $TEST_DIR (your ~/.govbot won't be modified)"
-        ./target/release/govbot {{ARGS}} --govbot-dir "$TEST_DIR"
+        # echo "📍 Using repo-local directory: $DEV_DIR (your ~/.govbot won't be modified)"
+        ./target/release/govbot {{ARGS}} --govbot-dir "$DEV_DIR"
     fi
 
 # Run all tests
