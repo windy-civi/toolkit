@@ -65,8 +65,8 @@ govbot *ARGS:
     
     TEST_DIR=".test-govbot"
     
-    # Build release binary if it doesn't exist or is outdated
-    if [ ! -f "target/release/govbot" ] || [ "src" -nt "target/release/govbot" ]; then
+    # Build release binary if it doesn't exist or if any source files are newer
+    if [ ! -f "target/release/govbot" ] || [ "src" -nt "target/release/govbot" ] || find src -name "*.rs" -newer "target/release/govbot" 2>/dev/null | grep -q .; then
         echo "🔨 Building release target..."
         cargo build --release
     fi

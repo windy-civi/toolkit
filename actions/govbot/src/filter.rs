@@ -4,14 +4,15 @@ use serde_json::Value;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum FilterAlias {
     Default,
-    Custom(String),
+    None,
 }
 
 impl From<&str> for FilterAlias {
     fn from(s: &str) -> Self {
         match s.to_lowercase().as_str() {
             "default" => FilterAlias::Default,
-            other => FilterAlias::Custom(other.to_string()),
+            "none" => FilterAlias::None,
+            _ => FilterAlias::Default, // Default fallback
         }
     }
 }
@@ -45,8 +46,8 @@ impl FilterManager {
                 // Load repo-specific filter if available
                 Self::apply_repo_filter(entry, repo_name)
             }
-            FilterAlias::Custom(_) => {
-                // Custom filters can be added here
+            FilterAlias::None => {
+                // No filtering - keep all entries
                 FilterResult::Keep
             }
         }

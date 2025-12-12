@@ -1,9 +1,8 @@
 use clap::{Parser, Subcommand};
-use govbot::prelude::*;
 use govbot::git;
 use futures::StreamExt;
 use futures::stream;
-use std::io::{self, BufRead, Write};
+use std::io::{self, Write};
 use std::path::PathBuf;
 use std::process::Command as ProcessCommand;
 use serde_json;
@@ -86,35 +85,29 @@ enum Command {
 
     /// Process and display pipeline log files
     Logs {
-        /// Directory containing cloned repositories (default: $HOME/.govbot/repos, or GOVBOT_DIR env var)
-        #[arg(long = "govbot-dir")]
-        govbot_dir: Option<String>,
-
-
-        /// Repository names to filter (space-separated)
-        #[arg(short, long, num_args = 0..)]
+        /// Repos to output (default: `all`) `--repos="il,ca"`
+        #[arg(long, num_args = 0..)]
         repos: Vec<String>,
+    
+        /// Per repo limit (default: 100) options: `none` | number
+        #[arg(long, default_value = "100")]
+        limit: String,
 
-        /// Sort order: ASC or DESC
-        #[arg(long, default_value = "DESC", value_parser = ["ASC", "DESC"])]
-        sort: String,
-
-        /// Limit number of results
-        #[arg(long)]
-        limit: Option<usize>,
-
-        /// Join additional datasets (e.g., 'bill' to join metadata.json)
+        /// Join additional datasets default="none" options: `bill` 
         #[arg(long)]
         join: Option<String>,
 
-        /// Read file paths from stdin instead of discovering files
-        /// Useful for stdio pipelines: find ... | govbot logs --stdin
-        #[arg(long)]
-        stdin: bool,
+        /// Filter log entries based on per-repo AI generated filters (default: `default`) options: `default` | `none`
+        #[arg(long, default_value = "default", value_parser = ["default", "none"])]
+        filter: String,
 
-        /// Filter log entries by alias (e.g., 'default' to filter out noisy items per repo)
-        #[arg(long)]
-        filter: Option<String>,
+        /// Sort order (default: DESC) options: `ASC` | `DESC`
+        #[arg(long, default_value = "DESC", value_parser = ["ASC", "DESC"])]
+        sort: String,
+
+        /// Govbot directory (default: $HOME/.govbot/repos, or GOVBOT_DIR env var)
+        #[arg(long = "govbot-dir")]
+        govbot_dir: Option<String>,        
     },
 
     /// Delete data pipeline repositories
@@ -620,10 +613,9 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
     let Command::Logs {
         govbot_dir,
         repos,
-        sort,
+        sort: _sort,
         limit,
         join,
-        stdin,
         filter,
     } = cmd else {
         unreachable!()
@@ -646,62 +638,15 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
 
     let git_dir = get_govbot_dir(govbot_dir)?;
 
-    // If stdin mode, use the old processor-based approach
-    if stdin {
-        // Build configuration
-        let mut builder = ConfigBuilder::new(&git_dir)
-            .sort_order_str(&sort)?;
-
-        if let Some(limit) = limit {
-            builder = builder.limit(limit);
-        }
-
-        if !repos.is_empty() {
-            builder = builder.repos(repos);
-        }
-
-        // For stdin mode, use empty join if not provided (old processor)
-        let join_for_processor = join.as_deref().unwrap_or("");
-        let config = builder.join_options_str(join_for_processor)?.build()?;
-
-        // Read paths from stdin (one per line)
-        let stdin = io::stdin();
-        let paths = stdin
-            .lock()
-            .lines()
-            .filter_map(|line| line.ok())
-            .filter(|line| !line.trim().is_empty());
-
-        let mut stream = PipelineProcessor::process_from_stdin(&config, paths);
-
-        // Write JSON to stdout (one per line)
-        while let Some(result) = stream.next().await {
-            match result {
-                Ok(entry) => {
-                    // Convert LogEntry to JSON value
-                    let mut json_value: serde_json::Value = serde_json::to_value(&entry)?;
-                    
-                    // Extract timestamp from filename (which contains the path with logs/)
-                    if let Some(ts) = extract_timestamp_from_path(&entry.filename) {
-                        if let Some(obj) = json_value.as_object_mut() {
-                            obj.insert("timestamp".to_string(), serde_json::Value::String(ts));
-                        }
-                    }
-                    
-                    let json = serde_json::to_string(&json_value)?;
-                    // Ignore broken pipe errors (e.g., when piped to yq/jq that closes early)
-                    let _ = write_json_line(&json);
-                }
-                Err(e) => {
-                    eprintln!("Error: {}", e);
-                }
-            }
-        }
-        return Ok(());
-    }
+    // Parse limit: "none" means no limit, otherwise parse as usize
+    let limit_parsed: Option<usize> = if limit.to_lowercase() == "none" {
+        None
+    } else {
+        Some(limit.parse().map_err(|e| anyhow::anyhow!("Invalid limit value '{}': {}", limit, e))?)
+    };
 
     // Parse comma-separated repos if provided as single string
-    let repo_list: Vec<String> = if repos.len() == 1 && repos[0].contains(',') {
+    let mut repo_list: Vec<String> = if repos.len() == 1 && repos[0].contains(',') {
         repos[0]
             .split(',')
             .map(|s| s.trim().to_string())
@@ -711,39 +656,36 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
         repos
     };
 
-    // Get all repos in the directory if none specified
-    let repos_to_process = if repo_list.is_empty() {
-        // Discover all repos in the directory
-        let mut found_repos = Vec::new();
-        if git_dir.exists() {
-            for entry in fs::read_dir(&git_dir)? {
-                let entry = entry?;
-                let path = entry.path();
-                if path.is_dir() {
-                    if let Some(name) = path.file_name().and_then(|n| n.to_str()) {
-                        found_repos.push(name.to_string());
-                    }
-                }
-            }
+    // Default to "all" if no repos specified
+    if repo_list.is_empty() {
+        repo_list.push("all".to_string());
+    }
+
+    // Expand "all" to all working locales, then convert to repo names
+    let mut repos_to_process = Vec::new();
+    for locale in repo_list {
+        let locale = locale.trim().to_lowercase();
+        if locale.is_empty() {
+            continue;
         }
-        found_repos
-    } else {
-        // Convert locale names to repo names using build_repo_name
-        repo_list
-            .iter()
-            .map(|locale| git::build_repo_name(locale))
-            .collect()
-    };
+        
+        if locale == "all" {
+            // Add all working locales
+            let all_locales = govbot::locale::WorkingLocale::all();
+            for loc in all_locales {
+                repos_to_process.push(git::build_repo_name(&loc.as_lowercase()));
+            }
+        } else {
+            // Convert locale name to repo name using build_repo_name
+            repos_to_process.push(git::build_repo_name(&locale));
+        }
+    }
 
     // Per-repo limit
-    let per_repo_limit = limit;
+    let per_repo_limit = limit_parsed;
 
-    // Initialize filter if specified
-    let filter_manager = if let Some(ref filter_alias) = filter {
-        Some(govbot::FilterManager::new(govbot::FilterAlias::from(filter_alias.as_str())))
-    } else {
-        None
-    };
+    // Initialize filter (now has default value "default")
+    let filter_manager = govbot::FilterManager::new(govbot::FilterAlias::from(filter.as_str()));
 
     // Process each repo (with optional filtering)
     for repo_name in repos_to_process {
@@ -916,14 +858,10 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
                                     
                                     let output_value = serde_json::Value::Object(output);
                                     
-                                    // Apply filter if specified
-                                    let should_output = if let Some(ref filter_mgr) = filter_manager {
-                                        match filter_mgr.should_keep(&output_value, &repo_name) {
-                                            govbot::FilterResult::Keep => true,
-                                            govbot::FilterResult::FilterOut => false,
-                                        }
-                                    } else {
-                                        true
+                                    // Apply filter
+                                    let should_output = match filter_manager.should_keep(&output_value, &repo_name) {
+                                        govbot::FilterResult::Keep => true,
+                                        govbot::FilterResult::FilterOut => false,
                                     };
                                     
                                     if should_output {
