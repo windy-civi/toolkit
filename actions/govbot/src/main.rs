@@ -754,12 +754,28 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
                 
                 // Verify order: country < state < sessions < logs
                 if country_pos < state_pos && state_pos < sessions_pos && sessions_pos < logs_pos {
-                    // Read and output file contents directly
+                    // Read JSON file, parse it, and output as a single compact line
                     match fs::read_to_string(&path) {
                         Ok(contents) => {
-                            print!("{}", contents);
-                            io::stdout().flush()?;
-                            file_count += 1;
+                            // Parse JSON and serialize as compact (single line)
+                            match serde_json::from_str::<serde_json::Value>(&contents) {
+                                Ok(json_value) => {
+                                    // Serialize as compact JSON (single line)
+                                    match serde_json::to_string(&json_value) {
+                                        Ok(json_line) => {
+                                            println!("{}", json_line);
+                                            io::stdout().flush()?;
+                                            file_count += 1;
+                                        }
+                                        Err(e) => {
+                                            eprintln!("Error serializing JSON from {}: {}", path.display(), e);
+                                        }
+                                    }
+                                }
+                                Err(e) => {
+                                    eprintln!("Error parsing JSON from {}: {}", path.display(), e);
+                                }
+                            }
                         }
                         Err(e) => {
                             eprintln!("Error reading {}: {}", path.display(), e);
