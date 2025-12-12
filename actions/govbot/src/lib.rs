@@ -5,6 +5,7 @@
 
 pub mod config;
 pub mod error;
+pub mod filter;
 pub mod git;
 pub mod locale_generated;
 pub mod processor;
@@ -12,6 +13,7 @@ pub mod types;
 
 pub use config::{Config, ConfigBuilder, JoinOption, SortOrder};
 pub use error::{Error, Result};
+pub use filter::{FilterAlias, FilterManager, FilterResult, LogFilter};
 pub use locale::WorkingLocale;
 pub use locale_generated as locale;
 pub use processor::PipelineProcessor;

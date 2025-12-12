@@ -1,4 +1,4 @@
-use crate::config::{Config, JoinOption};
+use crate::config::Config;
 use crate::error::{Error, Result};
 use crate::git;
 use crate::types::{
@@ -292,7 +292,7 @@ impl PipelineProcessor {
     }
 
     /// Process a vote event file
-    async fn process_vote_event_file_internal(config: &Config, file: &FileWithTimestamp) -> Result<Option<LogEntry>> {
+    async fn process_vote_event_file_internal(_config: &Config, file: &FileWithTimestamp) -> Result<Option<LogEntry>> {
         // Extract vote event result from filename
         let vote_event_regex = Regex::new(r"\.vote_event\.([^.]+)\.")?;
         let result = vote_event_regex
@@ -312,7 +312,7 @@ impl PipelineProcessor {
     }
 
     /// Process a regular (non-vote-event) file
-    async fn process_regular_file_internal(config: &Config, file: &FileWithTimestamp) -> Result<Option<LogEntry>> {
+    async fn process_regular_file_internal(_config: &Config, file: &FileWithTimestamp) -> Result<Option<LogEntry>> {
         // Read and parse JSON content
         let json_content = tokio::fs::read_to_string(&file.path).await?;
         let log_value: serde_json::Value = serde_json::from_str(&json_content)?;

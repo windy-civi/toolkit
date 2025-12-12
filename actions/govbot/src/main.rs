@@ -4,12 +4,11 @@ use govbot::git;
 use futures::StreamExt;
 use futures::stream;
 use std::io::{self, BufRead, Write};
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 use std::process::Command as ProcessCommand;
 use serde_json;
 use jwalk::WalkDir;
 use std::fs;
-use std::collections::HashMap;
 
 #[derive(Debug, Clone)]
 struct CloneResult {
@@ -89,6 +88,10 @@ enum Command {
         /// Useful for stdio pipelines: find ... | govbot logs --stdin
         #[arg(long)]
         stdin: bool,
+
+        /// Filter log entries by alias (e.g., 'default' to filter out noisy items per repo)
+        #[arg(long)]
+        filter: Option<String>,
     },
 
     /// Delete data pipeline repositories
@@ -598,6 +601,7 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
         limit,
         join,
         stdin,
+        filter,
     } = cmd else {
         unreachable!()
     };
@@ -700,7 +704,14 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
     // Per-repo limit
     let per_repo_limit = limit;
 
-    // Process each repo
+    // Initialize filter if specified
+    let filter_manager = if let Some(ref filter_alias) = filter {
+        Some(govbot::FilterManager::new(govbot::FilterAlias::from(filter_alias.as_str())))
+    } else {
+        None
+    };
+
+    // Process each repo (with optional filtering)
     for repo_name in repos_to_process {
         let repo_path = git_dir.join(&repo_name);
         
@@ -862,15 +873,29 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
                                     
                                     output.insert("sources".to_string(), serde_json::Value::Object(sources));
                                     
-                                    // Serialize as compact JSON (single line)
-                                    match serde_json::to_string(&serde_json::Value::Object(output)) {
-                                        Ok(json_line) => {
-                                            println!("{}", json_line);
-                                            io::stdout().flush()?;
-                                            file_count += 1;
+                                    let output_value = serde_json::Value::Object(output);
+                                    
+                                    // Apply filter if specified
+                                    let should_output = if let Some(ref filter_mgr) = filter_manager {
+                                        match filter_mgr.should_keep(&output_value, &repo_name) {
+                                            govbot::FilterResult::Keep => true,
+                                            govbot::FilterResult::FilterOut => false,
                                         }
-                                        Err(e) => {
-                                            eprintln!("Error serializing JSON from {}: {}", path.display(), e);
+                                    } else {
+                                        true
+                                    };
+                                    
+                                    if should_output {
+                                        // Serialize as compact JSON (single line)
+                                        match serde_json::to_string(&output_value) {
+                                            Ok(json_line) => {
+                                                println!("{}", json_line);
+                                                io::stdout().flush()?;
+                                                file_count += 1;
+                                            }
+                                            Err(e) => {
+                                                eprintln!("Error serializing JSON from {}: {}", path.display(), e);
+                                            }
                                         }
                                     }
                                 }
@@ -891,97 +916,6 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
     Ok(())
 }
 
-/// Parse data.json from a repo to extract pathPattern for bill metadata
-fn get_bill_metadata_path_pattern(repo_path: &Path) -> Option<String> {
-    let data_json_path = repo_path.join("data.json");
-    if !data_json_path.exists() {
-        return None;
-    }
-    
-    match fs::read_to_string(&data_json_path) {
-        Ok(contents) => {
-            match serde_json::from_str::<serde_json::Value>(&contents) {
-                Ok(data) => {
-                    // Look for distribution array
-                    if let Some(distributions) = data.get("distribution").and_then(|d| d.as_array()) {
-                        for dist in distributions {
-                            // Check if this distribution has a pathPattern with metadata.json
-                            if let Some(path_pattern) = dist.get("ex:pathPattern")
-                                .or_else(|| dist.get("pathPattern"))
-                                .and_then(|p| p.as_str())
-                            {
-                                if path_pattern.contains("metadata.json") {
-                                    return Some(path_pattern.to_string());
-                                }
-                            }
-                        }
-                    }
-                }
-                Err(_) => {}
-            }
-        }
-        Err(_) => {}
-    }
-    
-    None
-}
-
-/// Extract path variables from a log file path
-/// Example: "country:us/state:il/sessions/2024/bills/HB1234/logs/file.json"
-/// Returns: {"country_code": "us", "jurisdiction_code": "il", "session_id": "2024", "bill_id": "HB1234"}
-fn extract_path_variables(log_path: &str) -> HashMap<String, String> {
-    let mut vars = HashMap::new();
-    
-    // Extract country_code from "country:us"
-    if let Some(country_start) = log_path.find("country:") {
-        let after_country = &log_path[country_start + 8..];
-        if let Some(country_end) = after_country.find('/') {
-            vars.insert("country_code".to_string(), after_country[..country_end].to_string());
-        }
-    }
-    
-    // Extract jurisdiction_code from "state:il"
-    if let Some(state_start) = log_path.find("/state:") {
-        let after_state = &log_path[state_start + 7..];
-        if let Some(state_end) = after_state.find('/') {
-            vars.insert("jurisdiction_code".to_string(), after_state[..state_end].to_string());
-        }
-    }
-    
-    // Extract session_id from "/sessions/{session_id}/"
-    if let Some(sessions_start) = log_path.find("/sessions/") {
-        let after_sessions = &log_path[sessions_start + 10..];
-        if let Some(sessions_end) = after_sessions.find('/') {
-            vars.insert("session_id".to_string(), after_sessions[..sessions_end].to_string());
-        }
-    }
-    
-    // Extract bill_id from "/bills/{bill_id}/"
-    if let Some(bills_start) = log_path.find("/bills/") {
-        let after_bills = &log_path[bills_start + 7..];
-        if let Some(bills_end) = after_bills.find('/') {
-            vars.insert("bill_id".to_string(), after_bills[..bills_end].to_string());
-        }
-    }
-    
-    vars
-}
-
-/// Construct a file path from a pathPattern template and variables
-/// Example: pattern = "country:{country_code}/state:{jurisdiction_code}/sessions/{session_id}/bills/{bill_id}/metadata.json"
-///          vars = {"country_code": "us", "jurisdiction_code": "il", "session_id": "2024", "bill_id": "HB1234"}
-/// Returns: "country:us/state:il/sessions/2024/bills/HB1234/metadata.json"
-fn construct_path_from_pattern(pattern: &str, vars: &HashMap<String, String>) -> String {
-    let mut result = pattern.to_string();
-    
-    // Replace all {variable} placeholders with actual values
-    for (key, value) in vars {
-        let placeholder = format!("{{{}}}", key);
-        result = result.replace(&placeholder, value);
-    }
-    
-    result
-}
 
 /// Parse a join string like "bill.title" into (dataset_name, field_path)
 fn parse_join_string(join_str: &str) -> Option<(String, Vec<String>)> {
