@@ -11,3 +11,4 @@ Available commands:
   delete  Delete data pipeline repositories (use 'delete all' to delete all)
   logs    Process and display pipeline log files
   load    Load bill metadata into a DuckDB database file
+  update  Update govbot to the latest nightly version
