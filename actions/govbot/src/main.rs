@@ -754,20 +754,30 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
                 
                 // Verify order: country < state < sessions < logs
                 if country_pos < state_pos && state_pos < sessions_pos && sessions_pos < logs_pos {
-                    // Read JSON file, parse it, and output as a single compact line wrapped in a "log" key
+                    // Compute relative source path
+                    let source_path_str = compute_relative_source_path(&path, &git_dir);
+                    
+                    // Read JSON file, parse it, and build extensible output structure
                     match fs::read_to_string(&path) {
                         Ok(contents) => {
-                            // Parse JSON and wrap it in a "log" key
+                            // Parse JSON
                             match serde_json::from_str::<serde_json::Value>(&contents) {
                                 Ok(json_value) => {
-                                    // Wrap the JSON in an object with "log" and "repo" keys
-                                    let wrapped = serde_json::json!({
-                                        "log": json_value,
-                                        "repo": repo_name
-                                    });
+                                    // Build output with extensible structure:
+                                    // - Data keys (log, metadata, etc.) are singular entity names matching source keys
+                                    // - sources object automatically tracks all data sources
+                                    let mut output = serde_json::Map::new();
+                                    
+                                    // Add the log data with key "log" (matching sources.log)
+                                    output.insert("log".to_string(), json_value);
+                                    
+                                    // Add sources with the log path
+                                    let mut sources = serde_json::Map::new();
+                                    sources.insert("log".to_string(), serde_json::Value::String(source_path_str));
+                                    output.insert("sources".to_string(), serde_json::Value::Object(sources));
                                     
                                     // Serialize as compact JSON (single line)
-                                    match serde_json::to_string(&wrapped) {
+                                    match serde_json::to_string(&serde_json::Value::Object(output)) {
                                         Ok(json_line) => {
                                             println!("{}", json_line);
                                             io::stdout().flush()?;
@@ -793,6 +803,32 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
     }
 
     Ok(())
+}
+
+/// Compute relative path from git_dir to a file, following symlinks
+fn compute_relative_source_path(file_path: &PathBuf, git_dir: &PathBuf) -> String {
+    // Canonicalize the file path to follow symlinks
+    let canonical_file = match file_path.canonicalize() {
+        Ok(p) => p,
+        Err(_) => file_path.clone(),
+    };
+    
+    // Canonicalize git_dir for proper relative path calculation
+    let canonical_git_dir = match git_dir.canonicalize() {
+        Ok(p) => p,
+        Err(_) => git_dir.clone(),
+    };
+    
+    // Get relative path from git_dir to the file
+    match pathdiff::diff_paths(&canonical_file, &canonical_git_dir) {
+        Some(rel_path) => rel_path.to_string_lossy().replace('\\', "/"),
+        None => {
+            // Fallback: use path relative to git_dir directly
+            pathdiff::diff_paths(file_path, git_dir)
+                .map(|p| p.to_string_lossy().replace('\\', "/"))
+                .unwrap_or_else(|| file_path.to_string_lossy().replace('\\', "/"))
+        }
+    }
 }
 
 async fn run_load_command(cmd: Command) -> anyhow::Result<()> {
