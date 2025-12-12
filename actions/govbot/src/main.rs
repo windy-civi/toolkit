@@ -55,12 +55,13 @@ struct Args {
 
 #[derive(Subcommand, Debug)]
 enum Command {
-    /// Clone or pull data pipeline repositories (default: all locales)
+    /// Clone or pull data pipeline repositories (default: updates existing repos)
     /// Clones if repository doesn't exist, pulls if it does
+    /// Use "govbot clone all" to clone all repos, or "govbot clone <repo>" for specific repos
     Clone {
-        /// Locale names to clone/pull (e.g., usa, il, ca, or "all" for all locales). If not specified, processes all locales.
+        /// Repository names to clone/pull (e.g., usa, il, ca, or "all" for all repos). If not specified, updates existing repos.
         #[arg(num_args = 0..)]
-        locales: Vec<String>,
+        repos: Vec<String>,
 
         /// Directory containing repositories (default: $HOME/.govbot/repos, or GOVBOT_DIR env var)
         #[arg(long = "govbot-dir")]
@@ -78,7 +79,7 @@ enum Command {
         #[arg(long)]
         verbose: bool,
 
-        /// List available locales instead of cloning/pulling
+        /// List available repos instead of cloning/pulling
         #[arg(long)]
         list: bool,
     },
@@ -154,7 +155,7 @@ enum Command {
 
 fn print_available_commands() {
     println!("Available commands:");
-    println!("  clone   Clone or pull data pipeline repositories (default: all locales)");
+    println!("  clone   Clone or pull data pipeline repositories (default: updates existing repos, use 'clone all' to clone all)");
     println!("  delete  Delete data pipeline repositories (use 'delete all' to delete all)");
     println!("  logs    Process and display pipeline log files");
     println!("  load    Load bill metadata into a DuckDB database file");
@@ -270,18 +271,18 @@ fn print_result(result: &CloneResult) {
 
 /// Perform clone/pull operations and print results as they complete
 async fn perform_clone_operations(
-    locales_to_clone: Vec<String>,
+    repos_to_clone: Vec<String>,
     repos_dir: PathBuf,
     token_str: Option<&str>,
     num_jobs: usize,
     verbose: bool,
 ) -> anyhow::Result<Vec<CloneResult>> {
-    let total = locales_to_clone.len();
+    let total = repos_to_clone.len();
     let mut all_results = Vec::new();
     
     if total == 1 || num_jobs == 1 {
         // Sequential clone/pull - print as we go
-        for (idx, locale) in locales_to_clone.iter().enumerate() {
+        for (idx, locale) in repos_to_clone.iter().enumerate() {
             let mut result = process_single_locale(locale, &repos_dir, token_str, verbose);
             result.position = format!("{}/{}", idx + 1, total);
             print_result(&result);
@@ -292,7 +293,7 @@ async fn perform_clone_operations(
         use std::sync::{Arc, Mutex};
         let completed = Arc::new(Mutex::new(0usize));
         
-        let clone_futures = stream::iter(locales_to_clone.iter())
+        let clone_futures = stream::iter(repos_to_clone.iter())
             .map(|locale| {
                 let locale = locale.clone();
                 let repos_dir = repos_dir.clone();
@@ -345,7 +346,7 @@ async fn perform_clone_operations(
 
 async fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
     let Command::Clone {
-        locales,
+        repos,
         govbot_dir,
         token,
         parallel,
@@ -355,28 +356,19 @@ async fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
         unreachable!()
     };
 
+    // If --list flag is set, show the list
     if list {
-        println!("Available locales:");
+        println!("Available repos:");
         let all_locales = govbot::locale::WorkingLocale::all();
         for locale in all_locales {
             println!("  {}", locale.as_lowercase());
         }
-        println!("  all (clone all locales)");
+        println!("  all (clone all repos)");
         return Ok(());
     }
 
-    // If no locales specified, default to "all"
-    let locales = if locales.is_empty() {
-        vec!["all".to_string()]
-    } else {
-        locales
-    };
-
     let repos_dir = get_govbot_dir(govbot_dir)?;
     
-    // Create directory if it doesn't exist
-    std::fs::create_dir_all(&repos_dir)?;
-
     // Get token from argument or environment variable
     let env_token = std::env::var("TOKEN").ok();
     let token_str = token.as_deref().or(env_token.as_deref());
@@ -386,37 +378,67 @@ async fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
         .or_else(|| std::env::var("GOVBOT_JOBS").ok().and_then(|s| s.parse().ok()))
         .unwrap_or(4);
 
-    // Parse locales and handle "all"
-    let mut locales_to_clone = Vec::new();
-    for locale in locales {
-        let locale = locale.trim().to_lowercase();
-        if locale.is_empty() {
-            continue;
+    // Parse repos and handle "all"
+    let mut repos_to_clone = Vec::new();
+    
+    if repos.is_empty() {
+        // No repos specified: find existing repos to update
+        // Check all known locales to see which repos exist
+        let all_locales = govbot::locale::WorkingLocale::all();
+        for locale in all_locales {
+            let locale_str = locale.as_lowercase();
+            let repo_name = git::build_repo_name(&locale_str);
+            let repo_path = repos_dir.join(&repo_name);
+            
+            // Check if this is a git repository
+            if repo_path.exists() && repo_path.join(".git").exists() {
+                repos_to_clone.push(locale_str.to_string());
+            }
         }
         
-        if locale == "all" {
-            // Add all working locales
-            let all_locales = govbot::locale::WorkingLocale::all();
-            for loc in all_locales {
-                locales_to_clone.push(loc.as_lowercase().to_string());
+        if repos_to_clone.is_empty() {
+            eprintln!("No repos downloaded yet in this directory");
+            eprintln!("to download all gov data, do `govbot clone all`. future syncs are just `govbot clone`");
+            return Ok(());
+        }
+        
+        // Create directory if it doesn't exist (needed for the clone operations)
+        std::fs::create_dir_all(&repos_dir)?;
+    } else {
+        // Create directory if it doesn't exist (needed for the clone operations)
+        std::fs::create_dir_all(&repos_dir)?;
+        
+        // Parse specified repos
+        for repo in repos {
+            let repo = repo.trim().to_lowercase();
+            if repo.is_empty() {
+                continue;
             }
-        } else {
-            // Validate locale
-            let _ = govbot::locale::WorkingLocale::from(locale.as_str());
-            locales_to_clone.push(locale);
+            
+            if repo == "all" {
+                // Add all working locales
+                let all_locales = govbot::locale::WorkingLocale::all();
+                for loc in all_locales {
+                    repos_to_clone.push(loc.as_lowercase().to_string());
+                }
+            } else {
+                // Validate locale
+                let _ = govbot::locale::WorkingLocale::from(repo.as_str());
+                repos_to_clone.push(repo);
+            }
         }
     }
 
-    if locales_to_clone.is_empty() {
+    if repos_to_clone.is_empty() {
         return Ok(());
 }
 
     // Print initial message with count
-    eprintln!("🔁 Syncing {} repos\n", locales_to_clone.len());
+    eprintln!("🔁 Syncing {} repos\n", repos_to_clone.len());
 
     // Perform clone operations and print results as they complete
     let results = perform_clone_operations(
-        locales_to_clone,
+        repos_to_clone,
         repos_dir,
         token_str,
         num_jobs,
@@ -431,7 +453,7 @@ async fn run_clone_command(cmd: Command) -> anyhow::Result<()> {
     if !errors.is_empty() {
         eprintln!("\n❌ Errors occurred: {}/{}", errors.len(), results.len());
     } else if !results.is_empty() {
-        eprintln!("\n✅ Successfully processed all {} locales!", results.len());
+        eprintln!("\n✅ Successfully processed all {} repos!", results.len());
     }
     
     Ok(())
@@ -661,7 +683,7 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
         repo_list.push("all".to_string());
     }
 
-    // Expand "all" to all working locales, then convert to repo names
+    // Expand "all" to existing repos in the directory, or convert locale names to repo names
     let mut repos_to_process = Vec::new();
     for locale in repo_list {
         let locale = locale.trim().to_lowercase();
@@ -670,10 +692,19 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
         }
         
         if locale == "all" {
-            // Add all working locales
-            let all_locales = govbot::locale::WorkingLocale::all();
-            for loc in all_locales {
-                repos_to_process.push(git::build_repo_name(&loc.as_lowercase()));
+            // Find all existing repos in the directory
+            if git_dir.exists() {
+                let all_locales = govbot::locale::WorkingLocale::all();
+                for loc in all_locales {
+                    let locale_str = loc.as_lowercase();
+                    let repo_name = git::build_repo_name(&locale_str);
+                    let repo_path = git_dir.join(&repo_name);
+                    
+                    // Only add repos that actually exist (for logs, we don't need .git, just the directory)
+                    if repo_path.exists() && repo_path.is_dir() {
+                        repos_to_process.push(repo_name);
+                    }
+                }
             }
         } else {
             // Convert locale name to repo name using build_repo_name
@@ -1044,7 +1075,7 @@ async fn run_load_command(cmd: Command) -> anyhow::Result<()> {
     // Check if directory exists
     if !repos_dir.exists() {
         eprintln!("Error: Govbot repos directory not found: {}", repos_dir.display());
-        eprintln!("Run 'govbot clone' first to clone repositories.");
+        eprintln!("Run 'govbot clone all' first to clone repositories.");
         return Ok(());
     }
 

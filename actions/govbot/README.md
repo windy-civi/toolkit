@@ -11,7 +11,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/windy-civi/toolkit/main/ac
 ```bash
 govbot # to see help
 govbot clone # to show
-govbot clone {{locale}} {{locale}} # to download specific items
+govbot clone {{repo}} {{repo}} # to download specific items
 govbot delete {{locale}} # to delete specific items
 govbot delete all # to delete everything
 govbot load # load bill metadata into DuckDB database
