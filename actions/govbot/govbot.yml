@@ -1,48 +1,135 @@
 tags:
   education:
-    description: "Legislation related to schools, education funding, curriculum standards, teacher certification, higher education policy, student loans, charter schools, public school administration, educational standards, and academic programs"
-    threshold: 0.3
+    description: |
+      Legislation related to schools, education funding, curriculum standards, and educational policy, including:
+      - K-12 public school funding, budgets, and resource allocation
+      - Curriculum standards, content requirements, and academic programs
+      - Teacher certification, training, professional development, and compensation
+      - Higher education policy, tuition, financial aid, and student loans
+      - Charter schools, school choice, vouchers, and alternative education models
+      - Special education services, accommodations, and individualized education plans
+      - School safety, security measures, and student discipline policies
+      - Early childhood education, pre-K programs, and childcare
+      - Standardized testing, assessments, and accountability measures
+      - School district governance, administration, and oversight
+      - Educational technology, digital learning, and online education
+      - Career and technical education, vocational training, and workforce development
+    threshold: 0.4
     examples:
-      - "School funding bill"
-      - "Teacher certification requirements"
-      - "Higher education tuition"
-      - "Charter school authorization"
+      - "Increases per-pupil funding for public schools and establishes minimum teacher salary requirements"
+      - "Mandates comprehensive sex education curriculum in all public schools"
+      - "Expands eligibility for state financial aid programs to include part-time students"
+      - "Authorizes new charter schools and establishes oversight requirements"
+      - "Requires schools to provide mental health counseling services to all students"
+      - "Prohibits teaching of critical race theory in public schools"
+      - "Establishes universal pre-kindergarten program for all four-year-olds"
+      - "Modifies teacher tenure requirements and evaluation procedures"
 
   budget:
-    description: "Legislation concerning state budgets, appropriations, revenue, taxes, fiscal policy, spending bills, budget allocations, financial planning, and economic policy"
-    threshold: 0.3
+    description: |
+      Legislation concerning state budgets, appropriations, revenue, taxes, and fiscal policy, including:
+      - Annual or biennial state budget bills and appropriations
+      - Revenue generation through taxes, fees, bonds, and other sources
+      - Budget allocations across state agencies and programs
+      - Fiscal year planning, spending limits, and budget caps
+      - Emergency appropriations, supplemental budgets, and budget adjustments
+      - Tax policy changes affecting income, sales, property, corporate, and excise taxes
+      - Debt management, bonding authority, and financial obligations
+      - Rainy day funds, reserves, and budget stabilization mechanisms
+      - Federal funding allocation and matching requirements
+      - Performance-based budgeting and outcome measurement
+      - Budget transparency, reporting requirements, and public disclosure
+      - Economic development incentives, tax credits, and financial assistance programs
+    threshold: 0.4
     examples:
-      - "State budget appropriation"
-      - "Tax revenue bill"
-      - "Fiscal year spending"
-      - "Budget allocation"
+      - "Appropriates $50 billion for state operations in fiscal year 2025"
+      - "Increases state income tax rate for high earners to fund education programs"
+      - "Authorizes $2 billion in bonds for infrastructure improvements"
+      - "Establishes rainy day fund with minimum balance requirements"
+      - "Provides tax credits for businesses that create new jobs"
+      - "Allocates emergency funding for natural disaster recovery"
+      - "Modifies sales tax exemptions for certain goods and services"
+      - "Requires quarterly budget reports and public hearings on spending"
 
   healthcare:
-    description: "Legislation affecting healthcare access, insurance, medical services, public health, hospitals, health insurance, Medicaid, Medicare, prescription drugs, mental health services, and healthcare providers"
-    threshold: 0.3
+    description: |
+      Legislation affecting healthcare access, insurance, medical services, and public health, including:
+      - Healthcare access, coverage expansion, and insurance market regulations
+      - Medicaid and Medicare programs, eligibility, benefits, and funding
+      - Health insurance requirements, mandates, and marketplace regulations
+      - Prescription drug pricing, pharmacy regulations, and pharmaceutical policy
+      - Mental health services, substance abuse treatment, and behavioral health
+      - Hospital regulations, licensing, and healthcare facility oversight
+      - Healthcare provider licensing, scope of practice, and professional standards
+      - Public health programs, disease prevention, and health promotion
+      - Reproductive health services, family planning, and abortion access
+      - Telemedicine, telehealth services, and digital health technologies
+      - Long-term care, nursing homes, and aging services
+      - Health data privacy, medical records, and patient information protection
+      - Healthcare workforce development, training, and retention programs
+    threshold: 0.4
     examples:
-      - "Healthcare access expansion"
-      - "Medicaid funding"
-      - "Mental health services"
-      - "Prescription drug pricing"
+      - "Expands Medicaid eligibility to include adults with incomes up to 138% of federal poverty level"
+      - "Establishes prescription drug affordability board to review and cap drug prices"
+      - "Requires health insurance plans to cover mental health services at parity with physical health"
+      - "Authorizes nurse practitioners to practice independently without physician oversight"
+      - "Prohibits state funding for abortion services except in cases of rape, incest, or life endangerment"
+      - "Creates state health insurance marketplace with standardized benefit packages"
+      - "Mandates coverage for preventive care services without cost-sharing"
+      - "Regulates telemedicine services and establishes reimbursement requirements"
 
   environment:
-    description: "Legislation related to environmental protection, climate change, pollution control, renewable energy, conservation, natural resources, water quality, air quality, and environmental regulations"
-    threshold: 0.3
+    description: |
+      Legislation related to environmental protection, climate change, pollution control, and natural resources, including:
+      - Climate change mitigation, greenhouse gas emissions reduction, and carbon pricing
+      - Renewable energy standards, incentives, and clean energy transition
+      - Air quality regulations, emissions standards, and pollution control
+      - Water quality protection, watershed management, and drinking water safety
+      - Environmental conservation, land preservation, and protected areas
+      - Waste management, recycling programs, and pollution prevention
+      - Natural resource management, extraction regulations, and resource conservation
+      - Environmental impact assessments, permitting, and regulatory oversight
+      - Wildlife protection, endangered species, and habitat conservation
+      - Environmental justice, equitable distribution of environmental benefits and burdens
+      - Energy efficiency standards, building codes, and sustainable development
+      - Chemical safety, toxic substance regulation, and hazardous materials management
+    threshold: 0.4
     examples:
-      - "Renewable energy standards"
-      - "Water quality protection"
-      - "Climate change mitigation"
-      - "Environmental conservation"
+      - "Establishes goal of 100% renewable energy by 2050 and sets interim targets"
+      - "Implements cap-and-trade program for carbon emissions from power plants"
+      - "Strengthens water quality standards for industrial discharge into state waterways"
+      - "Prohibits fracking and hydraulic fracturing for oil and gas extraction"
+      - "Creates state park system expansion and land acquisition fund"
+      - "Requires environmental impact review for all major development projects"
+      - "Establishes plastic bag ban and mandates recycling programs for municipalities"
+      - "Protects critical wildlife habitat from development and resource extraction"
 
   criminal_justice:
-    description: "Legislation concerning law enforcement, criminal law, sentencing, prisons, police reform, criminal justice reform, bail reform, sentencing guidelines, and public safety"
-    threshold: 0.3
+    description: |
+      Legislation concerning law enforcement, criminal law, sentencing, prisons, and public safety, including:
+      - Criminal law definitions, penalties, and sentencing guidelines
+      - Police reform, accountability, oversight, and use of force policies
+      - Bail reform, pretrial detention, and release conditions
+      - Prison and jail conditions, inmate rights, and corrections administration
+      - Sentencing reform, mandatory minimums, and alternative sentencing
+      - Juvenile justice, youth courts, and age of criminal responsibility
+      - Criminal record expungement, sealing, and reentry programs
+      - Victim rights, victim compensation, and victim services
+      - Drug policy, decriminalization, and substance abuse treatment in justice system
+      - Probation, parole, and community supervision programs
+      - Public safety measures, crime prevention, and community policing
+      - Prosecutorial discretion, charging decisions, and plea bargaining
+      - Forensic evidence, DNA testing, and criminal investigation procedures
+    threshold: 0.4
     examples:
-      - "Criminal sentencing reform"
-      - "Police accountability"
-      - "Bail reform legislation"
-      - "Prison reform"
+      - "Eliminates cash bail for nonviolent offenses and establishes risk assessment system"
+      - "Requires body cameras for all law enforcement officers and mandates public release of footage"
+      - "Reduces mandatory minimum sentences for drug offenses and expands treatment programs"
+      - "Establishes independent oversight board for police misconduct investigations"
+      - "Raises age of criminal responsibility from 16 to 18 years old"
+      - "Creates automatic expungement process for certain nonviolent convictions after completion of sentence"
+      - "Prohibits use of chokeholds and restricts use of deadly force by police"
+      - "Establishes victim notification system and expands victim compensation fund"
 
   lgbtq:
     description: |
@@ -55,7 +142,7 @@ tags:
       - Transgender rights regarding bathroom access, participation in sports, and changing identification documents
       - Religious exemptions or freedom laws affecting LGBTQ+ rights
       - Recognition of non-binary or intersex status in legal or governmental contexts
-    threshold: 0.3
+    threshold: 0.4
     examples:
       - "Expands anti-discrimination protections to include sexual orientation and gender identity in employment and housing"
       - "Allows for gender marker changes on birth certificates and driver's licenses without surgery"
@@ -67,19 +154,55 @@ tags:
       - "Defines public accommodation access for transgender individuals"
 
   housing:
-    description: "Legislation related to housing policy, affordable housing, rent control, tenant rights, housing development, zoning, homelessness, housing assistance, and real estate regulation"
-    threshold: 0.3
+    description: |
+      Legislation related to housing policy, affordable housing, tenant rights, and real estate, including:
+      - Affordable housing development, construction, and preservation
+      - Rent control, rent stabilization, and tenant rent protections
+      - Tenant rights, eviction protections, and landlord-tenant law
+      - Housing assistance programs, vouchers, and subsidies
+      - Homelessness prevention, services, and permanent supportive housing
+      - Zoning regulations, land use planning, and housing density requirements
+      - Fair housing, anti-discrimination, and equal access to housing
+      - Housing development incentives, tax credits, and financing programs
+      - Foreclosure prevention, mortgage assistance, and homeowner protections
+      - Manufactured housing, mobile homes, and alternative housing types
+      - Real estate licensing, regulation, and professional standards
+      - Housing code enforcement, habitability standards, and building safety
+      - Senior housing, accessible housing, and housing for people with disabilities
+    threshold: 0.4
     examples:
-      - "Affordable housing development"
-      - "Rent control measures"
-      - "Tenant protection laws"
-      - "Homelessness assistance"
+      - "Establishes rent control program limiting annual rent increases to 3%"
+      - "Requires just cause for eviction and provides legal representation for tenants in housing court"
+      - "Creates affordable housing trust fund with dedicated revenue source"
+      - "Prohibits discrimination in housing based on source of income or housing vouchers"
+      - "Mandates inclusionary zoning requiring affordable units in new developments"
+      - "Expands emergency rental assistance program and eviction prevention services"
+      - "Establishes right to counsel for low-income tenants facing eviction"
+      - "Provides tax incentives for developers who build affordable housing units"
 
   transportation:
-    description: "Legislation concerning transportation infrastructure, roads, highways, public transit, traffic laws, vehicle regulations, transportation funding, and transportation safety"
-    threshold: 0.3
+    description: |
+      Legislation concerning transportation infrastructure, roads, public transit, and vehicle regulations, including:
+      - Transportation infrastructure funding, construction, and maintenance
+      - Roads, highways, bridges, and transportation network expansion
+      - Public transit systems, funding, routes, and service levels
+      - Traffic laws, speed limits, and traffic safety regulations
+      - Vehicle registration, licensing, and titling requirements
+      - Driver's license requirements, testing, and age restrictions
+      - Vehicle emissions standards, environmental regulations, and clean vehicle incentives
+      - Transportation safety, seat belt laws, distracted driving, and impaired driving
+      - Bicycle and pedestrian infrastructure, bike lanes, and walkability
+      - Transportation planning, regional coordination, and multimodal systems
+      - Aviation, airports, and air transportation regulations
+      - Freight transportation, trucking regulations, and commercial vehicle requirements
+      - Transportation equity, accessibility, and service for underserved communities
+    threshold: 0.4
     examples:
-      - "Highway infrastructure funding"
-      - "Public transit expansion"
-      - "Traffic safety regulations"
-      - "Vehicle emissions standards"
+      - "Authorizes $5 billion bond for highway and bridge infrastructure improvements"
+      - "Expands public transit service to underserved communities and increases frequency"
+      - "Raises speed limit on certain highways and establishes variable speed zones"
+      - "Requires zero-emission vehicle sales targets and establishes charging infrastructure fund"
+      - "Prohibits handheld device use while driving and increases penalties for distracted driving"
+      - "Creates dedicated bike lane network and pedestrian safety improvements"
+      - "Establishes regional transportation authority to coordinate transit across jurisdictions"
+      - "Provides free public transit passes for low-income residents and students"

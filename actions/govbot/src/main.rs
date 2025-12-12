@@ -664,20 +664,20 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
         unreachable!()
     };
     
-    // Parse join options - now supports field paths like "bill.title"
-    let join_specs: Vec<(String, Vec<String>)> = if let Some(ref join_str) = join {
-        if join_str.is_empty() {
-            Vec::new()
-        } else {
-            join_str.split(',')
-                .map(|s| s.trim())
-                .filter(|s| !s.is_empty())
-                .filter_map(|s| parse_join_string(s))
-                .collect()
+    // Parse join options - now supports field paths like "bill.title" and special "tags"
+    let mut join_specs: Vec<(String, Vec<String>)> = Vec::new();
+    let mut join_tags = false;
+    if let Some(ref join_str) = join {
+        if !join_str.is_empty() {
+            for part in join_str.split(',').map(|s| s.trim()).filter(|s| !s.is_empty()) {
+                if part == "tags" {
+                    join_tags = true;
+                } else if let Some(spec) = parse_join_string(part) {
+                    join_specs.push(spec);
+                }
+            }
         }
-    } else {
-        Vec::new()
-    };
+    }
 
     let git_dir = get_govbot_dir(govbot_dir)?;
 
@@ -820,6 +820,14 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
                             // Parse JSON
                             match serde_json::from_str::<serde_json::Value>(&contents) {
                                 Ok(json_value) => {
+                                    // Extract bill_id early (before moving json_value)
+                                    // The json_value IS the log data, so bill_id is at the top level
+                                    let bill_id_opt = json_value
+                                        .get("bill_id")
+                                        .or_else(|| json_value.get("bill_identifier"))
+                                        .and_then(|id| id.as_str())
+                                        .map(|s| s.to_string());
+                                    
                                     // Build output with extensible structure:
                                     // - Data keys (log, bill, etc.) are singular entity names matching source keys
                                     // - sources object automatically tracks all data sources
@@ -895,6 +903,56 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
                                             }
                                             _ => {
                                                 eprintln!("Warning: Unknown join dataset: {}", dataset_name);
+                                            }
+                                        }
+                                    }
+                                    
+                                    // Join tags if requested
+                                    if join_tags {
+                                        // Extract country, state, session_id from the path
+                                        if let Some((country, state, session_id)) = extract_path_info(&source_path_str) {
+                                            // Use bill_id extracted earlier
+                                            if let Some(ref bill_id) = bill_id_opt {
+                                                // Look for tags in cwd/country:us/state:{state}/sessions/{session_id}/tags/
+                                                let cwd = std::env::current_dir().unwrap_or_else(|_| PathBuf::from("."));
+                                                let tags_dir = cwd
+                                                    .join(&format!("country:{}", country))
+                                                    .join(&format!("state:{}", state))
+                                                    .join("sessions")
+                                                    .join(&session_id)
+                                                    .join("tags");
+                                                
+                                                if tags_dir.exists() && tags_dir.is_dir() {
+                                                    let mut matched_tags = serde_json::Map::new();
+                                                    if let Ok(entries) = fs::read_dir(&tags_dir) {
+                                                        for entry in entries.flatten() {
+                                                            let path = entry.path();
+                                                            // Check for both .tag.json and .json files
+                                                            if let Some(ext) = path.extension().and_then(|s| s.to_str()) {
+                                                                if ext == "json" {
+                                                                    if let Some(stem) = path.file_stem().and_then(|s| s.to_str()) {
+                                                                        // Remove .tag suffix if present (e.g., "budget.tag" -> "budget")
+                                                                        let tag_name = stem.strip_suffix(".tag").unwrap_or(stem);
+                                                                        match fs::read_to_string(&path) {
+                                                                            Ok(contents) => {
+                                                                                if let Ok(map) = serde_json::from_str::<serde_json::Map<String, serde_json::Value>>(&contents) {
+                                                                                    // Check if bill_id exists in the map and get its score
+                                                                                    if let Some(score_value) = map.get(bill_id) {
+                                                                                        matched_tags.insert(tag_name.to_string(), score_value.clone());
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                            Err(_) => {}
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    if !matched_tags.is_empty() {
+                                                        output.insert("tags".to_string(), serde_json::Value::Object(matched_tags));
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -1491,7 +1549,9 @@ async fn run_tag_command(cmd: Command) -> anyhow::Result<()> {
                                         serde_json::Map::new()
                                     };
 
-                                    if let Some(num) = serde_json::Number::from_f64(score) {
+                                    // Round score to 4 decimal places
+                                    let rounded_score = (score * 10000.0).round() / 10000.0;
+                                    if let Some(num) = serde_json::Number::from_f64(rounded_score) {
                                         map.insert(bill_id.to_string(), serde_json::Value::Number(num));
                                     }
 
