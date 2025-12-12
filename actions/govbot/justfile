@@ -75,10 +75,10 @@ govbot *ARGS:
     # Convert ARGS to a string and check if it contains --govbot-dir
     ARGS_STR="{{ARGS}}"
     if [[ "$ARGS_STR" =~ --govbot-dir ]]; then
-        echo "📍 Using custom govbot-dir from arguments"
+        # echo "📍 Using custom govbot-dir from arguments"
         ./target/release/govbot {{ARGS}}
     else
-        echo "📍 Using repo-local directory: $TEST_DIR (your ~/.govbot won't be modified)"
+        # echo "📍 Using repo-local directory: $TEST_DIR (your ~/.govbot won't be modified)"
         ./target/release/govbot {{ARGS}} --govbot-dir "$TEST_DIR"
     fi
 

@@ -655,7 +655,17 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
         while let Some(result) = stream.next().await {
             match result {
                 Ok(entry) => {
-                    let json = serde_json::to_string(&entry)?;
+                    // Convert LogEntry to JSON value
+                    let mut json_value: serde_json::Value = serde_json::to_value(&entry)?;
+                    
+                    // Extract timestamp from filename (which contains the path with logs/)
+                    if let Some(ts) = extract_timestamp_from_path(&entry.filename) {
+                        if let Some(obj) = json_value.as_object_mut() {
+                            obj.insert("timestamp".to_string(), serde_json::Value::String(ts));
+                        }
+                    }
+                    
+                    let json = serde_json::to_string(&json_value)?;
                     println!("{}", json);
                 }
                 Err(e) => {
@@ -873,6 +883,13 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
                                     
                                     output.insert("sources".to_string(), serde_json::Value::Object(sources));
                                     
+                                    // Extract timestamp from sources.log path (after "logs/" and before "_")
+                                    // Do this after sources is inserted so we can use the final sources.log value
+                                    let timestamp = extract_timestamp_from_path(&source_path_str);
+                                    if let Some(ref ts) = timestamp {
+                                        output.insert("timestamp".to_string(), serde_json::Value::String(ts.clone()));
+                                    }
+                                    
                                     let output_value = serde_json::Value::Object(output);
                                     
                                     // Apply filter if specified
@@ -955,6 +972,25 @@ fn extract_json_field(value: &serde_json::Value, field_path: &[String]) -> Optio
     }
     
     Some(current.clone())
+}
+
+/// Extract timestamp from a path string (after "logs/" and before "_")
+/// Example: "path/to/logs/20250121T000000Z_filename.json" -> "20250121T000000Z"
+fn extract_timestamp_from_path(path: &str) -> Option<String> {
+    // Find the position of "/logs/"
+    if let Some(logs_pos) = path.find("/logs/") {
+        // Get the substring after "/logs/"
+        let after_logs = &path[logs_pos + 6..];
+        // Find the position of "_" after "logs/"
+        if let Some(underscore_pos) = after_logs.find('_') {
+            // Extract the timestamp (between "logs/" and "_")
+            let timestamp = &after_logs[..underscore_pos];
+            if !timestamp.is_empty() {
+                return Some(timestamp.to_string());
+            }
+        }
+    }
+    None
 }
 
 /// Compute relative path from git_dir to a file, following symlinks
