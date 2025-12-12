@@ -7,6 +7,8 @@ use std::io::{self, BufRead, Write};
 use std::path::PathBuf;
 use std::process::Command as ProcessCommand;
 use serde_json;
+use jwalk::WalkDir;
+use std::fs;
 
 #[derive(Debug, Clone)]
 struct CloneResult {
@@ -591,9 +593,9 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
     let Command::Logs {
         govbot_dir,
         repos,
-        sort,
+        sort: _sort,
         limit,
-        join,
+        join: _join,
         stdin,
     } = cmd else {
         unreachable!()
@@ -601,23 +603,22 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
 
     let git_dir = get_govbot_dir(govbot_dir)?;
 
-    // Build configuration
-    let mut builder = ConfigBuilder::new(&git_dir)
-        .sort_order_str(&sort)?;
-
-    if let Some(limit) = limit {
-        builder = builder.limit(limit);
-    }
-
-    if !repos.is_empty() {
-        builder = builder.repos(repos);
-    }
-
-    let config = builder.join_options_str(&join)?.build()?;
-
-    let processor = PipelineProcessor::new(config.clone());
-
+    // If stdin mode, use the old processor-based approach
     if stdin {
+        // Build configuration
+        let mut builder = ConfigBuilder::new(&git_dir)
+            .sort_order_str(&_sort)?;
+
+        if let Some(limit) = limit {
+            builder = builder.limit(limit);
+        }
+
+        if !repos.is_empty() {
+            builder = builder.repos(repos);
+        }
+
+        let config = builder.join_options_str(&_join)?.build()?;
+
         // Read paths from stdin (one per line)
         let stdin = io::stdin();
         let paths = stdin
@@ -640,19 +641,130 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
                 }
             }
         }
-    } else {
-        // Discover and process files from directory
-        let mut stream = processor.process();
+        return Ok(());
+    }
 
-        // Write JSON to stdout (one per line)
-        while let Some(result) = stream.next().await {
-            match result {
-                Ok(entry) => {
-                    let json = serde_json::to_string(&entry)?;
-                    println!("{}", json);
+    // Parse comma-separated repos if provided as single string
+    let repo_list: Vec<String> = if repos.len() == 1 && repos[0].contains(',') {
+        repos[0]
+            .split(',')
+            .map(|s| s.trim().to_string())
+            .filter(|s| !s.is_empty())
+            .collect()
+    } else {
+        repos
+    };
+
+    // Get all repos in the directory if none specified
+    let repos_to_process = if repo_list.is_empty() {
+        // Discover all repos in the directory
+        let mut found_repos = Vec::new();
+        if git_dir.exists() {
+            for entry in fs::read_dir(&git_dir)? {
+                let entry = entry?;
+                let path = entry.path();
+                if path.is_dir() {
+                    if let Some(name) = path.file_name().and_then(|n| n.to_str()) {
+                        found_repos.push(name.to_string());
+                    }
                 }
-                Err(e) => {
-                    eprintln!("Error: {}", e);
+            }
+        }
+        found_repos
+    } else {
+        // Convert locale names to repo names using build_repo_name
+        repo_list
+            .iter()
+            .map(|locale| git::build_repo_name(locale))
+            .collect()
+    };
+
+    // Per-repo limit
+    let per_repo_limit = limit;
+
+    // Process each repo
+    for repo_name in repos_to_process {
+        let repo_path = git_dir.join(&repo_name);
+        
+        if !repo_path.exists() {
+            eprintln!("Warning: Repository not found: {}", repo_path.display());
+            continue;
+        }
+
+        // Walk the repo directory to find log files matching the pattern:
+        // repo_name/country:{country}/state:{state}/sessions/{session_name}/logs/*.json
+        let mut file_count = 0;
+        
+        for entry_result in WalkDir::new(&repo_path)
+            .process_read_dir(|_depth, _path, _read_dir_state, _children| {
+                // Optional: customize directory reading behavior
+            })
+            .into_iter()
+        {
+            let entry = match entry_result {
+                Ok(e) => e,
+                Err(_) => continue,
+            };
+
+            // Check per-repo limit
+            if let Some(limit) = per_repo_limit {
+                if file_count >= limit {
+                    break;
+                }
+            }
+
+            let path = entry.path();
+            
+            // Check if it's a JSON file in a logs directory
+            if !path.is_file() {
+                continue;
+            }
+
+            if path.extension().and_then(|s| s.to_str()) != Some("json") {
+                continue;
+            }
+
+            // Check if path matches: country:{country}/state:{state}/sessions/{session_name}/logs/*.json
+            let path_str = path.to_string_lossy();
+            let repo_prefix = repo_path.to_string_lossy();
+            
+            // Get relative path by stripping the repo prefix
+            // Handle both absolute and relative paths
+            let relative_path = if let Some(stripped) = path_str.strip_prefix(&*repo_prefix) {
+                // Remove leading slash if present
+                stripped.strip_prefix('/').unwrap_or(stripped)
+            } else {
+                // If prefix doesn't match, skip this file
+                continue;
+            };
+            
+            // Match pattern: country:*/state:*/sessions/*/logs/*.json
+            // Use a simple regex-like check: must have these components in order
+            if relative_path.starts_with("country:") 
+                && relative_path.contains("/state:") 
+                && relative_path.contains("/sessions/")
+                && relative_path.contains("/logs/")
+                && relative_path.ends_with(".json")
+            {
+                // Verify order by checking positions
+                let country_pos = relative_path.find("country:").unwrap_or(0);
+                let state_pos = relative_path.find("/state:").unwrap_or(usize::MAX);
+                let sessions_pos = relative_path.find("/sessions/").unwrap_or(usize::MAX);
+                let logs_pos = relative_path.find("/logs/").unwrap_or(usize::MAX);
+                
+                // Verify order: country < state < sessions < logs
+                if country_pos < state_pos && state_pos < sessions_pos && sessions_pos < logs_pos {
+                    // Read and output file contents directly
+                    match fs::read_to_string(&path) {
+                        Ok(contents) => {
+                            print!("{}", contents);
+                            io::stdout().flush()?;
+                            file_count += 1;
+                        }
+                        Err(e) => {
+                            eprintln!("Error reading {}: {}", path.display(), e);
+                        }
+                    }
                 }
             }
         }
