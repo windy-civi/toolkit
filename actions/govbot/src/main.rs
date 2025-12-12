@@ -865,8 +865,11 @@ async fn run_logs_command(cmd: Command) -> anyhow::Result<()> {
                                     };
                                     
                                     if should_output {
+                                        // Deep prune empty/null values before serialization
+                                        let pruned_value = deep_prune_json(output_value);
+                                        
                                         // Serialize as compact JSON (single line)
-                                        match serde_json::to_string(&output_value) {
+                                        match serde_json::to_string(&pruned_value) {
                                             Ok(json_line) => {
                                                 // Ignore broken pipe errors (e.g., when piped to yq/jq that closes early)
                                                 if write_json_line(&json_line).is_ok() {
@@ -935,6 +938,50 @@ fn extract_json_field(value: &serde_json::Value, field_path: &[String]) -> Optio
     }
     
     Some(current.clone())
+}
+
+/// Deep prune JSON value by removing null, empty strings, empty arrays, and empty objects
+/// This recursively processes the entire JSON structure
+fn deep_prune_json(value: serde_json::Value) -> serde_json::Value {
+    match value {
+        serde_json::Value::Null => serde_json::Value::Null, // Will be filtered out by parent
+        serde_json::Value::String(s) => {
+            if s.is_empty() {
+                serde_json::Value::Null
+            } else {
+                serde_json::Value::String(s)
+            }
+        }
+        serde_json::Value::Array(arr) => {
+            let pruned: Vec<serde_json::Value> = arr
+                .into_iter()
+                .map(deep_prune_json)
+                .filter(|v| !v.is_null())
+                .collect();
+            if pruned.is_empty() {
+                serde_json::Value::Null
+            } else {
+                serde_json::Value::Array(pruned)
+            }
+        }
+        serde_json::Value::Object(map) => {
+            let mut pruned = serde_json::Map::new();
+            for (k, v) in map {
+                let pruned_value = deep_prune_json(v);
+                // Only include non-null values
+                if !pruned_value.is_null() {
+                    pruned.insert(k, pruned_value);
+                }
+            }
+            if pruned.is_empty() {
+                serde_json::Value::Null
+            } else {
+                serde_json::Value::Object(pruned)
+            }
+        }
+        // For numbers, booleans, keep as-is
+        other => other,
+    }
 }
 
 /// Extract timestamp from a path string (after "logs/" and before "_")

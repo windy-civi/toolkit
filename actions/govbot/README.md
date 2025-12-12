@@ -47,61 +47,60 @@ GOVBOT_REPO_URL_TEMPLATE="https://gitsite.com/org/{locale}.git" govbot ...
 
 ## Working with Logs
 
-The `govbot logs` command outputs JSON Lines (JSONL) format, making it easy to pipe to tools like `jq`, `yq`, and `jl` for filtering, transformation, and pretty-printing.
+The `govbot logs` command outputs JSON Lines (JSONL) format, making it easy to pipe to tools like `jq`, `yq`, and `jl` for filtering, transformation, and pretty-printing, and even sending to AI CLI tools like `claude`.
 
 ### Basic Usage
 
 ```bash
-# List logs from specific repositories
-govbot logs --repos="il" --limit=10
+# Easiest way with smart defaults
+govbot logs
 
-# Filter logs using the default filter (removes noisy entries)
-govbot logs --repos="il" --limit=10 --filter=default
-
-# Join with bill metadata
-govbot logs --repos="il" --limit=10 --join=bill
+# Get more args and their help
+govbot logs --help
 ```
 
-### Output as YAML with `yq`
+### modular CLI Examples
+
+#### Output as YAML with `yq`
 
 Convert JSON Lines to prettified YAML:
 
 ```bash
-# Single document (first line only)
-govbot logs --repos="il" --limit=1 --filter=default | yq -P
+# Output prettified yaml
+just govbot logs | yq -p=json -o=yaml '.'
 
 # Multiple documents (separated by ---)
 govbot logs --repos="il" --limit=10 --filter=default | yq -p json -P
 ```
 
-### Filtering with `jq`
+#### Filtering with `jq`
 
 Filter and transform JSON Lines:
 
 ```bash
 # Filter by specific fields
-govbot logs --repos="il" --limit=100 --filter=default | jq 'select(.log.action.classification[] == "passage")'
+govbot logs| jq 'select(.log.action.classification[] == "passage")'
 
 # Extract specific fields
-govbot logs --repos="il" --limit=10 | jq '{bill_id: .log.bill_id, date: .log.action.date, description: .log.action.description}'
+govbot logs | jq '{bill_id: .log.bill_id, date: .log.action.date, description: .log.action.description}'
 
 # Count by bill
-govbot logs --repos="il" --limit=100 | jq -s 'group_by(.log.bill_id) | map({bill_id: .[0].log.bill_id, count: length})'
+govbot logs | jq -s 'group_by(.log.bill_id) | map({bill_id: .[0].log.bill_id, count: length})'
 
 # Filter by date range
-govbot logs --repos="il" --limit=100 | jq 'select(.timestamp >= "20250301" and .timestamp <= "20250331")'
+govbot logs | jq 'select(.timestamp >= "20250301" and .timestamp <= "20250331")'
 ```
 
-### Using `jl` (JSON Lines processor)
+#### Using `jl` (JSON Lines processor)
 
 `jl` is specifically designed for JSON Lines:
 
 ```bash
 # Pretty print JSON Lines
-govbot logs --repos="il" --limit=10 --filter=default | jl
+govbot logs | jl
 
 # Filter with jl
-govbot logs --repos="il" --limit=100 | jl 'select(.log.action.classification[] == "passage")'
+govbot logs | jl 'select(.log.action.classification[] == "passage")'
 ```
 
 ### Combining Tools
