@@ -400,6 +400,18 @@ pub fn extract_text_from_json(value: &serde_json::Value) -> String {
                 }
             }
 
+            // Extract from action object directly (if present at top level, e.g., when processing log object)
+            if let Some(action) = map.get("action") {
+                // Extract description from action object
+                if let Some(desc) = action.get("description").and_then(|v| v.as_str()) {
+                    texts.push(desc.to_string());
+                }
+                // Or if action is directly a string
+                if let Some(desc_str) = action.as_str() {
+                    texts.push(desc_str.to_string());
+                }
+            }
+
             // Fallback: extract from all other text fields (excluding metadata)
             for (key, val) in map {
                 if !key.starts_with("_")
@@ -478,7 +490,7 @@ fn cosine_similarity(tf1: &HashMap<String, f64>, tf2: &HashMap<String, f64>) -> 
 
 /// Calculate similarity score between a tag string and a JSON log entry
 /// Returns a score between 0.0 and 1.0
-pub fn calculate_similarity(tag: &str, json_entry: &serde_json::Value) -> f64 {
+fn calculate_similarity(tag: &str, json_entry: &serde_json::Value) -> f64 {
     // Extract text from JSON entry (focus on log content)
     let entry_text = if let Some(log) = json_entry.get("log") {
         extract_text_from_json(log)
