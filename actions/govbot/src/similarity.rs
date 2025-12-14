@@ -357,11 +357,64 @@ pub fn extract_text_from_json(value: &serde_json::Value) -> String {
     match value {
         serde_json::Value::String(s) => s.clone(),
         serde_json::Value::Object(map) => {
-            // Extract text from common fields
             let mut texts = Vec::new();
+
+            // Extract from bill object (if present)
+            if let Some(bill) = map.get("bill") {
+                if let Some(title) = bill.get("title").and_then(|v| v.as_str()) {
+                    texts.push(title.to_string());
+                }
+                if let Some(subjects) = bill.get("subject") {
+                    texts.push(extract_text_from_json(subjects));
+                }
+                if let Some(abstracts) = bill.get("abstracts") {
+                    texts.push(extract_text_from_json(abstracts));
+                }
+                if let Some(session) = bill.get("legislative_session").and_then(|v| v.as_str()) {
+                    texts.push(session.to_string());
+                }
+                if let Some(org) = bill.get("from_organization").and_then(|v| v.as_str()) {
+                    texts.push(org.to_string());
+                }
+            }
+
+            // Extract from log object (if present)
+            if let Some(log) = map.get("log") {
+                if let Some(action) = log.get("action") {
+                    // Extract description from action object
+                    if let Some(desc) = action.get("description").and_then(|v| v.as_str()) {
+                        texts.push(desc.to_string());
+                    }
+                    // Or if action is directly a string
+                    if let Some(desc_str) = action.as_str() {
+                        texts.push(desc_str.to_string());
+                    }
+                }
+                // Also check for bill_id in log
+                if let Some(bill_id) = log
+                    .get("bill_id")
+                    .or_else(|| log.get("bill_identifier"))
+                    .and_then(|v| v.as_str())
+                {
+                    texts.push(bill_id.to_string());
+                }
+            }
+
+            // Fallback: extract from all other text fields (excluding metadata)
             for (key, val) in map {
-                // Skip metadata fields
-                if !key.starts_with("_") && !key.contains("id") && !key.contains("date") {
+                if !key.starts_with("_")
+                    && key != "id"
+                    && key != "sources"
+                    && key != "timestamp"
+                    && key != "bill"
+                    && key != "log"
+                    && key != "title"
+                    && key != "action"
+                    && key != "subjects"
+                    && key != "abstracts"
+                    && key != "legislative_session"
+                    && key != "from_organization"
+                {
                     if let Some(text) = val.as_str() {
                         texts.push(text.to_string());
                     } else if val.is_object() || val.is_array() {
@@ -369,6 +422,7 @@ pub fn extract_text_from_json(value: &serde_json::Value) -> String {
                     }
                 }
             }
+
             texts.join(" ")
         }
         serde_json::Value::Array(arr) => arr
