@@ -138,6 +138,84 @@ runs:
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "✅ **Status:** Complete" >> $GITHUB_STEP_SUMMARY
 
+    - name: Create session-level log symlinks
+      shell: bash
+      working-directory: ${{ github.action_path }}
+      run: |
+        set -euo pipefail
+        ACTION_DIR="${{ github.action_path }}"
+        REPO_ROOT="${{ github.workspace }}"
+        STATE_CODE="${{ inputs.state }}"
+
+        # Find the state directory (could be country:us/state:{state} or just state:{state})
+        STATE_DIR=""
+        if [ -d "$REPO_ROOT/country:us/state:$STATE_CODE" ]; then
+          STATE_DIR="$REPO_ROOT/country:us/state:$STATE_CODE"
+        elif [ -d "$REPO_ROOT/state:$STATE_CODE" ]; then
+          STATE_DIR="$REPO_ROOT/state:$STATE_CODE"
+        else
+          echo "⚠️ State directory not found, skipping log symlinks"
+          exit 0
+        fi
+
+        # Find all session directories
+        SESSIONS_DIR="$STATE_DIR/sessions"
+        if [ ! -d "$SESSIONS_DIR" ]; then
+          echo "⚠️ No sessions directory found, skipping log symlinks"
+          exit 0
+        fi
+
+        # Process each session
+        TOTAL_SESSIONS=0
+        PROCESSED_SESSIONS=0
+        FAILED_SESSIONS=0
+
+        while IFS= read -r session_dir; do
+          if [ ! -d "$session_dir" ]; then
+            continue
+          fi
+
+          SESSION_ID=$(basename "$session_dir")
+          BILLS_PATH="$session_dir/bills"
+
+          # Check if this session has bills with logs
+          if [ ! -d "$BILLS_PATH" ]; then
+            continue
+          fi
+
+          # Check if there are any log files
+          LOG_COUNT=$(find "$BILLS_PATH" -type f -path "*/logs/*.json" 2>/dev/null | wc -l | tr -d ' ')
+          if [ "$LOG_COUNT" -eq 0 ]; then
+            continue
+          fi
+
+          TOTAL_SESSIONS=$((TOTAL_SESSIONS + 1))
+          TARGET_LOGS_DIR="$session_dir/logs"
+
+          echo "📦 Processing: $STATE_CODE / $SESSION_ID ($LOG_COUNT log files)"
+
+          # Run symlink-logs Python script
+          if python3 "$ACTION_DIR/symlink_logs.py" \
+            --root "$STATE_DIR" \
+            --session "$SESSION_ID" \
+            --target "$TARGET_LOGS_DIR"; then
+            PROCESSED_SESSIONS=$((PROCESSED_SESSIONS + 1))
+            echo "✅ Linked logs for $STATE_CODE / $SESSION_ID"
+          else
+            FAILED_SESSIONS=$((FAILED_SESSIONS + 1))
+            echo "❌ Failed to process $STATE_CODE / $SESSION_ID"
+          fi
+        done < <(find "$SESSIONS_DIR" -mindepth 1 -maxdepth 1 -type d 2>/dev/null | sort || true)
+
+        if [ "$TOTAL_SESSIONS" -eq 0 ]; then
+          echo "ℹ️ No sessions with log files found"
+        else
+          echo "✅ Processed $PROCESSED_SESSIONS/$TOTAL_SESSIONS sessions"
+          if [ "$FAILED_SESSIONS" -gt 0 ]; then
+            echo "⚠️ $FAILED_SESSIONS sessions failed"
+          fi
+        fi
+
     - name: Generate DCAT data.json
       shell: bash
       working-directory: ${{ github.action_path }}
