@@ -90,7 +90,11 @@ runs:
         # Explicitly set Pipfile location to ensure pipenv uses the correct one
         export PIPENV_PIPFILE="$PIPFILE_PATH"
         cd "$ACTION_DIR"
-        pipenv install --deploy --dev --python python
+        # Remove any existing virtualenv to ensure we use the correct Python version
+        pipenv --rm 2>/dev/null || true
+        # Verify Python version before creating venv
+        python --version
+        pipenv install --deploy --dev --python "$(which python)"
 
     - name: Run formatter
       shell: bash
