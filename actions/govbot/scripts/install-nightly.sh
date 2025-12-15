@@ -25,27 +25,51 @@ ensure_curl() {
 }
 
 detect_platform() {
-  local os arch
+  local os arch native_arch
   os="$(uname -s)"
   arch="$(uname -m)"
-  case "${os}-${arch}" in
-    "Darwin-x86_64")
-      ASSET="govbot-macos-x86_64"
-      ;;
-    "Darwin-arm64")
-      ASSET="govbot-macos-arm64"
-      ;;
-    "Linux-x86_64"|"Linux-amd64")
-      ASSET="govbot-linux-x86_64"
-      ;;
-    "MINGW64_NT-10.0-64"|"MSYS_NT-10.0-64")
-      ASSET="govbot-windows-x86_64.exe"
-      ;;
-    *)
-      echo "Unsupported platform: ${os}-${arch}" >&2
-      exit 1
-      ;;
-  esac
+
+  # On macOS, detect native architecture (not Rosetta)
+  if [[ "${os}" == "Darwin" ]]; then
+    # Check if running under Rosetta on Apple Silicon
+    if [[ "${arch}" == "x86_64" ]]; then
+      # Check if native ARM64 is available
+      if sysctl -n hw.optional.arm64 2>/dev/null | grep -q "1"; then
+        native_arch="arm64"
+        log "Detected native ARM64 architecture (running under Rosetta)"
+      else
+        native_arch="x86_64"
+      fi
+    else
+      native_arch="${arch}"
+    fi
+
+    case "${native_arch}" in
+      "arm64")
+        ASSET="govbot-macos-arm64"
+        ;;
+      "x86_64")
+        ASSET="govbot-macos-x86_64"
+        ;;
+      *)
+        echo "Unsupported macOS architecture: ${native_arch}" >&2
+        exit 1
+        ;;
+    esac
+  else
+    case "${os}-${arch}" in
+      "Linux-x86_64"|"Linux-amd64")
+        ASSET="govbot-linux-x86_64"
+        ;;
+      "MINGW64_NT-10.0-64"|"MSYS_NT-10.0-64")
+        ASSET="govbot-windows-x86_64.exe"
+        ;;
+      *)
+        echo "Unsupported platform: ${os}-${arch}" >&2
+        exit 1
+        ;;
+    esac
+  fi
 }
 
 latest_nightly_tag() {
@@ -59,16 +83,42 @@ latest_nightly_tag() {
 
 download_binary() {
   mkdir -p "${INSTALL_DIR}"
-  local url temp_file
+  local url temp_file fallback_asset
+
+  # Determine fallback asset for macOS (if x86_64 requested but doesn't exist, try arm64)
+  if [[ "${ASSET}" == "govbot-macos-x86_64" ]]; then
+    fallback_asset="govbot-macos-arm64"
+  elif [[ "${ASSET}" == "govbot-macos-arm64" ]]; then
+    fallback_asset="govbot-macos-x86_64"
+  else
+    fallback_asset=""
+  fi
+
   url="https://github.com/${REPO}/releases/download/${LATEST_TAG}/${ASSET}"
   temp_file="$(mktemp)"
-  
+
+  # Try to download the primary asset
+  log "Downloading ${url}"
+  if ! curl -fsSL "${url}" -o "${temp_file}" 2>/dev/null; then
+    # If download failed and we have a fallback, try that
+    if [[ -n "${fallback_asset}" ]]; then
+      log "Primary asset ${ASSET} not found, trying fallback ${fallback_asset}"
+      ASSET="${fallback_asset}"
+      url="https://github.com/${REPO}/releases/download/${LATEST_TAG}/${ASSET}"
+      if ! curl -fsSL "${url}" -o "${temp_file}" 2>/dev/null; then
+        echo "Failed to download ${ASSET} from ${url}" >&2
+        exit 1
+      fi
+    else
+      echo "Failed to download ${ASSET} from ${url}" >&2
+      exit 1
+    fi
+  fi
+
   if [[ "${ASSET}" == *.exe ]]; then
     if [[ -f "${INSTALL_PATH}.exe" ]]; then
       log "Overwriting existing binary at ${INSTALL_PATH}.exe"
     fi
-    log "Downloading ${url}"
-    curl -fsSL "${url}" -o "${temp_file}"
     mv -f "${temp_file}" "${INSTALL_PATH}.exe"
     chmod +x "${INSTALL_PATH}.exe"
     INSTALLED_PATH="${INSTALL_PATH}.exe"
@@ -76,8 +126,6 @@ download_binary() {
     if [[ -f "${INSTALL_PATH}" ]]; then
       log "Overwriting existing binary at ${INSTALL_PATH}"
     fi
-    log "Downloading ${url}"
-    curl -fsSL "${url}" -o "${temp_file}"
     mv -f "${temp_file}" "${INSTALL_PATH}"
     chmod +x "${INSTALL_PATH}"
     INSTALLED_PATH="${INSTALL_PATH}"
