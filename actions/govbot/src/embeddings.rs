@@ -10,7 +10,7 @@ use regex::Regex;
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 
-use crate::similarity::extract_text_from_json;
+use crate::selectors::ocd_files_select_default;
 
 /// Breakdown of scoring components for a tag match
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -422,7 +422,7 @@ impl TagMatcher {
         &self,
         value: &serde_json::Value,
     ) -> anyhow::Result<Vec<(String, ScoreBreakdown)>> {
-        let text = extract_text_from_json(value);
+        let text = ocd_files_select_default(value);
         let mut embeddings = self.embeddings.lock().unwrap();
         let log_embedding = embeddings.embed(&text)?;
 
@@ -453,4 +453,58 @@ impl TagMatcher {
     pub fn tag_definitions(&self) -> &HashMap<String, TagDefinition> {
         &self.tags
     }
+}
+
+/// Keyword-based fallback matcher when embedding mode is unavailable
+/// Matches tags based on include_keywords and exclude_keywords from tag definitions
+pub fn match_tags_keywords(
+    tag_defs: &[TagDefinition],
+    json_entry: &serde_json::Value,
+) -> Vec<(String, ScoreBreakdown)> {
+    let text = ocd_files_select_default(json_entry);
+    let text_lower = text.to_lowercase();
+
+    let mut results = Vec::new();
+
+    for tag_def in tag_defs {
+        // Check exclude_keywords first - if any match, skip this tag
+        if !tag_def.exclude_keywords.is_empty() {
+            if matches_keywords(&text_lower, &tag_def.exclude_keywords) {
+                continue;
+            }
+        }
+
+        // Check include_keywords - if any match, create a match
+        let has_keyword_match = !tag_def.include_keywords.is_empty()
+            && matches_keywords(&text_lower, &tag_def.include_keywords);
+
+        if has_keyword_match {
+            // If keywords match, assign a score based on threshold
+            // Use threshold as the base score, or 0.6 if threshold is lower
+            let score = tag_def.threshold.max(0.6) as f64;
+
+            // Only include if score meets threshold
+            if score >= tag_def.threshold as f64 {
+                results.push((
+                    tag_def.name.clone(),
+                    ScoreBreakdown {
+                        final_score: score,
+                        base_embedding: None,
+                        example_similarity: None,
+                        keyword_match: true,
+                        negative_penalty: 0.0,
+                    },
+                ));
+            }
+        }
+    }
+
+    // Sort by score descending
+    results.sort_by(|a, b| {
+        b.1.final_score
+            .partial_cmp(&a.1.final_score)
+            .unwrap_or(std::cmp::Ordering::Equal)
+    });
+
+    results
 }
