@@ -1,5 +1,5 @@
 name: "Govbot"
-description: "Tag bills, push tags, and publish RSS feeds from govbot.yml configuration"
+description: "Clone repos, tag bills, and create RSS feeds from govbot.yml configuration"
 branding:
   icon: 'rss'
   color: 'orange'
@@ -20,14 +20,6 @@ inputs:
   govbot-dir:
     description: 'Govbot directory (default: $CWD/.govbot/repos, or GOVBOT_DIR env var)'
     required: false
-  push-tags:
-    description: 'Whether to commit and push tag files (default: true)'
-    required: false
-    default: 'true'
-  deploy-pages:
-    description: 'Whether to deploy RSS feeds to GitHub Pages (default: true)'
-    required: false
-    default: 'true'
 
 outputs:
   feed-path:
@@ -70,6 +62,16 @@ runs:
         restore-keys: |
           govbot-repos-${{ runner.os }}-
     
+    - name: Debug cache status
+      shell: bash
+      run: |
+        echo "Cache hit: ${{ steps.cache-repos.outputs.cache-hit }}"
+        if [ "${{ steps.cache-repos.outputs.cache-hit }}" == "true" ]; then
+          echo "✅ Using cached repos - will only update existing repos"
+        else
+          echo "❌ Cache miss - will clone all repos"
+        fi
+    
     - name: Clone legislation repositories
       id: clone
       shell: bash
@@ -81,12 +83,20 @@ runs:
           exit 1
         fi
         
-        # Read repos from govbot.yml (simple parsing - assumes YAML format)
-        # For now, we'll clone all repos by default
-        # Users can specify repos in govbot.yml
-        echo "📥 Cloning legislation repositories..."
-        ${{ github.action_path }}/bin/govbot clone all \
-          --govbot-dir "$GOVBOT_DIR" || true
+        # If cache was hit, govbot clone will just update existing repos (git pull)
+        # If cache was missed, govbot clone will do fresh clones
+        # When no repos are specified, govbot clone updates existing repos only
+        if [ "${{ steps.cache-repos.outputs.cache-hit }}" == "true" ]; then
+          echo "📥 Cache hit - updating existing repositories..."
+          # Update existing repos (no args = update existing only)
+          ${{ github.action_path }}/bin/govbot clone \
+            --govbot-dir "$GOVBOT_DIR" || true
+        else
+          echo "📥 Cache miss - cloning all repositories..."
+          # Clone all repos
+          ${{ github.action_path }}/bin/govbot clone all \
+            --govbot-dir "$GOVBOT_DIR" || true
+        fi
     
     - name: Save repos cache
       if: steps.cache-repos.outputs.cache-hit != 'true'
@@ -101,26 +111,6 @@ runs:
       run: |
         echo "🏷️  Tagging bills..."
         ${{ github.action_path }}/bin/govbot logs | ${{ github.action_path }}/bin/govbot tag || true
-    
-    - name: Commit and push tag files
-      if: inputs.push-tags == 'true'
-      shell: bash
-      working-directory: ${{ github.workspace }}
-      run: |
-        git status
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-        
-        # Add all .tag.json files
-        git add --all :/ || true
-        
-        # Check if there are changes to commit
-        if git diff --cached --quiet; then
-          echo "No tag file changes to commit"
-        else
-          git commit -m "Update tag files from govbot tag" || true
-          git push || true
-        fi
     
     - name: Generate RSS feed
       id: publish
@@ -178,20 +168,3 @@ runs:
         
         echo "feed-path=${{ github.workspace }}/$OUTPUT_DIR/$OUTPUT_FILE" >> $GITHUB_OUTPUT
         echo "feed-dir=${{ github.workspace }}/$OUTPUT_DIR" >> $GITHUB_OUTPUT
-    
-    - name: Setup Pages
-      if: inputs.deploy-pages == 'true'
-      uses: actions/configure-pages@v4
-      with:
-        enablement: true
-    
-    - name: Upload artifact
-      if: inputs.deploy-pages == 'true'
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: ${{ steps.publish.outputs.feed-dir }}
-    
-    - name: Deploy to GitHub Pages
-      if: inputs.deploy-pages == 'true'
-      id: deployment
-      uses: actions/deploy-pages@v4
