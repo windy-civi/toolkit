@@ -1953,7 +1953,11 @@ async fn run_init_command(cmd: Command) -> anyhow::Result<()> {
     if govbot_yml_path.exists() && !force {
         eprintln!("⚠️  govbot.yml already exists. Use --force to overwrite.");
     } else {
-        let govbot_yml_content = r#"repos:
+        let govbot_yml_content = r#"# Govbot Configuration
+# Schema: https://raw.githubusercontent.com/windy-civi/toolkit/main/schemas/govbot.schema.json
+$schema: https://raw.githubusercontent.com/windy-civi/toolkit/main/schemas/govbot.schema.json
+
+repos:
   - all
 
 tags:
