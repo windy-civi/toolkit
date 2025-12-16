@@ -11,7 +11,7 @@ path = "src/lib.rs"
 
 [dependencies]
 # Async runtime and streams
-tokio = { version = "1.0", features = ["full"] }
+tokio = { version = "1.0", features = ["rt", "rt-multi-thread", "fs", "macros"] }
 futures = "0.3"
 async-stream = "0.3"
 
@@ -34,8 +34,8 @@ anyhow = "1.0"
 # Path manipulation
 pathdiff = "0.2"
 
-# Git operations (vendored-openssl is for mac x86 compat. remove when not supporting)
-git2 = { version = "0.18", features = ["vendored-openssl"] }
+# Git operations
+git2 = { version = "0.18" }
 
 # Text similarity and embeddings (lightweight, no external models)
 # Using ONNX Runtime + tokenizers for semantic embeddings
