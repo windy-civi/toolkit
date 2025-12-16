@@ -2024,7 +2024,7 @@ publish:
         let workflow_content = r#"# Publish RSS Feed
 # Automatically generates and publishes RSS feeds from govbot.yml configuration
 
-name: Publish RSS Feed
+name: Publish Govbot
 
 on:
   push:
