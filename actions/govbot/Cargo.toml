@@ -49,6 +49,8 @@ reqwest = { version = "0.11", features = ["blocking"] }
 sha2 = "0.10"
 # Timestamps
 chrono = { version = "0.4", features = ["serde"] }
+# RSS feed generation
+rss = "2.0"
 
 [[bin]]
 name = "govbot"

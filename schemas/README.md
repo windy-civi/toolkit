@@ -2,13 +2,26 @@
 
 This directory contains JSON Schema definitions and Project Open Data catalog files that describe the structure and location of legislative data files.
 
+## JSON Schema Files
+
+The `*.schema.json` files are JSON Schema definitions that validate the structure of configuration and data files.
+
+### Configuration Schemas
+
+- **`govbot.schema.json`** - Schema for `govbot.yml` configuration files used by the govbot CLI tool. Defines the structure for repositories, tags, and RSS publishing configuration.
+
+### Data Schemas
+
+- **`openstates.*.schema.json`** - Schemas for OpenStates scraped data structures
+- **`ocdfiles.*.schema.json`** - Schemas for OCD (Open Civic Data) formatted files
+
 ## Data Catalog Files
 
 The `*.data.json` files use the [Project Open Data](https://project-open-data.cio.gov/) catalog format to describe datasets. These files extend the standard format with custom extensions for filesystem path validation and schema references.
 
 ### Files
 
-- **`ocd-files.data.json`** - Catalog for formatted OCD (Open Civic Data) files from the format action
+- **`ocdfiles.data.json`** - Catalog for formatted OCD (Open Civic Data) files from the format action
 - **`openstates-scrape.data.json`** - Catalog for raw scraped files from OpenStates
 
 ## Custom Extensions
@@ -83,11 +96,33 @@ An array of OpenAPI-style parameter definitions that describe the path variables
 
 ## Usage
 
-These catalog files are used by:
+### Code Editor Support
+
+Schemas can be referenced in YAML files using the `$schema` key:
+
+```yaml
+# govbot.yml
+$schema: https://raw.githubusercontent.com/windy-civi/toolkit/main/schemas/govbot.schema.json
+
+repos:
+  - all
+tags:
+  # ... tag definitions
+```
+
+This enables:
+- **Autocomplete** - Editors suggest valid keys and values
+- **Validation** - Real-time error checking as you type
+- **Documentation** - Hover tooltips with field descriptions
+
+### Other Uses
+
+These catalog and schema files are used by:
 
 1. **Schema Generators** - Tools that generate TypeScript, Python, and Rust type definitions from the JSON schemas
 2. **Path Validators** - Validators that extract and validate path parameters from filesystem paths
 3. **Documentation** - Self-documenting catalog of all data file types and their locations
+4. **CI/CD Validation** - Automated validation in GitHub Actions and other CI systems
 
 ## Standard Project Open Data Fields
 

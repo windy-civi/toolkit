@@ -1,37 +1,30 @@
-name: "Legislation Tools Pipeline"
-description: "Clones repositories and runs the legislation tools pipeline on cloned data"
-author: "Your Name"
+name: "Govbot RSS Publisher"
+description: "Generate and publish RSS feeds from govbot.yml configuration"
+branding:
+  icon: 'rss'
+  color: 'orange'
 
 inputs:
-  repos:
-    description: "List of repositories to clone (space-separated repository names)"
-    required: true
-  token:
-    description: "GitHub token for authentication"
+  tags:
+    description: 'Comma-separated list of tags to include in feed (default: all tags from govbot.yml)'
     required: false
-  output_dir:
-    description: "Output directory for cloned repositories"
-    required: false
-    default: "./govbot/repos"
-  sort:
-    description: "Sort order for results (ASC or DESC)"
-    required: false
-    default: "DESC"
   limit:
-    description: "Limit the number of results (positive integer)"
+    description: 'Limit number of entries per feed'
     required: false
-  output_file:
-    description: "Path to the output file"
+  output-dir:
+    description: 'Output directory for RSS feed (default: from govbot.yml publish.output_dir)'
     required: false
-    default: "./govbot/logs/govbot.log"
+  output-file:
+    description: 'Output filename for RSS feed (default: from govbot.yml publish.output_file)'
+    required: false
+  govbot-dir:
+    description: 'Govbot directory (default: $CWD/.govbot/repos, or GOVBOT_DIR env var)'
+    required: false
 
 outputs:
-  directories:
-    description: "Comma-separated list of cloned directory paths"
-    value: ${{ steps.pipeline.outputs.directories }}
-  repository-count:
-    description: "Number of repositories cloned"
-    value: ${{ steps.pipeline.outputs.repository-count }}
+  feed-path:
+    description: 'Path to the generated RSS feed file'
+    value: ${{ steps.publish.outputs.feed-path }}
 
 runs:
   using: "composite"
@@ -42,45 +35,95 @@ runs:
         toolchain: stable
         override: true
     
-    - name: Build Rust binary
+    - name: Build govbot
       shell: bash
       working-directory: ${{ github.action_path }}
       run: |
         cargo build --release --bin govbot
     
-    - name: Run pipeline
-      id: pipeline
+    - name: Clone legislation repositories
+      id: clone
       shell: bash
-      working-directory: ${{ github.action_path }}
-      env:
-        TOKEN: ${{ inputs.token }}
-        GITHUB_OUTPUT: ${{ github.output }}
+      working-directory: ${{ github.workspace }}
       run: |
-        BINARY="target/release/govbot"
+        # Set GOVBOT_DIR
+        if [ -n "${{ inputs.govbot-dir }}" ]; then
+          export GOVBOT_DIR="${{ inputs.govbot-dir }}"
+        else
+          export GOVBOT_DIR="${{ github.workspace }}/.govbot"
+        fi
         
-        # Build command with flags
-        CMD="$BINARY"
+        # Check if govbot.yml exists
+        if [ ! -f "${{ github.workspace }}/govbot.yml" ]; then
+          echo "::error::govbot.yml not found in repository root"
+          exit 1
+        fi
         
-        # Add --git-dir flag (maps from output_dir input)
-        CMD="$CMD --git-dir=${{ inputs.output_dir }}"
+        # Read repos from govbot.yml (simple parsing - assumes YAML format)
+        # For now, we'll clone all repos by default
+        # Users can specify repos in govbot.yml
+        echo "📥 Cloning legislation repositories..."
+        ${{ github.action_path }}/target/release/govbot clone all \
+          --govbot-dir "$GOVBOT_DIR" || true
+    
+    - name: Generate RSS feed
+      id: publish
+      shell: bash
+      working-directory: ${{ github.workspace }}
+      run: |
+        # Set GOVBOT_DIR
+        if [ -n "${{ inputs.govbot-dir }}" ]; then
+          export GOVBOT_DIR="${{ inputs.govbot-dir }}"
+        else
+          export GOVBOT_DIR="${{ github.workspace }}/.govbot"
+        fi
+        # Build command arguments
+        ARGS=""
         
-        # Add --sort flag (has default in action.yml)
-        CMD="$CMD --sort=${{ inputs.sort }}"
+        # Add tags if specified
+        if [ -n "${{ inputs.tags }}" ]; then
+          # Convert comma-separated to space-separated
+          TAGS=$(echo "${{ inputs.tags }}" | tr ',' ' ')
+          ARGS="$ARGS --tags $TAGS"
+        fi
         
-        # Add --limit flag only if provided (no default)
+        # Add limit if specified
         if [ -n "${{ inputs.limit }}" ]; then
-          CMD="$CMD --limit=${{ inputs.limit }}"
+          ARGS="$ARGS --limit ${{ inputs.limit }}"
         fi
         
-        # Add --join flag (default to minimal_metadata to match original behavior)
-        CMD="$CMD --join=minimal_metadata"
-        
-        # Add repos as --repos flag (clap accepts multiple values)
-        if [ -n "${{ inputs.repos }}" ]; then
-          CMD="$CMD --repos ${{ inputs.repos }}"
+        # Add output directory if specified
+        if [ -n "${{ inputs.output-dir }}" ]; then
+          ARGS="$ARGS --output-dir ${{ inputs.output-dir }}"
         fi
         
-        # Execute the command and redirect stdout to output file
-        # The Rust binary writes JSON to stdout, errors to stderr
-        # Errors will be visible in GitHub Actions logs, output goes to file
-        $CMD > "${{ inputs.output_file }}"
+        # Add output file if specified
+        if [ -n "${{ inputs.output-file }}" ]; then
+          ARGS="$ARGS --output-file ${{ inputs.output-file }}"
+        fi
+        
+        # Add govbot-dir if specified
+        if [ -n "${{ inputs.govbot-dir }}" ]; then
+          ARGS="$ARGS --govbot-dir ${{ inputs.govbot-dir }}"
+        fi
+        
+        # Run publish command
+        # govbot.yml is automatically found in workspace root
+        ${{ github.action_path }}/target/release/govbot publish $ARGS
+        
+        # Determine output path (read from govbot.yml or use defaults)
+        if [ -n "${{ inputs.output-dir }}" ]; then
+          OUTPUT_DIR="${{ inputs.output-dir }}"
+        else
+          # Try to read from govbot.yml, default to feeds
+          OUTPUT_DIR=$(grep -A 5 "^publish:" "${{ github.workspace }}/govbot.yml" | grep "output_dir:" | awk '{print $2}' | tr -d '"' || echo "feeds")
+        fi
+        
+        if [ -n "${{ inputs.output-file }}" ]; then
+          OUTPUT_FILE="${{ inputs.output-file }}"
+        else
+          # Try to read from govbot.yml, default to feed.xml
+          OUTPUT_FILE=$(grep -A 5 "^publish:" "${{ github.workspace }}/govbot.yml" | grep "output_file:" | awk '{print $2}' | tr -d '"' || echo "feed.xml")
+        fi
+        
+        echo "feed-path=${{ github.workspace }}/$OUTPUT_DIR/$OUTPUT_FILE" >> $GITHUB_OUTPUT

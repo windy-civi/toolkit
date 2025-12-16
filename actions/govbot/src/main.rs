@@ -2,6 +2,8 @@ use clap::{Parser, Subcommand};
 use govbot::git;
 use govbot::{TagMatcher, hash_text, TagFile, TagFileMetadata, BillTagResult};
 use govbot::selectors::ocd_files_select_default;
+use govbot::publish::{load_config, get_repos_from_config, filter_by_tags, deduplicate_entries, sort_by_timestamp};
+use govbot::rss;
 use futures::StreamExt;
 use futures::stream;
 use std::io::{self, Write, BufRead, BufReader};
@@ -163,6 +165,38 @@ enum Command {
     /// Downloads and installs the latest nightly build from GitHub releases
     Update,
 
+    /// Initialize a new govbot project
+    /// Creates govbot.yml, .gitignore, and GitHub Actions workflow
+    Init {
+        /// Force overwrite existing files
+        #[arg(long)]
+        force: bool,
+    },
+
+    /// Publish RSS feed from govbot.yml configuration
+    /// Generates a combined RSS feed from logs filtered by tags in govbot.yml
+    Publish {
+        /// Specific tags to include in feed (default: all tags from govbot.yml)
+        #[arg(long, num_args = 0..)]
+        tags: Vec<String>,
+        
+        /// Limit number of entries per feed (default: 15, use "none" for all entries)
+        #[arg(long)]
+        limit: Option<String>,
+        
+        /// Output directory for RSS feed (default: from govbot.yml publish.output_dir)
+        #[arg(long)]
+        output_dir: Option<String>,
+        
+        /// Output filename for RSS feed (default: from govbot.yml publish.output_file)
+        #[arg(long)]
+        output_file: Option<String>,
+        
+        /// Govbot directory (default: $CWD/.govbot/repos, or GOVBOT_DIR env var)
+        #[arg(long = "govbot-dir")]
+        govbot_dir: Option<String>,
+    },
+
     /// Tag bills using semantic or built-in similarity based on govbot.yml in the current directory.
     /// Reads JSON lines from stdin (from `govbot logs`), processes entries with bill identifiers,
     /// and writes per-tag files under the directory containing govbot.yml.
@@ -188,10 +222,12 @@ enum Command {
 
 fn print_available_commands() {
     println!("Available commands:");
+    println!("  init    Initialize a new govbot project (creates govbot.yml, .gitignore, and GitHub Actions workflow)");
     println!("  clone   Clone or pull data pipeline repositories (default: updates existing repos, use 'clone all' to clone all)");
     println!("  delete  Delete data pipeline repositories (use 'delete all' to delete all)");
     println!("  logs    Process and display pipeline log files");
     println!("  load    Load bill metadata into a DuckDB database file");
+    println!("  publish Generate RSS feed from govbot.yml configuration");
     println!("  tag     Tag bills using AI based on log entries");
     println!("  update  Update govbot to the latest nightly version");
 }
@@ -1904,6 +1940,478 @@ async fn run_tag_command(cmd: Command) -> anyhow::Result<()> {
     Ok(())
 }
 
+async fn run_init_command(cmd: Command) -> anyhow::Result<()> {
+    let Command::Init { force } = cmd else {
+        unreachable!()
+    };
+    
+    let cwd = std::env::current_dir()?;
+    
+    // Create govbot.yml
+    let govbot_yml_path = cwd.join("govbot.yml");
+    if govbot_yml_path.exists() && !force {
+        eprintln!("⚠️  govbot.yml already exists. Use --force to overwrite.");
+    } else {
+        let govbot_yml_content = r#"# Govbot Configuration
+# Schema: https://raw.githubusercontent.com/windy-civi/toolkit/main/schemas/govbot.schema.json
+$schema: https://raw.githubusercontent.com/windy-civi/toolkit/main/schemas/govbot.schema.json
+
+repos:
+  - all
+
+tags:
+  education:
+    description: |
+      Legislation related to schools, education funding, curriculum standards, and educational policy, including:
+      - K-12 public school funding, budgets, and resource allocation
+      - Curriculum standards, content requirements, and academic programs
+      - Teacher certification, training, professional development, and compensation
+      - Higher education policy, tuition, financial aid, and student loans
+      - Charter schools, school choice, vouchers, and alternative education models
+      - Special education services, accommodations, and individualized education plans
+      - School safety, security measures, and student discipline policies
+      - Early childhood education, pre-K programs, and childcare
+      - Standardized testing, assessments, and accountability measures
+      - School district governance, administration, and oversight
+      - Educational technology, digital learning, and online education
+      - Career and technical education, vocational training, and workforce development
+    examples:
+      - "Increases per-pupil funding for public schools and establishes minimum teacher salary requirements"
+      - "Mandates comprehensive sex education curriculum in all public schools"
+      - "Expands eligibility for state financial aid programs to include part-time students"
+
+publish:
+  base_url: "https://yourusername.github.io/your-repo-name"
+  output_dir: "feeds"
+  output_file: "feed.xml"
+  # Optional: limit number of entries (default: 15, use "none" for all)
+  # limit: 15
+"#;
+        fs::write(&govbot_yml_path, govbot_yml_content)?;
+        println!("✓ Created govbot.yml");
+    }
+    
+    // Create or update .gitignore
+    let gitignore_path = cwd.join(".gitignore");
+    let gitignore_entry = ".govbot\n";
+    
+    if gitignore_path.exists() {
+        let mut content = fs::read_to_string(&gitignore_path)?;
+        if content.contains(".govbot") {
+            println!("✓ .gitignore already contains .govbot");
+        } else {
+            // Add .govbot if not present
+            if !content.ends_with('\n') {
+                content.push('\n');
+            }
+            content.push_str(gitignore_entry);
+            fs::write(&gitignore_path, content)?;
+            println!("✓ Updated .gitignore to include .govbot");
+        }
+    } else {
+        fs::write(&gitignore_path, gitignore_entry)?;
+        println!("✓ Created .gitignore with .govbot");
+    }
+    
+    // Create GitHub Actions workflow
+    let workflows_dir = cwd.join(".github").join("workflows");
+    fs::create_dir_all(&workflows_dir)?;
+    
+    let workflow_path = workflows_dir.join("publish-rss.yml");
+    if workflow_path.exists() && !force {
+        eprintln!("⚠️  .github/workflows/publish-rss.yml already exists. Use --force to overwrite.");
+    } else {
+        let workflow_content = r#"# Publish RSS Feed
+# Automatically generates and publishes RSS feeds from govbot.yml configuration
+
+name: Publish RSS Feed
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: 'Comma-separated list of tags to include (leave empty for all tags)'
+        required: false
+        type: string
+      limit:
+        description: 'Limit number of entries per feed (default: 15, use "none" for all)'
+        required: false
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Publish RSS feed
+        uses: windy-civi/toolkit/actions/govbot@main
+        with:
+          tags: ${{ inputs.tags }}
+          limit: ${{ inputs.limit }}
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: feeds
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+"#;
+        fs::write(&workflow_path, workflow_content)?;
+        println!("✓ Created .github/workflows/publish-rss.yml");
+    }
+    
+    println!("\n✅ Govbot project initialized!");
+    println!("\nNext steps:");
+    println!("  1. Edit govbot.yml to customize tags and publish settings");
+    println!("  2. Update the base_url in govbot.yml to match your GitHub Pages URL");
+    println!("  3. Run 'govbot clone' to download legislation repositories");
+    println!("  4. Run 'govbot publish' to generate your RSS feed");
+    println!("  5. Enable GitHub Pages in your repository settings (Source: GitHub Actions)");
+    
+    Ok(())
+}
+
+async fn run_publish_command(cmd: Command) -> anyhow::Result<()> {
+    let Command::Publish {
+        tags,
+        limit,
+        output_dir,
+        output_file,
+        govbot_dir,
+    } = cmd else {
+        unreachable!()
+    };
+    
+    // Check if govbot.yml exists in current directory
+    let current_dir = std::env::current_dir()?;
+    let config_path = current_dir.join("govbot.yml");
+    
+    if !config_path.exists() {
+        return Err(anyhow::anyhow!("govbot.yml not found in current directory"));
+    }
+    
+    // Load configuration
+    let config = load_config(&config_path)?;
+    
+    // Get tags configuration
+    let tags_config = config.get("tags")
+        .and_then(|t| t.as_object())
+        .ok_or_else(|| anyhow::anyhow!("No tags found in configuration"))?;
+    
+    // Determine which tags to use
+    let tags_to_use: Vec<String> = if tags.is_empty() {
+        // Use tags from publish config, or all tags
+        if let Some(publish_tags) = config.get("publish")
+            .and_then(|p| p.get("tags"))
+            .and_then(|t| t.as_array())
+        {
+            publish_tags
+                .iter()
+                .filter_map(|v| v.as_str().map(|s| s.to_string()))
+                .collect()
+        } else {
+            tags_config.keys().cloned().collect()
+        }
+    } else {
+        tags
+    };
+    
+    // Validate tags exist
+    for tag in &tags_to_use {
+        if !tags_config.contains_key(tag) {
+            return Err(anyhow::anyhow!("Tag '{}' not found in configuration", tag));
+        }
+    }
+    
+    if tags_to_use.is_empty() {
+        return Err(anyhow::anyhow!("No valid tags to process"));
+    }
+    
+    // Get publish configuration
+    let publish_config = config.get("publish").and_then(|p| p.as_object());
+    
+    // Get output directory
+    let output_dir_path = if let Some(dir) = output_dir {
+        PathBuf::from(dir)
+    } else {
+        let dir_str = publish_config
+            .and_then(|p| p.get("output_dir"))
+            .and_then(|d| d.as_str())
+            .unwrap_or("feeds");
+        PathBuf::from(dir_str)
+    };
+    
+    // Get output filename
+    let output_filename = if let Some(file) = output_file {
+        file
+    } else {
+        publish_config
+            .and_then(|p| p.get("output_file"))
+            .and_then(|f| f.as_str())
+            .unwrap_or("feed.xml")
+            .to_string()
+    };
+    
+    // Get feed metadata
+    let feed_title = publish_config
+        .and_then(|p| p.get("title"))
+        .and_then(|t| t.as_str())
+        .map(|s| s.to_string())
+        .unwrap_or_else(|| {
+            format!("{} Legislation", tags_to_use.iter()
+                .map(|t| t.replace('_', " ").split_whitespace()
+                    .map(|w| {
+                        let mut chars = w.chars();
+                        match chars.next() {
+                            None => String::new(),
+                            Some(f) => f.to_uppercase().collect::<String>() + chars.as_str(),
+                        }
+                    })
+                    .collect::<Vec<_>>()
+                    .join(" "))
+                .collect::<Vec<_>>()
+                .join(" & "))
+        });
+    
+    let feed_description = publish_config
+        .and_then(|p| p.get("description"))
+        .and_then(|d| d.as_str())
+        .map(|s| s.to_string())
+        .unwrap_or_else(|| {
+            let mut descs = Vec::new();
+            for tag_name in &tags_to_use {
+                if let Some(tag_obj) = tags_config.get(tag_name).and_then(|t| t.as_object()) {
+                    if let Some(desc) = tag_obj.get("description").and_then(|d| d.as_str()) {
+                        let tag_title = tag_name.replace('_', " ").split_whitespace()
+                            .map(|w| {
+                                let mut chars = w.chars();
+                                match chars.next() {
+                                    None => String::new(),
+                                    Some(f) => f.to_uppercase().collect::<String>() + chars.as_str(),
+                                }
+                            })
+                            .collect::<Vec<_>>()
+                            .join(" ");
+                        descs.push(format!("{}: {}", tag_title, &desc[..desc.len().min(200)]));
+                    }
+                }
+            }
+            if descs.is_empty() {
+                "Legislative updates".to_string()
+            } else {
+                descs.join(" | ")
+            }
+        });
+    
+    let feed_link = publish_config
+        .and_then(|p| p.get("base_url"))
+        .and_then(|u| u.as_str())
+        .unwrap_or("https://example.com");
+    
+    let base_url = Some(feed_link);
+    
+    // Get repos
+    let repos = get_repos_from_config(&config);
+    
+    // Get repos to process
+    let repos_to_process: Vec<String> = if repos == vec!["all".to_string()] {
+        Vec::new() // Empty means all repos
+    } else {
+        repos
+    };
+    
+    // Get limit - parse "none" as no limit, otherwise parse as usize
+    // Default to 15 (RSS standard) if not specified
+    let limit_str_opt = limit.or_else(|| {
+        publish_config
+            .and_then(|p| p.get("limit"))
+            .and_then(|l| {
+                if let Some(s) = l.as_str() {
+                    Some(s.to_string())
+                } else if let Some(n) = l.as_u64() {
+                    Some(n.to_string())
+                } else {
+                    None
+                }
+            })
+    });
+    
+    let limit_value: Option<usize> = if let Some(limit_str) = limit_str_opt {
+        if limit_str.to_lowercase() == "none" {
+            None // No limit
+        } else {
+            limit_str.parse().ok()
+        }
+    } else {
+        Some(15) // Default to 15 items (RSS standard)
+    };
+    
+    // Run logs command and collect entries
+    eprintln!("Collecting log entries for tags: {}", tags_to_use.join(", "));
+    let mut entries = Vec::new();
+    
+    // Get the base govbot directory (not the repos subdirectory)
+    // The logs command expects the base directory and will append /repos itself
+    let base_govbot_dir = if let Some(ref gd) = govbot_dir {
+        gd.clone()
+    } else if let Ok(gd) = std::env::var("GOVBOT_DIR") {
+        gd
+    } else {
+        // Default: $CWD/.govbot
+        std::env::current_dir()
+            .unwrap_or_else(|_| PathBuf::from("."))
+            .join(".govbot")
+            .to_string_lossy()
+            .to_string()
+    };
+    
+    // Call logs command as subprocess and parse JSON output
+    // Use current executable (govbot binary)
+    let exe = std::env::current_exe()
+        .unwrap_or_else(|_| PathBuf::from("govbot"));
+    
+    let mut cmd = ProcessCommand::new(exe);
+    cmd.arg("logs")
+        .arg("--join")
+        .arg("bill,tags")
+        .arg("--select")
+        .arg("default")
+        .arg("--filter")
+        .arg("default")
+        .arg("--sort")
+        .arg("DESC");
+    
+    // Only add --govbot-dir if it's not the default
+    if !base_govbot_dir.is_empty() && base_govbot_dir != ".govbot" {
+        cmd.arg("--govbot-dir").arg(&base_govbot_dir);
+    }
+    
+    if !repos_to_process.is_empty() {
+        cmd.arg("--repos");
+        for repo in &repos_to_process {
+            cmd.arg(repo);
+        }
+    }
+    
+    // Don't pass limit to logs command - we'll limit after filtering/sorting
+    // This ensures we get the best entries, not just the first N from each repo
+    
+    let output = cmd.output()?;
+    
+    // Check return code
+    if !output.status.success() {
+        let stderr_str = String::from_utf8_lossy(&output.stderr);
+        eprintln!("Error: logs command failed with exit code: {:?}", output.status.code());
+        eprintln!("Stderr: {}", stderr_str);
+        return Err(anyhow::anyhow!("Failed to collect log entries"));
+    }
+    
+    // Check if there were any errors in stderr (but compilation messages are OK)
+    if !output.stderr.is_empty() {
+        let stderr_str = String::from_utf8_lossy(&output.stderr);
+        // Filter out compilation messages
+        let filtered_stderr: Vec<&str> = stderr_str
+            .lines()
+            .filter(|line| !line.contains("Compiling") && !line.contains("Finished"))
+            .collect();
+        if !filtered_stderr.is_empty() {
+            eprintln!("Warning from logs command: {}", filtered_stderr.join("\n"));
+        }
+    }
+    
+    // Parse JSON lines from output
+    let mut total_entries = 0;
+    let mut filtered_entries = 0;
+    let stdout_str = String::from_utf8_lossy(&output.stdout);
+    
+    if stdout_str.trim().is_empty() {
+        eprintln!("Warning: logs command returned no output. Make sure repositories are cloned and contain log files.");
+    }
+    
+    for line in stdout_str.lines() {
+        let line = line.trim();
+        if line.is_empty() {
+            continue;
+        }
+        match serde_json::from_str::<serde_json::Value>(line) {
+            Ok(entry) => {
+                total_entries += 1;
+                if filter_by_tags(&entry, &tags_to_use) {
+                    entries.push(entry);
+                    filtered_entries += 1;
+                }
+            }
+            Err(e) => {
+                // Skip invalid JSON lines (might be compilation output that leaked through)
+                if !line.contains("Compiling") && !line.contains("Finished") {
+                    eprintln!("Warning: Failed to parse JSON line: {}", e);
+                }
+            }
+        }
+    }
+    
+    if total_entries == 0 {
+        eprintln!("Warning: No log entries found. Make sure repositories are cloned and contain log files.");
+    } else if filtered_entries == 0 && !tags_to_use.is_empty() {
+        eprintln!("Warning: Found {} entries but none matched the specified tags. Entries may not have tags yet - consider running 'govbot tag' first, or publish without --tags to include all entries.", total_entries);
+    }
+    
+    // Deduplicate and sort
+    entries = deduplicate_entries(entries);
+    entries = sort_by_timestamp(entries);
+    
+    // Apply limit (default is 15, RSS standard)
+    let original_count = entries.len();
+    if let Some(lim) = limit_value {
+        entries.truncate(lim);
+        if original_count > lim {
+            eprintln!("Limited feed to {} entries (RSS standard). Use --limit none to include all {} entries.", lim, original_count);
+        }
+    }
+    
+    // Generate RSS
+    eprintln!("Generating RSS feed with {} entries...", entries.len());
+    let rss_xml = rss::json_to_rss(
+        entries,
+        &feed_title,
+        &feed_description,
+        feed_link,
+        base_url.as_deref(),
+        "en-us",
+        Some(&tags_to_use),
+    );
+    
+    // Create output directory
+    fs::create_dir_all(&output_dir_path)?;
+    
+    // Write RSS feed
+    let output_path = output_dir_path.join(&output_filename);
+    fs::write(&output_path, rss_xml)?;
+    
+    eprintln!("✓ Generated RSS feed: {}", output_path.display());
+    eprintln!("  Tags included: {}", tags_to_use.join(", "));
+    
+    Ok(())
+}
+
 async fn run_update_command() -> anyhow::Result<()> {
     let install_script_url = "https://raw.githubusercontent.com/windy-civi/toolkit/main/actions/govbot/scripts/install-nightly.sh";
     
@@ -1954,6 +2462,12 @@ async fn main() -> anyhow::Result<()> {
         }
         Some(cmd @ Command::Tag { .. }) => {
             run_tag_command(cmd).await
+        }
+        Some(cmd @ Command::Publish { .. }) => {
+            run_publish_command(cmd).await
+        }
+        Some(cmd @ Command::Init { .. }) => {
+            run_init_command(cmd).await
         }
         None => {
             print_available_commands();
