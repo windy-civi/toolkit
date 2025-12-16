@@ -111,7 +111,7 @@ runs:
         git config user.email "github-actions[bot]@users.noreply.github.com"
         
         # Add all .tag.json files
-        git add $(find . -name "*.tag.json" -type f) || true
+        git add --all :/
         
         # Check if there are changes to commit
         if git diff --cached --quiet; then
