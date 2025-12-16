@@ -104,7 +104,6 @@ docs/action_logs/*
 # Rust / Cargo
 target/
 **/target/
-Cargo.lock
 # Save .cargo/config if used for config, not secrets
 
 # Rust build output
