@@ -226,7 +226,6 @@ fn print_available_commands() {
     println!("  clone   Clone or pull data pipeline repositories (default: updates existing repos, use 'clone all' to clone all)");
     println!("  delete  Delete data pipeline repositories (use 'delete all' to delete all)");
     println!("  logs    Process and display pipeline log files");
-    println!("  publish Generate RSS feed from govbot.yml configuration");
     println!("  load    Load bill metadata into a DuckDB database file");
     println!("  publish Generate RSS feed from govbot.yml configuration");
     println!("  tag     Tag bills using AI based on log entries");
