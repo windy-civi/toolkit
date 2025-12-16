@@ -2418,10 +2418,11 @@ async fn run_update_command() -> anyhow::Result<()> {
     eprintln!("🔄 Updating govbot to latest nightly version...");
     eprintln!("Downloading and running install script from: {}", install_script_url);
     
-    // Execute the install script using sh -c "$(curl -fsSL <url>)"
+    // Execute the install script by piping curl directly to sh
+    // This avoids issues with shebang lines being interpreted as commands
     let mut cmd = ProcessCommand::new("sh");
     cmd.arg("-c");
-    cmd.arg(&format!("$(curl -fsSL {})", install_script_url));
+    cmd.arg(&format!("curl -fsSL {} | sh", install_script_url));
     
     // Inherit stdin/stdout/stderr so the install script can interact with the user
     cmd.stdin(std::process::Stdio::inherit());
