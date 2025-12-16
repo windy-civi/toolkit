@@ -113,7 +113,7 @@ runs:
         git config user.email "github-actions[bot]@users.noreply.github.com"
         
         # Add all .tag.json files
-        git add --all :/
+        git add --all :/ || true
         
         # Check if there are changes to commit
         if git diff --cached --quiet; then
