@@ -2064,6 +2064,8 @@ jobs:
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        with:
+          enablement: true
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -2084,7 +2086,7 @@ jobs:
     println!("  2. Update the base_url in govbot.yml to match your GitHub Pages URL");
     println!("  3. Run 'govbot clone' to download legislation repositories");
     println!("  4. Run 'govbot publish' to generate your RSS feed");
-    println!("  5. Enable GitHub Pages in your repository settings (Source: GitHub Actions)");
+    println!("  5. Push to GitHub - the workflow will automatically enable GitHub Pages and deploy your feed!");
     
     Ok(())
 }
