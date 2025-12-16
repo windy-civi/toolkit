@@ -2022,7 +2022,7 @@ publish:
         eprintln!("⚠️  .github/workflows/publish-rss.yml already exists. Use --force to overwrite.");
     } else {
         let workflow_content = r#"# Run Govbot
-# Runs govbot to tag bills, push tags, and publish to endpoints.
+# Runs govbot to clone repos, tag bills, and create RSS feeds.
 
 name: Publish Govbot
 
@@ -2047,10 +2047,6 @@ on:
 jobs:
   govbot:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
     
     steps:
       - name: Checkout repository
@@ -2069,11 +2065,11 @@ jobs:
     println!("\n✅ Govbot project initialized!");
     println!("\nNext steps:");
     println!("  1. Edit govbot.yml to customize tags and publish settings");
-    println!("  2. Update the base_url in govbot.yml to match your GitHub Pages URL");
+    println!("  2. Update the base_url in govbot.yml to match your feed URL");
     println!("  3. Run 'govbot clone' to download legislation repositories");
     println!("  4. Push to GitHub - the workflow will automatically:");
-    println!("     - Tag bills and commit/push tag files to the repository");
-    println!("     - Generate and publish RSS feeds to GitHub Pages");
+    println!("     - Clone repos and tag bills");
+    println!("     - Generate RSS feeds (files will be created in the repository)");
     
     Ok(())
 }
