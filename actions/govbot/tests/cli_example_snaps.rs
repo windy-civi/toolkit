@@ -170,6 +170,7 @@ fn snapshot_name_from_path(path: &Path) -> String {
 }
 
 /// Format output with script contents for snapshot
+/// For logs output (JSON lines), sort the lines to ensure deterministic snapshots
 fn format_snapshot_with_script(script_path: &Path, output: &str) -> String {
     let script_content = fs::read_to_string(script_path)
         .expect(&format!("Failed to read script: {}", script_path.display()));
@@ -177,7 +178,16 @@ fn format_snapshot_with_script(script_path: &Path, output: &str) -> String {
     // Remove trailing newlines from script content
     let script_content = script_content.trim_end();
 
-    format!("Command:\n{}\n\nOutput:\n{}", script_content, output)
+    // Check if this is a logs command - if so, sort JSON lines for deterministic output
+    let sorted_output = if script_content.contains("govbot logs") {
+        let mut lines: Vec<&str> = output.lines().collect();
+        lines.sort();
+        lines.join("\n")
+    } else {
+        output.to_string()
+    };
+
+    format!("Command:\n{}\n\nOutput:\n{}", script_content, sorted_output)
 }
 
 /// Check if a script requires test data to run
