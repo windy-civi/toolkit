@@ -1,0 +1,12 @@
+---
+source: tests/cli_example_snaps.rs
+expression: "&stderr"
+---
+Warning: Unknown join dataset: none
+Warning: Unknown join dataset: none
+Warning: Unknown join dataset: none
+Warning: Unknown join dataset: none
+Warning: Unknown join dataset: none
+Warning: Unknown join dataset: none
+Warning: Unknown join dataset: none
+Warning: Unknown join dataset: none

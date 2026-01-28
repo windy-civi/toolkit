@@ -1,0 +1,12 @@
+---
+source: tests/cli_example_snaps.rs
+expression: "&formatted_stdout"
+---
+Command:
+# Test logs command with no joins (raw log entries only)
+govbot logs --join none --sort ASC --limit 3
+
+Output:
+{"id":"HB0001","log":{"action":{"classification":["filing"],"date":"2025-01-29T17:06:54+00:00","description":"H Received for Introduction","organization_id":"~{\"classification\": \"lower\"}"},"bill_id":"HB0001"},"sources":{"log":"wy-legislation/country:us/state:wy/sessions/2025/bills/HB0001/logs/20250129T170654Z_h_received_for_introduction.json"},"timestamp":"20250129T170654Z"}
+{"id":"HB0002","log":{"action":{"classification":["filing"],"date":"2025-01-02T19:16:16+00:00","description":"H Received for Introduction","organization_id":"~{\"classification\": \"lower\"}"},"bill_id":"HB0002"},"sources":{"log":"wy-legislation/country:us/state:wy/sessions/2025/bills/HB0002/logs/20250102T191616Z_h_received_for_introduction.json"},"timestamp":"20250102T191616Z"}
+{"id":"HB0003","log":{"action":{"classification":["filing"],"date":"2025-01-02T19:17:11+00:00","description":"H Received for Introduction","organization_id":"~{\"classification\": \"lower\"}"},"bill_id":"HB0003"},"sources":{"log":"wy-legislation/country:us/state:wy/sessions/2025/bills/HB0003/logs/20250102T191711Z_h_received_for_introduction.json"},"timestamp":"20250102T191711Z"}

@@ -3,7 +3,7 @@ source: tests/cli_example_snaps.rs
 expression: "&formatted_stdout"
 ---
 Command:
-# Basic logs command with deterministic sort order
+# Test logs command with ascending sort
 govbot logs --sort ASC --limit 5
 
 Output:
