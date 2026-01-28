@@ -1,0 +1,9 @@
+---
+source: tests/cli_example_snaps.rs
+expression: "&formatted_stdout"
+---
+Command:
+# Test logs command with no joins (raw log entries only)
+govbot logs --join none --limit 3
+
+Output:

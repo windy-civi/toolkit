@@ -1,0 +1,9 @@
+---
+source: tests/cli_example_snaps.rs
+expression: "&formatted_stdout"
+---
+Command:
+# Test logs command filtering by specific repo
+govbot logs --repos wy
+
+Output:
