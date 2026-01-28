@@ -86,6 +86,85 @@ govbot logs | govbot tag  # Process and tag data
 govbot load          # Load into DuckDB
 ```
 
+## Testing Strategy
+
+### Govbot Testing (Rust)
+
+Govbot uses a multi-layered testing strategy to ensure reliability:
+
+#### 1. Snapshot Tests (`tests/cli_example_snaps.rs`)
+- **Purpose**: Verify CLI output consistency across changes
+- **How it works**: Example scripts in `examples/*.sh` are executed, and their output is compared against stored snapshots in `tests/snapshots/`
+- **When to update**: If you change CLI output format, run `cargo insta review` to update snapshots
+
+```bash
+cd actions/govbot
+cargo test --test cli_example_snaps      # Run snapshot tests
+cargo insta test --review                 # Generate and review new snapshots
+```
+
+#### 2. E2E Tests (`tests/e2e_clone.rs`)
+- **Purpose**: Verify full clone/pull/logs workflows actually work
+- **What they test**:
+  - `govbot clone <locale>` - Clones repos from local file:// URLs
+  - `govbot clone` (pull) - Updates existing repos with new commits
+  - `govbot logs` - Parses log files after clone
+  - Various flag combinations (`--filter`, `--join`, `--sort`, `--repos`, `--limit`)
+- **Mock data**: Uses `mocks/.govbot/repos/` for tests that don't require git operations
+
+```bash
+cd actions/govbot
+cargo test --test e2e_clone              # Run e2e tests
+cargo test --test e2e_clone -- --show-output  # With detailed output
+```
+
+#### 3. API Tests (`tests/api_snaps.rs`)
+- **Purpose**: Test internal data structures and serialization
+- **Scope**: Log entry parsing, vote event serialization
+
+#### Running All Tests
+
+```bash
+cd actions/govbot
+cargo test                               # Run all tests
+just test                                # Via justfile
+```
+
+### CI/CD Integration
+
+Tests run automatically on GitHub Actions (`.github/workflows/validate-snapshots.yml`):
+
+| Trigger | What runs |
+|---------|-----------|
+| Push to `main` | All tests for all modules |
+| Pull request | Tests for changed modules only |
+| `workflow_dispatch` | All tests (manual trigger) |
+
+The CI workflow:
+1. Detects which modules changed
+2. Runs snapshot tests first (fast, catches output regressions)
+3. Runs e2e tests (slower, catches integration issues)
+4. Fails the PR if any test fails
+
+### Adding New Tests
+
+**To add a new CLI example test:**
+1. Create `examples/your-command.sh` with the command to test
+2. Run `cargo insta test --review` to generate the snapshot
+3. Commit both the `.sh` file and the `.snap` file
+
+**To add a new e2e test:**
+1. Add a test function to `tests/e2e_clone.rs`
+2. Use `init_test_repo()` helper for tests requiring git repos
+3. Use mock data in `mocks/.govbot/repos/` for tests without git
+4. Tests should gracefully skip if git operations fail (for CI compatibility)
+
+### Test Data
+
+- **Mock repos**: `actions/govbot/mocks/.govbot/repos/` contains wy-legislation and gu-legislation
+- **Updating mocks**: `just mocks [LOCALES...]` to refresh from real data
+- **Mock structure**: Pruned to first 5 bills, 3 logs per bill for fast tests
+
 ## When in Doubt
 
 1. Check existing snapshots for expected behavior
