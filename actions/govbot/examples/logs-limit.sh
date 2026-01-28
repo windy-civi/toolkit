@@ -1,2 +1,2 @@
 # Test logs command with a limit
-govbot logs --limit 5
+govbot logs --sort ASC --limit 5

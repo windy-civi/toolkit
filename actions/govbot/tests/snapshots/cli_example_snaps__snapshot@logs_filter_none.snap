@@ -4,7 +4,7 @@ expression: "&formatted_stdout"
 ---
 Command:
 # Test logs command with no filtering (show all log types)
-govbot logs --filter none --limit 5
+govbot logs --filter none --sort ASC --limit 5
 
 Output:
 {"bill":{"from_organization":"~{\"classification\": \"lower\"}","identifier":"HB0001","legislative_session":"2025","title":"General government appropriations-2."},"id":"HB0001","log":{"action":{"classification":["reading-1"],"date":"2025-01-29T02:27:03+00:00","description":"Bill Number Assigned","organization_id":"~{\"classification\": \"executive\"}"},"bill_id":"HB0001"},"sources":{"bill":"wy-legislation/country:us/state:wy/sessions/2025/bills/HB0001/metadata.json","log":"wy-legislation/country:us/state:wy/sessions/2025/bills/HB0001/logs/20250129T022703Z_bill_number_assigned.json"},"timestamp":"20250129T022703Z"}
