@@ -144,11 +144,20 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cargo-
 
+      - name: Configure git for e2e tests
+        run: |
+          git config --global user.email "ci@github.com"
+          git config --global user.name "GitHub Actions"
 
-      - name: Run tests
+      - name: Run snapshot tests
         run: |
           cd actions/govbot
-          cargo test
+          cargo test --test cli_example_snaps --test api_snaps
+
+      - name: Run e2e tests
+        run: |
+          cd actions/govbot
+          cargo test --test e2e_clone -- --show-output
 
   format-snapshots:
     runs-on: ubuntu-latest
