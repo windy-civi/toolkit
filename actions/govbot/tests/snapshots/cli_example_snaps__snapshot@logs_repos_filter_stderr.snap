@@ -1,5 +1,0 @@
----
-source: tests/cli_example_snaps.rs
-expression: "&stderr"
----
-Warning: Repository not found: /home/user/toolkit/actions/govbot/mocks/.govbot/repos/wy-data-pipeline

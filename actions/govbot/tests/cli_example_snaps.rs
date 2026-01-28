@@ -119,8 +119,8 @@ fn run_example_script(script_path: &Path) -> (String, String, i32) {
     let manifest_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     let govbot_dir = manifest_dir.join("mocks").join(".govbot");
 
-    // Set URL template to match existing mock data (uses -data-pipeline suffix)
-    let repo_url_template = "https://github.com/chn-openstates-files/{locale}-data-pipeline.git";
+    // Set URL template to match existing mock data (uses -legislation suffix)
+    let repo_url_template = "https://github.com/chn-openstates-files/{locale}-legislation.git";
 
     let output = Command::new(&binary)
         .args(&args)
@@ -133,6 +133,10 @@ fn run_example_script(script_path: &Path) -> (String, String, i32) {
     let stdout = String::from_utf8_lossy(&output.stdout).to_string();
     let stderr = String::from_utf8_lossy(&output.stderr).to_string();
     let exit_code = output.status.code().unwrap_or(-1);
+
+    // Normalize stderr to replace absolute paths with placeholder for portable snapshots
+    let manifest_dir_str = manifest_dir.to_string_lossy();
+    let stderr = stderr.replace(&*manifest_dir_str, "<PROJECT_DIR>");
 
     (stdout, stderr, exit_code)
 }
