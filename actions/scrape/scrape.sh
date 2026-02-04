@@ -116,7 +116,9 @@ if [ "$COUNT_JSON" -gt 0 ]; then
     if command -v rsync >/dev/null 2>&1; then
       rsync -a "$JSON_DIR/" "${OUTPUT_DIR}/_data/${STATE}/"
     else
-      cp -r "$JSON_DIR"/* "${OUTPUT_DIR}/_data/${STATE}/" 2>/dev/null || true
+      # Use cp -a to preserve attributes and handle hidden files
+      # "$JSON_DIR/." copies all contents including hidden files
+      cp -a "$JSON_DIR/." "${OUTPUT_DIR}/_data/${STATE}/"
     fi
 
     # Verify files were copied
